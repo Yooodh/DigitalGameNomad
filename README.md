@@ -55,4 +55,14 @@
 <img src="https://camo.githubusercontent.com/f387e5d62a5ee9af7f5697c412bc3ad3d4efaed6aa22937dc72223a1545dbb68/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f45636c697073652d3243323235353f7374796c653d666c61742d737175617265266c6f676f3d45636c69707365266c6f676f436f6c6f723d7768697465" data-canonical-src="https://img.shields.io/badge/Eclipse-2C2255?style=flat-square&amp;logo=Eclipse&amp;logoColor=white" style="max-width: 100%;"> </br></br></br></br></br>
 
 
+### :scissors:&nbsp;Except&nbsp;:scissors:
+##### React google, kakao, naver key 제외
+
+##### Spring amazon s3 key 제외
+
+##### Exhibition Resources 제외
+</br></br></br></br></br>
+
+
+
 ![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=footer)

@@ -1,0 +1,64 @@
+@use './variables.scss' as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $theme-shade-1;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $theme-shade-8;
+  border-radius: 6px;
+  border: 2px solid $theme-shade-1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $theme-gray-5;
+}
+
+button:focus,
+input:focus,
+div:focus {
+  outline: none;
+}
+html,
+body {
+  background-color: $theme-shade-1;
+  color: $theme-text-1;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+}

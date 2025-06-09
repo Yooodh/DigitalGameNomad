@@ -1,0 +1,91 @@
+$header-height: 50px;
+$posts-form-footer: 60px;
+
+$theme-white: var(--color-white);
+$theme-black: var(--color-black);
+
+$theme-shade-1: var(--theme-shade-1);
+$theme-shade-2: var(--theme-shade-2);
+$theme-shade-3: var(--theme-shade-3);
+$theme-shade-4: var(--theme-shade-4);
+$theme-shade-5: var(--theme-shade-5);
+$theme-shade-6: var(--theme-shade-6);
+$theme-shade-7: var(--theme-shade-7);
+$theme-shade-8: var(--theme-shade-8);
+$theme-text-1: var(--theme-text-1);
+$theme-text-2: var(--theme-text-2);
+$theme-gray-1: var(--theme-gray-1);
+$theme-gray-2: var(--theme-gray-2);
+$theme-gray-3: var(--theme-gray-3);
+$theme-gray-4: var(--theme-gray-4);
+$theme-gray-5: var(--theme-gray-5);
+
+$font-title-size: clamp(28px, 2vw, 32px);
+$font-title-line-height: 1.2;
+$font-title-weight: bold;
+
+@mixin font-title {
+  font-size: $font-title-size;
+  line-height: $font-title-line-height;
+  font-weight: $font-title-weight;
+}
+
+$font-title-sub-size: clamp(20px, 2vw, 24px);
+$font-title-sub-line-height: 1.2;
+$font-title-sub-weight: bold;
+
+@mixin font-title-sub {
+  font-size: $font-title-sub-size;
+  line-height: $font-title-sub-line-height;
+  font-weight: $font-title-sub-weight;
+}
+
+$font-xl-size: clamp(18px, 2vw, 20px);
+$font-xl-line-height: 1.2;
+$font-xl-weight: normal;
+
+@mixin font-xl {
+  font-size: $font-xl-size;
+  line-height: $font-xl-line-height;
+  font-weight: $font-xl-weight;
+}
+
+$font-lg-size: clamp(16px, 2vw, 18px);
+$font-lg-line-height: 1.2;
+$font-lg-weight: normal;
+
+@mixin font-lg {
+  font-size: $font-lg-size;
+  line-height: $font-lg-line-height;
+  font-weight: $font-lg-weight;
+}
+
+$font-base-size: clamp(14px, 2vw, 16px);
+$font-base-line-height: 1.2;
+$font-base-weight: normal;
+
+@mixin font-base {
+  font-size: $font-base-size;
+  line-height: $font-base-line-height;
+  font-weight: $font-base-weight;
+}
+
+$font-sm-size: clamp(12px, 2vw, 14px);
+$font-sm-line-height: 1.2;
+$font-sm-weight: normal;
+
+@mixin font-sm {
+  font-size: $font-sm-size;
+  line-height: $font-sm-line-height;
+  font-weight: $font-sm-weight;
+}
+
+$font-xs-size: clamp(10px, 2vw, 12px);
+$font-xs-line-height: 1.2;
+$font-xs-weight: normal;
+
+@mixin font-xs {
+  font-size: $font-xs-size;
+  line-height: $font-xs-line-height;
+  font-weight: $font-xs-weight;
+}

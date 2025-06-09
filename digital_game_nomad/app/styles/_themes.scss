@@ -1,0 +1,38 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #0f0f12;
+
+  --theme-shade-1: #fbfbff;
+  --theme-shade-2: #f8f8fe;
+  --theme-shade-3: #efeff5;
+  --theme-shade-4: #e7e7ed;
+  --theme-shade-5: #e0e0e6;
+  --theme-shade-6: #d8d8de;
+  --theme-shade-7: #cdcdd3;
+  --theme-shade-8: #babac0;
+  --theme-text-1: #202023;
+  --theme-text-2: #636369;
+  --theme-gray-1: #d4dae1;
+  --theme-gray-2: #c7ced8;
+  --theme-gray-3: #b2bbc8;
+  --theme-gray-4: #808a97;
+  --theme-gray-5: #747e8a;
+}
+
+[data-theme='dark'] {
+  --theme-shade-1: #111115;
+  --theme-shade-2: #19191b;
+  --theme-shade-3: #222227;
+  --theme-shade-4: #292930;
+  --theme-shade-5: #303038;
+  --theme-shade-6: #393941;
+  --theme-shade-7: #474750;
+  --theme-shade-8: #5f5f67;
+  --theme-text-1: #ededf7;
+  --theme-text-2: #b3b3bd;
+  --theme-gray-1: #393941;
+  --theme-gray-2: #474750;
+  --theme-gray-3: #5f5f67;
+  --theme-gray-4: #6d6d76;
+  --theme-gray-5: #606068;
+}

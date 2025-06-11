@@ -1,0 +1,187 @@
+@use '@/app/styles/variables' as *;
+
+.headerContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  background-color: $theme-black;
+  font-weight: 500;
+  padding: 0 0.5rem;
+  height: $header-height;
+
+  > * {
+    flex-shrink: 0;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    flex: 0 0 auto;
+  }
+
+  &__toggleLogo {
+    display: none;
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  &__menuWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    font-size: $font-sm-size;
+    margin: 0;
+
+    li {
+      padding: 6px 20px;
+      line-height: 1.6;
+    }
+
+    a {
+      color: $theme-gray;
+
+      &:hover {
+        color: $theme-gray-hover;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    font-size: $font-sm-size;
+    padding-right: 0.5em;
+    align-items: center;
+    justify-content: flex-end;
+
+    li {
+      padding: 6px 20px;
+      line-height: 1.6;
+
+      a {
+        color: $theme-gray;
+
+        &:hover {
+          color: $theme-gray-hover;
+        }
+      }
+
+      button {
+        background: none;
+        border: none;
+        color: $theme-gray;
+        cursor: pointer;
+        font-size: inherit;
+        font-weight: inherit;
+        text-transform: inherit;
+
+        &:hover {
+          color: $theme-gray-hover;
+        }
+      }
+    }
+  }
+  &__theme {
+    cursor: pointer;
+  }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .headerContainer {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px;
+    text-align: center;
+    height: auto;
+    min-height: $header-height;
+
+    &__logo {
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+    }
+
+    &__toggleLogo {
+      display: flex;
+      padding: 0;
+    }
+
+    &__menuWrap {
+      display: block;
+    }
+
+    &__menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin: 0;
+      background-color: $theme-black;
+      transition: all 0.3s ease-in-out;
+      overflow: hidden;
+      max-height: 0;
+
+      li {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+        border-bottom: 1px solid $theme-gray-5;
+      }
+
+      &.open {
+        display: flex;
+        max-height: none;
+      }
+    }
+
+    &__links {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 0;
+      background-color: $theme-black;
+      transition: all 0.3s ease-in-out;
+      overflow: hidden;
+      max-height: 0;
+
+      li {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+        border-bottom: 1px solid $theme-gray-5;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      &.open {
+        display: flex;
+        max-height: none;
+      }
+    }
+
+    &__theme {
+      display: none;
+    }
+  }
+}

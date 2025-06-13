@@ -1,5 +1,6 @@
-import React from 'react';
+// slice
+import SelectContainer from './containers/Select.container';
 
-export default function select() {
-  return <div>page</div>;
+export default function page() {
+  return <SelectContainer />;
 }

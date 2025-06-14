@@ -16,14 +16,13 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: $theme-shade-1;
-  border-radius: 6px;
+  background: $theme-black;
 }
 
 ::-webkit-scrollbar-thumb {
   background: $theme-shade-8;
   border-radius: 6px;
-  border: 2px solid $theme-shade-1;
+  border: 2px solid $theme-black;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -35,6 +34,7 @@ input:focus,
 div:focus {
   outline: none;
 }
+
 html,
 body {
   background-color: $theme-shade-1;

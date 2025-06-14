@@ -18,7 +18,7 @@ export default function LogoButton({
     <div className={styles.headerContainer__logo}>
       <Link href='/' onClick={onMenuItemClick}>
         <Image
-          src='/images/half_logo_white.png'
+          src='/images/logo_white_half.png'
           alt='logo'
           width={40}
           height={40}

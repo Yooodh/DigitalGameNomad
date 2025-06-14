@@ -21,7 +21,7 @@ export default function MenuList({
         </Link>
       </li>
       <li>
-        <Link href='/company' onClick={onMenuItemClick}>
+        <Link href='/participation' onClick={onMenuItemClick}>
           기업참여신청
         </Link>
       </li>

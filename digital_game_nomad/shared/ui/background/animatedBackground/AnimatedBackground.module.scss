@@ -1,0 +1,217 @@
+@use '@/app/styles/variables' as *;
+
+.animatedBackground {
+  position: relative;
+  min-height: calc(100vh - $header-height);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient($theme-dark-overlay, $theme-dark-overlay),
+      radial-gradient(
+        circle at 20% 80%,
+        rgba(120, 119, 198, 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(255, 119, 198, 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 40% 40%,
+        rgba(120, 219, 255, 0.2) 0%,
+        transparent 50%
+      ),
+      linear-gradient(
+        135deg,
+        #0f0f23 0%,
+        #1a1a2e 25%,
+        #16213e 50%,
+        #0f0f23 100%
+      );
+    animation: gradientShift 15s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(
+        2px 2px at 20px 30px,
+        rgba(255, 255, 255, 0.15),
+        transparent
+      ),
+      radial-gradient(
+        2px 2px at 40px 70px,
+        rgba(255, 255, 255, 0.1),
+        transparent
+      ),
+      radial-gradient(
+        1px 1px at 90px 40px,
+        rgba(255, 255, 255, 0.1),
+        transparent
+      ),
+      radial-gradient(
+        1px 1px at 130px 80px,
+        rgba(255, 255, 255, 0.1),
+        transparent
+      ),
+      radial-gradient(
+        2px 2px at 160px 30px,
+        rgba(255, 255, 255, 0.1),
+        transparent
+      );
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: sparkle 20s linear infinite;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  // 위치 변형
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &--absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &--fullscreen {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  &--subtle {
+    &::before {
+      opacity: 0.5;
+    }
+    &::after {
+      opacity: 0.3;
+    }
+  }
+
+  &--intense {
+    &::before {
+      opacity: 1;
+    }
+    &::after {
+      opacity: 0.8;
+    }
+  }
+
+  &--blue {
+    &::before {
+      background: radial-gradient(
+          circle at 20% 80%,
+          rgba(59, 130, 246, 0.3) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(147, 197, 253, 0.3) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 40% 40%,
+          rgba(191, 219, 254, 0.2) 0%,
+          transparent 50%
+        ),
+        linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e293b 25%,
+          #334155 50%,
+          #0f172a 100%
+        );
+    }
+  }
+
+  &--purple {
+    &::before {
+      background: radial-gradient(
+          circle at 20% 80%,
+          rgba(147, 51, 234, 0.3) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(196, 181, 253, 0.3) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 40% 40%,
+          rgba(221, 214, 254, 0.2) 0%,
+          transparent 50%
+        ),
+        linear-gradient(
+          135deg,
+          #1e1b4b 0%,
+          #312e81 25%,
+          #4338ca 50%,
+          #1e1b4b 100%
+        );
+    }
+  }
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animatedBackground {
+    &::before,
+    &::after {
+      animation: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .animatedBackground {
+    &::after {
+      background-size: 150px 75px;
+      animation-duration: 25s;
+    }
+  }
+}

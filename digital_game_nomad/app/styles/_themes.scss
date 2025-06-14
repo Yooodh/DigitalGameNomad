@@ -1,6 +1,12 @@
 :root {
   --color-white: #ffffff;
   --color-black: #0f0f12;
+  --color-blue: #667eea;
+  --color-red: #ef4444;
+  --color-purple: #764ba2;
+
+  --color-gray: #c7ced8;
+  --color-gray-hover: #fbfbff;
 
   --theme-shade-1: #fbfbff;
   --theme-shade-2: #f8f8fe;
@@ -17,6 +23,14 @@
   --theme-gray-3: #b2bbc8;
   --theme-gray-4: #808a97;
   --theme-gray-5: #747e8a;
+
+  --theme-kakao: #9bbad8;
+
+  --theme-white-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  --theme-blue-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --theme-purple-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  --theme-dark-overlay: transparent;
 }
 
 [data-theme='dark'] {
@@ -35,4 +49,12 @@
   --theme-gray-3: #5f5f67;
   --theme-gray-4: #6d6d76;
   --theme-gray-5: #606068;
+
+  --theme-kakao: #000000;
+
+  --theme-white-gradient: #19191b;
+  --theme-blue-gradient: #19191b;
+  --theme-purple-gradient: linear-gradient(135deg, #2b3a6d 0%, #3e2a5d 100%);
+
+  --theme-dark-overlay: rgba(0, 0, 0, 0.4);
 }

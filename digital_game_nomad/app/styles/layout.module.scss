@@ -1,0 +1,15 @@
+@use './variables.scss' as *;
+
+.layout {
+  &__header {
+    height: $header-height;
+    background-color: transparent;
+  }
+
+  &__main {
+    width: 100%;
+    margin: 0 auto;
+    background-color: transparent;
+    min-height: calc(100vh - $header-height);
+  }
+}

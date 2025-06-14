@@ -1,8 +1,14 @@
-$header-height: 50px;
+$header-height: 60px;
 $posts-form-footer: 60px;
 
 $theme-white: var(--color-white);
 $theme-black: var(--color-black);
+$theme-blue: var(--color-blue);
+$theme-red: var(--color-red);
+$theme-purple: var(--color-purple);
+
+$theme-gray: var(--color-gray);
+$theme-gray-hover: var(--color-gray-hover);
 
 $theme-shade-1: var(--theme-shade-1);
 $theme-shade-2: var(--theme-shade-2);
@@ -19,6 +25,37 @@ $theme-gray-2: var(--theme-gray-2);
 $theme-gray-3: var(--theme-gray-3);
 $theme-gray-4: var(--theme-gray-4);
 $theme-gray-5: var(--theme-gray-5);
+$theme-kakao: var(--theme-kakao);
+
+$theme-white-gradient: var(--theme-white-gradient);
+$theme-blue-gradient: var(--theme-blue-gradient);
+$theme-purple-gradient: var(--theme-purple-gradient);
+
+$theme-dark-overlay: var(--theme-dark-overlay);
+
+$font-xl-title-size: clamp(52px, 2vw, 56px);
+
+@mixin font-xl-title {
+  font-size: $font-xl-title-size;
+  line-height: $font-title-line-height;
+  font-weight: $font-title-weight;
+}
+
+$font-xl-title-sub-size: clamp(44px, 2vw, 48px);
+
+@mixin font-xl-title-sub {
+  font-size: $font-xl-title-sub-size;
+  line-height: $font-title-line-height;
+  font-weight: $font-title-weight;
+}
+
+$font-lg-title-size: clamp(36px, 2vw, 40px);
+
+@mixin font-lg-title {
+  font-size: $font-lg-title-size;
+  line-height: $font-title-line-height;
+  font-weight: $font-title-weight;
+}
 
 $font-title-size: clamp(28px, 2vw, 32px);
 $font-title-line-height: 1.2;

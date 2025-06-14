@@ -1,0 +1,40 @@
+@use 'keyframes' as *;
+
+@mixin animation-initial-state(
+  $initial-opacity: 0,
+  $initial-transform: none,
+  $duration: 0.8s,
+  $easing: ease-out
+) {
+  opacity: $initial-opacity;
+  transform: $initial-transform;
+  transition: opacity $duration $easing, transform $duration $easing;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.fade-in-top {
+  animation: fadeInTop 0.8s ease-out forwards;
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.fade-in-bottom {
+  animation: fadeInBottom 0.8s ease-out forwards;
+}
+
+.bounce-top {
+  animation: bounceTop 0.8s ease-out forwards;
+}
+
+.slide-right {
+  animation: slideRight 0.8s ease-out forwards;
+}
+
+.slide-left {
+  animation: slideLeft 0.8s ease-out forwards;
+}

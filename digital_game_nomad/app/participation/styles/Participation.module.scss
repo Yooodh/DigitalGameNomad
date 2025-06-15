@@ -1,0 +1,370 @@
+@use '../../styles/variables' as *;
+@use '../../styles/animations' as *;
+
+.participationContainer {
+  min-height: 100vh;
+
+  .heroContainer {
+    padding: 80px 20px;
+    text-align: center;
+    color: $theme-white;
+    position: relative;
+    overflow: hidden;
+
+    &__Content {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      @include animation-initial-state(0, translateY(-30px));
+
+      &.fade-in-top {
+        animation: fadeInTop 1s ease-out forwards;
+      }
+    }
+
+    &__badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: $font-sm-size;
+      font-weight: 600;
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    &__title {
+      font-size: $font-xl-title-size;
+      font-weight: 800;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    &__subtitle {
+      font-size: $font-xl-size;
+      opacity: 0.9;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+
+      @media (max-width: 768px) {
+        font-size: 1.125rem;
+      }
+    }
+  }
+
+  .serviceContainer {
+    padding: 100px 20px;
+    background: $theme-blue-gradient;
+
+    &__content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    &__image {
+      @include animation-initial-state(0, translateX(-50px));
+
+      &.fade-in-left {
+        animation: fadeInLeft 1s ease-out forwards;
+      }
+    }
+
+    &__imgWrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      transform: perspective(1000px) rotateY(-5deg);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: perspective(1000px) rotateY(0deg) scale(1.02);
+      }
+    }
+
+    &__boothSide {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    &__text {
+      padding: 20px;
+    }
+  }
+
+  .textContainer {
+    max-width: 500px;
+
+    &__block {
+      margin-bottom: 30px;
+      line-height: 1.8;
+
+      &:last-of-type {
+        margin-bottom: 50px;
+      }
+    }
+
+    &__brandName {
+      font-size: $font-lg-title-size;
+      font-weight: 800;
+      background: $theme-purple-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      @include animation-initial-state(0, translateY(-20px));
+
+      &.bounce-top {
+        animation: bounceTop 0.8s ease-out forwards;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+
+    &__desc {
+      font-size: 1.125rem;
+      color: $theme-gray-5;
+      display: inline;
+      margin-right: 8px;
+      @include animation-initial-state(0);
+
+      &.slide-right {
+        animation: slideRight 0.8s ease-out forwards;
+      }
+
+      &.slide-left {
+        animation: slideLeft 0.8s ease-out forwards;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
+    }
+
+    &__highlight {
+      font-size: $font-title-sub-size;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 8px;
+      margin: 0 8px;
+      display: inline-block;
+      @include animation-initial-state(0, translateY(-20px));
+
+      &.bounce-top {
+        animation: bounceTop 0.8s ease-out forwards;
+      }
+
+      &.highlightYellow {
+        background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+        color: #2d3436;
+      }
+
+      &.highlightBlue {
+        background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .featuresContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+
+    &__feature {
+      text-align: center;
+      padding: 20px;
+      background: $theme-shade-1;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      h4 {
+        font-size: $font-base-size;
+        font-weight: 600;
+        color: $theme-text-1;
+        margin: 10px 0 5px;
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: $theme-gray-4;
+        margin: 0;
+      }
+    }
+
+    &__icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+  }
+
+  .boothContainer {
+    padding: 100px 20px;
+    background: $theme-shade-1;
+
+    &__header {
+      text-align: center;
+      margin-bottom: 60px;
+      @include animation-initial-state(0, translateY(-20px));
+
+      &.fade-in-top {
+        animation: fadeInTop 1s ease-out forwards;
+      }
+    }
+
+    &__title {
+      font-size: $font-lg-title-size;
+      font-weight: 700;
+      color: $theme-text-1;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+
+    &__subtitle {
+      font-size: $font-lg-size;
+      color: $theme-gray-4;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    &__content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    &__imgWrap {
+      @include animation-initial-state(0, translateY(50px));
+
+      &.fade-in-bottom {
+        animation: fadeInBottom 1s ease-out forwards;
+      }
+    }
+
+    &__image {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      background: $theme-white-gradient;
+      padding: 40px;
+    }
+
+    &__boothTop {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+  }
+
+  .ctaConatiner {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+
+    &__card {
+      max-width: 800px;
+      margin: 0 auto;
+      @include animation-initial-state(0, translateY(30px));
+
+      &.fade-in {
+        animation: fadeIn 1s ease-out forwards;
+      }
+    }
+
+    &__content {
+      text-align: center;
+      color: $theme-white;
+    }
+
+    &__title {
+      font-size: $font-lg-title-size;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+
+    &__desc {
+      font-size: $font-lg-size;
+      opacity: 0.9;
+      margin-bottom: 40px;
+      line-height: 1.6;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: $theme-purple-gradient;
+      font-size: $font-lg-size;
+      color: $theme-white;
+      padding: 18px 36px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+
+        .buttonArrow {
+          transform: translateX(5px);
+        }
+      }
+
+      span {
+        position: relative;
+      }
+    }
+
+    &__btnArrow {
+      font-size: 1.25rem;
+      transition: transform 0.3s ease;
+    }
+  }
+}

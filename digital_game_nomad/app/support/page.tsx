@@ -1,5 +1,10 @@
-import React from 'react';
+// slice
+import SuppoertContainer from './containers/Support.container';
 
 export default function page() {
-  return <div>page</div>;
+  return (
+    <>
+      <SuppoertContainer />
+    </>
+  );
 }

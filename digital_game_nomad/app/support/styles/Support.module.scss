@@ -1,0 +1,236 @@
+@use '../../styles/variables' as *;
+
+.suppertContainer {
+  min-height: 100vh;
+  position: relative;
+
+  .heroContainer {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    &__hero {
+      position: relative;
+      text-align: center;
+      color: $theme-white;
+      max-width: 600px;
+      padding: 0 20px;
+    }
+
+    &__title {
+      font-size: $font-xl-title-size;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    &__subTitle {
+      font-size: $font-xl-size;
+      opacity: 0.9;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+  }
+
+  .contentContainer {
+    position: relative;
+    background: $theme-shade-1;
+    border-radius: 32px 32px 0 0;
+    margin-top: -32px;
+    min-height: calc(100vh - 368px);
+    padding: 60px 20px;
+
+    &__faqWrap {
+      max-width: 800px;
+      margin: 0 auto 80px;
+    }
+
+    &__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    &__title {
+      font-size: $font-lg-title-size;
+      font-weight: 700;
+      color: $theme-text-1;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+
+    &__subTitle {
+      font-size: $font-lg-size;
+      color: $theme-gray-4;
+      font-weight: 400;
+    }
+
+    &__faqItem {
+      background: $theme-shade-2;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+      border: 1px solid $theme-shade-3;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      margin-bottom: 16px;
+
+      &:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1),
+          0 4px 10px rgba(0, 0, 0, 0.05);
+        transform: translateY(-2px);
+      }
+    }
+
+    &__faqQuestion {
+      width: 100%;
+      padding: 24px;
+      background: none;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $theme-shade-3;
+      }
+
+      &.active {
+        background: $theme-shade-3;
+        border-bottom: 1px solid $theme-gray-1;
+      }
+    }
+
+    &__questionText {
+      font-size: $font-lg-size;
+      font-weight: 600;
+      color: $theme-text-1;
+      text-align: left;
+      line-height: 1.5;
+    }
+
+    &__chevron {
+      font-size: $font-lg-size;
+      color: #718096;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      margin-left: 16px;
+
+      &.rotated {
+        transform: rotate(180deg);
+      }
+    }
+    &__faqAnswer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+
+      &.open {
+        max-height: 200px;
+      }
+    }
+    &__answerContent {
+      padding: 24px;
+
+      p {
+        color: $theme-text-2;
+        line-height: 1.7;
+        font-size: $font-base-size;
+        margin: 0;
+      }
+    }
+  }
+
+  .contactContainer {
+    max-width: 600px;
+    margin: 0 auto;
+
+    &__card {
+      background: $theme-purple-gradient;
+      border-radius: 24px;
+      padding: 48px;
+      text-align: center;
+      color: $theme-white;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      * {
+        position: relative;
+      }
+
+      @media (max-width: 768px) {
+        padding: 32px 24px;
+      }
+    }
+
+    &__title {
+      font-size: $font-title-size;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__desc {
+      font-size: $font-lg-size;
+      opacity: 0.9;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+  }
+}
+
+.contactButton {
+  background: $theme-white;
+  color: $theme-blue;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 32px;
+  font-size: $font-lg-size;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    background: $theme-white;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

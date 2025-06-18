@@ -1,5 +1,10 @@
-import React from 'react';
+// slice
+import LoginContainer from './containers/Login.container';
 
 export default function page() {
-  return <div>page</div>;
+  return (
+    <div>
+      <LoginContainer />
+    </div>
+  );
 }

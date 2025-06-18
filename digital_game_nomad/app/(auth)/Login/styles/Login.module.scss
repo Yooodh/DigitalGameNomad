@@ -1,0 +1,290 @@
+@use '../../../styles/variables' as *;
+
+.loginContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  .cardContainer {
+    background: $theme-shade-3;
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 48px 40px;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    box-shadow: 0 32px 64px rgba(0, 0, 0, 0.1), 0 16px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid $theme-shade-2;
+
+    @media (max-width: 480px) {
+      margin: 20px;
+      padding: 32px 24px;
+    }
+
+    .headerContainer {
+      text-align: center;
+      margin-bottom: 32px;
+
+      &__title {
+        font-size: $font-title-size;
+        font-weight: 700;
+        margin: 0 0 8px 0;
+        background: $theme-purple-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      &__subtitle {
+        font-size: $font-base-size;
+        color: $theme-gray-4;
+        margin: 0;
+        font-weight: 400;
+      }
+    }
+
+    .formContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      &__inputGroup {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      &__inputWrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      &__input {
+        width: 100%;
+        padding: 16px 16px 16px 52px;
+        border: 2px solid $theme-shade-5;
+        border-radius: 12px;
+        font-size: $font-base-size;
+        transition: all 0.3s ease;
+        background: $theme-shade-3;
+        backdrop-filter: blur(10px);
+        color: $theme-text-1;
+
+        &:focus {
+          outline: none;
+          border-color: $theme-blue;
+          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+          background: $theme-shade-2;
+        }
+
+        &::placeholder {
+          color: $theme-gray-4;
+        }
+
+        &.inputError {
+          border-color: $theme-red;
+
+          &:focus {
+            border-color: $theme-red;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+          }
+        }
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0 1000px $theme-shade-3 inset;
+          -webkit-text-fill-color: $theme-text-1;
+          transition: background-color 5000s ease-in-out 0s;
+        }
+      }
+
+      &__eyeButton {
+        position: absolute;
+        right: 16px;
+        background: none;
+        border: none;
+        color: $theme-gray-3;
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          color: $theme-blue;
+        }
+      }
+
+      &__errorMessage {
+        color: $theme-red;
+        font-size: $font-sm-size;
+        margin-left: 4px;
+        font-weight: 500;
+      }
+    }
+
+    .optionContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+
+      @media (max-width: 480px) {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+      }
+
+      &__checkboxWrap {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+      }
+
+      &__checkbox {
+        width: 15px;
+        height: 15px;
+        border: 2px solid $theme-gray-5;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:checked {
+          background: $theme-blue;
+          border-color: $theme-blue;
+        }
+      }
+
+      &__checkboxTxt {
+        font-size: $font-sm-size;
+        color: $theme-gray-5;
+        user-select: none;
+      }
+
+      &__forgotPassword {
+        font-size: $font-sm-size;
+        color: $theme-blue;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: $theme-purple;
+        }
+      }
+    }
+
+    .btnContainer {
+      width: 100%;
+      padding: 16px 24px;
+      background: $theme-purple-gradient;
+      color: $theme-white;
+      border: none;
+      border-radius: 12px;
+      font-size: $font-base-size;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+
+      svg {
+        transition: transform 0.2s ease;
+      }
+
+      &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 32px rgba(102, 126, 234, 0.3);
+
+        svg {
+          transform: translateX(2px);
+        }
+      }
+
+      &:active:not(:disabled) {
+        transform: translateY(0);
+      }
+
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      &__loader {
+        width: 20px;
+        height: 20px;
+        border: 2px solid $theme-gray-2;
+        border-top: 2px solid $theme-shade-1;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+    }
+
+    .footerContainer {
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid $theme-gray-1;
+
+      &__Txt {
+        font-size: $font-sm-size;
+        color: $theme-gray-4;
+        margin: 0;
+      }
+
+      &__signupLink {
+        color: $theme-blue;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: $theme-purple;
+        }
+      }
+    }
+  }
+}
+
+.inputIcon {
+  position: absolute;
+  display: flex;
+  left: 16px;
+  color: $theme-gray-4;
+  pointer-events: none;
+  z-index: 1;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.buttonIcon {
+  transition: transform 0.2s ease;
+}
+
+.btnContainer:hover:not(:disabled) .buttonIcon {
+  transform: translateX(2px);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

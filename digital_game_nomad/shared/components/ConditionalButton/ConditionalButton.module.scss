@@ -1,0 +1,42 @@
+@use '@/app/styles/variables' as *;
+
+.button {
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: $font-lg-size;
+  border: none;
+  background: #374151;
+  color: #6b7280;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+  outline: none;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+
+  &:disabled {
+    background: #374151;
+    color: #6b7280;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+.buttonActive {
+  background: $theme-purple-gradient;
+  color: $theme-white;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+  }
+
+  &:disabled {
+    background: $theme-purple-gradient;
+    color: $theme-white;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  }
+}

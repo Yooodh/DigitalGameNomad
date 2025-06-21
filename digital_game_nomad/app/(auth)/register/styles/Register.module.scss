@@ -1,0 +1,470 @@
+@use '../../../styles/variables' as *;
+
+@mixin input-base {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid $theme-gray-1;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease-in-out;
+  font-family: inherit;
+  color: $theme-text-1;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $theme-gray-3;
+  }
+}
+
+@mixin button-base {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-family: inherit;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.registerContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: $theme-sky-gradient;
+
+  .formContainer {
+    width: 100%;
+    max-width: 35rem;
+
+    .headerContainer {
+      text-align: center;
+      margin-bottom: 2rem;
+
+      &__title {
+        font-size: $font-xl-title-sub-size;
+        font-weight: 700;
+        color: $theme-blue;
+        margin: 0 0 0.5rem 0;
+      }
+
+      &__subtitle {
+        color: $theme-gray-5;
+        margin: 0;
+      }
+    }
+
+    .cardContainer {
+      background: $theme-shade-1;
+      border-radius: 1rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      padding: 2rem;
+      width: 100%;
+
+      .contentContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .groupContainer {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          width: 100%;
+
+          &__label {
+            display: block;
+            font-size: $font-sm-size;
+            font-weight: 600;
+            color: $theme-text-1;
+          }
+
+          &__input {
+            @include input-base;
+            background: $theme-shade-1;
+            &:focus {
+              border-color: $theme-blue;
+            }
+
+            &[readOnly] {
+              background-color: $theme-shade-1;
+              cursor: not-allowed;
+            }
+
+            &.inputError {
+              border-color: $theme-red;
+
+              &:focus {
+                border-color: $theme-red;
+              }
+            }
+          }
+
+          &__selectWrap {
+            position: relative;
+            flex-shrink: 0;
+            width: auto;
+            min-width: 120px;
+
+            &.groupContainer__selectOpen {
+              .groupContainer__selectIcon {
+                transform: translateY(-50%) rotate(180deg);
+              }
+            }
+          }
+
+          &__selectIcon {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%) rotate(0deg);
+            pointer-events: none;
+            color: $theme-gray-4;
+            transition: transform 0.3s ease-in-out;
+
+            svg {
+              width: 1.25rem;
+              height: 1.25rem;
+              display: block;
+            }
+          }
+
+          &__btn {
+            @include button-base;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            color: $theme-white;
+
+            &.btnPrimary {
+              background: $theme-blue;
+
+              &:hover:not(:disabled) {
+                transform: translateX(3px);
+              }
+            }
+
+            &.btnSecondary {
+              background: $theme-blue;
+
+              &:hover:not(:disabled) {
+                transform: translateX(3px);
+              }
+            }
+
+            &.btnSuccess {
+              background: $theme-green;
+              color: $theme-white;
+
+              &:hover:not(:disabled) {
+                transform: translateX(3px);
+              }
+            }
+
+            &.btnSubmit {
+              width: 100%;
+              padding: 1rem;
+              background: $theme-purple-gradient;
+              color: $theme-white;
+              font-size: $font-lg-size;
+              font-weight: 600;
+              transform: scale(1);
+
+              &:hover:not(:disabled) {
+                transform: translateY(-3px);
+                box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+              }
+            }
+          }
+
+          &__errorMessage {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: $font-sm-size;
+            color: $theme-red;
+            margin: 0;
+          }
+
+          &__successMessage {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: $font-sm-size;
+            color: $theme-green;
+            margin: 0;
+          }
+
+          .emailContainer {
+            display: flex;
+            gap: 0.5rem;
+            width: 100%;
+            align-items: center;
+
+            &__inputWrap {
+              flex: 1;
+              position: relative;
+              min-width: 0;
+            }
+
+            &__domain {
+              @include input-base;
+              flex-shrink: 0;
+              width: auto;
+              min-width: 120px;
+              cursor: pointer;
+              padding-right: 2.5rem;
+              background: $theme-shade-1;
+              appearance: none;
+              background-image: none;
+            }
+          }
+
+          .passwordContainer {
+            position: relative;
+            width: 100%;
+
+            &__toggle {
+              position: absolute;
+              right: 0.75rem;
+              top: 50%;
+              transform: translateY(-50%);
+              background: none;
+              border: none;
+              cursor: pointer;
+              color: $theme-gray-3;
+              transition: all 0.2s ease-in-out;
+
+              &:hover {
+                color: $theme-blue;
+              }
+
+              &__toggleIcon {
+                svg {
+                  width: 1.25rem;
+                  height: 1.25rem;
+                }
+              }
+            }
+          }
+
+          .phoneContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            width: 100%;
+
+            &__select {
+              @include input-base;
+              cursor: pointer;
+              background: $theme-shade-1;
+              appearance: none;
+              background-image: none;
+              padding-right: 2.5rem;
+            }
+
+            &__inputs {
+              display: flex;
+              gap: 0.5rem;
+              align-items: center;
+              width: 100%;
+            }
+
+            &__input {
+              padding: 0.75rem;
+              border: 2px solid $theme-gray-1;
+              border-radius: 0.75rem;
+              transition: all 0.2s ease-in-out;
+              background: $theme-shade-1;
+              min-width: 0;
+              color: $theme-text-1;
+
+              &:nth-child(1) {
+                flex: 0 0 80px;
+              }
+
+              &:nth-child(3) {
+                flex: 1;
+              }
+
+              &:nth-child(5) {
+                flex: 1;
+              }
+
+              &:focus {
+                outline: none;
+                border-color: $theme-blue;
+              }
+            }
+
+            &__separator {
+              color: $theme-gray-3;
+              flex-shrink: 0;
+              margin: 0 2px;
+            }
+          }
+
+          .verificationContainer {
+            display: flex;
+            gap: 0.5rem;
+            width: 100%;
+          }
+        }
+      }
+
+      .footerContainer {
+        text-align: center;
+        padding-top: 1rem;
+        border-top: 1px solid $theme-gray-1;
+        margin-top: 1.5rem;
+
+        &__text {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: $font-sm-size;
+          color: $theme-text-2;
+          margin: 0;
+        }
+
+        &__link {
+          color: $theme-blue;
+          font-weight: 500;
+          text-decoration: none;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            color: $theme-purple;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .registerContainer {
+    padding: 0.75rem;
+
+    .formContainer {
+      .headerContainer {
+        margin-bottom: 1.5rem;
+      }
+
+      .cardContainer {
+        padding: 1.5rem;
+
+        .contentContainer {
+          gap: 1.25rem;
+
+          .groupContainer {
+            gap: 0.75rem;
+
+            .emailContainer {
+              display: flex;
+              flex-direction: column;
+              align-items: stretch;
+              gap: 0.75rem;
+              width: 100%;
+
+              &__inputWrap {
+                width: 100%;
+                flex: none;
+                min-width: unset;
+              }
+
+              .groupContainer__selectWrap {
+                width: 100%;
+                min-width: unset;
+                margin-top: 0;
+                flex: none;
+
+                .emailContainer__domain {
+                  width: 100%;
+                  min-width: unset;
+                }
+              }
+
+              .groupContainer__btn {
+                width: 100%;
+                order: unset;
+                margin-top: 0;
+                flex: none;
+              }
+            }
+
+            .phoneContainer {
+              flex-direction: column;
+              gap: 0.75rem;
+              width: 100%;
+
+              &__select {
+                width: 100%;
+                min-width: unset;
+              }
+
+              &__inputs {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 0.5rem;
+                width: 100%;
+
+                .phoneContainer__input {
+                  flex: 1 1 calc(33.33% - 0.5rem);
+                  max-width: calc(33.33% - 0.5rem);
+                  min-width: 80px;
+                }
+
+                .phoneContainer__separator {
+                  display: none;
+                }
+
+                .groupContainer__btn {
+                  width: 100%;
+                  order: 1;
+                  margin-top: 0.75rem;
+                  flex: none;
+                }
+              }
+
+              .verificationContainer {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+                width: 100%;
+
+                .groupContainer__input {
+                  width: 100%;
+                }
+
+                .groupContainer__btn {
+                  width: 100%;
+                  flex: none;
+                }
+              }
+            }
+
+            &__btn {
+              &.btnSubmit {
+                width: 100%;
+                padding: 0.75rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

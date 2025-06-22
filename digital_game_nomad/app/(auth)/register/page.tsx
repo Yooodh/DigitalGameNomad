@@ -1,5 +1,10 @@
-import React from 'react';
+// slice
+import RegisterContainer from './containers/Register.container';
 
 export default function page() {
-  return <div>page</div>;
+  return (
+    <>
+      <RegisterContainer />
+    </>
+  );
 }

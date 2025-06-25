@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Digital Game Nomad 리팩토링
 
-## Getting Started
+현재 **기술 스택 업그레이드**를 위한 리팩토링 작업 진행 중입니다.
+<br/>
+<br/>
 
-First, run the development server:
+## 📋 리팩토링 개요
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🛠️ 기존 기술 스택 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* **프론트엔드**: `React` + `JavaScript`
+* **백엔드**: `Java` + `Spring Framework`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🎯 목표 기술 스택 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **프레임워크**: `Next.js 15`
+* **언어**: `TypeScript`
+* **스타일링**: `SCSS (Sass)`
+* **상태 관리**: `Zustand`
+<br/>
 
-## Learn More
+## 🚧 진행 상황
 
-To learn more about Next.js, take a look at the following resources:
+### ✅ 완료된 작업
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* **프로젝트 초기 설정**: `Next.js` + `TypeScript` 환경 구축 완료
+* **기본 폴더 구조 설계**: 프로젝트의 효율적인 관리를 위한 구조 정의
+* **개발 환경 설정**: `ESLint`, `Prettier` 설정으로 코드 품질 및 일관성 확보
+* **공통 컴포넌트 마이그레이션**: 공통 컴포넌트들의 Next.js 전환 및 통합
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+### 🔄 진행 중인 작업
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* **컴포넌트/페이지 변환**: 기존 `React` 컴포넌트를 `Next.js` 페이지 및 컴포넌트로 전환
+* **타입 정의**: `JavaScript` 코드를 `TypeScript`로 변환하며 타입 안정성 강화
+* **반응형 디자인 개선**: 모바일 환경에 최적화된 UI/UX 구현
+* **API 호출 로직 리팩토링**: 효율적이고 안정적인 데이터 통신 로직 개선
+* **페이지 라우팅 구조 변경**: `Next.js`의 파일 기반 라우팅 시스템 적용
+* **상태 관리 라이브러리 적용**: `Zustand`를 활용한 전역 상태 관리 시스템 구축
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 📝 예정된 작업
+
+* **백엔드 API 연동 테스트**: 프론트엔드와 백엔드 간의 안정적인 데이터 연동 확인
+* **성능 최적화**: 애플리케이션의 로딩 속도 및 반응성 향상 작업
+* **배포 환경 구성**: 서비스 배포를 위한 환경 설정 및 자동화 구축
+<br/>
+
+## 🎯 리팩토링 주요 목표
+
+이번 리팩토링은 다음 핵심 목표들을 달성하는 데 중점을 두고 있습니다.
+
+* **렌더링 최적화**: `Next.js`의 **SSR (Server-Side Rendering)** 및 **SSG (Static Site Generation)** 활용
+* **이미지 최적화**: `Next.js`의 **Image 컴포넌트**를 통한 이미지 로딩 성능 향상
+* **타입 안정성**: `TypeScript` 도입으로 런타임 에러 감소 및 코드 안정성 대폭 향상
+* **재사용성 향상**: 컴포넌트 **모듈화**를 통해 코드 재사용성 및 유지보수 용이성 증대

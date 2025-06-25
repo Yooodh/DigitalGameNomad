@@ -1,5 +1,10 @@
-import React from 'react';
+// slice
+import InquiryContainer from './containers/Inquiry.container';
 
 export default function page() {
-  return <div>page</div>;
+  return (
+    <div>
+      <InquiryContainer />
+    </div>
+  );
 }

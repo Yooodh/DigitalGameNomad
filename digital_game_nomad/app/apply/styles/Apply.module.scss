@@ -1,0 +1,318 @@
+@use '../../styles/variables' as *;
+
+@mixin focus-ring($color) {
+  &:focus {
+    border-color: $color;
+    box-shadow: 0 0 0 4px rgba($color, 0.2);
+  }
+}
+
+.applyContainer {
+  min-height: 100vh;
+  background: $theme-sky-gradient;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+
+  @media (max-width: 768px) {
+    padding: 2rem 0.5rem;
+  }
+
+  &__wrap {
+    max-width: 42rem;
+    margin: 0 auto;
+
+    .headerContainer {
+      text-align: center;
+      margin-bottom: 3rem;
+
+      &__title {
+        font-size: $font-xl-title-sub-size;
+        font-weight: 700;
+        background: $theme-purple-gradient;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+
+        @media (max-width: 768px) {
+          font-size: $font-lg-title-size;
+        }
+      }
+
+      &__subTitle {
+        color: $theme-gray-4;
+        font-size: $font-lg-size;
+        margin-bottom: 1rem;
+
+        @media (max-width: 768px) {
+          font-size: $font-base-size;
+        }
+      }
+    }
+
+    .formContainer {
+      background: $theme-shade-1;
+      border-radius: 1.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      padding: 3rem;
+
+      @media (max-width: 768px) {
+        padding: 2rem;
+        border-radius: 1.25rem;
+      }
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .fieldContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        &__label {
+          display: flex;
+          align-items: center;
+          color: $theme-text-1;
+          font-weight: 600;
+          font-size: $font-lg-size;
+
+          .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-right: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &Company {
+              color: $theme-blue;
+            }
+            &Game {
+              color: $theme-purple;
+            }
+            &Description {
+              color: $theme-green;
+            }
+            &Url {
+              color: $theme-orange;
+            }
+            &Youtube {
+              color: $theme-red;
+            }
+            &Upload {
+              color: $theme-purple;
+            }
+          }
+        }
+        &__required {
+          color: $theme-red;
+          margin-left: 0.25rem;
+        }
+
+        .input,
+        .textarea {
+          width: 100%;
+          padding: 1rem 1.5rem;
+          border-radius: 1rem;
+          border: 2px solid $theme-gray-1;
+          background: $theme-shade-1;
+          color: $theme-text-1;
+          font-size: $font-base-size;
+          outline: none;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+          &::placeholder {
+            color: $theme-gray-4;
+          }
+          &:hover:not(:focus) {
+            border-color: $theme-gray-2;
+          }
+
+          &Company {
+            @include focus-ring($theme-blue);
+          }
+          &Game {
+            @include focus-ring($theme-purple);
+          }
+          &Description {
+            @include focus-ring($theme-green);
+          }
+          &Url {
+            @include focus-ring($theme-orange);
+          }
+          &Youtube {
+            @include focus-ring($theme-red);
+          }
+        }
+        .textarea {
+          resize: none;
+          min-height: 6rem;
+        }
+      }
+
+      .urlContainer {
+        display: grid;
+        gap: 1.5rem;
+
+        @media (min-width: 768px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .uploadContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .previewContainer {
+        position: relative;
+
+        &__wrap {
+          position: relative;
+          overflow: hidden;
+          border-radius: 1rem;
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+
+          &:hover {
+            .imageOverlay {
+              opacity: 1;
+            }
+
+            .deleteBtn {
+              opacity: 1;
+            }
+          }
+        }
+
+        &__image {
+          width: 100%;
+          height: 16rem;
+          object-fit: cover;
+          display: block;
+        }
+
+        &__overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.2);
+          border-radius: 1rem;
+          opacity: 0;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .deleteBtn {
+          position: absolute;
+          top: 0.75rem;
+          right: 0.75rem;
+          padding: 0.5rem;
+          background: $theme-red;
+          color: $theme-white;
+          border: none;
+          border-radius: 50%;
+          cursor: pointer;
+          opacity: 0;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          z-index: 1;
+
+          &:hover {
+            background: $theme-red;
+          }
+
+          .icon {
+            width: 1rem;
+            height: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    .uploadZoneContainer {
+      position: relative;
+      border: 3px dashed $theme-shade-5;
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      background: $theme-sky-gradient;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+
+      &:hover,
+      &.dragging {
+        border-color: $theme-blue;
+        background: rgba($theme-blue, 0.05);
+      }
+
+      &__input {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      &__icon {
+        width: 3rem;
+        height: 3rem;
+        margin: 0 auto 1rem;
+        color: $theme-gray-3;
+      }
+
+      &__title {
+        color: $theme-gray-5;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      &__subtitle {
+        color: $theme-gray-3;
+        font-size: $font-sm-size;
+      }
+    }
+
+    .submitContainer {
+      padding-top: 2rem;
+
+      &__btn {
+        width: 100%;
+        background: $theme-purple-gradient;
+        color: $theme-white;
+        font-weight: 700;
+        font-size: $font-lg-size;
+        padding: 1.25rem 2rem;
+        border: none;
+        border-radius: 1rem;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+          transform: scale(1.02);
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+          background: $theme-purple-gradient;
+        }
+
+        &:active {
+          transform: scale(0.98);
+        }
+      }
+    }
+
+    .footerContainer {
+      text-align: center;
+      margin-top: 2rem;
+      color: $theme-gray-4;
+      font-size: $font-sm-size;
+    }
+  }
+}

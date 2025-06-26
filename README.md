@@ -26,8 +26,9 @@
 
 <details>
 <summary><h3>Description File 📂</h3></summary>
-  [DigitalGameNomad File.pdf](https://github.com/Yooodh/DigitalGameNomad/files/8460632/DigitalGameNomad.File.pdf)
+https://github.com/user-attachments/files/20933081/DigitalGameNomad.pdf
 </details>
+
 
 
 ## ✏️ Main Skill

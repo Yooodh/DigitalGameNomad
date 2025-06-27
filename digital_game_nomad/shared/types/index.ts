@@ -1,3 +1,5 @@
+import { RefObject } from 'react';
+
 export type UseIntersectionVisibilityOptions = {
   root?: Element | null;
   rootMargin?: string;
@@ -12,4 +14,17 @@ export type AnimatedBackgroundProps = {
   position?: 'relative' | 'fixed' | 'absolute';
   fullscreen?: boolean;
   className?: string;
+};
+
+export type ButtonProps = {
+  children: React.ReactNode;
+  onClick: () => void;
+  disabled?: boolean;
+  className?: string;
+  buttonRef?: RefObject<HTMLButtonElement | null>;
+};
+
+export type PasswordToggleButtonProps = {
+  showPassword: boolean;
+  togglePasswordVisibility: () => void;
 };

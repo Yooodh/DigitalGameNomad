@@ -84,7 +84,7 @@ https://github.com/user-attachments/files/20933081/DigitalGameNomad.pdf
 
 </br> 
 
-## 🖼️ Page
+## 🖼️ Pages
 
 ### 🏠 Main
 ![image](https://github.com/user-attachments/assets/2289d90f-7d96-4ea3-bab6-5cdde06250ed)

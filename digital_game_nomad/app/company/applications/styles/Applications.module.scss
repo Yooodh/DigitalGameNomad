@@ -1,0 +1,274 @@
+@use '../../../styles/variables' as *;
+
+.applicationsContainer {
+  padding: 3rem 1rem;
+  background: $theme-sky-gradient;
+  min-height: 100vh;
+
+  &__wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .headerContainer {
+      text-align: center;
+      margin-bottom: 3rem;
+
+      &__title {
+        font-size: $font-xl-title-sub-size;
+        font-weight: 700;
+        background: $theme-purple-gradient;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+
+        @media (max-width: 768px) {
+          font-size: $font-lg-title-size;
+        }
+      }
+
+      &__subtitle {
+        color: $theme-gray-4;
+        font-size: $font-lg-size;
+        margin-bottom: 1rem;
+
+        @media (max-width: 768px) {
+          font-size: $font-base-size;
+        }
+      }
+    }
+
+    .filtersContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .searchContainer {
+      margin-bottom: 0;
+      width: 100%;
+
+      .boxContainer {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &__icon {
+          position: absolute;
+          left: 1rem;
+          color: $theme-gray-5;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          svg {
+            width: 1.2rem;
+            height: 1.2rem;
+          }
+        }
+
+        &__input {
+          width: 100%;
+          padding: 0.75rem 0.75rem 0.75rem 3rem;
+          border: 1px solid $theme-gray-1;
+          border-radius: 0.5rem;
+          font-size: $font-sm-size;
+          color: $theme-text-1;
+          background: $theme-shade-1;
+
+          &:focus {
+            outline: none;
+            border-color: $theme-blue;
+            box-shadow: 0 0 0 2px rgba($theme-blue, 0.2);
+          }
+        }
+      }
+    }
+
+    .emptyContainer {
+      text-align: center;
+      padding: 10rem;
+
+      &__icon {
+        color: $theme-gray-1;
+        margin-bottom: 1.5rem;
+        svg {
+          width: 4rem;
+          height: 4rem;
+        }
+      }
+
+      &__title {
+        font-size: $font-title-sub-size;
+        color: $theme-text-2;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+      }
+
+      &__desc {
+        font-size: $font-base-size;
+        color: $theme-gray-5;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+
+    .gridContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gridCardContainer {
+      background-color: $theme-shade-1;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease-in-out;
+      border: 1px solid $theme-gray-1;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .gridCardHeaderContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+
+        &__title {
+          font-size: $font-xl-size;
+          font-weight: 700;
+          color: $theme-text-1;
+          flex-grow: 1;
+          margin-right: 0.5rem;
+        }
+      }
+
+      &__subtitle {
+        font-size: $font-base-size;
+        color: $theme-text-2;
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+
+      .gridCardContentContainer {
+        flex-grow: 1;
+
+        .gridCardSectionContainer {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          margin-bottom: 0.6rem;
+          font-size: $font-sm-size;
+          color: $theme-text-2;
+
+          &__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $theme-blue;
+
+            svg {
+              width: 1rem;
+              height: 1rem;
+            }
+          }
+
+          &__link {
+            color: $theme-blue;
+            text-decoration: none;
+            font-weight: 500;
+            word-break: break-all;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          &.status {
+            font-weight: 600;
+          }
+
+          &.statusPending {
+            color: $theme-orange;
+            .statusIconPending {
+              color: $theme-orange;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+
+          &.statusApproved {
+            color: $theme-green;
+            .statusIconApproved {
+              color: $theme-green;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+
+          &.statusRejected {
+            color: $theme-red;
+            .statusIconRejected {
+              color: $theme-red;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+
+        &__desc {
+          font-size: $font-sm-size;
+          color: $theme-text-2;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          line-height: 1.5;
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .gridlinkContainer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px dashed $theme-gray-1;
+
+        &__link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          color: $theme-blue;
+          text-decoration: none;
+          font-size: $font-sm-size;
+          font-weight: 500;
+          transition: color 0.2s ease-in-out;
+
+          &:hover {
+            color: $theme-purple;
+          }
+
+          svg {
+            width: 1rem;
+            height: 1rem;
+          }
+        }
+      }
+    }
+  }
+}

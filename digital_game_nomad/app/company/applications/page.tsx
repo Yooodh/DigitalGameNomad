@@ -1,5 +1,10 @@
-import React from 'react';
+// slice
+import UserApplicationsContainer from './containers/Applications.container';
 
 export default function page() {
-  return <div>page</div>;
+  return (
+    <div>
+      <UserApplicationsContainer />
+    </div>
+  );
 }

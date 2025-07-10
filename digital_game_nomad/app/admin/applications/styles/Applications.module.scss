@@ -1,0 +1,543 @@
+@use '../../../styles/variables' as *;
+
+.applicationsContainer {
+  padding: 3rem;
+  background: $theme-shade-2;
+  min-height: 100vh;
+
+  &__wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .statsContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+
+      .cardContainer {
+        background-color: $theme-shade-1;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &:nth-of-type(1) .cardContainer__icon {
+          background: $theme-blue;
+        }
+
+        &:nth-of-type(2) .cardContainer__icon {
+          background: $theme-orange;
+        }
+
+        &:nth-of-type(3) .cardContainer__icon {
+          background: $theme-green;
+        }
+
+        &:nth-of-type(4) .cardContainer__icon {
+          background: $theme-red;
+        }
+
+        &__icon {
+          color: $theme-white;
+          padding: 0.8rem;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          svg {
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+
+        .contectContainer {
+          &__num {
+            font-size: $font-title-sub-size;
+            font-weight: 700;
+            color: $theme-text-1;
+          }
+
+          &__label {
+            font-size: $font-sm-size;
+            color: $theme-gray-5;
+          }
+        }
+      }
+    }
+
+    .filtersContainer {
+      background-color: $theme-shade-1;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+    }
+
+    .searchContainer {
+      margin-bottom: 1.5rem;
+
+      .boxContainer {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &__icon {
+          position: absolute;
+          left: 1rem;
+          color: $theme-gray-5;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          svg {
+            width: 1.2rem;
+            height: 1.2rem;
+          }
+        }
+
+        &__input {
+          width: 100%;
+          padding: 0.75rem 0.75rem 0.75rem 3rem;
+          border: 1px solid $theme-gray-1;
+          border-radius: 0.5rem;
+          font-size: $font-sm-size;
+          color: $theme-text-1;
+          background: $theme-shade-1;
+
+          &:focus {
+            outline: none;
+            border-color: $theme-blue;
+            box-shadow: 0 0 0 2px rgba($theme-blue, 0.2);
+          }
+        }
+      }
+    }
+
+    .filterContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+
+      .selectContainer {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        border: 1px solid $theme-gray-1;
+        border-radius: 0.5rem;
+        padding: 0.6rem 0.8rem;
+        background-color: $theme-shade-1;
+
+        &__icon {
+          color: $theme-gray-5;
+          svg {
+            width: 1rem;
+            height: 1rem;
+          }
+        }
+
+        &__select {
+          border: none;
+          background: transparent;
+          font-size: $font-sm-size;
+          color: $theme-text-2;
+          cursor: pointer;
+          padding-right: 0.5rem;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .resetFilterButton {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.6rem 1rem;
+        border-radius: 0.5rem;
+        background-color: $theme-shade-3;
+        color: $theme-text-2;
+        border: 1px solid $theme-gray-1;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        font-size: $font-sm-size;
+
+        &:hover {
+          background-color: $theme-shade-4;
+          border-color: $theme-gray-2;
+        }
+
+        svg {
+          width: 1rem;
+          height: 1rem;
+          stroke-width: 2;
+        }
+      }
+    }
+
+    .sortContainer {
+      display: flex;
+      gap: 0.5rem;
+      margin-left: auto;
+
+      &__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        padding: 0.6rem 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid $theme-gray-1;
+        background-color: $theme-shade-1;
+        color: $theme-text-2;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        font-size: $font-sm-size;
+
+        svg {
+          width: 1rem;
+          height: 1rem;
+        }
+
+        &.active {
+          color: $theme-blue;
+          border-color: $theme-blue;
+        }
+      }
+    }
+
+    .bulkContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: $theme-shade-1;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+
+      &__info {
+        font-weight: 600;
+        color: $theme-text-1;
+        font-size: $font-base-size;
+      }
+
+      .btnContainer {
+        display: flex;
+        gap: 0.75rem;
+
+        &__btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          padding: 0.6rem 1.2rem;
+          border-radius: 0.5rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+          font-size: $font-sm-size;
+          white-space: nowrap;
+
+          svg {
+            width: 1rem;
+            height: 1rem;
+          }
+        }
+
+        .selectToggle {
+          color: $theme-blue;
+
+          &:hover {
+            transform: translateY(-3px);
+          }
+        }
+
+        .approve {
+          color: $theme-green;
+
+          &:hover {
+            transform: translateY(-3px);
+          }
+        }
+
+        .reject {
+          color: $theme-red;
+
+          &:hover {
+            transform: translateY(-3px);
+          }
+        }
+
+        .delete {
+          color: $theme-red;
+
+          &:hover {
+            transform: translateX(3px);
+          }
+        }
+      }
+    }
+
+    .emptyContainer {
+      text-align: center;
+      padding: 10rem;
+
+      &__icon {
+        color: $theme-gray-1;
+        margin-bottom: 1.5rem;
+        svg {
+          width: 4rem;
+          height: 4rem;
+        }
+      }
+
+      &__title {
+        font-size: $font-title-sub-size;
+        color: $theme-text-2;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+      }
+
+      &__desc {
+        font-size: $font-base-size;
+        color: $theme-gray-5;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+
+    .gridContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gridCardContainer {
+      background-color: $theme-shade-1;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease-in-out;
+      border: 1px solid $theme-gray-1;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .gridCardHeaderContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+
+        &__title {
+          font-size: $font-xl-size;
+          font-weight: 700;
+          color: $theme-text-1;
+          flex-grow: 1;
+          margin-right: 0.5rem;
+        }
+
+        &__checkbox {
+          width: 1.25rem;
+          height: 1.25rem;
+          cursor: pointer;
+          appearance: none;
+          border: 2px solid $theme-gray-1;
+          border-radius: 0.25rem;
+          transition: all 0.2s ease;
+          position: relative;
+
+          &:checked {
+            background-color: $theme-blue;
+            border-color: $theme-blue;
+          }
+
+          &:checked::after {
+            content: '✔';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $theme-white;
+            font-size: $font-xs-size;
+            line-height: 1;
+          }
+        }
+      }
+
+      &__subtitle {
+        font-size: $font-base-size;
+        color: $theme-text-2;
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+
+      .gridCardContentContainer {
+        flex-grow: 1;
+
+        .gridCardSectionContainer {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          margin-bottom: 0.6rem;
+          font-size: $font-sm-size;
+          color: $theme-text-2;
+
+          &__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $theme-blue;
+
+            svg {
+              width: 1rem;
+              height: 1rem;
+            }
+          }
+
+          &__link {
+            color: $theme-blue;
+            text-decoration: none;
+            font-weight: 500;
+            word-break: break-all;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          &.status {
+            font-weight: 600;
+
+            .statusSelect {
+              border: none;
+              background: transparent;
+              font-weight: inherit;
+              color: inherit;
+              cursor: pointer;
+              font-size: inherit;
+              padding: 0;
+              margin-top: 2.7px;
+
+              &:focus {
+                outline: none;
+              }
+            }
+          }
+
+          &.statusPending {
+            color: $theme-orange;
+            .statusIconPending {
+              color: $theme-orange;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+
+          &.statusApproved {
+            color: $theme-green;
+            .statusIconApproved {
+              color: $theme-green;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+
+          &.statusRejected {
+            color: $theme-red;
+            .statusIconRejected {
+              color: $theme-red;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+
+        &__desc {
+          font-size: $font-sm-size;
+          color: $theme-text-2;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          line-height: 1.5;
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .gridlinkContainer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px dashed $theme-gray-1;
+
+        &__link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          color: $theme-blue;
+          text-decoration: none;
+          font-size: $font-sm-size;
+          font-weight: 500;
+          transition: color 0.2s ease-in-out;
+
+          &:hover {
+            color: $theme-purple;
+          }
+
+          svg {
+            width: 1rem;
+            height: 1rem;
+          }
+        }
+      }
+
+      .actionContainer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid $theme-gray-1;
+
+        &__btn {
+          background: none;
+          border: none;
+          color: $theme-text-2;
+          cursor: pointer;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+          transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+          &:hover {
+            color: $theme-blue;
+          }
+
+          svg {
+            width: 1.2rem;
+            height: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}

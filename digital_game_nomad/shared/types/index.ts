@@ -28,3 +28,7 @@ export type PasswordToggleButtonProps = {
   showPassword: boolean;
   togglePasswordVisibility: () => void;
 };
+
+export type SpinnerProps = {
+  message?: string;
+};

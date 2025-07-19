@@ -1,0 +1,252 @@
+import { Inquiry } from '../types';
+
+export const sampleInquiries: Inquiry[] = [
+  {
+    id: 'INQ-001',
+    title: '사전 등록 이메일 인증 오류',
+    content:
+      '웹 박람회 사전 등록 시 이메일 인증이 되지 않습니다. 여러 번 시도했지만 인증 메일이 오지 않아 문의드립니다.',
+    nickName: 'gamerKim',
+    userName: '김철수',
+    email: 'kimcs@example.com',
+    phone: '010-1234-5678',
+    createdAt: '2024-01-15 14:30:25',
+    status: '완료',
+    reply:
+      '안녕하세요. 이메일 인증 오류 관련하여 확인해보니 스팸 메일함으로 들어갔을 가능성이 있습니다. 스팸 메일함을 확인해보시고, 여전히 문제가 있으시면 다시 연락주시기 바랍니다.',
+    replyDate: '2024-01-15 16:20:10',
+  },
+  {
+    id: 'INQ-002',
+    title: '온라인 스트리밍 시청 오류',
+    content:
+      '메인 스테이지 라이브 스트리밍 시청 중 오류가 발생합니다. 영상이 자주 끊기고 화질이 저하됩니다.',
+    nickName: 'gameLoverLee',
+    userName: '이영희',
+    email: 'leeyh@example.com',
+    phone: '010-2345-6789',
+    createdAt: '2024-01-16 09:15:30',
+    status: '처리중',
+  },
+  {
+    id: 'INQ-003',
+    title: '가상 부스 접속 문제',
+    content:
+      "특정 게임사 가상 부스에 접속이 되지 않습니다. '페이지를 찾을 수 없습니다'라는 오류 메시지가 뜹니다.",
+    nickName: 'expoPark',
+    userName: '박민수',
+    email: 'parkms@example.com',
+    createdAt: '2024-01-17 11:20:15',
+    status: '접수',
+  },
+  {
+    id: 'INQ-004',
+    title: '온라인 이벤트 참여 방법 문의',
+    content:
+      '웹 박람회 내에서 진행되는 온라인 이벤트 참여 방법을 모르겠습니다. 자세한 안내 부탁드립니다.',
+    nickName: 'playChoi',
+    userName: '최지영',
+    email: 'choijy@example.com',
+    phone: '010-3456-7890',
+    createdAt: '2024-01-18 13:45:20',
+    status: '완료',
+    reply:
+      "온라인 이벤트 참여 방법은 메인 페이지 '이벤트' 탭에서 자세히 확인하실 수 있습니다. 각 이벤트별 참여 기간과 규칙이 다르니 참고 부탁드립니다.",
+    replyDate: '2024-01-18 15:30:45',
+  },
+  {
+    id: 'INQ-005',
+    title: '웹사이트 접속 끊김 현상',
+    content:
+      '웹 박람회 이용 중 갑자기 접속이 끊기는 현상이 반복됩니다. 제 네트워크 문제인지 웹사이트 문제인지 궁금합니다.',
+    nickName: 'joongame',
+    userName: '정호준',
+    email: 'junghj@example.com',
+    createdAt: '2024-01-19 16:30:40',
+    status: '처리중',
+  },
+  {
+    id: 'INQ-006',
+    title: '다운로드 콘텐츠 오류',
+    content:
+      '게임 시연 버전이나 데모를 다운로드하려는데 오류가 발생합니다. 다운로드가 완료되지 않습니다.',
+    nickName: 'winLee',
+    userName: '이지혜',
+    email: 'leejh@example.com',
+    phone: '010-4567-8901',
+    createdAt: '2024-01-20 10:00:00',
+    status: '접수',
+  },
+  {
+    id: 'INQ-007',
+    title: '로그인 정보 초기화 요청',
+    content:
+      '박람회 계정 비밀번호를 잊어버렸습니다. 초기화 링크가 메일로 오지 않아 비밀번호를 재설정할 수 없습니다.',
+    nickName: 'guestKim',
+    userName: '김민준',
+    email: 'kimmj@example.com',
+    phone: '010-5678-9012',
+    createdAt: '2024-01-21 12:40:10',
+    status: '완료',
+    reply:
+      '로그인 정보 초기화 요청을 확인했습니다. 비밀번호 재설정 링크를 다시 보내드렸으니, 메일함을 확인해주세요. 스팸함도 확인 부탁드립니다.',
+    replyDate: '2024-01-21 13:00:05',
+  },
+  {
+    id: 'INQ-008',
+    title: '채팅/커뮤니티 기능 문의',
+    content:
+      '웹 박람회 내에서 다른 참가자들과 소통할 수 있는 채팅 기능이 있나요? 커뮤니티 이용 방법을 알고 싶습니다.',
+    nickName: 'vrSeo',
+    userName: '서윤아',
+    email: 'seoya@example.com',
+    createdAt: '2024-01-22 15:10:20',
+    status: '처리중',
+  },
+  {
+    id: 'INQ-009',
+    title: '기술 지원 요청',
+    content:
+      '웹 박람회 플랫폼 이용 중 기술적인 문제가 발생합니다. 화면 깨짐 현상과 기능 오작동이 있습니다.',
+    nickName: 'bugKang',
+    userName: '강동원',
+    email: 'kangdw@example.com',
+    phone: '010-6789-0123',
+    createdAt: '2024-01-23 09:30:00',
+    status: '접수',
+  },
+  {
+    id: 'INQ-010',
+    title: '다시 보기 서비스 문의',
+    content:
+      '놓친 강연이나 발표 영상을 다시 볼 수 있는 서비스가 있나요? 언제부터 이용 가능한가요?',
+    nickName: 'jangMira',
+    userName: '장미영',
+    email: 'jangmy@example.com',
+    phone: '010-7890-1234',
+    createdAt: '2024-01-24 14:05:50',
+    status: '처리중',
+  },
+  {
+    id: 'INQ-011',
+    title: '가상 체험 데모 플레이 불가',
+    content:
+      "특정 게임의 온라인 데모 버전이 웹사이트에서 실행되지 않습니다. '플러그인 오류' 메시지가 계속 뜹니다.",
+    nickName: 'demoUser',
+    userName: '이수진',
+    email: 'leesz@example.com',
+    phone: '010-8901-2345',
+    createdAt: '2024-01-25 10:10:05',
+    status: '접수',
+  },
+  {
+    id: 'INQ-012',
+    title: '웹 세미나 접속 링크 오류',
+    content:
+      '사전 신청한 웹 세미나의 접속 링크가 유효하지 않습니다. 세미나 시작 시간인데 접속할 수 없습니다.',
+    nickName: 'webinarJeong',
+    userName: '정재현',
+    email: 'jeongjh@example.com',
+    createdAt: '2024-01-26 11:45:30',
+    status: '처리중',
+  },
+  {
+    id: 'INQ-013',
+    title: '박람회 기간 외 접속 문의',
+    content:
+      '박람회 기간이 끝났는데 웹사이트 접속이 가능한가요? 다시 보기 콘텐츠를 이용하고 싶습니다.',
+    nickName: 'postExpo',
+    userName: '윤아영',
+    email: 'yunay@example.com',
+    createdAt: '2024-01-27 13:20:15',
+    status: '완료',
+    reply:
+      "박람회 기간 종료 후에도 다시 보기 서비스는 한 달간 제공될 예정입니다. 메인 페이지의 '다시 보기' 탭을 이용해 주세요.",
+    replyDate: '2024-01-27 15:00:00',
+  },
+  {
+    id: 'INQ-014',
+    title: '계정 정보 수정 불가',
+    content:
+      "회원가입 시 입력한 개인 정보를 수정하고 싶은데, '내 정보' 페이지에서 수정 버튼이 활성화되지 않습니다.",
+    nickName: 'editUser',
+    userName: '신동현',
+    email: 'shindh@example.com',
+    phone: '010-9012-3456',
+    createdAt: '2024-01-28 09:00:00',
+    status: '처리중',
+  },
+  {
+    id: 'INQ-015',
+    title: '브라우저 호환성 문제',
+    content:
+      '크롬 브라우저에서는 잘 작동하는데, 인터넷 익스플로러에서는 웹 박람회가 제대로 표시되지 않습니다.',
+    nickName: 'browserTrouble',
+    userName: '오지은',
+    email: 'ohje@example.com',
+    createdAt: '2024-01-29 16:50:40',
+    status: '접수',
+  },
+  {
+    id: 'INQ-016',
+    title: '개인정보 처리 방침 문의',
+    content:
+      '웹 박람회 이용 시 수집되는 개인정보는 어떻게 처리되고 보관되는지 궁금합니다.',
+    nickName: 'privacyConcern',
+    userName: '조민국',
+    email: 'chomg@example.com',
+    phone: '010-0123-4567',
+    createdAt: '2024-01-30 11:00:00',
+    status: '완료',
+    reply:
+      '개인정보 처리 방침은 웹사이트 하단의 링크를 통해 상세히 확인하실 수 있습니다. 궁금하신 사항이 있으시면 언제든지 문의해 주세요.',
+    replyDate: '2024-01-30 12:30:15',
+  },
+  {
+    id: 'INQ-017',
+    title: '콘텐츠 로딩 지연',
+    content:
+      '웹 박람회 페이지 전환 시 콘텐츠 로딩이 매우 느립니다. 이미지나 영상이 한참 뒤에 나타납니다.',
+    nickName: 'slowLoader',
+    userName: '최현우',
+    email: 'choihw@example.com',
+    phone: '010-1234-5678',
+    createdAt: '2024-01-31 14:25:00',
+    status: '처리중',
+  },
+  {
+    id: 'INQ-018',
+    title: '피싱/사기 사이트 의심 신고',
+    content:
+      '웹 박람회와 유사한 피싱 사이트를 발견했습니다. 확인 후 조치 부탁드립니다.',
+    nickName: 'scamReporter',
+    userName: '김미소',
+    email: 'kimms@example.com',
+    createdAt: '2024-02-01 10:40:00',
+    status: '접수',
+  },
+  {
+    id: 'INQ-019',
+    title: '음성 채팅 기능 미작동',
+    content:
+      '일부 온라인 강연에서 음성 채팅 기능이 작동하지 않습니다. 마이크 설정 문제인지 확인 부탁드립니다.',
+    nickName: 'voiceChat',
+    userName: '류지원',
+    email: 'ryujw@example.com',
+    phone: '010-2345-6789',
+    createdAt: '2024-02-02 15:55:00',
+    status: '처리중',
+  },
+  {
+    id: 'INQ-020',
+    title: '박람회 콘텐츠 제휴 문의',
+    content:
+      '저희 게임 개발사도 다음 박람회에 콘텐츠를 전시하고 싶습니다. 제휴 관련 문의드립니다.',
+    nickName: 'partnerGame',
+    userName: '배준호',
+    email: 'baejh@example.com',
+    phone: '010-3456-7890',
+    createdAt: '2024-02-03 09:15:20',
+    status: '접수',
+  },
+];

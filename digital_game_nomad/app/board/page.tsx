@@ -1,5 +1,10 @@
-import React from 'react';
+// slice
+import BoardContainer from './containers/Board.container';
 
 export default function page() {
-  return <div>page</div>;
+  return (
+    <>
+      <BoardContainer />
+    </>
+  );
 }

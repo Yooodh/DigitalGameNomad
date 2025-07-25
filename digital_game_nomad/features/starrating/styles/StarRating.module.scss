@@ -4,41 +4,70 @@
   display: flex;
   align-items: center;
   gap: 2px;
+
+  &.isInteractive {
+    .starContainer__star {
+      cursor: pointer;
+      transition: transform 0.1s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
 }
 
 .starContainer {
   &__star {
+    position: relative;
     font-size: 16px;
     line-height: 1;
     display: inline-block;
     color: $theme-gray-3;
 
-    background: linear-gradient(
-      to right,
-      $theme-yellow var(--percentage),
-      $theme-gray-3 var(--percentage)
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    -webkit-text-stroke-width: 0;
+    &::before {
+      content: '★';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: var(--percentage);
+      overflow: hidden;
+      color: $theme-yellow;
+
+      transition: color 0.2s ease;
+    }
   }
 
   &__text {
     margin-left: 8px;
-    font-size: 14px;
+    font-size: $font-sm-size;
     color: $theme-gray-4;
     font-weight: 500;
+    white-space: nowrap;
   }
 
-  &.starSmall &__star {
-    font-size: 14px;
+  &.starSmall {
+    .starContainer__star {
+      font-size: $font-sm-size;
+    }
+    .starContainer__text {
+      font-size: $font-xs-size;
+    }
   }
-  &.starMedium &__star {
-    font-size: 18px;
+  &.starMedium {
+    .starContainer__star {
+      font-size: $font-lg-size;
+    }
+    .starContainer__text {
+      font-size: $font-sm-size;
+    }
   }
-  &.starLarge &__star {
-    font-size: 24px;
+  &.starLarge {
+    .starContainer__star {
+      font-size: $font-title-sub-size;
+    }
+    .starContainer__text {
+      font-size: $font-base-size;
+    }
   }
 }

@@ -1,36 +1,47 @@
+// package
+import { useMemo } from 'react';
+
 // slice
 import StarRatingPresenter from '../presenter/StarRatingPresenter';
-import { StarRatingProps } from '../types/StarRating.types';
+import {
+  StarRatingDisplayProps,
+  ProcessedStar,
+} from '../types/StarRating.types';
+import {
+  DEFAULT_MAX_RATING,
+  PERCENTAGE_MULTIPLIER,
+} from '../constants/StarRating.constants';
 
 export default function StarRatingContainer({
   rating,
-  maxRating = 5,
+  maxRating = DEFAULT_MAX_RATING,
   showRatingText = false,
-}: StarRatingProps) {
-  const processedStars = [];
-
-  const clampedRating = Math.max(0, Math.min(maxRating, rating));
-
-  for (let i = 0; i < maxRating; i++) {
-    let percentage = 0;
-
-    if (i < Math.floor(clampedRating)) {
-      percentage = 100;
-    } else if (i === Math.floor(clampedRating)) {
-      percentage = (clampedRating % 1) * 100;
+  size = 'medium',
+}: StarRatingDisplayProps) {
+  const processedStars = useMemo(() => {
+    const stars: ProcessedStar[] = [];
+    for (let i = 0; i < maxRating; i++) {
+      let percentage = 0;
+      if (i < Math.floor(rating)) {
+        percentage = PERCENTAGE_MULTIPLIER;
+      } else if (i === Math.floor(rating)) {
+        percentage = (rating % 1) * PERCENTAGE_MULTIPLIER;
+      }
+      stars.push({
+        key: i + 1,
+        percentage: percentage,
+      });
     }
-
-    processedStars.push({
-      key: i,
-      percentage: percentage,
-    });
-  }
+    return stars;
+  }, [rating, maxRating]);
 
   return (
     <StarRatingPresenter
       processedStars={processedStars}
       rating={rating}
       showRatingText={showRatingText}
+      size={size}
+      isInteractive={false}
     />
   );
 }

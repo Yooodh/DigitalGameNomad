@@ -32,3 +32,5 @@ export type PasswordToggleButtonProps = {
 export type SpinnerProps = {
   message?: string;
 };
+
+export type ScrollBehavior = 'auto' | 'smooth';

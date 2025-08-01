@@ -1,0 +1,147 @@
+@use '../../../../styles/variables' as *;
+
+.reviewContainer {
+  min-height: 100vh;
+
+  .contentContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+
+    .sectionContainer {
+      background: $theme-shade-1;
+      border-radius: 12px;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      border: 1px solid $theme-gray-1;
+      transition: all 0.2s ease;
+      padding: 2rem;
+    }
+  }
+}
+
+.tableContainer {
+  width: 100%;
+  border-collapse: collapse;
+
+  .tableHeaderContainer {
+    background: $theme-shade-2;
+    border-bottom: 1px solid $theme-gray-1;
+
+    .tableHeaderCell {
+      padding: 1rem;
+      font-weight: 600;
+      color: $theme-text-1;
+      font-size: $font-sm-size;
+    }
+
+    &__number {
+      @extend .tableHeaderCell;
+      width: 5%;
+    }
+    &__game {
+      @extend .tableHeaderCell;
+      width: 15%;
+    }
+    &__title {
+      @extend .tableHeaderCell;
+      width: 30%;
+    }
+    &__author {
+      @extend .tableHeaderCell;
+      width: 15%;
+    }
+    &__score {
+      @extend .tableHeaderCell;
+      width: 8%;
+    }
+    &__date {
+      @extend .tableHeaderCell;
+      width: 10%;
+    }
+    &__views {
+      @extend .tableHeaderCell;
+      width: 6%;
+    }
+    &__likes {
+      @extend .tableHeaderCell;
+      width: 6%;
+    }
+    &__comments {
+      @extend .tableHeaderCell;
+      width: 6%;
+    }
+  }
+
+  .tableRowContainer {
+    border-bottom: 1px solid $theme-gray-1;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $theme-shade-3;
+    }
+
+    .tableCell {
+      padding: 1rem;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    &__number {
+      @extend .tableCell;
+      color: $theme-text-2;
+      font-size: $font-sm-size;
+    }
+
+    &__game {
+      @extend .tableCell;
+      color: $theme-text-2;
+      font-size: $font-sm-size;
+    }
+
+    &__title {
+      @extend .tableCell;
+      color: $theme-text-1;
+      font-size: $font-sm-size;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &__author {
+      @extend .tableCell;
+      color: $theme-text-2;
+      font-size: $font-sm-size;
+    }
+
+    &__score {
+      @extend .tableCell;
+    }
+
+    &__date {
+      @extend .tableCell;
+      color: $theme-gray-5;
+      font-size: $font-xs-size;
+    }
+
+    &__views {
+      @extend .tableCell;
+      color: $theme-gray-5;
+      font-size: $font-xs-size;
+    }
+
+    &__likes {
+      @extend .tableCell;
+      color: $theme-blue;
+      font-size: $font-xs-size;
+    }
+
+    &__comments {
+      @extend .tableCell;
+      color: $theme-orange;
+      font-size: $font-xs-size;
+    }
+  }
+}

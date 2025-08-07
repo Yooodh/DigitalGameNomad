@@ -1,0 +1,51 @@
+@use '../../../../styles/variables' as *;
+
+.writeContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+
+  .formContainer {
+    background: $theme-shade-1;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    .submitContainer {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid $theme-gray-1;
+
+      &__btn {
+        padding: 14px 32px;
+        background: $theme-purple-gradient;
+        color: $theme-white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        min-width: 200px;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  .label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: $theme-text-2;
+    font-size: 14px;
+  }
+}

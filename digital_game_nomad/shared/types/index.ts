@@ -1,4 +1,5 @@
 import { RefObject } from 'react';
+import { FormData } from '@/app/(auth)/reset-password/types';
 
 export type UseIntersectionVisibilityOptions = {
   root?: Element | null;
@@ -68,4 +69,31 @@ export type AuthState = {
   login: (userGrade: number, userEmail: string) => void;
   logout: () => void;
   checkLoginStatus: () => void;
+};
+
+export type PasswordErrors = {
+  currentPasswordError: string;
+  newPasswordError: string;
+  confirmPasswordError: string;
+};
+
+export type ShowPasswordState = {
+  current: boolean;
+  new: boolean;
+  confirm: boolean;
+};
+
+export type UseResetPasswordStore = {
+  step: number;
+  isLoading: boolean;
+  formData: FormData;
+  passwordErrors: PasswordErrors;
+  showPassword: ShowPasswordState;
+
+  setStep: (step: number) => void;
+  setIsLoading: (isLoading: boolean) => void;
+  setFormData: (name: keyof FormData, value: string) => void;
+  setError: (field: keyof PasswordErrors, message: string) => void;
+  togglePasswordVisibility: (field: keyof ShowPasswordState) => void;
+  resetForm: () => void;
 };

@@ -1,5 +1,6 @@
 import { RefObject } from 'react';
-import { FormData } from '@/app/(auth)/reset-password/types';
+import { FormData as ResetPasswordData } from '@/app/(auth)/reset-password/types';
+import { FormData as ForgotPasswordData } from '@/app/(auth)/forgot-password/types';
 
 export type UseIntersectionVisibilityOptions = {
   root?: Element | null;
@@ -86,14 +87,46 @@ export type ShowPasswordState = {
 export type UseResetPasswordStore = {
   step: number;
   isLoading: boolean;
-  formData: FormData;
+  formData: ResetPasswordData;
   passwordErrors: PasswordErrors;
   showPassword: ShowPasswordState;
 
   setStep: (step: number) => void;
   setIsLoading: (isLoading: boolean) => void;
-  setFormData: (name: keyof FormData, value: string) => void;
+  setFormData: (name: keyof ResetPasswordData, value: string) => void;
   setError: (field: keyof PasswordErrors, message: string) => void;
   togglePasswordVisibility: (field: keyof ShowPasswordState) => void;
+  resetForm: () => void;
+};
+
+export type ErrorField =
+  | 'emailError'
+  | 'emailCodeError'
+  | 'passwordError'
+  | 'confirmPasswordError';
+
+export type UseForgotPasswordStore = {
+  step: number;
+  isLoading: boolean;
+  formData: ForgotPasswordData;
+  emailError: string;
+  emailCodeError: string;
+  passwordError: string;
+  confirmPasswordError: string;
+  isEmailCodeSent: boolean;
+  emailCountdown: number;
+  showPassword: Pick<ShowPasswordState, 'new' | 'confirm'>;
+  verifiedEmail: string | null;
+
+  setStep: (step: number) => void;
+  setIsLoading: (isLoading: boolean) => void;
+  setFormData: (name: keyof ForgotPasswordData, value: string) => void;
+  setError: (field: ErrorField, message: string) => void;
+  setIsEmailCodeSent: (isSent: boolean) => void;
+  setEmailCountdown: (countdown: number) => void;
+  togglePasswordVisibility: (
+    field: keyof Pick<ShowPasswordState, 'new' | 'confirm'>
+  ) => void;
+  setVerifiedEmail: (email: string | null) => void;
   resetForm: () => void;
 };

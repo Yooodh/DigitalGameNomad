@@ -1,6 +1,7 @@
 import { RefObject } from 'react';
 import { FormData as ResetPasswordData } from '@/app/(auth)/reset-password/types';
 import { FormData as ForgotPasswordData } from '@/app/(auth)/forgot-password/types';
+import { FormData as ResetPhoneData } from '@/app/(auth)/reset-phone/types';
 
 export type UseIntersectionVisibilityOptions = {
   root?: Element | null;
@@ -130,3 +131,54 @@ export type UseForgotPasswordStore = {
   setVerifiedEmail: (email: string | null) => void;
   resetForm: () => void;
 };
+
+export type ResetPhoneState = {
+  step: number;
+  isLoading: boolean;
+  formData: ResetPhoneData;
+  emailError: string;
+  emailCodeError: string;
+  phoneCodeError: string;
+  personalInfoError: string;
+  isEmailCodeSent: boolean;
+  emailCountdown: number;
+  isPhoneCodeSent: boolean;
+  phoneCountdown: number;
+  isCurrentCarrierSelectOpen: boolean;
+  isNewCarrierSelectOpen: boolean;
+  carriers: string[];
+
+  verifiedEmail: string | null;
+  verifiedName: string | null;
+  verifiedCurrentPhone: string | null;
+  verifiedCurrentCarrier: string | null;
+};
+
+export type ResetPhoneActions = {
+  setStep: (step: number) => void;
+  setIsLoading: (isLoading: boolean) => void;
+  setFormData: (name: keyof ResetPhoneData, value: string) => void;
+  setError: (
+    field:
+      | 'emailError'
+      | 'emailCodeError'
+      | 'phoneCodeError'
+      | 'personalInfoError',
+    message: string
+  ) => void;
+  setIsEmailCodeSent: (isSent: boolean) => void;
+  setEmailCountdown: (countdown: number) => void;
+  setIsPhoneCodeSent: (isSent: boolean) => void;
+  setPhoneCountdown: (countdown: number) => void;
+  setIsCurrentCarrierSelectOpen: (isOpen: boolean) => void;
+  setIsNewCarrierSelectOpen: (isOpen: boolean) => void;
+  setVerifiedEmail: (email: string | null) => void;
+  setVerifiedPersonalInfo: (
+    name: string,
+    phone: string,
+    carrier: string
+  ) => void;
+  resetForm: () => void;
+};
+
+export type ResetPhoneStore = ResetPhoneState & ResetPhoneActions;

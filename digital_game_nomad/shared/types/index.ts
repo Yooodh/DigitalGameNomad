@@ -182,3 +182,30 @@ export type ResetPhoneActions = {
 };
 
 export type ResetPhoneStore = ResetPhoneState & ResetPhoneActions;
+
+export type InquiryStatus = '접수' | '처리중' | '완료';
+
+export type InquiryData = {
+  id: string;
+  title: string;
+  text: string;
+  senderEmail: string;
+  submittedAt: string;
+  status: InquiryStatus;
+
+  reply?: string;
+  replyDate?: string;
+};
+
+export type InquiriesState = {
+  inquiries: InquiryData[];
+  addInquiry: (
+    inquiry: Omit<
+      InquiryData,
+      'id' | 'submittedAt' | 'status' | 'reply' | 'replyDate'
+    >
+  ) => void;
+  updateInquiryStatus: (id: string, status: InquiryData['status']) => void;
+  saveInquiryReply: (id: string, replyContent: string) => void;
+  deleteInquiries: (ids: string[]) => void;
+};

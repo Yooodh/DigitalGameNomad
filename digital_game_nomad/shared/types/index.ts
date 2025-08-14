@@ -209,3 +209,52 @@ export type InquiriesState = {
   saveInquiryReply: (id: string, replyContent: string) => void;
   deleteInquiries: (ids: string[]) => void;
 };
+
+export type ApplicationStatus = 'pending' | 'approved' | 'rejected';
+
+export type ApplicationData = {
+  id: string;
+  companyName: string;
+  gameName: string;
+  description: string;
+  gameUrl: string;
+  youtubeUrl: string;
+  hasImage: boolean;
+  imageData?: string;
+  submittedAt: string;
+  status: ApplicationStatus;
+  applicantEmail: string;
+  contactEmail?: string;
+  contactPhone?: string;
+  reviewedAt?: string;
+  reviewedBy?: string;
+  notes?: string;
+};
+
+export type NewApplicationInput = Omit<
+  ApplicationData,
+  | 'id'
+  | 'submittedAt'
+  | 'status'
+  | 'hasImage'
+  | 'imageData'
+  | 'reviewedAt'
+  | 'reviewedBy'
+  | 'notes'
+  | 'contactEmail'
+  | 'contactPhone'
+> & { imageFile?: File | null; applicantEmail: string };
+
+export type ApplicationsState = {
+  applications: ApplicationData[];
+  addApplication: (newApplication: NewApplicationInput) => Promise<void>;
+  updateApplicationStatus: (
+    id: string,
+    status: ApplicationData['status']
+  ) => void;
+  bulkUpdateApplicationStatus: (
+    ids: string[],
+    status: ApplicationData['status']
+  ) => void;
+  deleteApplications: (ids: string[]) => void;
+};

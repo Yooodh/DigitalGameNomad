@@ -1,5 +1,5 @@
 // slice
-import styles from '../styles/Header.module.scss';
+import styles from '../styles/Navbar.module.scss';
 import { ThemeButtonProps } from '../types';
 
 export default function ThemeButton({
@@ -7,7 +7,7 @@ export default function ThemeButton({
   onToggleTheme,
 }: ThemeButtonProps) {
   return (
-    <div className={styles.headerContainer__theme} onClick={onToggleTheme}>
+    <div className={styles.navbarContainer__theme} onClick={onToggleTheme}>
       {theme === 'dark' ? <p>☀️</p> : <p>🌙</p>}
     </div>
   );

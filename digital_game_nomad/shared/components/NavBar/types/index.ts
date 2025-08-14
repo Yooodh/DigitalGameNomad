@@ -24,13 +24,13 @@ export type ThemeButtonProps = {
   onToggleTheme: () => void;
 };
 
-export type HeaderContainerProps = {
+export type NavbarContainerProps = {
   userGrade?: number;
   isLoggedIn: boolean;
   onLogout: () => void;
 };
 
-export type HeaderPresenterProps = {
+export type NavbarPresenterProps = {
   isLoggedIn: boolean;
   userGrade?: number;
   hasNotification?: boolean;

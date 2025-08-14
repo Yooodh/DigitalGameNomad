@@ -2,7 +2,7 @@
 import Link from 'next/link';
 
 // slice
-import styles from '../styles/Header.module.scss';
+import styles from '../styles/Navbar.module.scss';
 import { MenuListProps } from '../types';
 
 export default function MenuList({
@@ -11,7 +11,7 @@ export default function MenuList({
 }: MenuListProps & { isMenuOpen: boolean }) {
   return (
     <ul
-      className={`${styles.headerContainer__menu} ${
+      className={`${styles.navbarContainer__menu} ${
         isMenuOpen ? styles.open : ''
       }`}
     >

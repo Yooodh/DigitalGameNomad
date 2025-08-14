@@ -3,11 +3,10 @@ import MenuList from '../components/MenuList';
 import AuthLinks from '../components/AuthLinks';
 import LogoButton from '../components/LogoButton';
 import ThemeButton from '../components/ThemeButton';
+import styles from '../styles/Navbar.module.scss';
+import { NavbarPresenterProps } from '../types';
 
-import styles from '../styles/Header.module.scss';
-import { HeaderPresenterProps } from '../types';
-
-export default function HeaderPresenter({
+export default function NavbarPresenter({
   isLoggedIn,
   userGrade,
   hasNotification,
@@ -19,16 +18,16 @@ export default function HeaderPresenter({
   toggleButtonRef,
   theme,
   onToggleTheme,
-}: HeaderPresenterProps) {
+}: NavbarPresenterProps) {
   return (
-    <div className={styles.headerContainer}>
+    <div className={styles.navbarContainer}>
       <LogoButton
         onMenuItemClick={onMenuItemClick}
         onToggleMenu={onToggleMenu}
         isMenuOpen={isMenuOpen}
         toggleButtonRef={toggleButtonRef}
       />
-      <div ref={menuRef} className={styles.headerContainer__menuWrap}>
+      <div ref={menuRef} className={styles.navbarContainer__menuWrap}>
         <MenuList onMenuItemClick={onMenuItemClick} isMenuOpen={isMenuOpen} />
         <AuthLinks
           isLoggedIn={isLoggedIn}

@@ -4,52 +4,37 @@
 import { useState, useRef } from 'react';
 
 // slice
-import HeaderPres from '../presenters/Header.presenter';
-import { HeaderContainerProps } from '../types';
+import HeaderPres from '../presenter/NavbarPresenter';
 
-// hook
+// layer
 import { useOnClickOutside } from '@/shared/hooks/useOnClickOutside';
 import { useLockBodyScroll } from '@/shared/hooks/useLockBodyScroll';
 import { useCloseMenuOnResize } from '@/shared/hooks/useCloseMenuOnResize';
-
-// layer
 import { useThemeStore } from '@/shared/stores/useThemeStore';
+import { useAuthStore, useAuthActions } from '@/shared/stores/useAuthStore';
 
-export default function HeaderContainer({
-  userGrade,
-  isLoggedIn,
-  onLogout,
-}: HeaderContainerProps) {
-  const [hasNotification, setHasNotification] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+export default function NavbarContainer() {
+  const { isLoggedIn, userGrade } = useAuthStore();
+  const { handleLogout } = useAuthActions();
+  const [hasNotification, _setHasNotification] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const { theme, toggleTheme } = useThemeStore();
 
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
-  // 메뉴가 열렸을 때 body 스크롤 방지
   useLockBodyScroll(isMenuOpen);
-
-  // 윈도우 리사이즈 시 메뉴 자동 닫기
   useCloseMenuOnResize(isMenuOpen, () => setIsMenuOpen(false));
-
-  // 외부 클릭 시 메뉴 닫기
   useOnClickOutside(
     menuRef,
     () => {
       setIsMenuOpen(false);
     },
-
     {
       enabled: isMenuOpen,
       excludeRefs: [toggleButtonRef],
     }
   );
-
-  const handleLogout = () => {
-    onLogout();
-    setIsMenuOpen(false);
-  };
 
   const onToggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -62,9 +47,16 @@ export default function HeaderContainer({
   return (
     <HeaderPres
       isLoggedIn={isLoggedIn}
-      userGrade={userGrade}
+      userGrade={userGrade || undefined}
       hasNotification={hasNotification}
-      onLogout={handleLogout}
+      onLogout={() => {
+        const confirmLogout = window.confirm('정말로 로그아웃 하시겠습니까?');
+
+        if (confirmLogout) {
+          setIsMenuOpen(false);
+          handleLogout();
+        }
+      }}
       onToggleMenu={onToggleMenu}
       onMenuItemClick={onMenuItemClick}
       isMenuOpen={isMenuOpen}

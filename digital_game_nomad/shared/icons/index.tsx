@@ -676,6 +676,72 @@ export const ChevronDown = () => (
   </svg>
 );
 
+export const ChevronLeft = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width='24'
+    height='24'
+    viewBox='0 0 24 24'
+    fill='none'
+    stroke='currentColor'
+    strokeWidth='2'
+    strokeLinecap='round'
+    strokeLinejoin='round'
+  >
+    <path d='m15 18-6-6 6-6' />
+  </svg>
+);
+
+export const ChevronRight = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width='24'
+    height='24'
+    viewBox='0 0 24 24'
+    fill='none'
+    stroke='currentColor'
+    strokeWidth='2'
+    strokeLinecap='round'
+    strokeLinejoin='round'
+  >
+    <path d='m9 18 6-6-6-6' />
+  </svg>
+);
+
+export const ChevronsLeft = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width='24'
+    height='24'
+    viewBox='0 0 24 24'
+    fill='none'
+    stroke='currentColor'
+    strokeWidth='2'
+    strokeLinecap='round'
+    strokeLinejoin='round'
+  >
+    <path d='m11 17-5-5 5-5' />
+    <path d='m18 17-5-5 5-5' />
+  </svg>
+);
+
+export const ChevronsRight = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width='24'
+    height='24'
+    viewBox='0 0 24 24'
+    fill='none'
+    stroke='currentColor'
+    strokeWidth='2'
+    strokeLinecap='round'
+    strokeLinejoin='round'
+  >
+    <path d='m13 17 5-5-5-5' />
+    <path d='m6 17 5-5-5-5' />
+  </svg>
+);
+
 export const Edit = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -744,5 +810,11 @@ export const TrendingUp = () => (
   >
     <polyline points='22,7 13.5,15.5 8.5,10.5 2,17' />
     <polyline points='16,7 22,7 22,13' />
+  </svg>
+);
+
+export const Warning = () => (
+  <svg width='24' height='24' viewBox='0 0 16 16' fill='currentColor'>
+    <path d='M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995zM7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0z' />
   </svg>
 );

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // slice
-import styles from '../styles/Header.module.scss';
+import styles from '../styles/Navbar.module.scss';
 import { LogoButtonProps } from '../types';
 
 export default function LogoButton({
@@ -15,7 +15,7 @@ export default function LogoButton({
   toggleButtonRef,
 }: LogoButtonProps) {
   return (
-    <div className={styles.headerContainer__logo}>
+    <div className={styles.navbarContainer__logo}>
       <Link href='/' onClick={onMenuItemClick}>
         <Image
           src='/images/logo_white_half.png'
@@ -27,7 +27,7 @@ export default function LogoButton({
       <button
         ref={toggleButtonRef}
         onClick={onToggleMenu}
-        className={styles.headerContainer__toggleLogo}
+        className={styles.navbarContainer__toggleLogo}
         aria-label={isMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
         aria-expanded={isMenuOpen}
       >

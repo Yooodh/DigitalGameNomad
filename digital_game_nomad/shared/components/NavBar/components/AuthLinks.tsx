@@ -2,7 +2,7 @@
 import Link from 'next/link';
 
 // slice
-import styles from '../styles/Header.module.scss';
+import styles from '../styles/Navbar.module.scss';
 import { AuthLinksProps } from '../types';
 
 export default function AuthLinks({
@@ -15,7 +15,7 @@ export default function AuthLinks({
 }: AuthLinksProps & { isMenuOpen: boolean }) {
   return (
     <ul
-      className={`${styles.headerContainer__links} ${
+      className={`${styles.navbarContainer__links} ${
         isMenuOpen ? styles.open : ''
       }`}
     >
@@ -29,6 +29,11 @@ export default function AuthLinks({
           <li>
             <Link href='/admin/users' onClick={onMenuItemClick}>
               유저관리
+            </Link>
+          </li>
+          <li>
+            <Link href='/admin/inquiry' onClick={onMenuItemClick}>
+              문의내역관리
             </Link>
           </li>
           <li>
@@ -46,7 +51,7 @@ export default function AuthLinks({
             </Link>
           </li>
           <li>
-            <Link href='/company/profile' onClick={onMenuItemClick}>
+            <Link href='/profile' onClick={onMenuItemClick}>
               회원정보(기업)
             </Link>
           </li>
@@ -54,7 +59,7 @@ export default function AuthLinks({
       )}
       {userGrade === 3 && isLoggedIn && (
         <li>
-          <Link href='/member/profile' onClick={onMenuItemClick}>
+          <Link href='/profile' onClick={onMenuItemClick}>
             회원정보(일반)
           </Link>
         </li>
@@ -62,7 +67,7 @@ export default function AuthLinks({
       {!isLoggedIn && (
         <>
           <li>
-            <Link href='/Login' onClick={onMenuItemClick}>
+            <Link href='/login' onClick={onMenuItemClick}>
               로그인
             </Link>
           </li>

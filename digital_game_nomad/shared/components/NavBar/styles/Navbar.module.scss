@@ -1,6 +1,6 @@
 @use '@/app/styles/variables' as *;
 
-.headerContainer {
+.navbarContainer {
   position: fixed;
   top: 0;
   left: 0;
@@ -103,9 +103,8 @@
   }
 }
 
-/* 반응형 */
 @media (max-width: 768px) {
-  .headerContainer {
+  .navbarContainer {
     flex-direction: column;
     align-items: stretch;
     padding: 8px;

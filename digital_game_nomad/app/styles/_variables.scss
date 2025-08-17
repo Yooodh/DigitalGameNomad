@@ -1,11 +1,16 @@
+$mobile: 768px;
+$tablet: 1024px;
+
 $header-height: 60px;
-$posts-form-footer: 60px;
 
 $theme-white: var(--color-white);
 $theme-black: var(--color-black);
 $theme-blue: var(--color-blue);
 $theme-red: var(--color-red);
 $theme-purple: var(--color-purple);
+$theme-green: var(--color-green);
+$theme-orange: var(--color-orange);
+$theme-yellow: var(--color-yellow);
 
 $theme-gray: var(--color-gray);
 $theme-gray-hover: var(--color-gray-hover);
@@ -28,6 +33,7 @@ $theme-gray-5: var(--theme-gray-5);
 $theme-kakao: var(--theme-kakao);
 
 $theme-white-gradient: var(--theme-white-gradient);
+$theme-sky-gradient: var(--theme-sky-gradient);
 $theme-blue-gradient: var(--theme-blue-gradient);
 $theme-purple-gradient: var(--theme-purple-gradient);
 
@@ -125,4 +131,15 @@ $font-xs-weight: normal;
   font-size: $font-xs-size;
   line-height: $font-xs-line-height;
   font-weight: $font-xs-weight;
+}
+
+@mixin autofill {
+  &:-webkit-autofill,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px $theme-shade-2 inset;
+    -webkit-text-fill-color: $theme-text-1;
+    transition: background-color 5000s ease-in-out 0s;
+  }
 }

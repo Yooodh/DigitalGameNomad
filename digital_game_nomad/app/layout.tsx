@@ -1,9 +1,14 @@
+'use client';
+
 // slice
 import './globals.scss';
+import styles from './styles/layout.module.scss';
 
 // layer
-import { Header } from '@/app/components/Header';
-import { Footer } from '@/app/components/Footer';
+import { Navbar } from '@/shared/components/NavBar';
+import ApplyTheme from '@/shared/ui/theme/ApplyTheme';
+import AnimatedBackground from '@/shared/ui/background/animatedBackground/AnimatedBackground';
+import ScrollToTopInitializer from '@/shared/components/ScrollToTopInitializer';
 
 export default function RootLayout({
   children,
@@ -13,9 +18,16 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <ApplyTheme />
+        <ScrollToTopInitializer />
+        <div className={styles.layout}>
+          <div className={styles.layout__header}>
+            <Navbar />
+          </div>
+          <AnimatedBackground>
+            <main className={styles.layout__main}>{children}</main>
+          </AnimatedBackground>
+        </div>
       </body>
     </html>
   );

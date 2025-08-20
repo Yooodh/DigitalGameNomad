@@ -6,7 +6,7 @@ export type RegistrationFormData = {
   passwordCheck: string;
   name: string;
   nickname: string;
-  phone: string[];
+  phone: [string, string, string, string];
 };
 
 export type ValidationState = {
@@ -60,14 +60,18 @@ export type PasswordInputGroupProps = {
 };
 
 export type PhoneInputGroupProps = {
-  phone: string[];
+  phone: [string, string, string, string];
   verificationCode: string;
   showVerification: boolean;
   isLoading: boolean;
   isCarrierSelectOpen: boolean;
   validationPhone: boolean;
   validationPhoneVerified: boolean;
-  handleInputChange: (field: 'phone', value: string, index: number) => void;
+  handleInputChange: (
+    field: 'phone',
+    value: string,
+    index: 0 | 1 | 2 | 3
+  ) => void;
   handleCarrierChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   requestVerification: () => Promise<void>;
   verifyPhone: () => void;
@@ -85,9 +89,10 @@ export type EmailRegistrationProps = {
 };
 
 export type PhoneVerificationProps = {
-  phone: string[];
+  phone: [string, string, string, string];
   setValidation: Dispatch<SetStateAction<ValidationState>>;
   setIsLoading: (loading: boolean) => void;
+  setFormData: Dispatch<SetStateAction<RegistrationFormData>>;
 };
 
 export type UseRegisterFormReturn = {
@@ -103,14 +108,14 @@ export type UseRegisterFormReturn = {
   handleInputChange: (
     field: keyof RegistrationFormData,
     value: string,
-    index?: number
+    index?: 0 | 1 | 2 | 3
   ) => void;
   handleEmailDomainChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   handleCarrierChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   checkEmailDuplicate: () => Promise<void>;
   requestVerification: () => Promise<void>;
   verifyPhone: () => void;
-  handleSubmit: () => Promise<void>;
+  handleSubmit: (e: React.FormEvent) => Promise<void>;
   setShowPassword: (show: boolean) => void;
   setShowPasswordCheck: (show: boolean) => void;
   setVerificationCode: (code: string) => void;
@@ -135,14 +140,14 @@ export type RegisterPresenterProps = {
   handleInputChange: (
     field: keyof RegistrationFormData,
     value: string,
-    index?: number
+    index?: 0 | 1 | 2 | 3
   ) => void;
   handleEmailDomainChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   handleCarrierChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   checkEmailDuplicate: () => Promise<void>;
   requestVerification: () => Promise<void>;
   verifyPhone: () => void;
-  handleSubmit: () => Promise<void>;
+  handleSubmit: (e: React.FormEvent) => Promise<void>;
   setShowPassword: (show: boolean) => void;
   setShowPasswordCheck: (show: boolean) => void;
   setVerificationCode: (code: string) => void;

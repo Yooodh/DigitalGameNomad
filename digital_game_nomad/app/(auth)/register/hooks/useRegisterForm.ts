@@ -1,5 +1,6 @@
 // package
 import { useCallback, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 
 // slice
 import { useFormInput } from './useFormInput';
@@ -8,12 +9,21 @@ import { useEmailRegistration } from './useEmailRegistration';
 import { usePhoneVerification } from './usePhoneVerification';
 import { usePasswordVisibility } from './usePasswordVisibility';
 import { useLoadingState } from './useLoadingState';
-
 import { isValidEmailFormat } from '../utils/validation';
-
 import { RegistrationFormData, UseRegisterFormReturn } from '../types';
 
+// layer
+import { useAuthStore } from '@/shared/stores/useAuthStore';
+import { useRegisteredUsersStore } from '@/shared/stores/useRegisteredUsersStore';
+
 export const useRegisterForm = (): UseRegisterFormReturn => {
+  const router = useRouter();
+  const login = useAuthStore((state) => state.login);
+  const addUser = useRegisteredUsersStore((state) => state.addUser);
+  const updateUserProfileInStore = useRegisteredUsersStore(
+    (state) => state.updateUserProfile
+  );
+
   const {
     formData,
     setFormData,
@@ -24,7 +34,7 @@ export const useRegisterForm = (): UseRegisterFormReturn => {
     passwordCheck: '',
     name: '',
     nickname: '',
-    phone: ['', '', ''],
+    phone: ['', '', '', ''],
   });
 
   const { isLoading, setIsLoading } = useLoadingState();
@@ -44,7 +54,6 @@ export const useRegisterForm = (): UseRegisterFormReturn => {
     setIsEmailSelectOpen,
     handleEmailDomainChange,
     fullEmailForValidation,
-    checkEmailDuplicate: baseCheckEmailDuplicate,
   } = useEmailRegistration({
     email: formData.email,
     setValidation,
@@ -58,47 +67,82 @@ export const useRegisterForm = (): UseRegisterFormReturn => {
     showVerification,
     isCarrierSelectOpen,
     setIsCarrierSelectOpen,
-    handleCarrierChange,
+    handleCarrierChange: baseHandleCarrierChange,
     requestVerification: baseRequestVerification,
     verifyPhone: baseVerifyPhone,
   } = usePhoneVerification({
     phone: formData.phone,
     setValidation,
     setIsLoading,
+    setFormData,
   });
 
   const handleInputChange = useCallback(
-    (field: keyof RegistrationFormData, value: string, index?: number) => {
+    (
+      field: keyof RegistrationFormData,
+      value: string,
+      index?: 0 | 1 | 2 | 3
+    ) => {
       baseHandleInputChange(field, value, index);
 
-      let currentInputtedFormData: RegistrationFormData;
-      if (field === 'phone' && index !== undefined) {
-        const newPhoneArray = [...formData.phone];
-        newPhoneArray[index] = value;
-        currentInputtedFormData = { ...formData, phone: newPhoneArray };
-      } else {
-        currentInputtedFormData = { ...formData, [field]: value as string };
-      }
+      setFormData((prevFormData) => {
+        let currentInputtedFormData: RegistrationFormData;
 
-      if (field === 'phone') {
-        validateField(
-          field,
-          currentInputtedFormData.phone,
-          currentInputtedFormData
-        );
-      } else {
-        validateField(
-          field,
-          currentInputtedFormData[field] as string,
-          currentInputtedFormData
-        );
-      }
+        if (field === 'phone' && index !== undefined) {
+          const newPhoneTuple: [string, string, string, string] = [
+            prevFormData.phone[0],
+            prevFormData.phone[1],
+            prevFormData.phone[2],
+            prevFormData.phone[3],
+          ];
+          newPhoneTuple[index] = value;
+          currentInputtedFormData = { ...prevFormData, phone: newPhoneTuple };
+        } else {
+          currentInputtedFormData = {
+            ...prevFormData,
+            [field]: value as string,
+          };
+        }
 
-      if (field === 'email' && value.includes('@')) {
-        setEmailDomain('direct');
-      }
+        if (field === 'phone') {
+          validateField(
+            field,
+            currentInputtedFormData.phone,
+            currentInputtedFormData
+          );
+        } else {
+          validateField(
+            field,
+            currentInputtedFormData[field] as string,
+            currentInputtedFormData
+          );
+        }
+
+        if (field === 'email' && value.includes('@')) {
+          setEmailDomain('direct');
+        }
+        return currentInputtedFormData;
+      });
     },
-    [baseHandleInputChange, validateField, formData, setEmailDomain]
+    [baseHandleInputChange, validateField, setEmailDomain, setFormData]
+  );
+
+  const handleCarrierChange = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      baseHandleCarrierChange(e);
+      setFormData((prevFormData) => {
+        const updatedPhone: [string, string, string, string] = [
+          e.target.value,
+          prevFormData.phone[1],
+          prevFormData.phone[2],
+          prevFormData.phone[3],
+        ];
+        const updatedFormData = { ...prevFormData, phone: updatedPhone };
+        validateField('phone', updatedFormData.phone, updatedFormData);
+        return updatedFormData;
+      });
+    },
+    [baseHandleCarrierChange, setFormData, validateField]
   );
 
   const setIsSelectOpen = useCallback(
@@ -124,8 +168,38 @@ export const useRegisterForm = (): UseRegisterFormReturn => {
   );
 
   const checkEmailDuplicate = useCallback(async () => {
-    await baseCheckEmailDuplicate();
-  }, [baseCheckEmailDuplicate]);
+    setIsLoading(true);
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    const existingUsers = useRegisteredUsersStore.getState().users;
+    const isDuplicate = existingUsers.some(
+      (user) => user.email === fullEmailForValidation
+    );
+
+    if (isDuplicate) {
+      alert('이미 사용 중인 이메일입니다.');
+      setValidation((prev: any) => ({
+        ...prev,
+        emailChecked: false,
+        email: false,
+      }));
+    } else if (!isValidEmailFormat(fullEmailForValidation)) {
+      alert('올바른 이메일 주소 형식을 입력해 주세요.');
+      setValidation((prev: any) => ({
+        ...prev,
+        emailChecked: false,
+        email: false,
+      }));
+    } else {
+      alert('사용 가능한 이메일입니다.');
+      setValidation((prev: any) => ({
+        ...prev,
+        emailChecked: true,
+        email: true,
+      }));
+    }
+    setIsLoading(false);
+  }, [fullEmailForValidation, setIsLoading, setValidation]);
 
   const requestVerification = useCallback(async () => {
     await baseRequestVerification();
@@ -152,20 +226,57 @@ export const useRegisterForm = (): UseRegisterFormReturn => {
     );
   }, [fullEmailForValidation, validation]);
 
-  const handleSubmit = useCallback(async () => {
-    const finalFormData = {
-      ...formData,
-      email: fullEmailForValidation,
-    };
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault();
 
-    if (!allFieldsValid) {
-      alert('모든 필수 정보를 올바르게 입력하고 인증을 완료해주세요.');
-      return;
-    }
+      if (!allFieldsValid) {
+        alert('모든 필수 정보를 올바르게 입력하고 인증을 완료해주세요.');
+        return;
+      }
 
-    console.log('폼 제출됨:', finalFormData);
-    alert('회원가입이 완료되었습니다!');
-  }, [formData, fullEmailForValidation, allFieldsValid]);
+      setIsLoading(true);
+
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        addUser({
+          email: fullEmailForValidation,
+          password: formData.password,
+          userGrade: 3,
+          name: formData.name,
+          nickname: formData.nickname,
+          phone: formData.phone,
+          joinDate: new Date().toISOString().split('T')[0],
+        });
+
+        login(3, fullEmailForValidation);
+
+        updateUserProfileInStore(fullEmailForValidation, {
+          lastLoginDate: new Date().toISOString().slice(0, 10),
+        });
+
+        console.log('회원가입 및 로그인 성공:', fullEmailForValidation);
+        alert('회원가입이 완료되었습니다!');
+        router.push('/');
+      } catch (error) {
+        console.error('회원가입 처리 중 오류 발생:', error);
+        alert('회원가입에 실패했습니다. 다시 시도해주세요.');
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [
+      formData,
+      fullEmailForValidation,
+      allFieldsValid,
+      setIsLoading,
+      addUser,
+      login,
+      router,
+      updateUserProfileInStore,
+    ]
+  );
 
   const combinedIsSelectOpen = useMemo(
     () => ({

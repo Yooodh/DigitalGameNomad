@@ -21,17 +21,12 @@ export type FormData = {
 export type FormErrors = {
   email?: string;
   password?: string;
+  general?: string;
 };
 
 export type LoginPresenterProps = {
-  formData: {
-    email: string;
-    password: string;
-  };
-  errors: {
-    email?: string;
-    password?: string;
-  };
+  formData: FormData;
+  errors: FormErrors;
   showPassword: boolean;
   isLoading: boolean;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;

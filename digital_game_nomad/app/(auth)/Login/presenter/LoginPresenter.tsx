@@ -54,8 +54,14 @@ export default function LoginPresenter({
               {showPassword ? <EyeOff /> : <Eye />}
             </button>
           </FormInput>
+
           <Options />
           <SubmitBtn isLoading={isLoading} />
+          {errors.general && (
+            <span className={styles.formContainer__errorMessage}>
+              {errors.general}
+            </span>
+          )}
         </form>
         <LoginFooter />
       </div>

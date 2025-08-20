@@ -9,7 +9,7 @@
   overflow: hidden;
 
   .cardContainer {
-    background: $theme-shade-3;
+    background: $theme-shade-1;
     backdrop-filter: blur(20px);
     border-radius: 24px;
     padding: 48px 40px;
@@ -70,7 +70,7 @@
         border-radius: 12px;
         font-size: $font-base-size;
         transition: all 0.3s ease;
-        background: $theme-shade-3;
+        background: $theme-shade-1;
         backdrop-filter: blur(10px);
         color: $theme-text-1;
 

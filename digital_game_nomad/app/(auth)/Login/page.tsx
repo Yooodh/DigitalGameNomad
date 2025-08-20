@@ -1,10 +1,6 @@
 // slice
-import LoginContainer from './containers/Login.container';
+import { Login } from '.';
 
 export default function page() {
-  return (
-    <div>
-      <LoginContainer />
-    </div>
-  );
+  return <Login />;
 }

@@ -2,12 +2,21 @@
 
 // package
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 // slice
-import LoginPresenter from '../presenters/Login.presenter';
+import LoginPresenter from '../presenter/LoginPresenter';
 import { FormData, FormErrors } from '../types';
 
+// layer
+import { useAuthStore } from '@/shared/stores/useAuthStore';
+import { useRegisteredUsersStore } from '@/shared/stores/useRegisteredUsersStore';
+
 export default function LoginContainer() {
+  const router = useRouter();
+  const login = useAuthStore((state) => state.login);
+  const registeredUsers = useRegisteredUsersStore((state) => state.users);
+
   const [formData, setFormData] = useState<FormData>({
     email: '',
     password: '',
@@ -45,9 +54,28 @@ export default function LoginContainer() {
 
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log('로그인 성공:', formData);
+
+      const foundUser = registeredUsers.find(
+        (user) =>
+          user.email === formData.email && user.password === formData.password
+      );
+
+      if (foundUser) {
+        login(foundUser.userGrade, foundUser.email);
+        router.push('/');
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          general: '이메일 또는 비밀번호가 올바르지 않습니다.',
+        }));
+        console.error('로그인 실패: 이메일 또는 비밀번호 불일치');
+      }
     } catch (error) {
-      console.error('로그인 실패:', error);
+      console.error('로그인 처리 중 오류 발생:', error);
+      setErrors((prev) => ({
+        ...prev,
+        general: '로그인 처리 중 오류가 발생했습니다.',
+      }));
     } finally {
       setIsLoading(false);
     }

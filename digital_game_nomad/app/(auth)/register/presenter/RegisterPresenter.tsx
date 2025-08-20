@@ -7,9 +7,7 @@ import EmailInputGroup from '../components/EmailInputGroup';
 import PasswordInputGroup from '../components/PasswordInputGroup';
 import PhoneInputGroup from '../components/PhoneInputGroup';
 import Footer from '../components/Footer';
-
 import styles from '../styles/Register.module.scss';
-
 import { RegisterPresenterProps } from '../types';
 
 export default function RegisterPresenter({

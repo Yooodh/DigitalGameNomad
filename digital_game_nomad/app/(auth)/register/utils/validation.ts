@@ -15,5 +15,5 @@ export const isValidNameFormat = (name: string): boolean =>
 export const isValidNicknameFormat = (nickname: string): boolean =>
   /^[가-힣a-zA-Z0-9]+$/.test(nickname);
 
-export const isValidPhoneFormat = (phone: string): boolean =>
-  /^[0-9]{11}$/.test(phone);
+export const isValidPhoneFormat = (phoneDigits: string): boolean =>
+  /^\d{11}$/.test(phoneDigits);

@@ -10,6 +10,7 @@ export default function PhoneInputGroup({
   phone,
   verificationCode,
   showVerification,
+  isLoading,
   isCarrierSelectOpen,
   validationPhone,
   validationPhoneVerified,
@@ -23,7 +24,7 @@ export default function PhoneInputGroup({
   return (
     <InputGroup
       label='전화번호'
-      showError={!validationPhone && phone.join('') !== ''}
+      showError={!validationPhone && phone.slice(1).join('') !== ''}
       errorMessage='유효한 전화번호 11자리를 입력해 주세요.'
       showSuccess={validationPhoneVerified}
       successMessage='전화번호 인증이 완료되었습니다'
@@ -47,7 +48,7 @@ export default function PhoneInputGroup({
               }))
             }
           >
-            <option>통신사 선택</option>
+            <option value=''>통신사 선택</option>
             <option value='SKT'>SKT</option>
             <option value='KT'>KT</option>
             <option value='LG'>LG U+</option>
@@ -61,8 +62,8 @@ export default function PhoneInputGroup({
         <div className={styles.phoneContainer__inputs}>
           <input
             type='text'
-            value={phone[0]}
-            onChange={(e) => handleInputChange('phone', e.target.value, 0)}
+            value={phone[1]}
+            onChange={(e) => handleInputChange('phone', e.target.value, 1)}
             className={styles.phoneContainer__input}
             placeholder='010'
             maxLength={3}
@@ -70,8 +71,8 @@ export default function PhoneInputGroup({
           <span className={styles.phoneContainer__separator}>-</span>
           <input
             type='text'
-            value={phone[1]}
-            onChange={(e) => handleInputChange('phone', e.target.value, 1)}
+            value={phone[2]}
+            onChange={(e) => handleInputChange('phone', e.target.value, 2)}
             className={styles.phoneContainer__input}
             placeholder='1234'
             maxLength={4}
@@ -79,8 +80,8 @@ export default function PhoneInputGroup({
           <span className={styles.phoneContainer__separator}>-</span>
           <input
             type='text'
-            value={phone[2]}
-            onChange={(e) => handleInputChange('phone', e.target.value, 2)}
+            value={phone[3]}
+            onChange={(e) => handleInputChange('phone', e.target.value, 3)}
             className={styles.phoneContainer__input}
             placeholder='5678'
             maxLength={4}
@@ -88,7 +89,12 @@ export default function PhoneInputGroup({
           <button
             type='button'
             onClick={requestVerification}
-            disabled={!validationPhone || validationPhoneVerified}
+            disabled={
+              !phone[0] ||
+              !validationPhone ||
+              validationPhoneVerified ||
+              isLoading
+            }
             className={`${styles.groupContainer__btn} ${styles.btnSuccess}`}
           >
             {validationPhoneVerified ? '인증완료' : '인증'}

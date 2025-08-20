@@ -54,7 +54,10 @@ export const useValidation = () => {
             isValid = isValidNicknameFormat(value as string);
             break;
           case 'phone':
-            isValid = isValidPhoneFormat((value as string[]).join(''));
+            const phoneDigits = (value as [string, string, string, string])
+              .slice(1)
+              .join('');
+            isValid = isValidPhoneFormat(phoneDigits);
             phoneVerified = false;
             break;
           default:

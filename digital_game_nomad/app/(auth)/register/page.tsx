@@ -1,10 +1,6 @@
 // slice
-import RegisterContainer from './containers/Register.container';
+import { Register } from '.';
 
 export default function page() {
-  return (
-    <>
-      <RegisterContainer />
-    </>
-  );
+  return <Register />;
 }

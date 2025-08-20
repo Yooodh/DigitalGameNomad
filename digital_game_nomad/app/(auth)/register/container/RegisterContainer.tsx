@@ -1,7 +1,7 @@
 'use client';
 
 // slice
-import RegisterPresenter from '../presenters/Register.presenter';
+import RegisterPresenter from '../presenter/RegisterPresenter';
 import { useRegisterForm } from '../hooks/useRegisterForm';
 
 export default function RegisterContainer() {

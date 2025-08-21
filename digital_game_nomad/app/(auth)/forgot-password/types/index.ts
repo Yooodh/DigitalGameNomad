@@ -49,11 +49,17 @@ export type InputFieldProps = {
   label: string;
   name: string;
   value: string;
-  showPassword: boolean;
+  showPassword?: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onTogglePassword: () => void;
+  onTogglePassword?: () => void;
   placeholder: string;
+  type?: string;
   error?: string;
+  maxLength?: number;
+  inputMode?: 'text' | 'numeric' | 'tel' | 'email' | 'url';
+  autoFocus?: boolean;
+  countdown?: number;
+  formatTime?: (seconds: number) => string;
 };
 
 export type RequirementsProps = {
@@ -61,11 +67,17 @@ export type RequirementsProps = {
 };
 
 export type FormData = {
-  currentPassword: string;
-  newPassword: string;
-  confirmPassword: string;
   email: string;
   emailVerificationCode: string;
+  newPassword: string;
+  confirmPassword: string;
+};
+
+// 누락된 PasswordStrength 타입을 추가했습니다.
+export type PasswordStrength = {
+  strength: number;
+  label: string;
+  color: string;
 };
 
 export type PasswordStrengthResult = {
@@ -80,58 +92,37 @@ export type ForgotPasswordPresenterProps = {
   isLoading: boolean;
   passwordError: string;
   confirmPasswordError: string;
-  currentPasswordError: string;
-  showCurrentPassword: boolean;
+  emailError: string;
+  emailCodeError: string;
   showNewPassword: boolean;
   showConfirmPassword: boolean;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.FormEvent) => Promise<void>;
-  togglePasswordVisibility: (field: 'current' | 'new' | 'confirm') => void;
+  togglePasswordVisibility: (field: 'new' | 'confirm') => void;
   passwordStrength: PasswordStrengthResult;
-  setStep: React.Dispatch<React.SetStateAction<number>>;
   isEmailCodeSent: boolean;
   emailCountdown: number;
-  emailError: string;
-  emailCodeError: string;
   sendEmailVerificationCode: () => Promise<void>;
   formatTime: (seconds: number) => string;
   validateVerificationCode: (code: string) => boolean;
   handlePrev: () => void;
+  resetForm: () => void;
+  setStep: (step: number) => void;
 };
 
 export type UsePasswordFormProps = {
   validatePassword: (password: string) => boolean;
-  setConfirmPasswordError: (error: string) => void;
-  setPasswordError: (error: string) => void;
-  setCurrentPasswordError: (error: string) => void;
 };
 
-export type UsePasswordResetProcessProps = {
-  formData: FormData;
+export type UseForgotPasswordProcessProps = {
   validatePassword: (password: string) => boolean;
-  setPasswordError: (error: string) => void;
-  setConfirmPasswordError: (error: string) => void;
-  setCurrentPasswordError: (error: string) => void;
-  setEmailCodeError: (error: string) => void;
   validateVerificationCode: (code: string) => boolean;
-};
-
-export type PasswordStrength = {
-  strength: number;
-  label: string;
-  color: string;
 };
 
 export type UseEmailVerificationReturn = {
   isEmailCodeSent: boolean;
-  setIsEmailCodeSent: React.Dispatch<React.SetStateAction<boolean>>;
   emailCountdown: number;
-  setEmailCountdown: React.Dispatch<React.SetStateAction<number>>;
-  sendEmailVerificationCode: (
-    email: string,
-    setLoading: (loading: boolean) => void,
-    setEmailError: (error: string) => void
-  ) => Promise<void>;
+  sendEmailVerificationCode: (email: string) => Promise<void>;
   resetEmailVerification: () => void;
 };
 
@@ -148,4 +139,8 @@ export type InputGroupProps = {
   autoFocus?: boolean;
   countdown?: number;
   formatTime?: (seconds: number) => string;
+};
+
+export type ThirdStepCompletionProps = {
+  resetForm: () => void;
 };

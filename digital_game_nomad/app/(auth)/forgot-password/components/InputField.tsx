@@ -16,12 +16,15 @@ export default function InputField({
   placeholder,
   error,
 }: InputFieldProps) {
+  const inputType =
+    showPassword === undefined ? 'text' : showPassword ? 'text' : 'password';
+
   return (
     <div className={styles.inputContainer}>
       <label className={styles.inputContainer__label}>{label}</label>
       <div className={styles.inputContainer__wrap}>
         <input
-          type={showPassword ? 'text' : 'password'}
+          type={inputType}
           name={name}
           value={value}
           onChange={onChange}
@@ -30,10 +33,13 @@ export default function InputField({
             error ? styles.inputContainer__error : ''
           }`}
         />
-        <PasswordToggleButton
-          showPassword={showPassword}
-          togglePasswordVisibility={onTogglePassword}
-        />
+
+        {onTogglePassword && (
+          <PasswordToggleButton
+            showPassword={showPassword!}
+            togglePasswordVisibility={onTogglePassword}
+          />
+        )}
       </div>
       {error && (
         <div className={styles.inputContainer__errorMessage}>

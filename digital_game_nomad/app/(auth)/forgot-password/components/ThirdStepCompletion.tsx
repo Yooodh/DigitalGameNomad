@@ -1,10 +1,18 @@
 // slice
 import styles from '../styles/ForgotPassword.module.scss';
+import { ThirdStepCompletionProps } from '../types';
 
 // layer
 import { Check } from '@/shared/icons';
 
-export default function ThridStepCompletion() {
+export default function ThirdStepCompletion({
+  resetForm,
+}: ThirdStepCompletionProps) {
+  const handleGoToLogin = () => {
+    resetForm();
+    window.location.href = '/login';
+  };
+
   return (
     <div className={styles.stepContainer}>
       <div className={styles.stepContainer__completionIcon}>
@@ -19,7 +27,7 @@ export default function ThridStepCompletion() {
       </p>
       <button
         type='button'
-        onClick={() => (window.location.href = '/login')}
+        onClick={handleGoToLogin}
         className={`${styles.btn} ${styles.primary}`}
       >
         로그인 페이지로 이동

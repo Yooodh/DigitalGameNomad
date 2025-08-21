@@ -1,10 +1,6 @@
 // slice
-import ForgotPasswordContainer from './containers/ForgotPassword.container';
+import { ForgotPassword } from '.';
 
 export default function page() {
-  return (
-    <>
-      <ForgotPasswordContainer />
-    </>
-  );
+  return <ForgotPassword />;
 }

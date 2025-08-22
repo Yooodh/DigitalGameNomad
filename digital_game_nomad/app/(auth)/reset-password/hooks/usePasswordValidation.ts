@@ -1,14 +1,10 @@
 // package
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 
-//slice
+// slice
 import { PasswordStrength } from '../types';
 
 export function usePasswordValidation() {
-  const [passwordError, setPasswordError] = useState<string>('');
-  const [confirmPasswordError, setConfirmPasswordError] = useState<string>('');
-  const [currentPasswordError, setCurrentPasswordError] = useState<string>('');
-
   const validatePassword = useCallback((password: string): boolean => {
     const passwordRegex =
       /^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -38,12 +34,6 @@ export function usePasswordValidation() {
   );
 
   return {
-    passwordError,
-    setPasswordError,
-    confirmPasswordError,
-    setConfirmPasswordError,
-    currentPasswordError,
-    setCurrentPasswordError,
     validatePassword,
     getPasswordStrength,
   };

@@ -78,22 +78,19 @@ export type ResetPasswordPresenterProps = {
   handleSubmit: (e: React.FormEvent) => Promise<void>;
   togglePasswordVisibility: (field: 'current' | 'new' | 'confirm') => void;
   passwordStrength: PasswordStrengthResult;
-  setStep: React.Dispatch<React.SetStateAction<number>>;
+  setStep: (step: number) => void;
+  resetForm: () => void;
 };
 
 export type UsePasswordFormProps = {
   validatePassword: (password: string) => boolean;
-  setConfirmPasswordError: (error: string) => void;
-  setPasswordError: (error: string) => void;
-  setCurrentPasswordError: (error: string) => void;
 };
 
 export type UsePasswordResetProcessProps = {
-  formData: FormData;
   validatePassword: (password: string) => boolean;
-  setPasswordError: (error: string) => void;
-  setConfirmPasswordError: (error: string) => void;
-  setCurrentPasswordError: (error: string) => void;
+};
+export type ThirdStepCompletionProps = {
+  resetForm: () => void;
 };
 
 export type PasswordStrength = {

@@ -2,14 +2,14 @@
 import ProgressBar from '../components/ProgressBar';
 import FirstStepCurrentPassword from '../components/FirstStepCurrentPassword';
 import SecondStepNewPassword from '../components/SecondStepNewPassword';
-import ThridStepCompletion from '../components/ThridStepCompletion';
+import ThirdStepCompletion from '../components/ThirdStepCompletion';
 import styles from '../styles/ResetPassword.module.scss';
 import { ResetPasswordPresenterProps } from '../types';
 
 export default function ResetPasswordPresenter(
   props: ResetPasswordPresenterProps
 ) {
-  const { step, handleSubmit } = props;
+  const { step, handleSubmit, resetForm } = props;
 
   return (
     <div className={styles.resetPasswordContainer}>
@@ -33,7 +33,7 @@ export default function ResetPasswordPresenter(
               handlePrev={() => props.setStep(1)}
             />
           )}
-          {step === 3 && <ThridStepCompletion />}
+          {step === 3 && <ThirdStepCompletion resetForm={resetForm} />}
         </form>
       </div>
     </div>

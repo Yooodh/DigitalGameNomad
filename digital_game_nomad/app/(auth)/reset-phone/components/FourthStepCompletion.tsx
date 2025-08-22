@@ -1,6 +1,5 @@
 // slice
 import InfoDisplay from './InfoDisplay';
-
 import styles from '../styles/ResetPhone.module.scss';
 import { FourthStepCompletionProps } from '../types';
 

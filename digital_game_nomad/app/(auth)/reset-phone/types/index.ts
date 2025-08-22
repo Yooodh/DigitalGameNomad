@@ -74,6 +74,7 @@ export type SecondStepPersonalInfoProps = {
   handleSelectFocus: (selectName: 'currentCarrier') => void;
   handleSelectBlur: (selectName: 'currentCarrier') => void;
   handlePrevStep: () => void;
+  personalInfoError: string;
 };
 
 export type VerificationCodeProps = {
@@ -148,6 +149,7 @@ export type ResetPhonePresenterProps = {
   emailError: string;
   emailCodeError: string;
   phoneCodeError: string;
+  personalInfoError: string;
   isCurrentCarrierSelectOpen: boolean;
   isNewCarrierSelectOpen: boolean;
   carriers: string[];
@@ -163,6 +165,7 @@ export type ResetPhonePresenterProps = {
   handleCompletionAndRedirect: () => void;
   validateVerificationCode: (code: string) => boolean;
   handlePrevStep: () => void;
+  resetForm: () => void;
 };
 
 export type FormData = {
@@ -177,59 +180,27 @@ export type FormData = {
 };
 
 export type UseEmailVerificationReturn = {
-  isEmailCodeSent: boolean;
-  setIsEmailCodeSent: React.Dispatch<React.SetStateAction<boolean>>;
-  emailCountdown: number;
-  setEmailCountdown: React.Dispatch<React.SetStateAction<number>>;
-  sendEmailVerificationCode: (
-    email: string,
-    setLoading: (loading: boolean) => void,
-    setEmailError: (error: string) => void
-  ) => Promise<void>;
+  sendEmailVerificationCode: (email: string) => Promise<void>;
   resetEmailVerification: () => void;
 };
 
 export type UsePhoneVerificationReturn = {
-  isPhoneCodeSent: boolean;
-  setIsPhoneCodeSent: React.Dispatch<React.SetStateAction<boolean>>;
-  phoneCountdown: number;
-  setPhoneCountdown: React.Dispatch<React.SetStateAction<number>>;
-  sendPhoneVerificationCode: (
-    setLoading: (loading: boolean) => void
-  ) => Promise<void>;
+  sendPhoneVerificationCode: () => Promise<void>;
   resetPhoneVerification: () => void;
 };
 
 export type UseResetPhoneFormReturn = {
-  formData: FormData;
-  setFormData: React.Dispatch<React.SetStateAction<FormData>>;
   handleInputChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => void;
-  emailError: string;
-  setEmailError: React.Dispatch<React.SetStateAction<string>>;
-  emailCodeError: string;
-  setEmailCodeError: React.Dispatch<React.SetStateAction<string>>;
-  phoneCodeError: string;
-  setPhoneCodeError: React.Dispatch<React.SetStateAction<string>>;
-  isCurrentCarrierSelectOpen: boolean;
-  setIsCurrentCarrierSelectOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  isNewCarrierSelectOpen: boolean;
-  setIsNewCarrierSelectOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  carriers: string[];
   handleSelectFocus: (selectName: 'currentCarrier' | 'newCarrier') => void;
   handleSelectBlur: (selectName: 'currentCarrier' | 'newCarrier') => void;
 };
 
 export type UseStepNavigationReturn = {
   step: number;
-  setStep: React.Dispatch<React.SetStateAction<number>>;
-  handleSubmit: (e: React.FormEvent) => Promise<void>;
-  handlePrevStep: (
-    resetEmailVerification: () => void,
-    resetPhoneVerification: () => void
-  ) => void;
-  handleCompletionAndRedirect: () => void;
   isLoading: boolean;
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  handleSubmit: (e: React.FormEvent) => Promise<void>;
+  handlePrevStep: () => void;
+  handleCompletionAndRedirect: () => void;
 };

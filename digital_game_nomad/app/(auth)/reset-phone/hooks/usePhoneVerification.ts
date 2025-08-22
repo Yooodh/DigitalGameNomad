@@ -1,27 +1,34 @@
 // package
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useEffect, useCallback, useRef } from 'react';
 
 // slice
 import { UsePhoneVerificationReturn } from '../types';
 
+// layer
+import { useResetPhoneStore } from '@/shared/stores/useResetPhoneStore';
+
 export function usePhoneVerification(): UsePhoneVerificationReturn {
-  const [isPhoneCodeSent, setIsPhoneCodeSent] = useState<boolean>(false);
-  const [phoneCountdown, setPhoneCountdown] = useState<number>(0);
+  const {
+    isPhoneCodeSent,
+    setIsPhoneCodeSent,
+    phoneCountdown,
+    setPhoneCountdown,
+    setIsLoading,
+    setError,
+  } = useResetPhoneStore();
 
   const phoneCountdownRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
-  const sendPhoneVerificationCode = useCallback(
-    async (setLoading: (loading: boolean) => void) => {
-      setLoading(true);
+  const sendPhoneVerificationCode = useCallback(async () => {
+    setIsLoading(true);
+    setError('phoneCodeError', '');
 
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      setIsPhoneCodeSent(true);
-      setLoading(false);
-      setPhoneCountdown(180);
-    },
-    []
-  );
+    setIsPhoneCodeSent(true);
+    setIsLoading(false);
+    setPhoneCountdown(180);
+  }, [setIsLoading, setIsPhoneCodeSent, setPhoneCountdown, setError]);
 
   useEffect(() => {
     if (phoneCountdownRef.current) {
@@ -30,8 +37,9 @@ export function usePhoneVerification(): UsePhoneVerificationReturn {
 
     if (isPhoneCodeSent && phoneCountdown > 0) {
       phoneCountdownRef.current = setInterval(() => {
-        setPhoneCountdown((prev) => prev - 1);
+        setPhoneCountdown(phoneCountdown - 1);
       }, 1000);
+    } else if (phoneCountdown === 0 && isPhoneCodeSent) {
     }
 
     return () => {
@@ -39,23 +47,20 @@ export function usePhoneVerification(): UsePhoneVerificationReturn {
         clearInterval(phoneCountdownRef.current);
       }
     };
-  }, [isPhoneCodeSent, phoneCountdown]);
+  }, [isPhoneCodeSent, phoneCountdown, setPhoneCountdown, setError]);
 
   const resetPhoneVerification = useCallback(() => {
     setIsPhoneCodeSent(false);
     setPhoneCountdown(0);
+    setError('phoneCodeError', '');
 
     if (phoneCountdownRef.current) {
       clearInterval(phoneCountdownRef.current);
       phoneCountdownRef.current = undefined;
     }
-  }, []);
+  }, [setIsPhoneCodeSent, setPhoneCountdown, setError]);
 
   return {
-    isPhoneCodeSent,
-    setIsPhoneCodeSent,
-    phoneCountdown,
-    setPhoneCountdown,
     sendPhoneVerificationCode,
     resetPhoneVerification,
   };

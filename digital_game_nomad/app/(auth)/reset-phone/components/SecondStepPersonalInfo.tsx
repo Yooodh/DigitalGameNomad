@@ -4,6 +4,9 @@ import PhoneInputGroup from './PhoneInputGroup';
 import styles from '../styles/ResetPhone.module.scss';
 import { SecondStepPersonalInfoProps } from '../types';
 
+// layer
+import { Warning } from '@/shared/icons';
+
 export default function SecondStepPersonalInfo({
   formData,
   isLoading,
@@ -13,6 +16,7 @@ export default function SecondStepPersonalInfo({
   handleSelectFocus,
   handleSelectBlur,
   handlePrevStep,
+  personalInfoError,
 }: SecondStepPersonalInfoProps) {
   return (
     <div className={styles.stepContainer}>
@@ -42,6 +46,15 @@ export default function SecondStepPersonalInfo({
         onSelectBlur={() => handleSelectBlur('currentCarrier')}
         placeholder='010-0000-0000'
       />
+
+      {personalInfoError && (
+        <div className={styles.inputContainer__errorMessage}>
+          <svg className={styles.inputContainer__errorIcon} viewBox='0 0 24 21'>
+            <Warning />
+          </svg>
+          {personalInfoError}
+        </div>
+      )}
 
       <div className={styles.btnContainer}>
         <button

@@ -1,10 +1,6 @@
 // slice
-import ResetPasswordContainer from './containers/ResetPassword.container';
+import { ResetPassword } from '.';
 
 export default function page() {
-  return (
-    <>
-      <ResetPasswordContainer />
-    </>
-  );
+  return <ResetPassword />;
 }

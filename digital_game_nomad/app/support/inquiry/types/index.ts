@@ -52,5 +52,5 @@ export type InquiryPresenterProps = {
   errors: Partial<QuestionData>;
   isSubmitting: boolean;
   handleInputChange: (field: keyof QuestionData, value: string) => void;
-  submitQuestion: () => void;
+  submitQuestion: () => Promise<void>;
 };

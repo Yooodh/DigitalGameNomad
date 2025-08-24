@@ -4,18 +4,22 @@ import { useRouter } from 'next/navigation';
 
 // slice
 import { useForm } from './useForm';
-
 import { QuestionData, UseInquirySubmissionReturn } from '../types';
+
+// layer
+import { useInquiriesStore } from '@/shared/stores/useInquiriesStore';
+import { useAuthStore } from '@/shared/stores/useAuthStore';
 
 export function useInquirySubmission(): UseInquirySubmissionReturn {
   const router = useRouter();
-
+  const addInquiry = useInquiriesStore((state) => state.addInquiry);
+  const { userEmail: currentUserEmail, isHydrated } = useAuthStore();
   const { formData, errors, setErrors, handleInputChange, resetForm } =
     useForm<QuestionData>({
       title: '',
       text: '',
     });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const validateForm = (): boolean => {
     const newErrors: Partial<QuestionData> = {};
@@ -33,18 +37,28 @@ export function useInquirySubmission(): UseInquirySubmissionReturn {
   };
 
   const submitQuestion = async () => {
+    if (!isHydrated) {
+      alert('로그인 정보를 불러오는 중입니다. 잠시 후 다시 시도해 주세요.');
+      return;
+    }
+
     if (!validateForm()) return;
+
+    if (!currentUserEmail) {
+      alert('로그인 후 이용해 주세요.');
+      return;
+    }
 
     setIsSubmitting(true);
 
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      const simulatedPostData = {
+      addInquiry({
         title: formData.title.trim(),
         text: formData.text.trim(),
-      };
-      console.log('Simulated API Call with data:', simulatedPostData);
+        senderEmail: currentUserEmail,
+      });
 
       alert('문의가 성공적으로 등록되었습니다.');
 

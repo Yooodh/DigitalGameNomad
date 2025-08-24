@@ -1,7 +1,7 @@
 'use client';
 
 // slice
-import InquiryPresenter from '../presenters/Inquiry.presenter';
+import InquiryPresenter from '../presenter/InquiryPresenter';
 import { useInquirySubmission } from '../hooks/useInquirySubmission';
 
 export default function InquiryContainer() {

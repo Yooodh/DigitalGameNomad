@@ -1,6 +1,6 @@
-// components/InquiryPresenter.tsx
+// slice
 import styles from '../styles/Inquiry.module.scss';
-import FormInput from '../components/FormInput'; // Import the new components
+import FormInput from '../components/FormInput';
 import FormTextarea from '../components/FormTextarea';
 import SubmitButton from '../components/SubmitButton';
 import Header from '../components/Header';

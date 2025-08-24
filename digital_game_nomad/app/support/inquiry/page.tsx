@@ -1,10 +1,6 @@
 // slice
-import InquiryContainer from './containers/Inquiry.container';
+import { Inquiry } from '.';
 
 export default function page() {
-  return (
-    <div>
-      <InquiryContainer />
-    </div>
-  );
+  return <Inquiry />;
 }

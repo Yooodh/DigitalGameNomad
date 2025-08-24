@@ -1,10 +1,6 @@
 // slice
-import ResetPhoneContainer from './containers/ResetPhone.container';
+import { ResetPhone } from '.';
 
 export default function page() {
-  return (
-    <>
-      <ResetPhoneContainer />
-    </>
-  );
+  return <ResetPhone />;
 }

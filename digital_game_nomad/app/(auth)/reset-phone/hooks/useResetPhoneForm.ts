@@ -1,57 +1,45 @@
 // package
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 
 // slice
 import { useValidationUtils } from './useValidationUtils';
 import { FormData, UseResetPhoneFormReturn } from '../types';
 
+// layer
+import { useResetPhoneStore } from '@/shared/stores/useResetPhoneStore';
+
 export function useResetPhoneForm(): UseResetPhoneFormReturn {
   const { validateEmail, getVerificationCodeError, formatPhoneNumber } =
     useValidationUtils();
 
-  const [formData, setFormData] = useState<FormData>({
-    email: '',
-    emailVerificationCode: '',
-    name: '',
-    currentPhone: '',
-    currentCarrier: '',
-    newPhone: '',
-    newCarrier: '',
-    phoneVerificationCode: '',
-  });
-  const [emailError, setEmailError] = useState<string>('');
-  const [emailCodeError, setEmailCodeError] = useState<string>('');
-  const [phoneCodeError, setPhoneCodeError] = useState<string>('');
-  const [isCurrentCarrierSelectOpen, setIsCurrentCarrierSelectOpen] =
-    useState<boolean>(false);
-  const [isNewCarrierSelectOpen, setIsNewCarrierSelectOpen] =
-    useState<boolean>(false);
-
-  const carriers = ['통신사', 'SKT', 'KT', 'LG U+', '알뜰폰'];
+  const {
+    setFormData,
+    setError,
+    setIsCurrentCarrierSelectOpen,
+    setIsNewCarrierSelectOpen,
+  } = useResetPhoneStore();
 
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       const { name, value } = e.target;
 
+      setFormData(name as keyof FormData, value);
+
       if (name === 'email') {
-        setFormData((prev) => ({ ...prev, [name]: value }));
         if (value && !validateEmail(value)) {
-          setEmailError('올바른 이메일 형식을 입력해주세요');
+          setError('emailError', '올바른 이메일 형식을 입력해주세요');
         } else {
-          setEmailError('');
+          setError('emailError', '');
         }
       } else if (name === 'currentPhone' || name === 'newPhone') {
         const formatted = formatPhoneNumber(value);
-        setFormData((prev) => ({ ...prev, [name]: formatted }));
+        setFormData(name as keyof FormData, formatted);
       } else if (name === 'emailVerificationCode') {
         const numbersOnly = value.replace(/\D/g, '').slice(0, 6);
-        setFormData((prev) => ({ ...prev, [name]: numbersOnly }));
-        setEmailCodeError(getVerificationCodeError(numbersOnly));
+        setFormData(name as keyof FormData, numbersOnly);
+        setError('emailCodeError', getVerificationCodeError(numbersOnly));
       } else if (name === 'currentCarrier' || name === 'newCarrier') {
-        setFormData((prev) => ({
-          ...prev,
-          [name]: value === '통신사' ? '' : value,
-        }));
+        setFormData(name as keyof FormData, value === '통신사' ? '' : value);
         if (name === 'currentCarrier') {
           setIsCurrentCarrierSelectOpen(false);
         } else {
@@ -59,13 +47,19 @@ export function useResetPhoneForm(): UseResetPhoneFormReturn {
         }
       } else if (name === 'phoneVerificationCode') {
         const numbersOnly = value.replace(/\D/g, '').slice(0, 6);
-        setFormData((prev) => ({ ...prev, [name]: numbersOnly }));
-        setPhoneCodeError(getVerificationCodeError(numbersOnly));
-      } else {
-        setFormData((prev) => ({ ...prev, [name]: value }));
+        setFormData(name as keyof FormData, numbersOnly);
+        setError('phoneCodeError', getVerificationCodeError(numbersOnly));
       }
     },
-    [validateEmail, formatPhoneNumber, getVerificationCodeError]
+    [
+      validateEmail,
+      formatPhoneNumber,
+      getVerificationCodeError,
+      setFormData,
+      setError,
+      setIsCurrentCarrierSelectOpen,
+      setIsNewCarrierSelectOpen,
+    ]
   );
 
   const handleSelectFocus = useCallback(
@@ -76,7 +70,7 @@ export function useResetPhoneForm(): UseResetPhoneFormReturn {
         setIsNewCarrierSelectOpen(true);
       }
     },
-    []
+    [setIsCurrentCarrierSelectOpen, setIsNewCarrierSelectOpen]
   );
 
   const handleSelectBlur = useCallback(
@@ -87,24 +81,11 @@ export function useResetPhoneForm(): UseResetPhoneFormReturn {
         setIsNewCarrierSelectOpen(false);
       }
     },
-    []
+    [setIsCurrentCarrierSelectOpen, setIsNewCarrierSelectOpen]
   );
 
   return {
-    formData,
-    setFormData,
     handleInputChange,
-    emailError,
-    setEmailError,
-    emailCodeError,
-    setEmailCodeError,
-    phoneCodeError,
-    setPhoneCodeError,
-    isCurrentCarrierSelectOpen,
-    setIsCurrentCarrierSelectOpen,
-    isNewCarrierSelectOpen,
-    setIsNewCarrierSelectOpen,
-    carriers,
     handleSelectFocus,
     handleSelectBlur,
   };

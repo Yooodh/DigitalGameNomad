@@ -6,6 +6,7 @@ export type InquiryDetail = {
   content: string;
   createdAt: string;
   status: InquiryStatus;
+  senderEmail: string;
   adminReply?: string;
   repliedAt?: string;
 };
@@ -52,26 +53,6 @@ export type UseFilterPaginationSyncProps = {
   resetPagination: () => void;
 };
 
-export type UseInquiryDataProps = {
-  searchTerm: string;
-  statusFilter: InquiryStatus | 'all';
-};
-
-export type UseInquiryDataFetcherReturn = {
-  allInquiries: InquiryDetail[];
-  setAllInquiries: React.Dispatch<React.SetStateAction<InquiryDetail[]>>;
-  initialLoadComplete: boolean;
-};
-
-export type UseInquiryDataReturn = {
-  inquiries: InquiryDetail[];
-  filteredInquiries: InquiryDetail[];
-};
-
-export type UseInquiryFiltersProps = {
-  onFilterChange: () => void;
-};
-
 export type UseInquiryFiltersReturn = {
   searchTerm: string;
   statusFilter: InquiryStatus | 'all';
@@ -85,12 +66,6 @@ export type UseInquiryListProps = {
   searchTerm: string;
   statusFilter: InquiryStatus | 'all';
   itemsPerPage: number;
-};
-
-export type UseInquiryManagementReturn = {
-  inquiries: InquiryDetail[];
-  setInquiries: React.Dispatch<React.SetStateAction<InquiryDetail[]>>;
-  handleDeleteInquiry: (id: string) => void;
 };
 
 export type UseInquiryModalReturn = {

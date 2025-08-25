@@ -1,27 +1,20 @@
 'use client';
 
-// package
-import { useCallback } from 'react';
-
 // slice
-import DetailPresenter from '../presenters/Detail.presenter';
+import DetailPresenter from '../presenter/DetailPresenter';
 import { useInquiryFilters } from '../hooks/useInquiryFilters';
 import { useInquiryList } from '../hooks/useInquiryList';
 import { useInquiryModal } from '../hooks/useInquiryModal';
 import { useInquiryStats } from '../hooks/useInquiryStats';
-
-const ITEMS_PER_PAGE = 10;
-const MAX_VISIBLE_PAGES = 5;
+import { ITEMS_PER_PAGE, MAX_VISIBLE_PAGES } from '../constants';
 
 export default function DetailContainer() {
-  const onFilterChange = useCallback(() => {}, []);
-
   const {
     searchTerm,
     statusFilter,
     handleSearchChange,
     handleStatusFilterChange,
-  } = useInquiryFilters({ onFilterChange });
+  } = useInquiryFilters();
 
   const {
     inquiries: currentItems,
@@ -53,7 +46,7 @@ export default function DetailContainer() {
   } = useInquiryStats(fullInquiryDataForStats || []);
 
   if (!initialLoadComplete) {
-    return <div>Loading...</div>;
+    return <div>Loading inquiries...</div>;
   }
 
   return (

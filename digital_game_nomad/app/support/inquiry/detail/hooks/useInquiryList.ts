@@ -3,37 +3,36 @@ import { useCallback, useMemo } from 'react';
 
 // slice
 import { usePagination } from './usePagination';
-import { useInquiryDataFetcher } from './useInquiryDataFetcher';
+import { useInquiryData } from './useInquiryData';
 import { useFilterPaginationSync } from './useFilterPaginationSync';
 import { UseInquiryListProps, UseInquiryListReturn } from '../types';
+
+// layer
+import { useInquiriesStore } from '@/shared/stores/useInquiriesStore';
 
 export function useInquiryList({
   searchTerm,
   statusFilter,
   itemsPerPage,
 }: UseInquiryListProps): UseInquiryListReturn {
-  const { allInquiries, setAllInquiries, initialLoadComplete } =
-    useInquiryDataFetcher();
+  const {
+    inquiries: allMyInquiries,
+    filteredInquiries,
+    initialLoadComplete,
+  } = useInquiryData({ searchTerm, statusFilter });
+
+  const deleteInquiriesFromStore = useInquiriesStore(
+    (state) => state.deleteInquiries
+  );
 
   const handleDeleteInquiry = useCallback(
     (id: string) => {
       if (window.confirm('이 문의를 삭제하시겠습니까?')) {
-        setAllInquiries((prev) => prev.filter((inquiry) => inquiry.id !== id));
+        deleteInquiriesFromStore([id]);
       }
     },
-    [setAllInquiries]
+    [deleteInquiriesFromStore]
   );
-
-  const filteredInquiries = useMemo(() => {
-    return allInquiries.filter((inquiry) => {
-      const matchesStatus =
-        statusFilter === 'all' || inquiry.status === statusFilter;
-      const matchesSearch =
-        inquiry.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        inquiry.id.toLowerCase().includes(searchTerm.toLowerCase());
-      return matchesStatus && matchesSearch;
-    });
-  }, [allInquiries, searchTerm, statusFilter]);
 
   const {
     currentPage,
@@ -61,6 +60,6 @@ export function useInquiryList({
     startIndex,
     handlePageChange,
     initialLoadComplete,
-    allInquiries,
+    allInquiries: allMyInquiries,
   };
 }

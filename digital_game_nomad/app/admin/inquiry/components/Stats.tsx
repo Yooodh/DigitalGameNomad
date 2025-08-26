@@ -1,5 +1,5 @@
 // slice
-import styles from '../styles/Inquiry.module.scss';
+import styles from '../styles/AdminInquiry.module.scss';
 import { StatsProps } from '../types';
 
 // layer

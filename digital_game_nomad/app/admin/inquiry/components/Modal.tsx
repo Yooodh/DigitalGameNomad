@@ -1,19 +1,19 @@
 // slice
 import ModalHeader from '../components/ModalHeader';
 import ModalBasicInfo from '../components/ModalBasicInfo';
-import ModalUserInfo from '../components//ModalUserInfo';
+import ModalUserInfo from '../components/ModalUserInfo';
 import ModalContent from '../components/ModalContent';
 import ModalReply from '../components/ModalReply';
 import ModalActionButtons from '../components/ModalActionButtons';
-import styles from '../styles/Inquiry.module.scss';
+import styles from '../styles/AdminInquiry.module.scss';
 import { ModalProps } from '../types';
 
-export default function ({
+export default function Modal({
   selectedInquiry,
   isReplyMode,
   replyContent,
   closeDetailModal,
-  updateInquiryStatus,
+  updateSelectedInquiryStatus,
   setReplyContent,
   saveReply,
   toggleReplyMode,
@@ -49,7 +49,7 @@ export default function ({
             selectedInquiry={selectedInquiry}
             isReplyMode={isReplyMode}
             replyContent={replyContent}
-            updateInquiryStatus={updateInquiryStatus}
+            updateSelectedInquiryStatus={updateSelectedInquiryStatus}
             saveReply={saveReply}
             toggleReplyMode={toggleReplyMode}
             cancelReply={cancelReply}

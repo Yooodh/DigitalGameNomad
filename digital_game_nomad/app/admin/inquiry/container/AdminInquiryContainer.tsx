@@ -1,7 +1,7 @@
 'use client';
 
 // slice
-import AdminInquiryPresenter from '../presenters/Inquiry.presenter';
+import AdminInquiryPresenter from '../presenter/AdminInquiryPresenter';
 import { useInquiries } from '../hooks/useInquiries';
 import { useInquiryFilters } from '../hooks/useInquiryFilters';
 import { useInquiryPagination } from '../hooks/useInquiryPagination';

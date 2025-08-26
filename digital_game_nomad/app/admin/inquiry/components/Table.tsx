@@ -1,5 +1,5 @@
 // slice
-import styles from '../styles/Inquiry.module.scss';
+import styles from '../styles/AdminInquiry.module.scss';
 import { InquiryStatus, TableProps } from '../types';
 
 export default function Table({
@@ -34,7 +34,7 @@ export default function Table({
               {inquiry.userName}
             </td>
             <td className={styles.tableRowContainer__date}>
-              {inquiry.createdAt}
+              {inquiry.submittedAt}
             </td>
             <td className={styles.tableRowContainer__stat}>
               <select

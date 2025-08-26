@@ -1,10 +1,6 @@
 // slice
-import AdminInquiryContainer from './containers/Inquiry.container';
+import { AdminInquiry } from '.';
 
 export default function page() {
-  return (
-    <div>
-      <AdminInquiryContainer />
-    </div>
-  );
+  return <AdminInquiry />;
 }

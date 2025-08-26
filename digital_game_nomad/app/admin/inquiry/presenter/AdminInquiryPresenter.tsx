@@ -4,7 +4,7 @@ import Filters from '../components/Filters';
 import Table from '../components/Table';
 import Pagination from '../components/Pagination';
 import Modal from '../components/Modal';
-import styles from '../styles/Inquiry.module.scss';
+import styles from '../styles/AdminInquiry.module.scss';
 import { AdminInquiryPresenterProps } from '../types';
 
 export default function AdminInquiryPresenter({
@@ -26,6 +26,7 @@ export default function AdminInquiryPresenter({
   setCurrentPage,
   setReplyContent,
   updateInquiryStatus,
+  updateSelectedInquiryStatus,
   saveReply,
   toggleReplyMode,
   cancelReply,
@@ -69,6 +70,7 @@ export default function AdminInquiryPresenter({
           replyContent={replyContent}
           closeDetailModal={closeDetailModal}
           updateInquiryStatus={updateInquiryStatus}
+          updateSelectedInquiryStatus={updateSelectedInquiryStatus}
           setReplyContent={setReplyContent}
           saveReply={saveReply}
           toggleReplyMode={toggleReplyMode}

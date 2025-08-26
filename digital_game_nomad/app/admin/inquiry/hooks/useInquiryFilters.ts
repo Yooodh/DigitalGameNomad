@@ -14,10 +14,14 @@ export function useInquiryFilters(inquiries: Inquiry[]) {
     return inquiries.filter((inquiry) => {
       const matchesStatus =
         statusFilter === 'all' || inquiry.status === statusFilter;
+
       const matchesSearch =
         inquiry.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        inquiry.userName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (inquiry.userName?.toLowerCase() ?? '').includes(
+          searchTerm.toLowerCase()
+        ) ||
         inquiry.id.toLowerCase().includes(searchTerm.toLowerCase());
+
       return matchesStatus && matchesSearch;
     });
   }, [inquiries, statusFilter, searchTerm]);

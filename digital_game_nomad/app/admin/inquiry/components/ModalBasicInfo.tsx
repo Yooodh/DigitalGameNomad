@@ -1,5 +1,5 @@
 // slice
-import styles from '../styles/Inquiry.module.scss';
+import styles from '../styles/AdminInquiry.module.scss';
 import { ModalBasicInfoProps } from '../types';
 
 export default function ModalBasicInfo({
@@ -16,7 +16,7 @@ export default function ModalBasicInfo({
         </div>
         <div className={styles.detailContainer}>
           <label>등록일시:</label>
-          <span>{selectedInquiry.createdAt}</span>
+          <span>{selectedInquiry.submittedAt}</span>
         </div>
         <div className={styles.detailContainer}>
           <label>상태:</label>

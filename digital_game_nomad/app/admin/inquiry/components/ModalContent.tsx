@@ -1,5 +1,5 @@
 // slice
-import styles from '../styles/Inquiry.module.scss';
+import styles from '../styles/AdminInquiry.module.scss';
 import { ModalContentProps } from '../types';
 
 export default function ModalContent({ selectedInquiry }: ModalContentProps) {
@@ -15,7 +15,7 @@ export default function ModalContent({ selectedInquiry }: ModalContentProps) {
       <div className={styles.replyContainer}>
         <label>내용:</label>
         <div className={styles.replyContainer__content}>
-          {selectedInquiry.content}
+          {selectedInquiry.text}
         </div>
       </div>
     </div>

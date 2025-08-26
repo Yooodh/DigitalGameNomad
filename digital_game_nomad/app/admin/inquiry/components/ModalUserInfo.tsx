@@ -1,5 +1,5 @@
 // slice
-import styles from '../styles/Inquiry.module.scss';
+import styles from '../styles/AdminInquiry.module.scss';
 import { ModalUserInfoProps } from '../types';
 
 export default function ModalUserInfo({ selectedInquiry }: ModalUserInfoProps) {
@@ -17,7 +17,7 @@ export default function ModalUserInfo({ selectedInquiry }: ModalUserInfoProps) {
         </div>
         <div className={styles.detailContainer}>
           <label>이메일:</label>
-          <span>{selectedInquiry.email}</span>
+          <span>{selectedInquiry.senderEmail}</span>
         </div>
         {selectedInquiry.phone && (
           <div className={styles.detailContainer}>

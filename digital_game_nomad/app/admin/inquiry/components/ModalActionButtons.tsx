@@ -1,26 +1,25 @@
 // slice
-import styles from '../styles/Inquiry.module.scss';
+import styles from '../styles/AdminInquiry.module.scss';
 import { InquiryStatus, ModalActionButtonsProps } from '../types';
 
 export default function ModalActionButtons({
   selectedInquiry,
   isReplyMode,
   replyContent,
-  updateInquiryStatus,
+  updateSelectedInquiryStatus,
   saveReply,
   toggleReplyMode,
   cancelReply,
   getStatusClass,
-}: ModalActionButtonsProps) {
+}: ModalActionButtonsProps & {
+  updateSelectedInquiryStatus: (newStatus: InquiryStatus) => void;
+}) {
   return (
     <div className={styles.actionContainer}>
       <select
         value={selectedInquiry.status}
         onChange={(e) =>
-          updateInquiryStatus(
-            selectedInquiry.id,
-            e.target.value as InquiryStatus
-          )
+          updateSelectedInquiryStatus(e.target.value as InquiryStatus)
         }
         className={`${styles.statusSelect} ${
           styles[getStatusClass(selectedInquiry.status)]

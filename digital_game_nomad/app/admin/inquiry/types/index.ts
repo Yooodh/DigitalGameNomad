@@ -3,15 +3,21 @@ export type InquiryStatus = '접수' | '처리중' | '완료';
 export type Inquiry = {
   id: string;
   title: string;
-  content: string;
-  nickName: string;
-  userName: string;
-  email: string;
-  phone?: string;
-  createdAt: string;
+  text: string;
+  senderEmail: string;
+  submittedAt: string;
   status: InquiryStatus;
+
+  nickName?: string;
+  userName?: string;
+  phone?: string;
+
   reply?: string;
   replyDate?: string;
+
+  content?: string;
+  createdAt?: string;
+  email?: string;
 };
 
 export type FiltersProps = {
@@ -32,19 +38,19 @@ export type ModalProps = {
   toggleReplyMode: () => void;
   cancelReply: () => void;
   getStatusClass: (status: InquiryStatus) => string;
+  updateSelectedInquiryStatus: (newStatus: InquiryStatus) => void;
 };
 
 export type ModalActionButtonsProps = {
   selectedInquiry: Inquiry;
   isReplyMode: boolean;
   replyContent: string;
-  updateInquiryStatus: (id: string, newStatus: InquiryStatus) => void;
+  updateSelectedInquiryStatus: (newStatus: InquiryStatus) => void;
   saveReply: () => void;
   toggleReplyMode: () => void;
   cancelReply: () => void;
   getStatusClass: (status: InquiryStatus) => string;
 };
-
 export type ModalBasicInfoProps = {
   selectedInquiry: Inquiry;
   getStatusClass: (status: InquiryStatus) => string;

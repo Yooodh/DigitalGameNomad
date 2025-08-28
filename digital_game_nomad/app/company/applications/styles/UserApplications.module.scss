@@ -239,6 +239,73 @@
           overflow: hidden;
           text-overflow: ellipsis;
         }
+
+        .imgContainer {
+          margin: 16px 0;
+          border: 1px solid $theme-gray-1;
+          border-radius: 8px;
+          overflow: hidden;
+          background-color: $theme-shade-2;
+
+          &__header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background-color: $theme-shade-2;
+            border-bottom: 1px solid $theme-gray-1;
+            color: $theme-text-2;
+            font-size: 14px;
+            font-weight: 500;
+          }
+
+          &__label {
+            color: $theme-text-2;
+          }
+
+          &__content {
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          &__image {
+            max-width: 100%;
+            max-height: 300px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+
+            &:hover {
+              transform: scale(1.02);
+            }
+          }
+
+          &__placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            color: $theme-text-2;
+          }
+
+          &__placeholderIcon {
+            margin-bottom: 12px;
+            opacity: 0.6;
+          }
+
+          &__placeholderText {
+            font-size: $font-sm-size;
+            margin: 0;
+            text-align: center;
+          }
+        }
       }
 
       .gridlinkContainer {

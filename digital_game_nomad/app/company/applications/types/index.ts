@@ -5,11 +5,13 @@ export type ApplicationData = {
   description: string;
   gameUrl: string;
   youtubeUrl: string;
-  image?: string;
+  hasImage: boolean;
+  imageData?: string;
   submittedAt: string;
   status: 'pending' | 'approved' | 'rejected';
-  contactEmail: string;
-  contactPhone: string;
+  applicantEmail: string;
+  contactEmail?: string;
+  contactPhone?: string;
   reviewedAt?: string;
   reviewedBy?: string;
   notes?: string;
@@ -22,7 +24,7 @@ export type ApplicationCardProps = {
 export type ApplicationDetailItemProps = {
   icon: React.ReactNode;
   label: string;
-  value: string | null;
+  value: React.ReactNode;
   className?: string;
 };
 
@@ -41,8 +43,13 @@ export type ApplicationStatusIconProps = {
 };
 
 export type UserApplicationsPresenterProps = {
-  applications: ApplicationData[];
   searchTerm: string;
   filteredApplications: ApplicationData[];
   onSearchChange: (term: string) => void;
+};
+
+export type ApplicationImageProps = {
+  hasImage: boolean;
+  imageData?: string;
+  gameName: string;
 };

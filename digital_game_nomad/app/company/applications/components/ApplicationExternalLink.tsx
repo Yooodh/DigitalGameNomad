@@ -2,7 +2,7 @@
 import Link from 'next/link';
 
 // slice
-import styles from '../styles/Applications.module.scss';
+import styles from '../styles/UserApplications.module.scss';
 import { ApplicationExternalLinkProps } from '../types';
 
 // layer

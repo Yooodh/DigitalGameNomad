@@ -1,10 +1,8 @@
-'use client';
-
 // slice
 import ApplicationCard from '../components/ApplicationCard';
 import ApplicationSearchInput from '../components/ApplicationSearchInput';
 import EmptyApplicationsMessage from '../components/EmptyApplicationsMessage';
-import styles from '../styles/Applications.module.scss';
+import styles from '../styles/UserApplications.module.scss';
 import { UserApplicationsPresenterProps } from '../types';
 
 export default function UserApplicationsPresenter({

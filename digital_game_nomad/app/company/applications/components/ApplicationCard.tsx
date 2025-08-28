@@ -2,11 +2,12 @@
 import ApplicationStatusIcon from './ApplicationStatusIcon';
 import ApplicationDetailItem from './ApplicationDetailItem';
 import ApplicationExternalLink from './ApplicationExternalLink';
-import styles from '../styles/Applications.module.scss';
+import ApplicationImage from './ApplicationImage';
+import styles from '../styles/UserApplications.module.scss';
 import { ApplicationCardProps } from '../types';
 import { formatDate } from '../utils/dateFormatter';
 
-// layer (
+// layer
 import { Calendar, Mail, Phone, Clock } from '@/shared/icons';
 
 export default function ApplicationCard({ application }: ApplicationCardProps) {
@@ -66,6 +67,12 @@ export default function ApplicationCard({ application }: ApplicationCardProps) {
             value={formatDate(application.reviewedAt)}
           />
         )}
+
+        <ApplicationImage
+          hasImage={application.hasImage}
+          imageData={application.imageData}
+          gameName={application.gameName}
+        />
 
         <p className={styles.gridCardContentContainer__desc}>
           {application.description}

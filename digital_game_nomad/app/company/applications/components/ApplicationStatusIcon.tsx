@@ -1,5 +1,5 @@
 // slice
-import styles from '../styles/Applications.module.scss';
+import styles from '../styles/UserApplications.module.scss';
 import { ApplicationStatusIconProps } from '../types';
 
 // layer

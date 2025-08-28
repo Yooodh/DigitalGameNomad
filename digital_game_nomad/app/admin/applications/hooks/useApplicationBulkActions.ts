@@ -3,45 +3,42 @@ import { useCallback } from 'react';
 
 // slice
 import { ApplicationData } from '../types';
-import { SetApplicationsFunction, ClearSelectionFunction } from '../types';
+
+// layer
+import { useApplicationsStore } from '@/shared/stores/useApplicationsStore';
 
 export const useApplicationBulkActions = (
-  setApplications: SetApplicationsFunction,
   selectedApplicationIds: Set<string>,
-  clearSelection: ClearSelectionFunction
+  clearSelection: () => void
 ) => {
+  const bulkUpdateApplicationStatus = useApplicationsStore(
+    (state) => state.bulkUpdateApplicationStatus
+  );
+  const deleteApplications = useApplicationsStore(
+    (state) => state.deleteApplications
+  );
+
   const onBulkStatusChange = useCallback(
     (newStatus: ApplicationData['status']) => {
-      setApplications((prevApps) =>
-        prevApps.map((app) =>
-          selectedApplicationIds.has(app.id)
-            ? {
-                ...app,
-                status: newStatus,
-                reviewedAt: new Date().toISOString(),
-                reviewedBy: 'Admin User',
-              }
-            : app
-        )
+      bulkUpdateApplicationStatus(
+        Array.from(selectedApplicationIds),
+        newStatus
       );
       clearSelection();
-      console.log(
-        `Bulk status changed to: ${newStatus} for ${selectedApplicationIds.size} selected applications.`
-      );
     },
-    [setApplications, selectedApplicationIds, clearSelection]
+    [bulkUpdateApplicationStatus, selectedApplicationIds, clearSelection]
   );
 
   const onBulkDelete = useCallback(() => {
-    console.log(
-      `${selectedApplicationIds.size}개의 항목을 정말 삭제하시겠습니까?`
-    );
-    setApplications((prevApps) =>
-      prevApps.filter((app) => !selectedApplicationIds.has(app.id))
-    );
-    clearSelection();
-    console.log(`${selectedApplicationIds.size} applications deleted.`);
-  }, [setApplications, selectedApplicationIds, clearSelection]);
+    if (
+      window.confirm(
+        `${selectedApplicationIds.size}개의 항목을 정말 삭제하시겠습니까?`
+      )
+    ) {
+      deleteApplications(Array.from(selectedApplicationIds));
+      clearSelection();
+    }
+  }, [deleteApplications, selectedApplicationIds, clearSelection]);
 
   return {
     onBulkStatusChange,

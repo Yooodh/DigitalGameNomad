@@ -1,16 +1,10 @@
 'use client';
 
 // slice
-import AdminApplicationsPresenter from '../presenters/Applications.presenter';
+import AdminApplicationsPresenter from '../presenter/AdminApplicationsPresenter';
 import { useAdminApplications } from '../hooks/useAdminApplications';
-import { AdminApplicationsContainerProps } from '../types';
-import { MOCK_APPLICATIONS } from '../data';
 
-export default function AdminApplicationsContainer({
-  onView,
-  onEdit,
-  onExport,
-}: AdminApplicationsContainerProps) {
+export default function AdminApplicationsContainer() {
   const {
     applications,
     searchTerm,
@@ -30,7 +24,7 @@ export default function AdminApplicationsContainer({
     onBulkDelete,
     onChangeStatus,
     getStatusCount,
-  } = useAdminApplications(MOCK_APPLICATIONS);
+  } = useAdminApplications();
 
   return (
     <AdminApplicationsPresenter
@@ -51,8 +45,6 @@ export default function AdminApplicationsContainer({
       onBulkStatusChange={onBulkStatusChange}
       onBulkDelete={onBulkDelete}
       onChangeStatus={onChangeStatus}
-      onView={onView}
-      onEdit={onEdit}
       getStatusCount={getStatusCount}
     />
   );

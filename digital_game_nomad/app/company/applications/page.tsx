@@ -1,10 +1,6 @@
 // slice
-import UserApplicationsContainer from './containers/Applications.container';
+import { UserApplications } from '.';
 
 export default function page() {
-  return (
-    <div>
-      <UserApplicationsContainer />
-    </div>
-  );
+  return <UserApplications />;
 }

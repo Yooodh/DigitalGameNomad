@@ -1,5 +1,5 @@
 // slice
-import styles from '../styles/Applications.module.scss';
+import styles from '../styles/AdminApplications.module.scss';
 import { SearchInputProps } from '../types';
 
 // layer

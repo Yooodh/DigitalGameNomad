@@ -1,5 +1,5 @@
 // package
-import { useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 
 // slice
 import { useApplicationData } from './useApplicationData';
@@ -7,13 +7,9 @@ import { useApplicationFiltering } from './useApplicationFiltering';
 import { useApplicationSorting } from './useApplicationSorting';
 import { useApplicationSelection } from './useApplicationSelection';
 import { useApplicationBulkActions } from './useApplicationBulkActions';
-import { ApplicationData } from '../types';
 
-export const useAdminApplications = (
-  initialApplications: ApplicationData[]
-) => {
-  const { applications, setApplications, onChangeStatus, getStatusCount } =
-    useApplicationData(initialApplications);
+export const useAdminApplications = () => {
+  const { applications, onChangeStatus, getStatusCount } = useApplicationData();
 
   const {
     searchTerm,
@@ -41,16 +37,9 @@ export const useAdminApplications = (
   } = useApplicationSelection(filteredApplications);
 
   const { onBulkStatusChange, onBulkDelete } = useApplicationBulkActions(
-    setApplications,
     selectedApplications,
     clearSelection
   );
-
-  useEffect(() => {
-    setApplications(initialApplications);
-
-    clearSelection();
-  }, [initialApplications, setApplications, clearSelection]);
 
   const onResetFilters = useCallback(() => {
     resetFiltering();

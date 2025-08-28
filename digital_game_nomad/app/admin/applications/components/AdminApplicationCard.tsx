@@ -2,9 +2,9 @@
 import AdminApplicationCardHeader from './AdminApplicationCardHeader';
 import AdminApplicationContactInfo from './AdminApplicationContactInfo';
 import AdminApplicationStatusAndDates from './AdminApplicationStatusAndDates';
-import AdminApplicationCardActions from './AdminApplicationCardActions';
+import AdminApplicationImage from './AdminApplicationImage';
 import ApplicationExternalLink from './ApplicationExternalLink';
-import styles from '../styles/Applications.module.scss';
+import styles from '../styles/AdminApplications.module.scss';
 import { AdminApplicationCardProps } from '../types';
 
 export default function AdminApplicationCard({
@@ -12,8 +12,6 @@ export default function AdminApplicationCard({
   isSelected,
   onToggleSelection,
   onChangeStatus,
-  onView,
-  onEdit,
 }: AdminApplicationCardProps) {
   return (
     <div key={application.id} className={styles.gridCardContainer}>
@@ -29,8 +27,7 @@ export default function AdminApplicationCard({
 
       <div className={styles.gridCardContentContainer}>
         <AdminApplicationContactInfo
-          contactEmail={application.contactEmail}
-          contactPhone={application.contactPhone}
+          applicantEmail={application.applicantEmail}
         />
 
         <AdminApplicationStatusAndDates
@@ -42,6 +39,12 @@ export default function AdminApplicationCard({
           }
         />
 
+        <AdminApplicationImage
+          applicationId={application.id}
+          hasImage={application.hasImage}
+          imageData={application.imageData}
+        />
+
         <p className={styles.gridCardContentContainer__desc}>
           {application.description}
         </p>
@@ -51,12 +54,6 @@ export default function AdminApplicationCard({
         <ApplicationExternalLink href={application.gameUrl} type='game' />
         <ApplicationExternalLink href={application.youtubeUrl} type='youtube' />
       </div>
-
-      <AdminApplicationCardActions
-        application={application}
-        onView={onView}
-        onEdit={onEdit}
-      />
     </div>
   );
 }

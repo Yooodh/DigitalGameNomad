@@ -1,3 +1,9 @@
+export type AdminApplicationImageProps = {
+  applicationId: string;
+  hasImage: boolean;
+  imageData?: string;
+};
+
 export type ApplicationData = {
   id: string;
   companyName: string;
@@ -5,11 +11,13 @@ export type ApplicationData = {
   description: string;
   gameUrl: string;
   youtubeUrl: string;
-  image?: string;
+  hasImage: boolean;
+  imageData?: string;
   submittedAt: string;
   status: 'pending' | 'approved' | 'rejected';
-  contactEmail: string;
-  contactPhone: string;
+  applicantEmail: string;
+  contactEmail?: string;
+  contactPhone?: string;
   reviewedAt?: string;
   reviewedBy?: string;
   notes?: string;
@@ -24,14 +32,6 @@ export type AdminApplicationCardProps = {
   isSelected: boolean;
   onToggleSelection: (id: string) => void;
   onChangeStatus: (id: string, newStatus: ApplicationData['status']) => void;
-  onView?: (application: ApplicationData) => void;
-  onEdit?: (application: ApplicationData) => void;
-};
-
-export type AdminApplicationCardActionsProps = {
-  application: ApplicationData;
-  onView?: (application: ApplicationData) => void;
-  onEdit?: (application: ApplicationData) => void;
 };
 
 export type AdminApplicationCardHeaderProps = {
@@ -41,8 +41,7 @@ export type AdminApplicationCardHeaderProps = {
 };
 
 export type AdminApplicationContactInfoProps = {
-  contactEmail: string;
-  contactPhone: string;
+  applicantEmail: string;
 };
 
 export type AdminApplicationsFiltersProps = {
@@ -111,17 +110,6 @@ export type StatusFilterDropdownProps = {
   onStatusFilterChange: (status: StatusFilter) => void;
 };
 
-export type AdminApplicationsContainerProps = {
-  onView?: (application: ApplicationData) => void;
-  onEdit?: (application: ApplicationData) => void;
-  onExport?: () => void;
-};
-
-export type SetApplicationsFunction = React.Dispatch<
-  React.SetStateAction<ApplicationData[]>
->;
-export type ClearSelectionFunction = () => void;
-
 export type AdminApplicationsPresenterProps = {
   applications: ApplicationData[];
   searchTerm: string;
@@ -142,7 +130,6 @@ export type AdminApplicationsPresenterProps = {
   onBulkStatusChange: (status: ApplicationData['status']) => void;
   onBulkDelete: () => void;
   onChangeStatus: (id: string, newStatus: ApplicationData['status']) => void;
-  onView?: (application: ApplicationData) => void;
-  onEdit?: (application: ApplicationData) => void;
+
   getStatusCount: (status: ApplicationData['status']) => number;
 };

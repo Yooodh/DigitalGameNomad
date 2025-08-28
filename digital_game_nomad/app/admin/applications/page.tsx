@@ -1,10 +1,6 @@
 // slice
-import AdminApplicationsContainer from './containers/Applications.container';
+import { AdminApplications } from '.';
 
 export default function page() {
-  return (
-    <div>
-      <AdminApplicationsContainer />
-    </div>
-  );
+  return <AdminApplications />;
 }

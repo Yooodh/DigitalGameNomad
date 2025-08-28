@@ -16,8 +16,13 @@ export const useApplicationFiltering = (applications: ApplicationData[]) => {
         (app) =>
           app.gameName.toLowerCase().includes(searchTerm.toLowerCase()) ||
           app.companyName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          app.contactEmail.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          app.contactPhone.toLowerCase().includes(searchTerm.toLowerCase())
+          app.applicantEmail.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          (app.contactEmail &&
+            app.contactEmail
+              .toLowerCase()
+              .includes(searchTerm.toLowerCase())) ||
+          (app.contactPhone &&
+            app.contactPhone.toLowerCase().includes(searchTerm.toLowerCase()))
       );
     }
 

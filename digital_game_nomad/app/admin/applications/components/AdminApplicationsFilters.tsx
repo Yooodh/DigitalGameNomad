@@ -2,7 +2,7 @@
 import SearchInput from './SearchInput';
 import SortButtons from './SortButtons';
 import StatusFilterDropdown from './StatusFilterDropdown';
-import styles from '../styles/Applications.module.scss';
+import styles from '../styles/AdminApplications.module.scss';
 import { AdminApplicationsFiltersProps } from '../types';
 
 // layer

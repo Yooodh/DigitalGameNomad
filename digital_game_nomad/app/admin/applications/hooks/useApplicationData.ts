@@ -1,33 +1,23 @@
 // package
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 
 // slice
 import { ApplicationData } from '../types';
 
-export const useApplicationData = (initialApplications: ApplicationData[]) => {
-  const [applications, setApplications] =
-    useState<ApplicationData[]>(initialApplications);
+// layer
+import { useApplicationsStore } from '@/shared/stores/useApplicationsStore';
+
+export const useApplicationData = () => {
+  const applications = useApplicationsStore((state) => state.applications);
+  const updateApplicationStatus = useApplicationsStore(
+    (state) => state.updateApplicationStatus
+  );
 
   const onChangeStatus = useCallback(
     (id: string, newStatus: ApplicationData['status']) => {
-      setApplications((prevApps) =>
-        prevApps.map((app) =>
-          app.id === id
-            ? {
-                ...app,
-                status: newStatus,
-                reviewedAt:
-                  newStatus !== 'pending'
-                    ? new Date().toISOString()
-                    : undefined,
-                reviewedBy: newStatus !== 'pending' ? 'Admin User' : undefined,
-              }
-            : app
-        )
-      );
-      console.log(`Application ${id} status changed to: ${newStatus}`);
+      updateApplicationStatus(id, newStatus);
     },
-    []
+    [updateApplicationStatus]
   );
 
   const getStatusCount = useCallback(
@@ -39,7 +29,6 @@ export const useApplicationData = (initialApplications: ApplicationData[]) => {
 
   return {
     applications,
-    setApplications,
     onChangeStatus,
     getStatusCount,
   };

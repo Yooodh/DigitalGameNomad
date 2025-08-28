@@ -1,12 +1,10 @@
-'use client';
-
 // slice
 import AdminStatsDashboard from '../components/AdminStatsDashboard';
 import AdminApplicationsFilters from '../components/AdminApplicationsFilters';
 import AdminBulkActions from '../components/AdminBulkActions';
 import AdminApplicationCard from '../components/AdminApplicationCard';
 import EmptyApplicationsMessage from '../components/EmptyApplicationsMessage';
-import styles from '../styles/Applications.module.scss';
+import styles from '../styles/AdminApplications.module.scss';
 import { AdminApplicationsPresenterProps } from '../types';
 
 export default function AdminApplicationsPresenter({
@@ -27,8 +25,6 @@ export default function AdminApplicationsPresenter({
   onBulkStatusChange,
   onBulkDelete,
   onChangeStatus,
-  onView,
-  onEdit,
   getStatusCount,
 }: AdminApplicationsPresenterProps) {
   return (
@@ -73,8 +69,6 @@ export default function AdminApplicationsPresenter({
                 isSelected={selectedApplications.has(application.id)}
                 onToggleSelection={onToggleApplicationSelection}
                 onChangeStatus={onChangeStatus}
-                onView={onView}
-                onEdit={onEdit}
               />
             ))}
           </div>

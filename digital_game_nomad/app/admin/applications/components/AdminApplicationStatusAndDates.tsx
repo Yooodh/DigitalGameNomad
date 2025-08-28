@@ -1,7 +1,7 @@
 // slice
 import ApplicationDetailItem from './ApplicationDetailItem';
 import ApplicationStatusIcon from './ApplicationStatusIcon';
-import styles from '../styles/Applications.module.scss';
+import styles from '../styles/AdminApplications.module.scss';
 import { ApplicationData, AdminApplicationStatusAndDatesProps } from '../types';
 import { formatDate } from '../utils';
 

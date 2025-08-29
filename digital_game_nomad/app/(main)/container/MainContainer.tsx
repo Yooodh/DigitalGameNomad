@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 // slice
-import MainPresenter from '../presenters/Main.presenter';
+import MainPresenter from '../presenter/MainPresenter';
 
 export default function MainContainer() {
   const [isClicked, setIsClicked] = useState<boolean>(false);

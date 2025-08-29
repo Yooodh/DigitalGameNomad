@@ -1,10 +1,6 @@
 // slice
-import MainContainer from './containers/Main.container';
+import { Main } from '.';
 
 export default function page() {
-  return (
-    <div>
-      <MainContainer />
-    </div>
-  );
+  return <Main />;
 }

@@ -4,8 +4,7 @@
 import { useMemo } from 'react';
 
 // slice
-import AboutPresenter from '../presenters/About.presenter';
-
+import AboutPresenter from '../presenter/AboutPresenter';
 import { ABOUT } from '../data';
 
 // layer

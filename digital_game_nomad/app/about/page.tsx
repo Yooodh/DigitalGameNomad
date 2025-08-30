@@ -1,6 +1,6 @@
 // slice
-import AboutContainer from './containers/About.container';
+import { About } from '.';
 
 export default function page() {
-  return <AboutContainer />;
+  return <About />;
 }

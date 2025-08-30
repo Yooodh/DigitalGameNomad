@@ -2,9 +2,7 @@
 import ChatItem from '../components/ChatItem';
 import PhoneFrame from '../components/PhoneFrame';
 import ChatButtonNav from '../components/ChatButtonNav';
-
 import styles from '../styles/About.module.scss';
-
 import { AboutPresenterProps } from '../types';
 
 export default function AboutPresenter({

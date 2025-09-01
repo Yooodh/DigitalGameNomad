@@ -4,6 +4,10 @@ import { useCallback } from 'react';
 // slice
 import { UserProfile, UseProfileFormProps } from '../types';
 
+// layer
+import { useRegisteredUsersStore } from '@/shared/stores/useRegisteredUsersStore';
+import { useAuthStore } from '@/shared/stores/useAuthStore';
+
 export function useProfileForm({
   editingProfile,
   setEditingProfile,
@@ -15,8 +19,12 @@ export function useProfileForm({
 }: UseProfileFormProps) {
   const handleInputChange = useCallback(
     (field: keyof UserProfile, value: string, index?: number) => {
+      if (!editingProfile) return;
+
       if (field === 'phone' && index !== undefined) {
-        const newPhone = [...editingProfile.phone];
+        const newPhone: [string, string, string, string] = [
+          ...editingProfile.phone,
+        ];
         newPhone[index] = value;
         const updatedProfile = { ...editingProfile, phone: newPhone };
         setEditingProfile(updatedProfile);
@@ -34,12 +42,31 @@ export function useProfileForm({
   );
 
   const handleSaveWrapper = useCallback(async () => {
+    if (!editingProfile) return;
+
     const isValidForm = validateAll(editingProfile);
     if (!isValidForm) {
       alert('모든 정보를 올바르게 입력해주세요.');
       return;
     }
+
+    const registeredUsers = useRegisteredUsersStore.getState().users;
+    const currentUserEmail = useAuthStore.getState().userEmail;
+
+    const isDuplicateNickname = registeredUsers.some(
+      (user) =>
+        user.nickname === editingProfile.nickname &&
+        user.email !== currentUserEmail
+    );
+
+    if (isDuplicateNickname) {
+      alert('이미 사용 중인 닉네임입니다.');
+      return;
+    }
+
     await handleSave(editingProfile);
+
+    alert('변경이 완료되었습니다.');
   }, [editingProfile, validateAll, handleSave]);
 
   const handleCancelWrapper = useCallback(() => {

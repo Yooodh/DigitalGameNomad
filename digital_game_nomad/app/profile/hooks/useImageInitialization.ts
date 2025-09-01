@@ -3,12 +3,12 @@ import { useEffect } from 'react';
 
 export function useImageInitialization(
   profileImage: string | null,
-  editMode: boolean,
-  setInitialImageUrl: (url: string | null) => void
+  setInitialImageUrl: (url: string | null) => void,
+  currentImageUrl: string | null
 ) {
   useEffect(() => {
-    if (editMode || (!editMode && profileImage)) {
-      setInitialImageUrl(profileImage || null);
+    if (currentImageUrl !== profileImage) {
+      setInitialImageUrl(profileImage);
     }
-  }, [editMode, profileImage, setInitialImageUrl]);
+  }, [profileImage, setInitialImageUrl, currentImageUrl]);
 }

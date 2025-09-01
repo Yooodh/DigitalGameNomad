@@ -21,15 +21,18 @@ export function useProfileValidation() {
     return nicknameRegex.test(nickname);
   }, []);
 
-  const validatePhone = useCallback((phone: string[]): boolean => {
-    return (
-      phone.length === 3 &&
-      phone.every((part) => part.length > 0) &&
-      phone[0].length === 3 &&
-      phone[1].length === 4 &&
-      phone[2].length === 4
-    );
-  }, []);
+  const validatePhone = useCallback(
+    (phone: [string, string, string, string]): boolean => {
+      const isCarrierValid = phone[0].length > 0;
+
+      const isPart1Valid = /^\d{3}$/.test(phone[1]);
+      const isPart2Valid = /^\d{4}$/.test(phone[2]);
+      const isPart3Valid = /^\d{4}$/.test(phone[3]);
+
+      return isCarrierValid && isPart1Valid && isPart2Valid && isPart3Valid;
+    },
+    []
+  );
 
   const validateField = useCallback(
     <T extends keyof UserProfile>(field: T, value: UserProfile[T]): void => {
@@ -43,7 +46,10 @@ export function useProfileValidation() {
           isValid = typeof value === 'string' && validateNickname(value);
           break;
         case 'phone':
-          isValid = Array.isArray(value) && validatePhone(value);
+          isValid =
+            Array.isArray(value) &&
+            value.length === 4 &&
+            validatePhone(value as [string, string, string, string]);
           break;
         default:
           return;

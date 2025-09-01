@@ -1,10 +1,6 @@
 // slice
-import ProfileContainer from './containers/Profile.container';
+import { Profile } from '.';
 
 export default function page() {
-  return (
-    <>
-      <ProfileContainer />
-    </>
-  );
+  return <Profile />;
 }

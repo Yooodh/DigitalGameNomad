@@ -2,8 +2,8 @@ export type UserProfile = {
   name: string;
   nickname: string;
   email: string;
-  phone: string[];
-  profileImage: string;
+  phone: [string, string, string, string];
+  profileImage: string | null;
   joinDate: string;
   grade: number;
 };
@@ -101,8 +101,8 @@ export type UseFileInputProps = {
 };
 
 export type UseProfileFormProps = {
-  editingProfile: UserProfile;
-  setEditingProfile: React.Dispatch<React.SetStateAction<UserProfile>>;
+  editingProfile: UserProfile | null;
+  setEditingProfile: React.Dispatch<React.SetStateAction<UserProfile | null>>;
   validateField: <T extends keyof UserProfile>(
     field: T,
     value: UserProfile[T]
@@ -114,9 +114,9 @@ export type UseProfileFormProps = {
 };
 
 export type UseProfileImageManagerProps = {
-  editingProfile: UserProfile;
-  setEditingProfile: React.Dispatch<React.SetStateAction<UserProfile>>;
-  profileImage: string;
+  editingProfile: UserProfile | null;
+  setEditingProfile: React.Dispatch<React.SetStateAction<UserProfile | null>>;
+  profileImage: string | null;
   editMode: boolean;
 };
 

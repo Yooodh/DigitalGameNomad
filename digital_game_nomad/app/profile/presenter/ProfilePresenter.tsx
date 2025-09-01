@@ -1,5 +1,3 @@
-'use client';
-
 // slice
 import Header from '../components/Header';
 import Tabs from '../components/Tabs';
@@ -29,12 +27,16 @@ export default function ProfilePresenter({
   fileInputRef,
   onFileInputChange,
 }: ProfilePresenterProps) {
+  if (!profile || !editingProfile) {
+    return <div>프로필 정보를 불러오는 중...</div>;
+  }
+
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profileContainer__wrap}>
         <div className={styles.cardContainer}>
           <Header
-            profile={editMode ? editingProfile : profile}
+            profile={profile}
             editMode={editMode}
             isLoading={isLoading}
             onEdit={onEdit}

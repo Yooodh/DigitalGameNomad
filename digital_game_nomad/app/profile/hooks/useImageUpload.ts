@@ -17,16 +17,17 @@ export function useImageUpload() {
 
     const reader = new FileReader();
     reader.onloadend = () => {
-      setImageUrl(reader.result as string);
+      const result = reader.result as string;
+      setImageUrl(result);
+
       setIsUploading(false);
     };
     reader.onerror = () => {
       setUploadError('이미지를 불러오는 데 실패했습니다.');
       setIsUploading(false);
+      console.error('useImageUpload: FileReader error');
     };
     reader.readAsDataURL(file);
-
-    console.log('선택된 파일:', file);
   }, []);
 
   const setInitialImageUrl = useCallback((url: string | null) => {

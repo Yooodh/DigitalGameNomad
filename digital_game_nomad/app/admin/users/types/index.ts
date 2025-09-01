@@ -1,9 +1,9 @@
 export type UserData = {
-  id: number;
+  id: string;
   name: string;
   nickname: string;
   email: string;
-  phone: string;
+  phone: [string, string, string, string];
   userLevel: number;
   joinDate: string;
   deleteDate?: string;
@@ -43,11 +43,11 @@ export type PaginationState = {
 };
 
 export type SelectionState = {
-  selectedUserIds: Set<number>;
-  setSelectedUserIds: React.Dispatch<React.SetStateAction<Set<number>>>;
+  selectedUserIds: Set<string>;
+  setSelectedUserIds: React.Dispatch<React.SetStateAction<Set<string>>>;
 };
 
-export type UserPresenterProps = {
+export type UsersPresenterProps = {
   users: UserData[];
   searchTerm: string;
   filterLevel: FilterLevel;
@@ -65,42 +65,42 @@ export type UserPresenterProps = {
   totalDeletedUsers: number;
   overallTotalUsers: number;
   totalFilteredAndSortedUsersCount: number;
-  selectedUserIds: Set<number>;
+  selectedUserIds: Set<string>;
   isAllSelectedOnPage: boolean;
   handleSearchChange: (value: string) => void;
   handleFilterChange: (value: FilterLevel) => void;
   handleDeletedToggle: (checked: boolean) => void;
   handleSortChange: (field: UserSortField) => void;
   handlePageChange: (page: number) => void;
-  handlePasswordReset: (userId: number, userName: string) => void;
-  handleUserRestore: (userId: number, userName: string) => void;
+  handlePasswordReset: (userId: string, userName: string) => void;
+  handleUserRestore: (userId: string, userName: string) => void;
   handleResetFilters: () => void;
   getUserLevelText: (level: number) => string;
   getUserLevelClass: (level: number) => string;
   generatePageNumbers: () => (number | string)[];
-  handleUserSelect: (userId: number, isSelected: boolean) => void;
+  handleUserSelect: (userId: string, isSelected: boolean) => void;
   handleSelectAll: (checked: boolean) => void;
   handleDeleteSelectedUsers: () => void;
   handleCancelSelection: () => void;
-  handleHardDeleteUser: (userId: number, userName: string) => void;
+  handleHardDeleteUser: (userId: string, userName: string) => void;
 };
 
-export type Props = UserPresenterProps & {
+export type Props = UsersPresenterProps & {
   handleCancelSelection: () => void;
-  handleHardDeleteUser: (userId: number, userName: string) => void;
+  handleHardDeleteUser: (userId: string, userName: string) => void;
 };
 
 export type TableProps = {
   users: UserData[];
-  selectedUserIds: Set<number>;
+  selectedUserIds: Set<string>;
   isAllSelectedOnPage: boolean;
-  handleUserSelect: (userId: number, isSelected: boolean) => void;
+  handleUserSelect: (userId: string, isSelected: boolean) => void;
   handleSelectAll: (checked: boolean) => void;
-  handlePasswordReset: (userId: number, userName: string) => void;
-  handleUserRestore: (userId: number, userName: string) => void;
+  handlePasswordReset: (userId: string, userName: string) => void;
+  handleUserRestore: (userId: string, userName: string) => void;
   handleDeleteSelectedUsers: () => void;
   handleCancelSelection: () => void;
-  handleHardDeleteUser: (userId: number, userName: string) => void;
+  handleHardDeleteUser: (userId: string, userName: string) => void;
   getUserLevelText: (level: number) => string;
   getUserLevelClass: (level: number) => string;
 } & PaginationProps;
@@ -142,18 +142,18 @@ export type TableHeaderProps = {
 
 export type TableRowProps = {
   user: UserData;
-  handleUserSelect: (userId: number, isSelected: boolean) => void;
-  handlePasswordReset: (userId: number, userName: string) => void;
-  handleUserRestore: (userId: number, userName: string) => void;
-  handleHardDeleteUser: (userId: number, userName: string) => void;
+  handleUserSelect: (userId: string, isSelected: boolean) => void;
+  handlePasswordReset: (userId: string, userName: string) => void;
+  handleUserRestore: (userId: string, userName: string) => void;
+  handleHardDeleteUser: (userId: string, userName: string) => void;
   getUserLevelText: (level: number) => string;
   getUserLevelClass: (level: number) => string;
 };
 
 export type TableRowActionCellProps = {
   user: Pick<UserData, 'id' | 'name' | 'deleteDate'>;
-  handlePasswordReset: (userId: number, userName: string) => void;
-  handleUserRestore: (userId: number, userName: string) => void;
+  handlePasswordReset: (userId: string, userName: string) => void;
+  handleUserRestore: (userId: string, userName: string) => void;
 };
 
 export type FilterSearchInputProps = {

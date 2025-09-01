@@ -43,10 +43,19 @@ export const useUserFiltering = (
 
   const filteredUsers = useMemo(() => {
     return users.filter((user) => {
+      if (user.userLevel === 1) {
+        return false;
+      }
+
+      const userPhoneString = user.phone ? user.phone.slice(1).join('-') : '';
+      const userCarrierString = user.phone ? user.phone[0] : '';
+
       const matchesSearch =
         user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         user.nickname.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        user.email.toLowerCase().includes(searchTerm.toLowerCase());
+        user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        userPhoneString.includes(searchTerm) ||
+        userCarrierString.toLowerCase().includes(searchTerm.toLowerCase());
 
       const matchesLevel =
         filterLevel === 'all' || user.userLevel === filterLevel;

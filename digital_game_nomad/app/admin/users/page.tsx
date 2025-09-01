@@ -1,10 +1,6 @@
 // slice
-import UserContainer from './containers/Users.container';
+import { Users } from '.';
 
 export default function page() {
-  return (
-    <>
-      <UserContainer />
-    </>
-  );
+  return <Users />;
 }

@@ -1,7 +1,7 @@
 'use client';
 
 // slice
-import ProfilePresenter from '../presenters/Profile.presenter';
+import ProfilePresenter from '../presenter/ProfilePresenter';
 import { useProfile } from '../hooks/useProfile';
 import { useProfileValidation } from '../hooks/useProfileValidation';
 import { useProfileForm } from '../hooks/useProfileForm';
@@ -43,12 +43,16 @@ export default function ProfileContainer() {
   } = useProfileImageManager({
     editingProfile,
     setEditingProfile,
-    profileImage: profile.profileImage,
+    profileImage: profile ? profile.profileImage : null,
     editMode,
   });
 
   const { activeTab, onSetActiveTab, getGradeText, formatDate, getGradeIcon } =
     useUIState();
+
+  if (!profile || !editingProfile) {
+    return <div>프로필 정보를 불러오는 중...</div>;
+  }
 
   return (
     <>

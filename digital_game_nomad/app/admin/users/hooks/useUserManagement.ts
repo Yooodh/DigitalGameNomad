@@ -1,55 +1,105 @@
 // package
-import { useState, useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 
 // slice
-import { MOCK_USERS } from '../data';
 import { UserData, UserManagementState } from '../types';
 
+// layer
+import { useRegisteredUsersStore } from '@/shared/stores/useRegisteredUsersStore';
+
 export const useUserManagement = (): UserManagementState & {
-  handlePasswordReset: (userId: number, userName: string) => void;
-  handleUserRestore: (userId: number, userName: string) => void;
-  handleHardDeleteUser: (userId: number, userName: string) => void;
+  handlePasswordReset: (userId: string, userName: string) => void;
+  handleUserRestore: (userId: string, userName: string) => void;
+  handleHardDeleteUser: (userId: string, userName: string) => void;
   overallTotalUsers: number;
   totalActiveUsers: number;
   totalBusinessUsers: number;
   totalGeneralUsers: number;
   totalDeletedUsers: number;
 } => {
-  const [users, setUsers] = useState<UserData[]>(MOCK_USERS);
-
-  const handlePasswordReset = useCallback(
-    (userId: number, userName: string) => {
-      if (confirm(`${userName}님의 비밀번호를 초기화하시겠습니까?`)) {
-        alert(`${userName}님의 비밀번호가 초기화되었습니다.`);
-      }
-    },
-    []
+  const registeredUsersFromStore = useRegisteredUsersStore(
+    (state) => state.users
+  );
+  const updateUserProfileInStore = useRegisteredUsersStore(
+    (state) => state.updateUserProfile
+  );
+  const removeUserFromStore = useRegisteredUsersStore(
+    (state) => state.removeUser
   );
 
+  const users: UserData[] = useMemo(() => {
+    return registeredUsersFromStore.map((user) => ({
+      id: user.id ? String(user.id) : user.email,
+      name: user.name || '',
+      nickname: user.nickname || '',
+      email: user.email,
+      phone: user.phone || ['', '', '', ''],
+      userLevel: user.userGrade,
+      joinDate: user.joinDate || '',
+      lastLoginDate: user.lastLoginDate || '',
+      deleteDate: user.deleteDate,
+      isSelected: false,
+    }));
+  }, [registeredUsersFromStore]);
+
+  const setUsers = useCallback(() => {
+    console.warn(
+      'setUsers is no longer directly used in useUserManagement. Update the Zustand store instead.'
+    );
+  }, []);
+  const handlePasswordReset = useCallback(
+    (userId: string, userName: string) => {
+      if (window.confirm(`${userName}님의 비밀번호를 초기화하시겠습니까?`)) {
+        const userToReset = users.find((u) => u.email === userId);
+        if (userToReset) {
+          updateUserProfileInStore(userToReset.email, {
+            password: 'qwer1234!',
+            lastLoginDate: new Date().toISOString().slice(0, 10),
+          });
+        } else {
+          console.warn(
+            `사용자 ID ${userId}를 찾을 수 없어 비밀번호를 초기화할 수 없습니다.`
+          );
+        }
+      }
+    },
+    [users, updateUserProfileInStore]
+  );
   const handleHardDeleteUser = useCallback(
-    (userId: number, userName: string) => {
+    (userId: string, userName: string) => {
       if (
-        confirm(
+        window.confirm(
           `${userName}님을 완전히 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.`
         )
       ) {
-        setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
-        alert(`${userName}님이 완전히 삭제되었습니다.`);
+        const userEmail = users.find((u) => u.email === userId)?.email;
+        if (userEmail) {
+          removeUserFromStore(userEmail);
+        } else {
+          console.warn(
+            `사용자 ID ${userId}를 찾을 수 없어 완전히 삭제할 수 없습니다.`
+          );
+        }
       }
     },
-    []
+    [users, removeUserFromStore]
   );
 
-  const handleUserRestore = useCallback((userId: number, userName: string) => {
-    if (confirm(`${userName}님을 복구하시겠습니까?`)) {
-      setUsers((prevUsers) =>
-        prevUsers.map((user) =>
-          user.id === userId ? { ...user, deleteDate: undefined } : user
-        )
-      );
-      alert(`${userName}님이 복구되었습니다.`);
-    }
-  }, []);
+  const handleUserRestore = useCallback(
+    (userId: string, userName: string) => {
+      if (window.confirm(`${userName}님을 복구하시겠습니까?`)) {
+        const userEmail = users.find((u) => u.email === userId)?.email;
+        if (userEmail) {
+          updateUserProfileInStore(userEmail, { deleteDate: undefined });
+        } else {
+          console.warn(
+            `사용자 ID ${userId}를 찾을 수 없어 복구할 수 없습니다.`
+          );
+        }
+      }
+    },
+    [users, updateUserProfileInStore]
+  );
 
   const overallTotalUsers = useMemo(() => users.length, [users]);
   const totalActiveUsers = useMemo(

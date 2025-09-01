@@ -52,9 +52,18 @@ export default function InfoTab({
       <StaticProfileField
         label='전화번호'
         icon={<Phone />}
-        value={profile.phone.join('-')}
-        badgeText='인증완료'
+        value={
+          profile.phone[0]
+            ? `[${profile.phone[0]}] ${profile.phone.slice(1).join('-')}`
+            : profile.phone.slice(1).join('-')
+        }
       />
+
+      {editMode && !validation.phone && (
+        <p className={styles.fieldContainer__errorMessage}>
+          올바른 전화번호를 입력해주세요
+        </p>
+      )}
     </div>
   );
 }

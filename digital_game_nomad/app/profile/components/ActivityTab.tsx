@@ -30,6 +30,20 @@ export default function ActivityTab({
             </span>
           </div>
         </div>
+
+        <div className={styles.activeCardContainer__item}>
+          <div className={styles.activeCardContainer__label}>문의 내역</div>
+          <div className={styles.activeCardContainer__value}>
+            <span className={styles.activeCardContainer__gradeInfo}>
+              <Link
+                href='/support/inquiry/detail'
+                className={styles.activeCardContainer__inquriyLink}
+              >
+                확인하기
+              </Link>
+            </span>
+          </div>
+        </div>
       </div>
 
       <div className={styles.activeCardContainer}>

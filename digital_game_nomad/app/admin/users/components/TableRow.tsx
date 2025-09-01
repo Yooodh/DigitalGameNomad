@@ -15,9 +15,13 @@ export default function TableRow({
   getUserLevelText,
   getUserLevelClass,
 }: TableRowProps) {
+  const formattedPhone = user.phone?.[0]
+    ? `[${user.phone[0]}] ${user.phone.slice(1).join('-')}`
+    : user.phone.slice(1).join('-');
+
   return (
     <tr
-      key={user.id}
+      key={user.id || user.email}
       className={`${styles.rowContainer} ${
         user.deleteDate ? styles.deletedRow : ''
       }`}
@@ -52,7 +56,7 @@ export default function TableRow({
       </td>
       <td className={styles.rowContainer__nickname}>@{user.nickname}</td>
       <td className={styles.rowContainer__email}>{user.email}</td>
-      <td className={styles.rowContainer__phone}>{user.phone}</td>
+      <td className={styles.rowContainer__phone}>{formattedPhone}</td>
       <td className={styles.rowContainer__level}>
         <span
           className={`${styles.levelBadge} ${
@@ -73,7 +77,6 @@ export default function TableRow({
           <span className={styles.activeStatus}>활성</span>
         )}
       </td>
-
       <TableRowActionCell
         user={user}
         handlePasswordReset={handlePasswordReset}

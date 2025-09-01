@@ -432,6 +432,19 @@
               gap: 3px;
             }
 
+            &__inquriyLink {
+              color: $theme-blue;
+              text-decoration: none;
+              font-weight: 500;
+              transition: color 0.2s;
+              cursor: pointer;
+
+              &:hover {
+                color: $theme-purple;
+                text-decoration: underline;
+              }
+            }
+
             &__action {
               display: flex;
               flex-direction: column;

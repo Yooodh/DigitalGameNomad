@@ -11,14 +11,14 @@ export const useUserSelection = (
   filterLevel: FilterLevel,
   showDeletedUsers: boolean
 ): SelectionState & {
-  handleUserSelect: (userId: number, isSelected: boolean) => void;
+  handleUserSelect: (userId: string, isSelected: boolean) => void;
   handleSelectAll: (checked: boolean) => void;
   handleDeleteSelectedUsers: () => void;
   handleCancelSelection: () => void;
   isAllSelectedOnPage: boolean;
   usersWithSelection: UserData[];
 } => {
-  const [selectedUserIds, setSelectedUserIds] = useState<Set<number>>(
+  const [selectedUserIds, setSelectedUserIds] = useState<Set<string>>(
     new Set()
   );
 
@@ -27,7 +27,7 @@ export const useUserSelection = (
   }, [currentPage, searchTerm, filterLevel, showDeletedUsers]);
 
   const handleUserSelect = useCallback(
-    (userId: number, isSelected: boolean) => {
+    (userId: string, isSelected: boolean) => {
       setSelectedUserIds((prevSelected) => {
         const newSelected = new Set(prevSelected);
         if (isSelected) {
@@ -72,17 +72,17 @@ export const useUserSelection = (
 
   const handleDeleteSelectedUsers = useCallback(() => {
     if (selectedUserIds.size === 0) {
-      alert('삭제할 사용자를 선택해주세요.');
+      window.alert('삭제할 사용자를 선택해주세요.');
       return;
     }
 
     if (
-      confirm(
+      window.confirm(
         `${selectedUserIds.size}명의 사용자를 정말로 삭제하시겠습니까? (향후 복구 가능)`
       )
     ) {
       setSelectedUserIds(new Set());
-      alert('선택된 사용자 삭제 요청이 처리되었습니다.');
+      window.alert('선택된 사용자 삭제 요청이 처리되었습니다.');
     }
   }, [selectedUserIds]);
 

@@ -1,10 +1,10 @@
 'use client';
 
 // package
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 // slice
-import UserPresenter from '../presenters/Users.presenter';
+import UserPresenter from '../presenter/UsersPresenter';
 import { useUserManagement } from '../hooks/useUserManagement';
 import { useUserFiltering } from '../hooks/useUserFiltering';
 import { useUserSorting } from '../hooks/useUserSorting';
@@ -12,19 +12,30 @@ import { useUserPagination } from '../hooks/useUserPagination';
 import { useUserSelection } from '../hooks/useUserSelection';
 import { useUserUtils } from '../hooks/useUserUtils';
 
-export default function UserContainer() {
+// layer
+import { useRegisteredUsersStore } from '@/shared/stores/useRegisteredUsersStore';
+
+export default function UsersContainer() {
+  const updateUserProfileInStore = useRegisteredUsersStore(
+    (state) => state.updateUserProfile
+  );
+  const removeUserFromStore = useRegisteredUsersStore(
+    (state) => state.removeUser
+  );
+
   const {
     users,
-    setUsers,
-    handlePasswordReset,
-    handleUserRestore,
-    handleHardDeleteUser,
+    handlePasswordReset: baseHandlePasswordReset,
+    handleUserRestore: baseHandleUserRestore,
+    handleHardDeleteUser: baseHandleHardDeleteUser,
     overallTotalUsers,
     totalActiveUsers,
     totalBusinessUsers,
     totalGeneralUsers,
     totalDeletedUsers,
   } = useUserManagement();
+
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const {
     searchTerm,
@@ -37,21 +48,13 @@ export default function UserContainer() {
     handleSearchChange,
     handleFilterChange,
     handleDeletedToggle,
-  } = useUserFiltering(users, (page) => setCurrentPage(page));
+  } = useUserFiltering(users, setCurrentPage);
 
-  const {
-    sortBy,
-    sortOrder,
-
-    sortedUsers,
-    handleSortChange,
-    resetSorting,
-  } = useUserSorting(filteredUsers, (page) => setCurrentPage(page));
+  const { sortBy, sortOrder, sortedUsers, handleSortChange, resetSorting } =
+    useUserSorting(filteredUsers, setCurrentPage);
 
   const itemsPerPage = 10;
   const {
-    currentPage,
-    setCurrentPage,
     totalPages,
     startIndex,
     endIndex,
@@ -97,26 +100,67 @@ export default function UserContainer() {
 
   const handleDeleteSelectedUsers = useCallback(() => {
     if (selectedUserIds.size === 0) {
-      alert('삭제할 사용자를 선택해주세요.');
+      window.alert('삭제할 사용자를 선택해주세요.');
       return;
     }
 
     if (
-      confirm(
+      window.confirm(
         `${selectedUserIds.size}명의 사용자를 정말로 삭제하시겠습니까? (향후 복구 가능)`
       )
     ) {
-      setUsers((prevUsers) =>
-        prevUsers.map((user) =>
-          selectedUserIds.has(user.id)
-            ? { ...user, deleteDate: new Date().toISOString().slice(0, 10) }
-            : user
-        )
-      );
+      selectedUserIds.forEach((userId) => {
+        const userToUpdate = users.find((u) => u.id === userId);
+        if (userToUpdate) {
+          updateUserProfileInStore(userToUpdate.email, {
+            deleteDate: new Date().toISOString().slice(0, 10),
+          });
+        }
+      });
       setSelectedUserIds(new Set());
-      alert('선택된 사용자가 삭제(비활성화) 처리되었습니다.');
+      window.alert('선택된 사용자가 삭제(비활성화) 처리되었습니다.');
     }
-  }, [selectedUserIds, setUsers, setSelectedUserIds]);
+  }, [selectedUserIds, users, updateUserProfileInStore, setSelectedUserIds]);
+
+  const handlePasswordReset = useCallback(
+    (userId: string, userName: string) => {
+      const userEmail = users.find((u) => u.id === userId)?.email;
+      if (userEmail) {
+        baseHandlePasswordReset(userEmail, userName);
+      } else {
+        console.warn(
+          `사용자 ID ${userId}를 찾을 수 없어 비밀번호를 초기화할 수 없습니다.`
+        );
+      }
+    },
+    [users, baseHandlePasswordReset]
+  );
+
+  const handleUserRestore = useCallback(
+    (userId: string, userName: string) => {
+      const userEmail = users.find((u) => u.id === userId)?.email;
+      if (userEmail) {
+        baseHandleUserRestore(userEmail, userName);
+      } else {
+        console.warn(`사용자 ID ${userId}를 찾을 수 없어 복구할 수 없습니다.`);
+      }
+    },
+    [users, baseHandleUserRestore]
+  );
+
+  const handleHardDeleteUser = useCallback(
+    (userId: string, userName: string) => {
+      const userEmail = users.find((u) => u.id === userId)?.email;
+      if (userEmail) {
+        baseHandleHardDeleteUser(userEmail, userName);
+      } else {
+        console.warn(
+          `사용자 ID ${userId}를 찾을 수 없어 완전히 삭제할 수 없습니다.`
+        );
+      }
+    },
+    [users, baseHandleHardDeleteUser]
+  );
 
   return (
     <UserPresenter
@@ -136,8 +180,6 @@ export default function UserContainer() {
       startIndex={startIndex}
       endIndex={endIndex}
       totalFilteredAndSortedUsersCount={totalFilteredAndSortedUsersCount}
-      handlePageChange={handlePageChange}
-      generatePageNumbers={generatePageNumbers}
       users={usersWithSelection}
       selectedUserIds={selectedUserIds}
       isAllSelectedOnPage={isAllSelectedOnPage}
@@ -155,6 +197,8 @@ export default function UserContainer() {
       totalGeneralUsers={totalGeneralUsers}
       totalDeletedUsers={totalDeletedUsers}
       overallTotalUsers={overallTotalUsers}
+      generatePageNumbers={generatePageNumbers}
+      handlePageChange={handlePageChange}
     />
   );
 }

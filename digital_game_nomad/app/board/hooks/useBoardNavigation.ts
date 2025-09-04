@@ -2,14 +2,16 @@
 import { useRouter } from 'next/navigation';
 
 // slice
-import { useBoardStore } from '../stores/useBoardStore';
-import { TabType } from '../types';
+import { ActiveTab } from '../types';
+
+// layer
+import { useBoardStore } from '@/shared/stores/useBoardStore';
 
 export function useBoardNavigation() {
   const router = useRouter();
   const { setPreviousTab, setCurrentPostTopic } = useBoardStore();
 
-  return (tab: TabType) => {
+  return (tab: ActiveTab) => {
     setPreviousTab(tab);
 
     switch (tab) {

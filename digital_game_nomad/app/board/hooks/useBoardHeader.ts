@@ -12,16 +12,6 @@ export function useBoardHeader(
         title: '후기게시판',
         subtitle: '게임 경험을 공유하고 다른 유저들과 소통해보세요',
       };
-    case '글작성':
-      return {
-        title: '게시글 작성',
-        subtitle: '다른 유저들과 정보를 공유해보세요',
-      };
-    case '상세보기':
-      return {
-        title: '게시글 상세',
-        subtitle: '게시글의 내용을 확인하고 소통해보세요',
-      };
     default:
       return {
         title: '게시판',

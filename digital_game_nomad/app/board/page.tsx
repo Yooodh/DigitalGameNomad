@@ -1,10 +1,6 @@
 // slice
-import BoardContainer from './containers/Board.container';
+import { Board } from '.';
 
 export default function page() {
-  return (
-    <>
-      <BoardContainer />
-    </>
-  );
+  return <Board />;
 }

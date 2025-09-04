@@ -2,11 +2,11 @@
 import { useState, useEffect, useMemo } from 'react';
 
 // slice
-import { useBoardStore } from '../stores/useBoardStore';
 import { PostData, GameRating, ScreenshotItem, BoardStats } from '../types';
 
 // layer
 import { truncateText } from '@/shared/utils/truncateText';
+import { useBoardStore } from '@/shared/stores/useBoardStore';
 
 export const useBoardStats = (): BoardStats => {
   const { allPosts, gameList: initialGameList } = useBoardStore();

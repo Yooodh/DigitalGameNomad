@@ -4,25 +4,40 @@ export type PostData = {
   postText: string;
   postDate: string;
   postTopic: BoardTopic;
-  userKey: number;
-  userName: string;
+  userKey: string;
+  userName?: string;
   viewCount: number;
   likeCount: number;
+  dislikeCount?: number;
   image_url?: string;
   game_name?: string;
   post_score?: number;
   comments?: number;
+  isEdited?: boolean;
+  lastModifiedDate?: string;
 };
-
-export type BoardTopic = '자유' | '후기';
-export type ActiveTab = '전체' | '자유' | '후기' | '글작성' | '상세보기';
 
 export type Comment = {
   id: number;
-  userName: string;
   content: string;
   date: string;
-  userKey: number;
+  userKey: string;
+  isEdited?: boolean;
+  lastModifiedDate?: string;
+};
+
+export type BoardTopic = '자유' | '후기';
+
+export type ActiveTab = '전체' | '자유' | '후기' | '글작성' | '상세보기';
+
+export type NavigationProps = {
+  activeTab: ActiveTab;
+  onTabClick: (tab: ActiveTab) => void;
+};
+
+export type ReviewPresenterProps = {
+  activeTab: ActiveTab;
+  onTabClick: (tab: ActiveTab) => void;
 };
 
 export type GameRating = {
@@ -30,7 +45,7 @@ export type GameRating = {
   count: number;
 };
 
-export interface BoardState {
+export type BoardState = {
   allPosts: PostData[];
   setAllPosts: (posts: PostData[]) => void;
   deletePost: (postKey: string) => void;
@@ -38,22 +53,32 @@ export interface BoardState {
   addPost: (newPost: PostData) => void;
   incrementViewCount: (postKey: string) => void;
   incrementLikeCount: (postKey: string) => void;
+  incrementDislikeCount: (postKey: string) => void;
+
   currentPostTopic: BoardTopic | null;
   setCurrentPostTopic: (topic: BoardTopic | null) => void;
   clearCurrentPostTopic: () => void;
+
   currentPost: PostData | null;
   setCurrentPost: (post: PostData | null) => void;
   clearCurrentPost: () => void;
+
   previousTab: ActiveTab;
   setPreviousTab: (tab: ActiveTab) => void;
+
   searchQuery: string;
   setSearchQuery: (query: string) => void;
+
   selectedFilter: 'all' | 'popular' | 'recent';
   setSelectedFilter: (filter: 'all' | 'popular' | 'recent') => void;
+
   gameList: string[];
+
   commentsByPost: Record<string, Comment[]>;
   addCommentToPost: (postKey: string, comment: Comment) => void;
-}
+  deleteComment: (postKey: string, commentId: number) => void;
+  updateComment: (postKey: string, updatedComment: Comment) => void;
+};
 
 export type HeaderProps = {
   title: string;
@@ -63,17 +88,6 @@ export type HeaderProps = {
 export type GameRatingSectionProps = {
   gameRatings: Record<string, GameRating>;
   mockGameList: string[];
-};
-export type TabType = '전체' | '자유' | '후기' | '글작성' | '상세보기';
-
-export type NavigationProps = {
-  activeTab: TabType;
-  onTabClick: (tab: TabType) => void;
-};
-
-export type ReviewPresenterProps = {
-  activeTab: TabType;
-  onTabClick: (tab: TabType) => void;
 };
 
 export type PostListProps = {
@@ -101,13 +115,6 @@ export type BoardPresenterProps = {
   mockGameList: string[];
   formatDate: (dateString: string) => string;
   latestScreenshots: ScreenshotItem[];
-};
-
-export type CommentData = {
-  commentId: string;
-  commentText: string;
-  author: string;
-  commentDate: string;
 };
 
 export type BoardStats = {

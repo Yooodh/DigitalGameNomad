@@ -4,7 +4,7 @@
 import { useMemo } from 'react';
 
 // slice
-import BoardPresenter from '../presenters/Board.presenter';
+import BoardPresenter from '../presenter/BoardPresenter';
 import { useBoardStats } from '../hooks/useBoardStats';
 import { formatDate } from '../utils/formatDate';
 

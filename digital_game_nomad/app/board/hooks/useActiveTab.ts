@@ -1,8 +1,8 @@
 // package
 import { usePathname } from 'next/navigation';
 
-// slice
-import { useBoardStore } from '../stores/useBoardStore';
+// layer
+import { useBoardStore } from '@/shared/stores/useBoardStore';
 
 export function useActiveTab():
   | '전체'

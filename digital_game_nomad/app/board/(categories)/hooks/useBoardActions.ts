@@ -5,7 +5,9 @@ import { useRouter } from 'next/navigation';
 // slice
 import { FREE_BOARD_TOPIC, REVIEW_BOARD_TOPIC } from '../constants';
 import { UseBoardActionsProps } from '../types';
-import { useBoardStore } from '../../stores/useBoardStore';
+
+// layer
+import { useBoardStore } from '@/shared/stores/useBoardStore';
 
 export function useBoardActions({ boardType }: UseBoardActionsProps) {
   const router = useRouter();

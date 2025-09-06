@@ -1,10 +1,6 @@
 // slice
-import FreeContainer from './containers/Free.container';
+import { Free } from '.';
 
 export default function page() {
-  return (
-    <>
-      <FreeContainer />
-    </>
-  );
+  return <Free />;
 }

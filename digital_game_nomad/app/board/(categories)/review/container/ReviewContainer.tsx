@@ -4,7 +4,7 @@
 import { useCallback } from 'react';
 
 // slice
-import ReviewPresenter from '../presenters/Review.presenter';
+import ReviewPresenter from '../presenter/ReviewPresenter';
 import {
   POSTS_PER_PAGE,
   MAX_VISIBLE_PAGES,
@@ -14,8 +14,10 @@ import { useFilteredPosts } from '../../hooks/useFilteredPosts';
 import { usePagination } from '../../hooks/usePagination';
 import { useBoardSearch } from '../../hooks/useBoardSearch';
 import { useBoardActions } from '../../hooks/useBoardActions';
-import { useBoardStore } from '../../../stores/useBoardStore';
 import { PostData } from '../../../types';
+
+// layer
+import { useBoardStore } from '@/shared/stores/useBoardStore';
 
 export default function ReviewContainer() {
   const { allPosts } = useBoardStore();

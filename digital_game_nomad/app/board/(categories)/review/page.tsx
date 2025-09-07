@@ -1,10 +1,6 @@
 // slice
-import ReviewContainer from './containers/Review.container';
+import { Review } from '.';
 
 export default function page() {
-  return (
-    <>
-      <ReviewContainer />
-    </>
-  );
+  return <Review />;
 }

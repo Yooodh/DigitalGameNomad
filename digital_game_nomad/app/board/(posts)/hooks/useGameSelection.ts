@@ -2,7 +2,7 @@
 import { useState, useCallback } from 'react';
 
 // slice
-import { useBoardStore } from './../../stores/useBoardStore';
+import { useBoardStore } from '@/shared/stores/useBoardStore';
 
 export function useGameSelection(
   initialGame: string = '',

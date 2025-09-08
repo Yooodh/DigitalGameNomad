@@ -1,4 +1,3 @@
-// slice
 import { formatDate } from './../../utils/formatDate';
 import { PostData } from './../../types';
 
@@ -14,8 +13,8 @@ export const postUtils = {
     imageUrl?: string;
     gameName?: string;
     rating?: number;
-    userKey?: number;
-    userName?: string;
+    userKey: string;
+    userName: string;
   }): PostData => {
     const basePost: PostData = {
       postKey: postUtils.generatePostKey(),
@@ -23,8 +22,7 @@ export const postUtils = {
       postText: data.content,
       postDate: formatDate(new Date().toISOString()),
       postTopic: data.topic,
-      userKey: data.userKey || 999,
-      userName: data.userName || '테스트 유저',
+      userKey: data.userKey,
       viewCount: 0,
       likeCount: 0,
       comments: 0,
@@ -38,7 +36,6 @@ export const postUtils = {
         post_score: data.rating,
       };
     }
-
     return basePost;
   },
 

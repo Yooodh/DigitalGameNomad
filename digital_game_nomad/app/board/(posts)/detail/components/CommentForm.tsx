@@ -1,5 +1,3 @@
-'use client';
-
 // slice
 import styles from '../styles/Detail.module.scss';
 import { CommentFormProps } from '../types';

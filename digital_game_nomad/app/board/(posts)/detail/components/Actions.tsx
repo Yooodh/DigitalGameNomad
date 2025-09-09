@@ -1,5 +1,3 @@
-'use client';
-
 // slice
 import styles from '../styles/Detail.module.scss';
 import { ActionsProps } from '../types';
@@ -15,6 +13,7 @@ export default function Actions({
       <button className={styles.navBtn} onClick={handleBackClick}>
         목록
       </button>
+
       {isAuthor && (
         <div className={styles.navBtnGroup}>
           <button

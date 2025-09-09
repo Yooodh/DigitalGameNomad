@@ -15,7 +15,7 @@ export type CommentFormProps = {
 
 export type CommentListProps = {
   comments: Comment[];
-  loggedInUserKey: number;
+  loggedInUserKey: string;
   editingCommentId: number | null;
   editedCommentContent: string;
   setEditedCommentContent: (content: string) => void;
@@ -30,7 +30,7 @@ export type CommentSectionProps = {
   newComment: string;
   setNewComment: (comment: string) => void;
   handleCommentSubmit: (e: React.FormEvent) => void;
-  loggedInUserKey: number;
+  loggedInUserKey: string;
   editingCommentId: number | null;
   editedCommentContent: string;
   setEditedCommentContent: (content: string) => void;
@@ -56,10 +56,7 @@ export type HeaderProps = {
 };
 
 export type InteractionProps = {
-  likeCount: number;
-  dislikeCount: number | undefined;
-  handleLikeClick: () => void;
-  handleDislikeClick: () => void;
+  postId: string;
 };
 
 export type DetailPresenterProps = {
@@ -77,7 +74,7 @@ export type DetailPresenterProps = {
   handleEditClick: () => void;
   handleDeleteClick: () => void;
   handleBackClick: () => void;
-  loggedInUserKey: number;
+  loggedInUserKey: string;
   editingCommentId: number | null;
   editedCommentContent: string;
   setEditedCommentContent: (content: string) => void;

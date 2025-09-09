@@ -1,5 +1,3 @@
-'use client';
-
 // slice
 import Actions from '../components/Actions';
 import Interaction from '../components/Interaction';
@@ -8,6 +6,9 @@ import Content from '../components/Content';
 import CommentSection from '../components/CommentSection';
 import styles from '../styles/Detail.module.scss';
 import { DetailPresenterProps } from '../types';
+
+// layer
+import { getCurrentUserInfo } from '@/shared/utils/getCurrentUserInfo';
 
 export default function DetailPresenter({
   currentPost,
@@ -19,12 +20,9 @@ export default function DetailPresenter({
   handleImageError,
   imageLoading,
   imageError,
-  handleLikeClick,
-  handleDislikeClick,
   handleEditClick,
   handleDeleteClick,
   handleBackClick,
-  loggedInUserKey,
   editingCommentId,
   editedCommentContent,
   setEditedCommentContent,
@@ -33,7 +31,8 @@ export default function DetailPresenter({
   handleSaveEditedComment,
   handleCancelEditComment,
 }: DetailPresenterProps) {
-  const isAuthor = currentPost.userKey === loggedInUserKey;
+  const currentUser = getCurrentUserInfo();
+  const isAuthor = !!currentUser && currentPost.userKey === currentUser.userKey;
 
   return (
     <div className={styles.detailContainer}>
@@ -43,7 +42,6 @@ export default function DetailPresenter({
           imageLoading={imageLoading}
           imageError={imageError}
         />
-
         <Content
           postText={currentPost.postText}
           imageUrl={currentPost.image_url}
@@ -52,20 +50,13 @@ export default function DetailPresenter({
           handleImageLoad={handleImageLoad}
           handleImageError={handleImageError}
         />
-
-        <Interaction
-          likeCount={currentPost.likeCount}
-          dislikeCount={currentPost.dislikeCount}
-          handleLikeClick={handleLikeClick}
-          handleDislikeClick={handleDislikeClick}
-        />
-
+        <Interaction postId={currentPost.postKey} />
         <CommentSection
           currentPostComments={currentPostComments}
           newComment={newComment}
           setNewComment={setNewComment}
           handleCommentSubmit={handleCommentSubmit}
-          loggedInUserKey={loggedInUserKey}
+          loggedInUserKey={currentUser?.userKey ?? ''}
           editingCommentId={editingCommentId}
           editedCommentContent={editedCommentContent}
           setEditedCommentContent={setEditedCommentContent}
@@ -74,7 +65,6 @@ export default function DetailPresenter({
           handleSaveEditedComment={handleSaveEditedComment}
           handleCancelEditComment={handleCancelEditComment}
         />
-
         <Actions
           isAuthor={isAuthor}
           handleBackClick={handleBackClick}

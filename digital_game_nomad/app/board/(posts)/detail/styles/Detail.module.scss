@@ -192,7 +192,7 @@
       }
     }
 
-    .actionContainer {
+    .interactionContainer {
       display: flex;
       gap: 12px;
       margin-bottom: 30px;
@@ -219,6 +219,24 @@
         &:hover {
           transform: translateY(-2px);
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      .disabledBtn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border: 1px solid $theme-shade-4;
+        background: $theme-shade-3;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        color: $theme-gray-2;
+
+        .btnIcon {
+          font-size: 18px;
         }
       }
 
@@ -362,7 +380,7 @@
 
               &:nth-child(1) {
                 background: $theme-purple-gradient;
-                color: $theme-text-1;
+                color: $theme-white;
               }
 
               &:nth-child(2) {
@@ -470,4 +488,10 @@
       }
     }
   }
+}
+
+.userGrade {
+  color: $theme-gray-3;
+  font-size: 0.95em;
+  margin-left: 2px;
 }

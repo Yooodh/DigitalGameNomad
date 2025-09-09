@@ -1,5 +1,3 @@
-'use client';
-
 // slice
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';

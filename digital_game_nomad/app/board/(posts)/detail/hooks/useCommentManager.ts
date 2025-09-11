@@ -2,14 +2,14 @@
 import { useState, useCallback } from 'react';
 
 // slice
-import { useBoardStore } from '../../../stores/useBoardStore';
 import { formatDate } from '../../../utils/formatDate';
 import { Comment } from '../../../types';
 
-export function useCommentManager(
-  postId: string | null,
-  loggedInUserKey: number
-) {
+// layer
+import { useBoardStore } from '@/shared/stores/useBoardStore';
+import { getCurrentUserInfo } from '@/shared/utils/getCurrentUserInfo';
+
+export function useCommentManager(postId: string | null) {
   const [newComment, setNewComment] = useState<string>('');
   const [editingCommentId, setEditingCommentId] = useState<number | null>(null);
   const [editedCommentContent, setEditedCommentContent] = useState<string>('');
@@ -17,11 +17,18 @@ export function useCommentManager(
   const { commentsByPost, addCommentToPost, deleteComment, updateComment } =
     useBoardStore();
 
+  const currentUser = getCurrentUserInfo();
+
   const currentPostComments = postId ? commentsByPost[postId] || [] : [];
 
   const handleCommentSubmit = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
+
+      if (!currentUser) {
+        alert('로그인 후 이용해 주세요.');
+        return;
+      }
 
       if (!newComment.trim()) {
         alert('댓글 내용을 입력해주세요.');
@@ -38,10 +45,9 @@ export function useCommentManager(
           currentPostComments.length > 0
             ? Math.max(...currentPostComments.map((c) => c.id)) + 1
             : 1,
-        userName: '테스트 유저',
         content: newComment,
         date: formatDate(new Date().toISOString()),
-        userKey: loggedInUserKey,
+        userKey: currentUser.userKey,
         isEdited: false,
         lastModifiedDate: undefined,
       };
@@ -50,11 +56,15 @@ export function useCommentManager(
       setNewComment('');
       alert('댓글이 작성되었습니다.');
     },
-    [newComment, postId, currentPostComments, addCommentToPost, loggedInUserKey]
+    [newComment, postId, currentPostComments, addCommentToPost, currentUser]
   );
 
   const handleDeleteComment = useCallback(
     (commentId: number) => {
+      if (!currentUser) {
+        alert('로그인 후 이용해 주세요.');
+        return;
+      }
       if (!postId) {
         alert('게시글 정보를 찾을 수 없어 댓글을 삭제할 수 없습니다.');
         return;
@@ -64,7 +74,7 @@ export function useCommentManager(
         alert('댓글이 삭제되었습니다.');
       }
     },
-    [postId, deleteComment]
+    [postId, deleteComment, currentUser]
   );
 
   const handleEditCommentClick = useCallback((comment: Comment) => {
@@ -74,6 +84,10 @@ export function useCommentManager(
 
   const handleSaveEditedComment = useCallback(
     (commentId: number) => {
+      if (!currentUser) {
+        alert('로그인 후 이용해 주세요.');
+        return;
+      }
       if (!postId) {
         alert('게시글 정보를 찾을 수 없어 댓글을 수정할 수 없습니다.');
         return;
@@ -88,6 +102,11 @@ export function useCommentManager(
       );
       if (!originalComment) return;
 
+      if (originalComment.userKey !== currentUser.userKey) {
+        alert('본인 댓글만 수정할 수 있습니다.');
+        return;
+      }
+
       const updatedComment: Comment = {
         ...originalComment,
         content: editedCommentContent,
@@ -100,7 +119,13 @@ export function useCommentManager(
       setEditedCommentContent('');
       alert('댓글이 수정되었습니다.');
     },
-    [postId, editedCommentContent, currentPostComments, updateComment]
+    [
+      postId,
+      editedCommentContent,
+      currentPostComments,
+      updateComment,
+      currentUser,
+    ]
   );
 
   const handleCancelEditComment = useCallback(() => {

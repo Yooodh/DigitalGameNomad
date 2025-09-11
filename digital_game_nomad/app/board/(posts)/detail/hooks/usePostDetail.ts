@@ -3,37 +3,44 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 // slice
-import { useBoardStore } from '../../../stores/useBoardStore';
+import { MAX_POST_DETAIL_RETRY, POST_DETAIL_RETRY_DELAY } from '../constants';
 import { useImageHandler } from '../../hooks/useImageHandler';
-import { usePostInteractions } from '../../hooks/usePostInteractions';
-import { PostData } from '../../../types';
+import { localStorageUtils } from '../../utils/localStorageUtils';
+
+// layer
+import { getCurrentUserInfo } from '@/shared/utils/getCurrentUserInfo';
+import { useBoardStore } from '@/shared/stores/useBoardStore';
 
 export const usePostDetail = () => {
   const searchParams = useSearchParams();
   const postId = searchParams.get('postId');
   const boardType = searchParams.get('boardType');
 
-  const { setCurrentPost, setPreviousTab, previousTab } = useBoardStore();
-  const allPosts = useBoardStore((state) => state.allPosts);
+  const { setCurrentPost, setPreviousTab, currentPost, allPosts } =
+    useBoardStore();
 
   const { setCurrentImageUrl } = useImageHandler();
-  const { handleViewCount } = usePostInteractions();
 
   const [loading, setLoading] = useState<boolean>(true);
-  const [localCurrentPost, setLocalCurrentPost] = useState<PostData | null>(
-    null
-  );
+  const [retryCount, setRetryCount] = useState(0);
+  const [previousTab, setPreviousTabState] = useState<string | null>(null);
+
+  const currentUser = getCurrentUserInfo();
+  const userKey = currentUser?.userKey;
+
+  useEffect(() => {
+    if (!postId || !userKey) return;
+    if (!localStorageUtils.hasViewed(postId, userKey)) {
+      localStorageUtils.addViewed(postId, userKey);
+      useBoardStore.getState().incrementViewCount(postId);
+    }
+  }, [postId, userKey]);
 
   useEffect(() => {
     if (!postId) {
       setLoading(false);
-      setCurrentPost(null);
-      setLocalCurrentPost(null);
-      console.error('게시글 ID가 제공되지 않았습니다.');
       return;
     }
-
-    setLoading(true);
 
     const foundPost = allPosts.find(
       (p) =>
@@ -44,36 +51,44 @@ export const usePostDetail = () => {
     );
 
     if (foundPost) {
-      setLocalCurrentPost(foundPost);
       setCurrentPost(foundPost);
       setPreviousTab(foundPost.postTopic);
-
+      setPreviousTabState(foundPost.postTopic);
       setCurrentImageUrl(foundPost.image_url || '');
+      setLoading(false);
+      return;
+    }
 
-      handleViewCount(postId);
-    } else {
-      setLocalCurrentPost(null);
-      setCurrentPost(null);
+    if (!foundPost && retryCount < MAX_POST_DETAIL_RETRY) {
+      setLoading(true);
+      const timer = setTimeout(
+        () => setRetryCount((r) => r + 1),
+        POST_DETAIL_RETRY_DELAY
+      );
+      return () => clearTimeout(timer);
+    }
+
+    setLoading(false);
+    if (retryCount >= MAX_POST_DETAIL_RETRY) {
       console.error(
-        `ID ${postId} 및 타입 ${boardType} 의 게시글을 allPosts에서 찾을 수 없습니다.`
+        `ID ${postId} 및 타입 ${boardType}의 게시글을 allPosts에서 찾을 수 없습니다.`
       );
     }
-    setLoading(false);
   }, [
+    allPosts,
     postId,
     boardType,
+    retryCount,
     setCurrentPost,
     setPreviousTab,
     setCurrentImageUrl,
-    handleViewCount,
-    allPosts,
   ]);
 
   return {
     loading,
     postId,
     boardType,
-    currentPost: localCurrentPost,
+    currentPost,
     previousTab,
   };
 };

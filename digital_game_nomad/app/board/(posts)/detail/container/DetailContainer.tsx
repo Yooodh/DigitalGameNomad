@@ -5,7 +5,7 @@ import { useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 // slice
-import DetailPresenter from '../presenters/Detail.presenter';
+import DetailPresenter from '../presenter/DetailPresenter';
 import {
   BOARD_TYPES,
   BOARD_PATHS,
@@ -19,7 +19,7 @@ import { usePostActions } from '../hooks/usePostActions';
 import { useCommentManager } from '../hooks/useCommentManager';
 import { usePostInteractions } from '../../hooks/usePostInteractions';
 import { useImageHandler } from '../../hooks/useImageHandler';
-import EditContainer from '../../edit/containers/Edit.container';
+import EditContainer from '../../edit/container/EditContainer';
 
 // layer
 import LoadingSpinner from '@/shared/components/Spinner';
@@ -28,11 +28,8 @@ export default function DetailContainer() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const boardType = searchParams.get('boardType');
-
-  const loggedInUserKey = MOCK_LOGGED_IN_USER_KEY;
-
+  const loggedInUserKey = String(MOCK_LOGGED_IN_USER_KEY ?? '');
   const { loading, postId, currentPost, previousTab } = usePostDetail();
-
   const {
     newComment,
     setNewComment,
@@ -45,7 +42,7 @@ export default function DetailContainer() {
     handleEditCommentClick,
     handleSaveEditedComment,
     handleCancelEditComment,
-  } = useCommentManager(postId, loggedInUserKey);
+  } = useCommentManager(postId);
 
   const { handleLikeClick, handleDislikeClick } = usePostInteractions();
 

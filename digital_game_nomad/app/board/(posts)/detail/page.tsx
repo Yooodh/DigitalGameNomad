@@ -1,10 +1,6 @@
 // slice
-import DetailContainer from './containers/Detail.container';
+import { Detail } from '.';
 
 export default function Page() {
-  return (
-    <>
-      <DetailContainer />
-    </>
-  );
+  return <Detail />;
 }

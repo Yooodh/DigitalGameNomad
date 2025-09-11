@@ -1,7 +1,7 @@
 'use client';
 
 // slice
-import EditPresenter from '../presenters/Edit.presenter';
+import EditPresenter from '../presenter/EditPresenter';
 import Empty from '../../components/Empty';
 import { useEditForm } from '../hooks/useEditForm';
 import { PostEditProps } from '../types';

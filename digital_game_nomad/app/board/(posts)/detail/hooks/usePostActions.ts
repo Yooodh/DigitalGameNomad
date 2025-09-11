@@ -3,8 +3,11 @@ import { useState, useCallback } from 'react';
 
 // slice
 import { UsePostActionsProps } from '../types';
-import { useBoardStore } from '../../../stores/useBoardStore';
 import { PostData } from '../../../types';
+
+// layer
+import { useBoardStore } from '@/shared/stores/useBoardStore';
+import { getCurrentUserInfo } from '@/shared/utils/getCurrentUserInfo';
 
 export const usePostActions = ({
   currentPost,
@@ -13,14 +16,28 @@ export const usePostActions = ({
   const { updatePost, deletePost, setCurrentPost } = useBoardStore();
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
 
+  const currentUser = getCurrentUserInfo();
+
   const handleEditClick = useCallback(() => {
+    if (!currentUser || !currentPost) {
+      alert('로그인 후 이용해 주세요.');
+      return;
+    }
+    if (currentPost.userKey !== currentUser.userKey) {
+      alert('본인 게시글만 수정할 수 있습니다.');
+      return;
+    }
     setIsEditMode(true);
-  }, []);
+  }, [currentUser, currentPost]);
 
   const handleEditSave = useCallback(
     (updatedDataFromEdit: PostData) => {
-      if (!currentPost) {
-        alert('게시글 정보를 찾을 수 없어 수정할 수 없습니다.');
+      if (!currentUser || !currentPost) {
+        alert('로그인 후 이용해 주세요.');
+        return;
+      }
+      if (currentPost.userKey !== currentUser.userKey) {
+        alert('본인 게시글만 수정할 수 있습니다.');
         return;
       }
 
@@ -41,11 +58,18 @@ export const usePostActions = ({
       setIsEditMode(false);
       alert('게시글이 수정되었습니다.');
     },
-    [currentPost, setCurrentPost, updatePost]
+    [currentUser, currentPost, setCurrentPost, updatePost]
   );
 
   const handleDeleteClick = useCallback(() => {
-    if (!currentPost) return;
+    if (!currentUser || !currentPost) {
+      alert('로그인 후 이용해 주세요.');
+      return;
+    }
+    if (currentPost.userKey !== currentUser.userKey) {
+      alert('본인 게시글만 삭제할 수 있습니다.');
+      return;
+    }
 
     if (window.confirm('정말로 게시글을 삭제하시겠습니까?')) {
       deletePost(currentPost.postKey);
@@ -53,7 +77,7 @@ export const usePostActions = ({
       alert('게시글이 삭제되었습니다.');
       handleBackClick();
     }
-  }, [currentPost, deletePost, setCurrentPost, handleBackClick]);
+  }, [currentUser, currentPost, deletePost, setCurrentPost, handleBackClick]);
 
   const handleEditCancel = useCallback(() => {
     setIsEditMode(false);

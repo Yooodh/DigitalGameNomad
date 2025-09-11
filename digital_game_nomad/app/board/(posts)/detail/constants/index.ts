@@ -1,5 +1,9 @@
 export const MOCK_LOGGED_IN_USER_KEY = 999;
 
+export const MAX_POST_DETAIL_RETRY = 2;
+
+export const POST_DETAIL_RETRY_DELAY = 300;
+
 export const BOARD_TYPES = {
   FREE: '자유',
   REVIEW: '후기',

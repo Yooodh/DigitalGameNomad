@@ -7,7 +7,7 @@ import { useFormValidation } from '../../hooks/useFormValidation';
 import { useGameSelection } from '../../hooks/useGameSelection';
 import { useImageHandler } from '../../hooks/useImageHandler';
 import { postUtils } from '../../utils/postUtils';
-import { useBoardStore } from '../../../stores/useBoardStore';
+import { useBoardStore } from '@/shared/stores/useBoardStore';
 import { PostData } from '../../../types';
 
 export const useEditForm = ({ postId, onSave, onCancel }: UseEditFormProps) => {

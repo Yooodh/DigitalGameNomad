@@ -1,11 +1,7 @@
 // slice
-import EditContainer from './containers/Edit.container';
+import { Edit } from '.';
 import { PageProps } from './types';
 
 export default function page({ params }: PageProps) {
-  return (
-    <>
-      <EditContainer postId={params.id} />
-    </>
-  );
+  return <Edit postId={params.id} />;
 }

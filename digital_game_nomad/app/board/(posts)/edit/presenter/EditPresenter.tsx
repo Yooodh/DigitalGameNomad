@@ -1,5 +1,3 @@
-'use client';
-
 // slice
 import Badge from '../components/Badge';
 import styles from '../styles/Edit.module.scss';

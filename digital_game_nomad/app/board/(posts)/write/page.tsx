@@ -1,10 +1,6 @@
 // slice
-import WriteContainer from './containers/Write.container';
+import { Write } from '.';
 
 export default function page() {
-  return (
-    <>
-      <WriteContainer />
-    </>
-  );
+  return <Write />;
 }

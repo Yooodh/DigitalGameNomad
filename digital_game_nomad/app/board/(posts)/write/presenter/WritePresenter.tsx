@@ -1,5 +1,3 @@
-'use client';
-
 // slice
 import styles from '../styles/Write.module.scss';
 import { WritePresenterProps } from '../types';

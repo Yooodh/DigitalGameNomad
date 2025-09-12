@@ -1,7 +1,7 @@
 'use client';
 
 // slice
-import WritePresenter from '../presenters/Write.presenter';
+import WritePresenter from '../presenter/WritePresenter';
 import { useWriteForm } from '../hooks/useWriteForm';
 
 // layer

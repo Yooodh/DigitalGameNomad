@@ -5,7 +5,7 @@ import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 // slice
-import SelectPresenter from '../presenters/Select.presenter';
+import SelectPresenter from '../presenter/SelectPresenter';
 import { characters } from '../data';
 import { Character } from '../types';
 

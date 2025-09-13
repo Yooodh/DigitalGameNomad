@@ -1,7 +1,7 @@
 'use client';
 
 // slice
-import ApplyPresenter from '../presenters/Apply.presenter';
+import ApplyPresenter from '../presenter/ApplyPresenter';
 import { useApplyForm } from '../hooks/useApplyForm';
 
 export default function ApplyContainer() {

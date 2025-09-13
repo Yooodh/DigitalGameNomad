@@ -25,7 +25,6 @@ export function useImageUpload() {
     }
     setPreviewImage('');
     setImageFile(null);
-    console.log('Image removed. previewImage: cleared, imageFile: cleared');
   };
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>): void => {

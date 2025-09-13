@@ -10,7 +10,7 @@ export type UrlFormData = Pick<FormData, 'gameUrl' | 'youtubeUrl'>;
 
 export type UseFormSubmissionProps<T> = {
   validate: (data: T) => boolean;
-  onSubmitSuccess?: (data: T) => void;
+  onSubmitSuccess?: (data: T) => void | Promise<void>;
   submissionEndpoint?: string;
 };
 

@@ -1,5 +1,3 @@
-'use client';
-
 // package
 import { RefObject } from 'react';
 

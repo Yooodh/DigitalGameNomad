@@ -1,6 +1,6 @@
 // slice
-import SelectContainer from './containers/Select.container';
+import { Select } from '.';
 
 export default function page() {
-  return <SelectContainer />;
+  return <Select />;
 }

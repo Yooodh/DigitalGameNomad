@@ -1,10 +1,6 @@
 // slice
-import ApplyContainer from './containers/Apply.container';
+import { Apply } from '.';
 
 export default function page() {
-  return (
-    <>
-      <ApplyContainer />
-    </>
-  );
+  return <Apply />;
 }

@@ -24,10 +24,10 @@ export function useFormSubmission<T>({
       try {
         await new Promise((resolve) => setTimeout(resolve, 1500));
 
-        console.log('API Call Simulated with data:', dataToSubmit);
+        if (onSubmitSuccess) {
+          await onSubmitSuccess(dataToSubmit);
+        }
         alert('신청서가 성공적으로 제출되었습니다.');
-
-        onSubmitSuccess?.(dataToSubmit);
         router.push('/participation');
       } catch (error) {
         console.error('제출 중 오류가 발생했습니다:', error);

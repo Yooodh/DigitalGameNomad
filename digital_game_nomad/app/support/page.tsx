@@ -1,10 +1,6 @@
 // slice
-import SuppoertContainer from './containers/Support.container';
+import { Support } from '.';
 
 export default function page() {
-  return (
-    <>
-      <SuppoertContainer />
-    </>
-  );
+  return <Support />;
 }

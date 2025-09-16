@@ -4,7 +4,7 @@
 import { useState } from 'react';
 
 // slice
-import SupportPresenter from '../presenters/Support.presenter';
+import SupportPresenter from '../presenter/SupportPresenter';
 import { UserState } from '../types';
 import { faqItems } from '../data';
 

@@ -1,5 +1,3 @@
-'use client';
-
 // package
 import Link from 'next/link';
 
@@ -24,7 +22,7 @@ export default function CtaCard({
         <p className={styles.ctaConatiner__desc}>
           혁신적인 3D 가상 전시관에서 귀하의 게임을 선보일 기회를 놓치지 마세요
         </p>
-        <Link className={styles.ctaConatiner__btn} href='/member/apply'>
+        <Link className={styles.ctaConatiner__btn} href='/apply'>
           <span>참여신청 하기</span>
           <div className={styles.ctaConatiner__btnArrow}>→</div>
         </Link>

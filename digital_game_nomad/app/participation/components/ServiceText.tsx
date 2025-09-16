@@ -1,5 +1,3 @@
-'use client';
-
 // package
 import React from 'react';
 

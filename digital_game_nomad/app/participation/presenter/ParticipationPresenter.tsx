@@ -1,5 +1,3 @@
-'use client';
-
 // slice
 import BoothSide from '../components/BoothSide';
 import BoothTop from '../components/BoothTop';
@@ -23,7 +21,6 @@ export default function ParticipationPresenter({
 }: ParticipationPresenterProps) {
   return (
     <div className={styles.participationContainer}>
-      {/* Hero Section */}
       <div className={styles.heroContainer}>
         <div
           className={`${styles.heroContainer__content} ${
@@ -40,7 +37,6 @@ export default function ParticipationPresenter({
         </div>
       </div>
 
-      {/* Service Introduction */}
       <div className={styles.serviceContainer}>
         <BoothSide
           boothSideVisible={boothSideVisible}
@@ -50,7 +46,6 @@ export default function ParticipationPresenter({
         />
       </div>
 
-      {/* Booth Layout Section */}
       <div className={styles.boothContainer}>
         <div
           className={`${styles.boothContainer__header} ${

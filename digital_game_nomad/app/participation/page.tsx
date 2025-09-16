@@ -1,6 +1,6 @@
 // slice
-import ParticipationContainer from './container/Participation.container';
+import { Participation } from '.';
 
 export default function page() {
-  return <ParticipationContainer />;
+  return <Participation />;
 }

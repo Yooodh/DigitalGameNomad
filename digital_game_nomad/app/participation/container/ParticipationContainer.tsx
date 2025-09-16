@@ -1,7 +1,7 @@
 'use client';
 
 // slice
-import ParticipationPresenter from '../presenter/Participation.presenter';
+import ParticipationPresenter from '../presenter/ParticipationPresenter';
 
 // layer
 import { useIntersectionVisibility } from '@/shared/hooks/useIntersectionVisibility';

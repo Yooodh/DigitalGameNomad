@@ -1,9 +1,12 @@
 // package
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
+import { v4 as uuidv4 } from 'uuid';
 
 // slice
 import { RegisteredUsersState } from '../types';
+
+const id = uuidv4();
 
 export const useRegisteredUsersStore = create<RegisteredUsersState>()(
   persist(
@@ -54,7 +57,7 @@ export const useRegisteredUsersStore = create<RegisteredUsersState>()(
           users: [
             ...state.users,
             {
-              id: crypto.randomUUID(),
+              id: uuidv4(),
               ...user,
               lastLoginDate: new Date().toISOString().slice(0, 10),
             },

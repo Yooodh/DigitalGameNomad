@@ -8,6 +8,10 @@
     margin: 0 auto;
     padding: 2rem 1rem;
 
+    @media (max-width: $tablet) {
+      padding: 1rem 0.5rem;
+    }
+
     .sectionContainer {
       background: $theme-shade-1;
       border-radius: 12px;
@@ -15,6 +19,11 @@
       border: 1px solid $theme-gray-1;
       transition: all 0.2s ease;
       padding: 2rem;
+
+      @media (max-width: $tablet) {
+        padding: 1rem;
+        border-radius: 8px;
+      }
     }
   }
 }
@@ -23,9 +32,17 @@
   width: 100%;
   border-collapse: collapse;
 
+  @media (max-width: $tablet) {
+    border: none;
+  }
+
   .tableHeaderContainer {
     background: $theme-shade-2;
     border-bottom: 1px solid $theme-gray-1;
+
+    @media (max-width: $tablet) {
+      display: none;
+    }
 
     .tableHeaderCell {
       padding: 1rem;
@@ -81,22 +98,57 @@
       background-color: $theme-shade-3;
     }
 
+    @media (max-width: $tablet) {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      background: $theme-shade-1;
+      padding: 1rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        background-color: $theme-shade-2;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
     .tableCell {
       padding: 1rem;
       text-align: center;
       font-weight: 500;
-    }
 
+      @media (max-width: $tablet) {
+        display: block;
+        text-align: left;
+        padding: 0.25rem 0;
+        border: none;
+      }
+    }
     &__number {
       @extend .tableCell;
       color: $theme-text-2;
       font-size: $font-sm-size;
+
+      @media (max-width: $tablet) {
+        display: none !important;
+      }
     }
 
     &__game {
       @extend .tableCell;
       color: $theme-text-2;
       font-size: $font-sm-size;
+
+      @media (max-width: $tablet) {
+        font-size: $font-base-size;
+        display: inline-block;
+        margin-right: 0.5rem;
+        padding: 0;
+        order: 1;
+      }
     }
 
     &__title {
@@ -108,40 +160,119 @@
       &:hover {
         text-decoration: underline;
       }
+
+      @media (max-width: $tablet) {
+        font-size: $font-base-size;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+        color: $theme-text-1;
+        flex-basis: 100%;
+        order: 3;
+      }
     }
 
     &__author {
       @extend .tableCell;
       color: $theme-text-2;
       font-size: $font-sm-size;
+
+      @media (max-width: $tablet) {
+        display: inline-block !important;
+        font-size: $font-xs-size;
+        margin-right: 0.3rem;
+        order: 4;
+
+        &::before {
+          content: '';
+          font-weight: 600;
+          color: $theme-text-1;
+        }
+      }
     }
 
     &__score {
       @extend .tableCell;
+
+      @media (max-width: $tablet) {
+        display: flex;
+        align-items: center;
+        order: 2;
+      }
     }
 
     &__date {
       @extend .tableCell;
       color: $theme-gray-5;
       font-size: $font-xs-size;
+
+      @media (max-width: $tablet) {
+        display: inline-block !important;
+        margin-right: 0.5rem;
+        padding: 0.25rem 0;
+        order: 4;
+
+        &::before {
+          content: '';
+          font-weight: 600;
+          color: $theme-text-1;
+        }
+      }
     }
 
     &__views {
       @extend .tableCell;
       color: $theme-gray-5;
       font-size: $font-xs-size;
+
+      @media (max-width: $tablet) {
+        display: inline-block !important;
+        margin-right: 0.5rem;
+        padding: 0.25rem 0;
+        order: 4;
+
+        &::before {
+          content: '조회 ';
+          font-weight: 600;
+          color: $theme-text-1;
+        }
+      }
     }
 
     &__likes {
       @extend .tableCell;
       color: $theme-blue;
       font-size: $font-xs-size;
+
+      @media (max-width: $tablet) {
+        display: inline-block !important;
+        margin-right: 0.5rem;
+        padding: 0.25rem 0;
+        order: 4;
+
+        &::before {
+          content: '추천 ';
+          font-weight: 600;
+          color: $theme-text-1;
+        }
+      }
     }
 
     &__comments {
       @extend .tableCell;
       color: $theme-orange;
       font-size: $font-xs-size;
+
+      @media (max-width: $tablet) {
+        display: inline-block !important;
+        padding: 0.25rem 0;
+        order: 4;
+
+        &::before {
+          content: '댓글 ';
+          font-weight: 600;
+          color: $theme-text-1;
+        }
+      }
     }
   }
 }

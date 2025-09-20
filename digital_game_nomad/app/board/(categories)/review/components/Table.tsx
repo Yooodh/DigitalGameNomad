@@ -2,12 +2,12 @@
 import styles from '../styles/Review.module.scss';
 import { ReviewTableProps } from '../types';
 import { formatDate } from '../../../utils/formatDate';
-import { truncateText } from '@/shared/utils/truncateText';
-import { StarRating } from '@/features/starrating';
 
 // layer
 import { useRegisteredUsersStore } from '@/shared/stores/useRegisteredUsersStore';
 import { getUserGradeLabel } from '@/shared/utils/userGradeLabel';
+import { truncateText } from '@/shared/utils/truncateText';
+import { StarRating } from '@/features/starrating';
 
 export default function ReviewTable({
   currentPosts,

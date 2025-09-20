@@ -2,11 +2,11 @@
 import styles from '../styles/Free.module.scss';
 import { formatDate } from '../../../utils/formatDate';
 import { TableProps } from '../types';
-import { truncateText } from '@/shared/utils/truncateText';
 
 // layer
 import { useRegisteredUsersStore } from '@/shared/stores/useRegisteredUsersStore';
 import { getUserGradeLabel } from '@/shared/utils/userGradeLabel';
+import { truncateText } from '@/shared/utils/truncateText';
 
 export default function Table({
   currentPosts,

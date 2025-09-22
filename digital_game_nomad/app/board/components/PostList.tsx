@@ -9,6 +9,7 @@ import { PostListProps } from '../types';
 import { StarRating } from '@/features/starrating';
 import { useRegisteredUsersStore } from '@/shared/stores/useRegisteredUsersStore';
 import { getUserGradeLabel } from '@/shared/utils/userGradeLabel';
+import { truncateText } from '@/shared/utils/truncateText';
 
 export default function PostList({
   title,
@@ -44,7 +45,7 @@ export default function PostList({
                   <span className={styles.postListContainer__like}>
                     {post.likeCount}👍{' '}
                   </span>
-                  {post.postTitle}
+                  {truncateText(post.postTitle, 20)}
                   <span className={styles.postListContainer__comment}>
                     {' '}
                     [{post.comments || 0}]

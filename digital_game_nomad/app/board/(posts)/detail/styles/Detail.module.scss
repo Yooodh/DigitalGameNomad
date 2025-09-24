@@ -3,6 +3,9 @@
 .detailContainer {
   min-height: 100vh;
 
+  @media (max-width: $tablet) {
+    padding: 1rem 0.5rem;
+  }
   .sectionContainer {
     max-width: 1400px;
     margin: 0 auto;
@@ -10,6 +13,12 @@
     background: $theme-shade-1;
     border-radius: 12px;
     margin-top: 2rem;
+
+    @media (max-width: $tablet) {
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 0;
+    }
 
     .headercontainer {
       background: $theme-shade-1;
@@ -19,6 +28,10 @@
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
       border: 1px solid $theme-gray-1;
 
+      @media (max-width: $tablet) {
+        padding: 20px;
+      }
+
       .topContainer {
         display: flex;
         align-items: center;
@@ -27,15 +40,24 @@
         flex-wrap: wrap;
         gap: 15px;
 
+        @media (max-width: $tablet) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
         &__badge {
           display: inline-block;
           padding: 5px 15px;
           border-radius: 20px;
-          font-size: 14px;
+          font-size: $font-sm-size;
           font-weight: 600;
           cursor: default;
           position: relative;
           overflow: hidden;
+
+          @media (max-width: $tablet) {
+            font-size: $font-xs-size;
+          }
 
           &::before {
             content: '';
@@ -76,6 +98,7 @@
           display: flex;
           align-items: center;
           gap: 15px;
+          font-size: $font-sm-size;
 
           &__name {
             background: $theme-shade-2;
@@ -85,15 +108,24 @@
             color: $theme-text-2;
             border: 1px solid $theme-gray-1;
           }
+
+          @media (max-width: $tablet) {
+            font-size: $font-xs-size;
+          }
         }
       }
 
       &__title {
-        font-size: 28px;
+        font-size: $font-title-sub-size;
         font-weight: 700;
         color: $theme-text-1;
         margin: 0 0 20px 0;
         line-height: 1.4;
+        word-break: keep-all;
+
+        @media (max-width: $tablet) {
+          font-size: $font-lg-size;
+        }
       }
 
       .metaContainer {
@@ -108,14 +140,27 @@
           align-items: center;
           gap: 12px;
 
+          @media (max-width: $tablet) {
+            gap: 8px;
+          }
+
           &__name {
+            font-size: $font-base-size;
             font-weight: 500;
             color: $theme-blue;
+
+            @media (max-width: $tablet) {
+              font-size: $font-sm-size;
+            }
           }
 
           &__date {
+            font-size: $font-sm-size;
             color: $theme-gray-4;
-            font-size: 14px;
+
+            @media (max-width: $tablet) {
+              font-size: $font-xs-size;
+            }
           }
         }
 
@@ -128,10 +173,18 @@
             align-items: center;
             gap: 4px;
             color: $theme-gray-4;
-            font-size: 14px;
+            font-size: $font-base-size;
+
+            @media (max-width: $tablet) {
+              font-size: $font-sm-size;
+            }
 
             .statIcon {
-              font-size: 16px;
+              font-size: $font-base-size;
+
+              @media (max-width: $tablet) {
+                font-size: $font-sm-size;
+              }
             }
           }
         }
@@ -145,6 +198,10 @@
       margin-bottom: 20px;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
       border: 1px solid $theme-gray-1;
+
+      @media (max-width: $tablet) {
+        padding: 20px;
+      }
 
       .imgContainer {
         margin-bottom: 30px;
@@ -175,8 +232,13 @@
       }
 
       &__text {
-        font-size: 16px;
+        font-size: $font-lg-size;
         color: $theme-text-1;
+        word-break: keep-all;
+
+        @media (max-width: $tablet) {
+          font-size: $font-base-size;
+        }
 
         p {
           margin: 0 0 16px 0;
@@ -198,6 +260,10 @@
       margin-bottom: 30px;
       justify-content: center;
 
+      @media (max-width: $tablet) {
+        margin-bottom: 20px;
+      }
+
       .likeBtn,
       .dislikeBtn {
         display: flex;
@@ -211,14 +277,28 @@
         font-weight: 600;
         transition: all 0.2s ease;
         color: $theme-text-1;
+        font-size: $font-sm-size;
+
+        @media (max-width: $tablet) {
+          font-size: $font-xs-size;
+        }
 
         .btnIcon {
-          font-size: 18px;
+          font-size: $font-lg-size;
+
+          @media (max-width: $tablet) {
+            font-size: $font-xs-size;
+          }
         }
 
         &:hover {
           transform: translateY(-2px);
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+          @media (max-width: $tablet) {
+            transform: none;
+            box-shadow: none;
+          }
         }
       }
 
@@ -234,9 +314,18 @@
         font-weight: 600;
         transition: all 0.2s ease;
         color: $theme-gray-2;
+        font-size: $font-sm-size;
+
+        @media (max-width: $tablet) {
+          font-size: $font-xs-size;
+        }
 
         .btnIcon {
-          font-size: 18px;
+          font-size: $font-lg-size;
+
+          @media (max-width: $tablet) {
+            font-size: $font-xs-size;
+          }
         }
       }
 
@@ -244,6 +333,11 @@
         &:hover {
           border-color: $theme-red;
           color: $theme-red;
+
+          @media (max-width: $tablet) {
+            border-color: $theme-shade-4;
+            color: $theme-text-1;
+          }
         }
       }
 
@@ -251,6 +345,11 @@
         &:hover {
           border-color: $theme-blue;
           color: $theme-blue;
+
+          @media (max-width: $tablet) {
+            border-color: $theme-shade-4;
+            color: $theme-text-1;
+          }
         }
       }
     }
@@ -263,11 +362,19 @@
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
       border: 1px solid $theme-gray-1;
 
+      @media (max-width: $tablet) {
+        padding: 20px;
+      }
+
       .titleContainer {
-        font-size: 20px;
+        font-size: $font-xl-size;
         font-weight: 700;
         color: $theme-text-1;
         margin: 0 0 25px 0;
+
+        @media (max-width: $tablet) {
+          font-size: $font-base-size;
+        }
 
         &__count {
           color: $theme-blue;
@@ -287,13 +394,17 @@
         padding: 16px;
         border: 1px solid $theme-gray-1;
         border-radius: 12px;
-        font-size: 16px;
+        font-size: $font-base-size;
         font-family: inherit;
         resize: none;
         transition: border-color 0.2s ease;
         margin-bottom: 15px;
         background: $theme-shade-1;
         color: $theme-text-1;
+
+        @media (max-width: $tablet) {
+          font-size: $font-sm-size;
+        }
 
         &:focus {
           outline: none;
@@ -315,9 +426,19 @@
         font-weight: 600;
         cursor: pointer;
         transition: all 0.2s ease;
+        font-size: $font-base-size;
+
+        @media (max-width: $tablet) {
+          padding: 7px 14px;
+          font-size: $font-sm-size;
+        }
 
         &:hover {
           transform: translateY(-1px);
+
+          @media (max-width: $tablet) {
+            transform: none;
+          }
         }
       }
     }
@@ -327,11 +448,22 @@
         text-align: center;
         padding: 40px;
         color: $theme-gray-4;
+        font-size: $font-base-size;
+
+        @media (max-width: $tablet) {
+          font-size: $font-sm-size;
+        }
       }
 
       .itemContainer {
         padding: 20px;
         border-bottom: 1px solid $theme-gray-1;
+        font-size: $font-base-size;
+
+        @media (max-width: $tablet) {
+          font-size: $font-sm-size;
+          padding: 10px;
+        }
 
         &:last-child {
           border-bottom: none;
@@ -344,22 +476,37 @@
           margin-bottom: 10px;
           flex-wrap: wrap;
 
+          @media (max-width: $tablet) {
+            margin-bottom: 0;
+          }
+
           &__author {
             font-weight: 600;
             color: $theme-text-1;
             margin-right: 10px;
+            font-size: $font-base-size;
+
+            @media (max-width: $tablet) {
+              font-size: $font-sm-size;
+              margin-right: 4px;
+            }
           }
 
           &__date {
             color: $theme-gray-4;
-            font-size: 14px;
+            font-size: $font-sm-size;
             display: flex;
             align-items: center;
             gap: 5px;
+
+            @media (max-width: $tablet) {
+              font-size: $font-xs-size;
+              gap: 3px;
+            }
           }
 
           .editedIndicator {
-            font-size: 12px;
+            font-size: $font-xs-size;
             font-weight: 500;
           }
 
@@ -374,9 +521,13 @@
               border: none;
               padding: 6px 12px;
               border-radius: 6px;
-              font-size: 13px;
+              font-size: $font-sm-size;
               cursor: pointer;
               transition: all 0.2s ease;
+
+              @media (max-width: $tablet) {
+                font-size: $font-xs-size;
+              }
 
               &:nth-child(1) {
                 background: $theme-purple-gradient;
@@ -389,12 +540,21 @@
 
                 &:hover {
                   background: $theme-gray-2;
+
+                  @media (max-width: $tablet) {
+                    background: $theme-gray-1;
+                  }
                 }
               }
 
               &:hover {
                 transform: translateY(-2px);
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+                @media (max-width: $tablet) {
+                  transform: none;
+                  box-shadow: none;
+                }
               }
             }
 
@@ -403,17 +563,21 @@
               border: none;
               padding: 4px 4px;
               border-radius: 6px;
-              font-size: 12px;
+              font-size: $font-xs-size;
               cursor: pointer;
 
               &:hover {
                 color: $theme-text-1;
+
+                @media (max-width: $tablet) {
+                  color: $theme-text-2;
+                }
               }
             }
 
             span {
               color: $theme-text-2;
-              font-size: 12px;
+              font-size: $font-xs-size;
             }
           }
         }
@@ -423,13 +587,17 @@
           padding: 10px;
           border: 1px solid $theme-gray-1;
           border-radius: 8px;
-          font-size: 15px;
+          font-size: $font-sm-size;
           font-family: inherit;
           resize: none;
           min-height: 60px;
           margin-top: 10px;
           background: $theme-shade-1;
           color: $theme-text-1;
+
+          @media (max-width: $tablet) {
+            font-size: $font-xs-size;
+          }
 
           &:focus {
             outline: none;
@@ -465,11 +633,23 @@
         font-weight: 600;
         transition: all 0.2s ease;
         color: $theme-text-2;
+        font-size: $font-base-size;
+
+        @media (max-width: $tablet) {
+          padding: 7px 14px;
+          font-size: $font-sm-size;
+        }
 
         &:hover {
           transform: translateY(-1px);
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
           background: $theme-gray-2;
+
+          @media (max-width: $tablet) {
+            transform: none;
+            box-shadow: none;
+            background: $theme-gray-1;
+          }
         }
 
         &.deleteBtn {
@@ -478,6 +658,10 @@
 
           &:hover {
             background: $theme-gray-2;
+
+            @media (max-width: $tablet) {
+              background: $theme-gray-1;
+            }
           }
         }
 
@@ -492,6 +676,10 @@
 
 .userGrade {
   color: $theme-gray-3;
-  font-size: 0.95em;
+  font-size: $font-base-size;
   margin-left: 2px;
+
+  @media (max-width: $tablet) {
+    font-size: $font-sm-size;
+  }
 }

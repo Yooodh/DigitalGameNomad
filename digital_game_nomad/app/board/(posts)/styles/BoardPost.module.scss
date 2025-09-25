@@ -8,10 +8,15 @@
     padding: 12px 16px;
     border: 1px solid $theme-gray-1;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: $font-base-size;
     transition: border-color 0.2s ease;
     background: $theme-shade-1;
     color: $theme-text-1;
+    word-break: keep-all;
+
+    @media (max-width: $tablet) {
+      font-size: $font-sm-size;
+    }
 
     &:focus {
       outline: none;
@@ -29,13 +34,18 @@
     padding: 16px;
     border: 1px solid $theme-gray-1;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: $font-base-size;
     font-family: inherit;
     resize: none;
     min-height: 200px;
     transition: border-color 0.2s ease;
     background: $theme-shade-1;
     color: $theme-text-1;
+    word-break: keep-all;
+
+    @media (max-width: $tablet) {
+      font-size: $font-sm-size;
+    }
 
     &:focus {
       outline: none;
@@ -69,6 +79,11 @@
       &:hover {
         border-color: $theme-blue;
         background: $theme-shade-2;
+
+        @media (max-width: $tablet) {
+          border-color: $theme-gray-1;
+          background: $theme-shade-1;
+        }
       }
     }
 
@@ -78,8 +93,13 @@
 
     span {
       color: $theme-gray-4;
-      font-size: 16px;
+      font-size: $font-base-size;
       display: block;
+      word-break: keep-all;
+
+      @media (max-width: $tablet) {
+        font-size: $font-sm-size;
+      }
     }
   }
 
@@ -108,7 +128,7 @@
       width: 24px;
       height: 24px;
       cursor: pointer;
-      font-size: 12px;
+      font-size: $font-xs-size;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -116,6 +136,10 @@
 
       &:hover {
         transform: scale(1.1);
+
+        @media (max-width: $tablet) {
+          transform: none;
+        }
       }
     }
   }
@@ -126,7 +150,7 @@
   margin-bottom: 8px;
   font-weight: 600;
   color: $theme-text-2;
-  font-size: 14px;
+  font-size: $font-sm-size;
 }
 
 .gameContainer {
@@ -146,6 +170,10 @@
     transition: border-color 0.2s ease;
     color: $theme-text-1;
     cursor: pointer;
+
+    @media (max-width: $tablet) {
+      font-size: $font-sm-size;
+    }
 
     &:focus {
       outline: none;

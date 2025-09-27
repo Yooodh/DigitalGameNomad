@@ -35,11 +35,15 @@ export default function SelectContainer() {
     setSelectedCharacter(character);
   };
 
-  const handleEnterExhibition = () => {
-    if (selectedCharacter) {
-      alert(`${selectedCharacter.name} 캐릭터로 전시관에 입장합니다!`);
-      router.push(`/exhibition?character=${selectedCharacter.id}`);
-    }
+  // const handleEnterExhibition = () => {
+  //   if (selectedCharacter) {
+  //     alert(`${selectedCharacter.name} 캐릭터로 전시관에 입장합니다!`);
+  //     router.push(`/exhibition?character=${selectedCharacter.id}`);
+  //   }
+  // };
+
+  const onEnterExhibition = () => {
+    alert('준비중입니다.');
   };
 
   return (
@@ -47,9 +51,10 @@ export default function SelectContainer() {
       characters={characters}
       selectedCharacter={selectedCharacter}
       onCharacterSelect={handleCharacterSelect}
-      onEnterExhibition={handleEnterExhibition}
+      // onEnterExhibition={handleEnterExhibition}
       listRef={listRef}
       enterButtonRef={enterButtonRef}
+      onEnterExhibition={onEnterExhibition}
     />
   );
 }

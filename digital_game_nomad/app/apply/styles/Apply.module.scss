@@ -310,9 +310,16 @@
 
     .footerContainer {
       text-align: center;
-      margin-top: 2rem;
-      color: $theme-gray-4;
+      margin-top: 1rem;
       font-size: $font-sm-size;
+
+      &__notify {
+        color: $theme-red;
+      }
+
+      &__guide {
+        color: $theme-gray-4;
+      }
     }
   }
 }

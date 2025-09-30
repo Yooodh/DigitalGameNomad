@@ -27,6 +27,7 @@ export default function NavbarPresenter({
         isMenuOpen={isMenuOpen}
         toggleButtonRef={toggleButtonRef}
       />
+      <ThemeButton theme={theme} onToggleTheme={onToggleTheme} />
       <div ref={menuRef} className={styles.navbarContainer__menuWrap}>
         <MenuList onMenuItemClick={onMenuItemClick} isMenuOpen={isMenuOpen} />
         <AuthLinks
@@ -37,7 +38,6 @@ export default function NavbarPresenter({
           onMenuItemClick={onMenuItemClick}
           isMenuOpen={isMenuOpen}
         />
-        <ThemeButton theme={theme} onToggleTheme={onToggleTheme} />
       </div>
     </div>
   );

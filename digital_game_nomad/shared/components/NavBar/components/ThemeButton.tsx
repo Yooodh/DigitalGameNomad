@@ -7,8 +7,12 @@ export default function ThemeButton({
   onToggleTheme,
 }: ThemeButtonProps) {
   return (
-    <div className={styles.navbarContainer__theme} onClick={onToggleTheme}>
-      {theme === 'dark' ? <p>☀️</p> : <p>🌙</p>}
+    <div className={styles.themeContainer} onClick={onToggleTheme}>
+      {theme === 'dark' ? (
+        <p className={styles.themeContainer__dark}>🌙 다크 모드</p>
+      ) : (
+        <p className={styles.themeContainer__light}>☀️ 라이트 모드</p>
+      )}
     </div>
   );
 }

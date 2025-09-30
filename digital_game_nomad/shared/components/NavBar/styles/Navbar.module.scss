@@ -98,12 +98,31 @@
       }
     }
   }
-  &__theme {
+  .themeContainer {
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 70;
+
+    &__light {
+      border: none;
+      background: $theme-shade-1;
+      padding: 5px;
+      border-radius: 10px;
+    }
+
+    &__dark {
+      border: none;
+      background: $theme-shade-2;
+      padding: 5px;
+      border-radius: 10px;
+    }
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $tablet) {
   .navbarContainer {
     flex-direction: column;
     align-items: stretch;
@@ -179,8 +198,9 @@
       }
     }
 
-    &__theme {
-      display: none;
+    .themeContainer {
+      left: 60;
+      top: 13;
     }
   }
 }

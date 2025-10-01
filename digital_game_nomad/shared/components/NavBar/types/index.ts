@@ -13,7 +13,7 @@ export type MenuListProps = {
 export type AuthLinksProps = {
   isLoggedIn: boolean;
   userGrade?: number;
-  hasNotification?: boolean;
+
   onLogout: () => void;
   onMenuItemClick: () => void;
   isMenuOpen?: boolean;
@@ -33,7 +33,7 @@ export type NavbarContainerProps = {
 export type NavbarPresenterProps = {
   isLoggedIn: boolean;
   userGrade?: number;
-  hasNotification?: boolean;
+
   onLogout: () => void;
   onToggleMenu: () => void;
   onMenuItemClick: () => void;

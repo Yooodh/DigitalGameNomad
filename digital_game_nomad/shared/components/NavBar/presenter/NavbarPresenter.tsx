@@ -9,7 +9,6 @@ import { NavbarPresenterProps } from '../types';
 export default function NavbarPresenter({
   isLoggedIn,
   userGrade,
-  hasNotification,
   onLogout,
   onToggleMenu,
   onMenuItemClick,
@@ -33,7 +32,6 @@ export default function NavbarPresenter({
         <AuthLinks
           isLoggedIn={isLoggedIn}
           userGrade={userGrade}
-          hasNotification={hasNotification}
           onLogout={onLogout}
           onMenuItemClick={onMenuItemClick}
           isMenuOpen={isMenuOpen}

@@ -59,6 +59,11 @@
       &:hover {
         color: $theme-gray-hover;
       }
+
+      &.active {
+        color: $theme-gray-hover;
+        font-weight: 600;
+      }
     }
   }
 
@@ -80,6 +85,11 @@
 
         &:hover {
           color: $theme-gray-hover;
+        }
+
+        &.active {
+          color: $theme-gray-hover;
+          font-weight: 600;
         }
       }
 

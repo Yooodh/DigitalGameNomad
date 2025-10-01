@@ -1,5 +1,6 @@
 // package
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 // slice
 import styles from '../styles/Navbar.module.scss';
@@ -9,6 +10,8 @@ export default function MenuList({
   onMenuItemClick,
   isMenuOpen,
 }: MenuListProps & { isMenuOpen: boolean }) {
+  const pathname = usePathname();
+
   return (
     <ul
       className={`${styles.navbarContainer__menu} ${
@@ -16,22 +19,38 @@ export default function MenuList({
       }`}
     >
       <li>
-        <Link href='/about' onClick={onMenuItemClick}>
+        <Link
+          href='/about'
+          onClick={onMenuItemClick}
+          className={pathname === '/about' ? styles.active : ''}
+        >
           소개페이지
         </Link>
       </li>
       <li>
-        <Link href='/participation' onClick={onMenuItemClick}>
+        <Link
+          href='/participation'
+          onClick={onMenuItemClick}
+          className={pathname === '/participation' ? styles.active : ''}
+        >
           기업참여신청
         </Link>
       </li>
       <li>
-        <Link href='/board' onClick={onMenuItemClick}>
+        <Link
+          href='/board'
+          onClick={onMenuItemClick}
+          className={pathname.startsWith('/board') ? styles.active : ''}
+        >
           게시판
         </Link>
       </li>
       <li>
-        <Link href='/support' onClick={onMenuItemClick}>
+        <Link
+          href='/support'
+          onClick={onMenuItemClick}
+          className={pathname.startsWith('/support') ? styles.active : ''}
+        >
           고객센터
         </Link>
       </li>

@@ -16,7 +16,6 @@ import { useAuthStore, useAuthActions } from '@/shared/stores/useAuthStore';
 export default function NavbarContainer() {
   const { isLoggedIn, userGrade } = useAuthStore();
   const { handleLogout } = useAuthActions();
-  const [hasNotification, _setHasNotification] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const { theme, toggleTheme } = useThemeStore();
 
@@ -48,7 +47,6 @@ export default function NavbarContainer() {
     <HeaderPres
       isLoggedIn={isLoggedIn}
       userGrade={userGrade || undefined}
-      hasNotification={hasNotification}
       onLogout={() => {
         const confirmLogout = window.confirm('정말로 로그아웃 하시겠습니까?');
 

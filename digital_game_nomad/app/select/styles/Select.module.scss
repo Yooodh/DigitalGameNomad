@@ -7,6 +7,7 @@
   overflow: hidden;
   min-height: calc(100vh - $header-height);
   position: relative;
+  word-break: keep-all;
 
   &__content {
     position: relative;
@@ -49,11 +50,16 @@
     margin-bottom: 2rem;
     flex-wrap: wrap;
     justify-content: center;
+
+    @media (max-width: $mobile) {
+      grid-template-columns: 1fr 2fr;
+      gap: 1.5rem;
+    }
   }
 
   &__loadingInfo {
     text-align: center;
-    color: #94a3b8;
+    color: $theme-red;
     font-size: $font-sm-size;
     margin-bottom: 1.5rem;
   }
@@ -73,9 +79,24 @@
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   position: relative;
 
+  @media (max-width: $mobile) {
+    max-width: 9rem;
+    height: 22rem;
+  }
+
   &:hover,
   &.cardSelected {
     transform: translateY(-8px) scale(1.04);
+  }
+
+  @media (max-width: $mobile) {
+    &:hover {
+      transform: none;
+    }
+
+    &.cardSelected {
+      transform: translateY(-8px) scale(1.04);
+    }
   }
 
   &__imageWrap {
@@ -83,7 +104,6 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    background: #1f2937;
     border-radius: 1.2rem 1.2rem 1.2rem 1.2rem;
     overflow: hidden;
     min-height: 20rem;
@@ -103,9 +123,9 @@
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.7);
-    color: #fff;
+    color: $theme-white;
     font-weight: 800;
-    font-size: 1.15rem;
+    font-size: $font-lg-size;
     letter-spacing: 0.08em;
     text-align: center;
     padding: 0.6rem 0;
@@ -131,17 +151,5 @@
     font-size: $font-sm-size;
     text-align: center;
     min-height: 2.6rem;
-  }
-}
-
-@media (max-width: 900px) {
-  .selectContainer__characters {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .characterCard {
-    width: 95vw;
-    max-width: 20rem;
-    height: 22rem;
   }
 }

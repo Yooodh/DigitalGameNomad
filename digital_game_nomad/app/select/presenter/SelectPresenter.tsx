@@ -31,7 +31,7 @@ export default function SelectPresenter({
           onCharacterSelect={onCharacterSelect}
         />
         <div className={styles.selectContainer__loadingInfo}>
-          <p>※모바일 환경에서는 지원하지 않습니다.</p>
+          <p>※ 보다 나은 서비스를 위해 향후 업데이트를 준비 중입니다.</p>
         </div>
         <ConditionalButton
           buttonRef={enterButtonRef}

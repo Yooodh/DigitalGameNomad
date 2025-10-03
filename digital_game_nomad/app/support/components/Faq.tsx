@@ -8,7 +8,7 @@ export default function Faq({ faqItems, openFaq, toggleFaq }: FaqProps) {
       <div className={styles.contentContainer__header}>
         <h2 className={styles.contentContainer__title}>자주 묻는 질문</h2>
         <p className={styles.contentContainer__subTitle}>
-          가장 많이 묻는 질문들을 모아봤습니다
+          가장 많이 묻는 질문들을 모아봤습니다.
         </p>
       </div>
 
@@ -39,7 +39,12 @@ export default function Faq({ faqItems, openFaq, toggleFaq }: FaqProps) {
               }`}
             >
               <div className={styles.contentContainer__answerContent}>
-                <p>{item.answer}</p>
+                {item.answer.split('\n').map((line, idx) => (
+                  <p key={idx}>
+                    {line}
+                    <br />
+                  </p>
+                ))}
               </div>
             </div>
           </div>

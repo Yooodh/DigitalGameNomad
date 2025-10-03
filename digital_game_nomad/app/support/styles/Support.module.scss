@@ -3,6 +3,7 @@
 .suppertContainer {
   min-height: 100vh;
   position: relative;
+  word-break: keep-all;
 
   .heroContainer {
     position: relative;
@@ -36,8 +37,8 @@
       letter-spacing: -0.02em;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
-      @media (max-width: 768px) {
-        font-size: 2.5rem;
+      @media (max-width: $mobile) {
+        font-size: $font-lg-title-size;
       }
     }
 
@@ -73,8 +74,9 @@
       color: $theme-text-1;
       margin-bottom: 12px;
       letter-spacing: -0.02em;
-      @media (max-width: 768px) {
-        font-size: 2rem;
+
+      @media (max-width: $mobile) {
+        font-size: $font-title-size;
       }
     }
 
@@ -97,6 +99,13 @@
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1),
           0 4px 10px rgba(0, 0, 0, 0.05);
         transform: translateY(-2px);
+
+        @media (max-width: $mobile) {
+          transform: none;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
+            0 1px 3px rgba(0, 0, 0, 0.1);
+          background: $theme-shade-2;
+        }
       }
     }
 
@@ -113,6 +122,10 @@
 
       &:hover {
         background: $theme-shade-3;
+
+        @media (max-width: $mobile) {
+          background: none;
+        }
       }
 
       &.active {
@@ -131,7 +144,7 @@
 
     &__chevron {
       font-size: $font-lg-size;
-      color: #718096;
+      color: $theme-gray-4;
       transition: transform 0.3s ease;
       flex-shrink: 0;
       margin-left: 16px;
@@ -187,7 +200,7 @@
         position: relative;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: $mobile) {
         padding: 32px 24px;
       }
     }
@@ -198,8 +211,8 @@
       margin-bottom: 16px;
       letter-spacing: -0.02em;
 
-      @media (max-width: 768px) {
-        font-size: 1.5rem;
+      @media (max-width: $mobile) {
+        font-size: $font-title-sub-size;
       }
     }
 
@@ -228,6 +241,12 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     background: $theme-white;
+
+    @media (max-width: $mobile) {
+      transform: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background: $theme-white;
+    }
   }
 
   &:active {

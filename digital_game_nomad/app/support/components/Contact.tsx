@@ -13,7 +13,7 @@ export default function Contact({ handleInquiryLinkClick }: ContactProps) {
           도움이 더 필요하신가요?
         </h3>
         <p className={styles.contactContainer__desc}>
-          원하는 답변을 찾지 못하셨다면 직접 문의해주세요
+          원하는 답변을 찾지 못하셨다면 직접 문의해주세요.
         </p>
         <Link href='/support/inquiry' onClick={handleInquiryLinkClick} passHref>
           <button className={styles.contactButton}>문의하기</button>

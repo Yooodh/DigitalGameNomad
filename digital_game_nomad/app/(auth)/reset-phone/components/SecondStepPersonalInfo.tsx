@@ -22,7 +22,7 @@ export default function SecondStepPersonalInfo({
     <div className={styles.stepContainer}>
       <h2 className={styles.stepContainer__title}>본인 정보 확인</h2>
       <p className={styles.stepContainer__desc}>
-        본인 확인을 위해 이름과 현재 전화번호를 입력해주세요
+        본인 확인을 위해 이름과 현재 전화번호를 입력해주세요.
       </p>
 
       <InputGroup

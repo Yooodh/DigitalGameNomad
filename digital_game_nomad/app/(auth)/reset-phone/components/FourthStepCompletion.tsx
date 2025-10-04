@@ -20,7 +20,7 @@ export default function FourthStepCompletion({
 
       <h2 className={styles.stepContainer__title}>전화번호 변경 완료</h2>
       <p className={styles.stepContainer__desc}>
-        전화번호가 성공적으로 변경되었습니다
+        전화번호가 성공적으로 변경되었습니다.
       </p>
 
       <InfoDisplay

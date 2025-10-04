@@ -21,13 +21,13 @@ export default function ThirdStepNewPhoneInput({
   validateVerificationCode,
   handlePrevStep,
 }: ThirdStepNewPhoneInputProps) {
-  const successMessage = `[${formData.newCarrier}] ${formData.newPhone}로 인증번호가 발송되었습니다`;
+  const successMessage = `[${formData.newCarrier}] ${formData.newPhone}로 인증번호가 발송되었습니다.`;
 
   return (
     <div className={styles.stepContainer}>
       <h2 className={styles.stepContainer__title}>새 전화번호 입력</h2>
       <p className={styles.stepContainer__desc}>
-        변경할 새로운 전화번호를 입력하고 인증받아주세요
+        변경할 새로운 전화번호를 입력하고 인증받아주세요.
       </p>
 
       <InfoDisplay

@@ -22,7 +22,7 @@ export default function FirstStepEmailVerification({
     <div className={styles.stepContainer}>
       <h2 className={styles.stepContainer__title}>이메일 인증</h2>
       <p className={styles.stepContainer__desc}>
-        본인 확인을 위해 등록된 이메일로 인증번호를 발송합니다
+        본인 확인을 위해 등록된 이메일로 인증번호를 발송합니다.
       </p>
 
       <InputGroup
@@ -71,7 +71,7 @@ export default function FirstStepEmailVerification({
               >
                 <Check />
               </svg>
-              {formData.email}로 인증번호가 발송되었습니다
+              {formData.email}로 인증번호가 발송되었습니다.
             </div>
           )}
 

@@ -27,7 +27,7 @@ export function useResetPhoneForm(): UseResetPhoneFormReturn {
 
       if (name === 'email') {
         if (value && !validateEmail(value)) {
-          setError('emailError', '올바른 이메일 형식을 입력해주세요');
+          setError('emailError', '올바른 이메일 형식을 입력해주세요.');
         } else {
           setError('emailError', '');
         }

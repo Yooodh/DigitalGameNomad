@@ -158,10 +158,6 @@ export function useStepNavigation(): UseStepNavigationReturn {
               phone: newPhoneArray,
             });
 
-            console.log(
-              `전화번호 변경 성공: ${verifiedEmail}님의 전화번호가 ${formData.newPhone}로 업데이트되었습니다.`
-            );
-
             setIsLoading(false);
             setStep(4);
           } catch (error) {

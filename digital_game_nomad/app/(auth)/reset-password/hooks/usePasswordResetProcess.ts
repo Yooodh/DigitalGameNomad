@@ -77,10 +77,6 @@ export function usePasswordResetProcess({
               password: formData.newPassword,
             });
 
-            console.log(
-              `비밀번호 변경 성공: ${currentUserEmail}님의 비밀번호가 업데이트되었습니다.`
-            );
-
             logout();
             setStep(3);
           } catch (error) {

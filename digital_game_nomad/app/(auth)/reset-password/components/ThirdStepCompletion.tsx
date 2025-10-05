@@ -22,8 +22,8 @@ export default function ThirdStepCompletion({
       </div>
       <h2 className={styles.stepContainer__title}>비밀번호 변경 완료</h2>
       <p className={styles.stepContainer__desc}>
-        비밀번호가 성공적으로 변경되었습니다
-        <br />새 비밀번호로 로그인해주세요
+        비밀번호가 성공적으로 변경되었습니다.
+        <br />새 비밀번호로 로그인해주세요.
       </p>
       <button
         type='button'

@@ -62,7 +62,6 @@ export function useForgotPasswordProcess({
           return;
         }
 
-        console.log('이메일 인증 코드 검증 완료 (서버 통신 시뮬레이션)');
         await new Promise((resolve) => setTimeout(resolve, 1000));
 
         setVerifiedEmail(formData.email);
@@ -76,16 +75,12 @@ export function useForgotPasswordProcess({
 
         if (verifiedEmail) {
           try {
-            console.log('새 비밀번호 변경 처리 중...');
             await new Promise((resolve) => setTimeout(resolve, 1500));
 
             updateUserProfileInStore(verifiedEmail, {
               password: formData.newPassword,
             });
 
-            console.log(
-              `비밀번호 변경 성공: ${verifiedEmail}님의 비밀번호가 업데이트되었습니다.`
-            );
             setStep(3);
           } catch (error) {
             console.error('비밀번호 업데이트 중 오류 발생:', error);

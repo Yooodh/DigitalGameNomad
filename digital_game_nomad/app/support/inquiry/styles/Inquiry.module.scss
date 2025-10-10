@@ -11,6 +11,10 @@
   padding: 2rem 1rem;
   gap: 2rem;
 
+  @media (max-width: $mobile) {
+    padding: 2rem 0.5rem;
+  }
+
   .headerContainer {
     text-align: center;
 
@@ -116,6 +120,7 @@
         min-height: 120px;
         line-height: 1.6;
         resize: none;
+        font-family: inherit;
       }
 
       .inputError {
@@ -144,14 +149,18 @@
         display: flex;
         justify-content: center;
 
+        @media (max-width: $mobile) {
+          margin-top: 0;
+        }
+
         &__btn {
           background: $theme-purple-gradient;
           color: $theme-white;
           border: none;
-          border-radius: 12px;
-          padding: 1rem 2.5rem;
+          border-radius: 1rem;
+          padding: 1.25rem 2rem;
           font-size: $font-lg-size;
-          font-weight: 600;
+          font-weight: 700;
           cursor: pointer;
           transition: all 0.2s ease-in-out;
           box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
@@ -178,7 +187,11 @@
           &:hover:not(:disabled) {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            background: $theme-purple-gradient;
+
+            @media (max-width: $mobile) {
+              transform: none;
+              box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            }
 
             &::before {
               left: 100%;
@@ -199,7 +212,8 @@
 
           @media (max-width: $mobile) {
             width: 100%;
-            padding: 1.125rem 2rem;
+            font-size: $font-base-size;
+            padding: 1rem 1.75rem;
           }
         }
 
@@ -214,7 +228,7 @@
           width: 20px;
           height: 20px;
           border: 2px solid $theme-gray-2;
-          border-top: 2px solid $theme-shade-1;
+          border-top: 2px solid $theme-white;
           border-radius: 50%;
           @extend .spin;
         }

@@ -18,8 +18,8 @@ export default function SubmitButton({
       >
         {isSubmitting ? (
           <span className={styles.btnContainer__loaderWrap}>
-            <div className={styles.btnContainer__loader}></div>
             {submittingLabel}
+            <div className={styles.btnContainer__loader}></div>
           </span>
         ) : (
           label

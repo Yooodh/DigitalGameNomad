@@ -36,7 +36,7 @@ export default function ApplyPresenter({
               iconClassName={styles.iconCompany}
               value={formData.companyName}
               onChange={(value) => onInputChange('companyName', value)}
-              placeholder='기업 이름을 입력해주세요'
+              placeholder='기업 이름을 입력해주세요.'
               inputClassName={styles.inputCompany}
             />
 
@@ -46,7 +46,7 @@ export default function ApplyPresenter({
               iconClassName={styles.iconGame}
               value={formData.gameName}
               onChange={(value) => onInputChange('gameName', value)}
-              placeholder='게임 이름을 입력해주세요'
+              placeholder='게임 이름을 입력해주세요.'
               inputClassName={styles.inputGame}
             />
 
@@ -57,7 +57,7 @@ export default function ApplyPresenter({
               type='textarea'
               value={formData.description}
               onChange={(value) => onInputChange('description', value)}
-              placeholder='전시 내용을 자세히 설명해주세요'
+              placeholder='전시 내용을 자세히 설명해주세요.'
               rows={4}
               inputClassName={styles.inputDescription}
             />

@@ -65,10 +65,10 @@ export default function ImageUpload({
           </span>
 
           <p className={styles.uploadZoneContainer__title}>
-            이미지를 드래그하거나 클릭해서 업로드하세요
+            이미지를 드래그하거나 클릭해서 업로드하세요.
           </p>
           <p className={styles.uploadZoneContainer__subtitle}>
-            JPG, PNG, GIF 파일을 지원합니다
+            JPG, PNG, GIF 파일을 지원합니다.
           </p>
         </div>
       )}

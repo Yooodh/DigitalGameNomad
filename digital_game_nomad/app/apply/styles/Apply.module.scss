@@ -14,8 +14,9 @@
   align-items: center;
   justify-content: center;
   padding: 3rem 1rem;
+  word-break: keep-all;
 
-  @media (max-width: 768px) {
+  @media (max-width: $mobile) {
     padding: 2rem 0.5rem;
   }
 
@@ -37,7 +38,7 @@
         margin-bottom: 1rem;
         line-height: 1.2;
 
-        @media (max-width: 768px) {
+        @media (max-width: $mobile) {
           font-size: $font-lg-title-size;
         }
       }
@@ -47,7 +48,7 @@
         font-size: $font-lg-size;
         margin-bottom: 1rem;
 
-        @media (max-width: 768px) {
+        @media (max-width: $mobile) {
           font-size: $font-base-size;
         }
       }
@@ -59,7 +60,7 @@
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
       padding: 3rem;
 
-      @media (max-width: 768px) {
+      @media (max-width: $mobile) {
         padding: 2rem;
         border-radius: 1.25rem;
       }
@@ -126,10 +127,12 @@
           font-size: $font-base-size;
           outline: none;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          font-family: inherit;
 
           &::placeholder {
             color: $theme-gray-4;
           }
+
           &:hover:not(:focus) {
             border-color: $theme-gray-2;
           }
@@ -150,6 +153,7 @@
             @include focus-ring($theme-red);
           }
         }
+
         .textarea {
           resize: none;
           min-height: 6rem;
@@ -160,7 +164,7 @@
         display: grid;
         gap: 1.5rem;
 
-        @media (min-width: 768px) {
+        @media (min-width: $mobile) {
           grid-template-columns: repeat(2, 1fr);
         }
       }
@@ -283,6 +287,10 @@
     .submitContainer {
       padding-top: 2rem;
 
+      @media (max-width: $mobile) {
+        padding-top: 0;
+      }
+
       &__btn {
         width: 100%;
         background: $theme-purple-gradient;
@@ -296,10 +304,19 @@
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 
+        @media (max-width: $mobile) {
+          padding: 1rem 1.75rem;
+          font-size: $font-base-size;
+        }
+
         &:hover {
           transform: scale(1.02);
           box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
-          background: $theme-purple-gradient;
+
+          @media (max-width: $mobile) {
+            transform: none;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+          }
         }
 
         &:active {

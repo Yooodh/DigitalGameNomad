@@ -13,6 +13,10 @@
   white-space: nowrap;
   text-decoration: none;
 
+  @media (max-width: $mobile) {
+    font-size: $font-sm-size;
+  }
+
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -79,10 +83,12 @@
           gap: 1.5rem;
           flex-wrap: wrap;
 
-          @media (max-width: 768px) {
+          @media (max-width: $mobile) {
             flex-direction: column;
             align-items: center;
             text-align: center;
+            gap: 0;
+            padding: 0 1rem 1rem;
           }
         }
 
@@ -137,15 +143,20 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.2s ease-in-out;
+            color: $theme-white;
 
             &:hover {
               transform: scale(1.1);
+
+              @media (max-width: $mobile) {
+                transform: none;
+              }
             }
 
             svg {
               width: 0.875rem;
               height: 0.875rem;
-              color: $theme-shade-1;
+              color: $theme-white;
             }
           }
 
@@ -166,12 +177,16 @@
 
             &:hover:not(:disabled) {
               transform: scale(1.1);
+
+              @media (max-width: $mobile) {
+                transform: none;
+              }
             }
 
             svg {
               width: 0.875rem;
               height: 0.875rem;
-              color: $theme-shade-1;
+              color: $theme-white;
             }
           }
         }
@@ -180,7 +195,7 @@
           flex: 1;
           margin-top: 1rem;
 
-          @media (max-width: 768px) {
+          @media (max-width: $mobile) {
             margin-top: 0;
           }
 
@@ -223,7 +238,7 @@
           gap: 0.75rem;
           flex-shrink: 0;
 
-          @media (max-width: 768px) {
+          @media (max-width: $mobile) {
             width: 100%;
             justify-content: center;
           }
@@ -244,28 +259,43 @@
                 transform: translateY(-1px);
                 box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
                   0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+                @media (max-width: $mobile) {
+                  transform: none;
+                  box-shadow: none;
+                }
               }
             }
 
             &.btnSecondary {
-              background: $theme-shade-1;
-              color: $theme-text-1;
+              background: $theme-gray-1;
+              color: $theme-text-2;
 
               &:hover:not(:disabled) {
                 transform: translateY(-1px);
                 box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
                   0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+                @media (max-width: $mobile) {
+                  transform: none;
+                  box-shadow: none;
+                }
               }
             }
 
             &.btnSuccess {
-              background: $theme-green;
-              color: $theme-shade-1;
+              background: $theme-purple-gradient;
+              color: $theme-white;
 
               &:hover:not(:disabled) {
                 transform: translateY(-1px);
                 box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
                   0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+                @media (max-width: $mobile) {
+                  transform: none;
+                  box-shadow: none;
+                }
               }
             }
           }
@@ -290,6 +320,10 @@
 
           &:hover {
             color: $theme-blue;
+
+            @media (max-width: $mobile) {
+              color: $theme-gray-4;
+            }
           }
 
           &.tabActive {
@@ -310,6 +344,10 @@
 
       .tabContainer {
         padding: 2rem;
+
+        @media (max-width: $mobile) {
+          padding: 1rem;
+        }
 
         .contectContainer {
           display: flex;
@@ -348,6 +386,10 @@
               border: 2px solid $theme-shade-3;
               border-radius: 0.75rem;
               font-weight: 500;
+
+              @media (max-width: $mobile) {
+                font-size: $font-base-size;
+              }
             }
 
             &__input {
@@ -418,11 +460,18 @@
             &__label {
               color: $theme-gray-4;
               font-weight: 500;
+
+              @media (max-width: $mobile) {
+                font-size: $font-base-size;
+              }
             }
 
             &__value {
               color: $theme-text-2;
               font-weight: 500;
+              @media (max-width: $mobile) {
+                font-size: $font-base-size;
+              }
             }
 
             &__gradeInfo {
@@ -442,6 +491,11 @@
               &:hover {
                 color: $theme-purple;
                 text-decoration: underline;
+
+                @media (max-width: $mobile) {
+                  color: $theme-blue;
+                  text-decoration: none;
+                }
               }
             }
 
@@ -463,11 +517,19 @@
               font-weight: 500;
               transition: all 0.2s ease-in-out;
 
+              @media (max-width: $mobile) {
+                font-size: $font-base-size;
+              }
+
               &:hover {
-                color: $theme-text-2;
                 transform: translateY(-1px);
                 box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
                   0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+                @media (max-width: $mobile) {
+                  transform: none;
+                  box-shadow: none;
+                }
               }
             }
           }

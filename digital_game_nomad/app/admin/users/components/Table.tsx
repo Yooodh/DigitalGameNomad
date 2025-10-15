@@ -58,7 +58,7 @@ export default function Table({
           isAllSelectedOnPage={isAllSelectedOnPage}
           handleSelectAll={handleSelectAll}
         />
-        <tbody>
+        <tbody className={styles.tableContainer__tbody}>
           {users.map((user) => (
             <TableRow
               key={user.id}

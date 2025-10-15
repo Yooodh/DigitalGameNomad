@@ -54,10 +54,16 @@ export default function TableRow({
           <span>{user.name}</span>
         </div>
       </td>
-      <td className={styles.rowContainer__nickname}>@{user.nickname}</td>
-      <td className={styles.rowContainer__email}>{user.email}</td>
-      <td className={styles.rowContainer__phone}>{formattedPhone}</td>
-      <td className={styles.rowContainer__level}>
+      <td className={styles.rowContainer__nickname} data-label='닉네임'>
+        @{user.nickname}
+      </td>
+      <td className={styles.rowContainer__email} data-label='이메일'>
+        {user.email}
+      </td>
+      <td className={styles.rowContainer__phone} data-label='연락처'>
+        {formattedPhone}
+      </td>
+      <td className={styles.rowContainer__level} data-label='등급'>
         <span
           className={`${styles.levelBadge} ${
             styles[getUserLevelClass(user.userLevel) as keyof typeof styles]
@@ -66,11 +72,13 @@ export default function TableRow({
           {getUserLevelText(user.userLevel)}
         </span>
       </td>
-      <td className={styles.rowContainer__date}>{user.joinDate}</td>
-      <td className={styles.rowContainer__date}>
+      <td className={styles.rowContainer__date} data-label='가입일'>
+        {user.joinDate}
+      </td>
+      <td className={styles.rowContainer__date} data-label='최근 접속일'>
         {user.lastLoginDate || 'N/A'}
       </td>
-      <td className={styles.rowContainer__date}>
+      <td className={styles.rowContainer__date} data-label='삭제일'>
         {user.deleteDate ? (
           <span className={styles.deletedDate}>{user.deleteDate}</span>
         ) : (

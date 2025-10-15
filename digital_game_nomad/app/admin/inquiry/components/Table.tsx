@@ -23,20 +23,29 @@ export default function Table({
       <tbody>
         {currentInquiries.map((inquiry) => (
           <tr key={inquiry.id} className={styles.tableRowContainer}>
-            <td className={styles.tableRowContainer__number}>{inquiry.id}</td>
+            <td
+              className={styles.tableRowContainer__number}
+              data-label='문의번호'
+            >
+              {inquiry.id}
+            </td>
             <td
               className={styles.tableRowContainer__title}
               onClick={() => openDetailModal(inquiry)}
+              data-label='제목'
             >
               {inquiry.title}
             </td>
-            <td className={styles.tableRowContainer__author}>
+            <td
+              className={styles.tableRowContainer__author}
+              data-label='닉네임'
+            >
               {inquiry.userName}
             </td>
-            <td className={styles.tableRowContainer__date}>
+            <td className={styles.tableRowContainer__date} data-label='등록일'>
               {inquiry.submittedAt}
             </td>
-            <td className={styles.tableRowContainer__stat}>
+            <td className={styles.tableRowContainer__stat} data-label='상태'>
               <select
                 value={inquiry.status}
                 onChange={(e) =>

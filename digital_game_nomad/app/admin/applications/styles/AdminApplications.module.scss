@@ -5,6 +5,10 @@
   background: $theme-shade-2;
   min-height: 100vh;
 
+  @media (max-width: $tablet) {
+    padding: 1rem 0.5rem;
+  }
+
   &__wrap {
     max-width: 1200px;
     margin: 0 auto;
@@ -15,6 +19,12 @@
       gap: 1.5rem;
       margin-bottom: 2rem;
 
+      @media (max-width: $tablet) {
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 1.5rem;
+        gap: 0.5rem;
+      }
+
       .cardContainer {
         background-color: $theme-shade-1;
         padding: 1.5rem;
@@ -23,6 +33,12 @@
         display: flex;
         align-items: center;
         gap: 1rem;
+
+        @media (max-width: $tablet) {
+          grid-template-columns: repeat(2, 1fr);
+          padding: 1rem;
+          flex-direction: column;
+        }
 
         &:nth-of-type(1) .cardContainer__icon {
           background: $theme-blue;
@@ -51,6 +67,11 @@
           svg {
             width: 1.5rem;
             height: 1.5rem;
+
+            @media (max-width: $tablet) {
+              width: 1rem;
+              height: 1rem;
+            }
           }
         }
 
@@ -59,6 +80,12 @@
             font-size: $font-title-sub-size;
             font-weight: 700;
             color: $theme-text-1;
+
+            @media (max-width: $tablet) {
+              align-items: center;
+              justify-content: center;
+              display: flex;
+            }
           }
 
           &__label {
@@ -75,6 +102,10 @@
       border-radius: 0.75rem;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
       margin-bottom: 2rem;
+
+      @media (max-width: $tablet) {
+        margin-bottom: 1.5rem;
+      }
     }
 
     .searchContainer {
@@ -123,6 +154,11 @@
       gap: 0.75rem;
       align-items: center;
 
+      @media (max-width: $tablet) {
+        justify-content: center;
+        width: 100%;
+      }
+
       .selectContainer {
         display: flex;
         align-items: center;
@@ -131,6 +167,10 @@
         border-radius: 0.5rem;
         padding: 0.6rem 0.8rem;
         background-color: $theme-shade-1;
+
+        @media (max-width: $tablet) {
+          width: 57%;
+        }
 
         &__icon {
           color: $theme-gray-5;
@@ -147,6 +187,10 @@
           color: $theme-text-2;
           cursor: pointer;
           padding-right: 0.5rem;
+
+          @media (max-width: $tablet) {
+            width: 100%;
+          }
 
           &:focus {
             outline: none;
@@ -171,6 +215,11 @@
         &:hover {
           background-color: $theme-shade-4;
           border-color: $theme-gray-2;
+
+          @media (max-width: $tablet) {
+            background-color: $theme-shade-3;
+            border-color: $theme-gray-1;
+          }
         }
 
         svg {
@@ -185,6 +234,12 @@
       display: flex;
       gap: 0.5rem;
       margin-left: auto;
+
+      @media (max-width: $tablet) {
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+      }
 
       &__btn {
         display: inline-flex;
@@ -223,15 +278,29 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
       margin-bottom: 2rem;
 
+      @media (max-width: $tablet) {
+        display: block;
+        text-align: center;
+      }
+
       &__info {
         font-weight: 600;
         color: $theme-text-1;
         font-size: $font-base-size;
+
+        @media (max-width: $tablet) {
+          margin-bottom: 1rem;
+        }
       }
 
       .btnContainer {
         display: flex;
         gap: 0.75rem;
+
+        @media (max-width: $tablet) {
+          align-items: center;
+          justify-content: center;
+        }
 
         &__btn {
           display: inline-flex;
@@ -246,6 +315,11 @@
           font-size: $font-sm-size;
           white-space: nowrap;
 
+          @media (max-width: $tablet) {
+            padding: 0.3rem 0.6rem;
+            gap: 0.3rem;
+          }
+
           svg {
             width: 1rem;
             height: 1rem;
@@ -257,6 +331,10 @@
 
           &:hover {
             transform: translateY(-3px);
+
+            @media (max-width: $tablet) {
+              transform: none;
+            }
           }
         }
 
@@ -265,6 +343,10 @@
 
           &:hover {
             transform: translateY(-3px);
+
+            @media (max-width: $tablet) {
+              transform: none;
+            }
           }
         }
 
@@ -273,6 +355,10 @@
 
           &:hover {
             transform: translateY(-3px);
+
+            @media (max-width: $tablet) {
+              transform: none;
+            }
           }
         }
 
@@ -281,6 +367,10 @@
 
           &:hover {
             transform: translateX(3px);
+
+            @media (max-width: $tablet) {
+              transform: none;
+            }
           }
         }
       }
@@ -289,6 +379,10 @@
     .emptyContainer {
       text-align: center;
       padding: 10rem;
+
+      @media (max-width: $tablet) {
+        padding: 5rem;
+      }
 
       &__icon {
         color: $theme-gray-1;
@@ -318,6 +412,10 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.5rem;
+
+      @media (max-width: $tablet) {
+        justify-content: center;
+      }
     }
 
     .gridCardContainer {
@@ -332,6 +430,10 @@
 
       &:hover {
         transform: translateY(-5px);
+
+        @media (max-width: $tablet) {
+          transform: none;
+        }
       }
 
       .gridCardHeaderContainer {
@@ -524,6 +626,10 @@
 
             &:hover {
               transform: scale(1.02);
+
+              @media (max-width: $tablet) {
+                transform: none;
+              }
             }
           }
 
@@ -569,6 +675,10 @@
 
           &:hover {
             color: $theme-purple;
+
+            @media (max-width: $tablet) {
+              color: $theme-blue;
+            }
           }
 
           svg {
@@ -597,6 +707,10 @@
 
           &:hover {
             color: $theme-blue;
+
+            @media (max-width: $tablet) {
+              color: $theme-text-2;
+            }
           }
 
           svg {

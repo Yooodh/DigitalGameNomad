@@ -101,6 +101,10 @@
 
             &:hover {
               background-color: $theme-shade-2;
+
+              @media (max-width: $tablet) {
+                background-color: $theme-shade-1;
+              }
             }
 
             &:last-child {

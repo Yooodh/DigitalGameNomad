@@ -5,17 +5,17 @@ export function useBoardHeader(
     case '자유':
       return {
         title: '자유게시판',
-        subtitle: '자유롭게 이야기를 나누는 공간입니다',
+        subtitle: '자유롭게 이야기를 나누는 공간입니다.',
       };
     case '후기':
       return {
         title: '후기게시판',
-        subtitle: '게임 경험을 공유하고 다른 유저들과 소통해보세요',
+        subtitle: '게임 경험을 공유하고 다른 유저들과 소통해보세요.',
       };
     default:
       return {
         title: '게시판',
-        subtitle: '게임 정보를 공유하고 소통해보세요',
+        subtitle: '게임 정보를 공유하고 소통해보세요.',
       };
   }
 }

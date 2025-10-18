@@ -48,18 +48,31 @@
 
     .headerContainer {
       text-align: center;
-      margin-bottom: 2rem;
+      padding: 3rem 1rem;
+
+      @media (max-width: $mobile) {
+        padding: 3rem 0;
+        margin: 0;
+      }
 
       &__title {
         font-size: $font-xl-title-sub-size;
         font-weight: 700;
         color: $theme-blue;
         margin: 0 0 0.5rem 0;
+
+        @media (max-width: $mobile) {
+          font-size: $font-title-size;
+        }
       }
 
       &__subtitle {
         color: $theme-gray-5;
         margin: 0;
+
+        @media (max-width: $mobile) {
+          font-size: $font-base-size;
+        }
       }
     }
 
@@ -352,15 +365,11 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $mobile) {
   .registerContainer {
     padding: 0.75rem;
 
     .formContainer {
-      .headerContainer {
-        margin-bottom: 1.5rem;
-      }
-
       .cardContainer {
         padding: 1.5rem;
 

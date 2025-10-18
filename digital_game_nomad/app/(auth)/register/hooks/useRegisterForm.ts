@@ -256,7 +256,6 @@ export const useRegisterForm = (): UseRegisterFormReturn => {
           lastLoginDate: new Date().toISOString().slice(0, 10),
         });
 
-        console.log('회원가입 및 로그인 성공:', fullEmailForValidation);
         alert('회원가입이 완료되었습니다!');
         router.push('/');
       } catch (error) {

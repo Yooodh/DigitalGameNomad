@@ -13,6 +13,10 @@
     justify-content: center;
     overflow: hidden;
 
+    @media (max-width: $mobile) {
+      height: 250px;
+    }
+
     &::before {
       content: '';
       position: absolute;
@@ -38,7 +42,7 @@
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
       @media (max-width: $mobile) {
-        font-size: $font-lg-title-size;
+        font-size: $font-title-size;
       }
     }
 
@@ -47,6 +51,11 @@
       opacity: 0.9;
       font-weight: 300;
       line-height: 1.6;
+
+      @media (max-width: $mobile) {
+        font-size: $font-base-size;
+        margin-bottom: 20px;
+      }
     }
   }
 
@@ -76,14 +85,18 @@
       letter-spacing: -0.02em;
 
       @media (max-width: $mobile) {
-        font-size: $font-title-size;
+        font-size: $font-title-sub-size;
       }
     }
 
     &__subTitle {
-      font-size: $font-lg-size;
+      font-size: $font-title-sub-size;
       color: $theme-gray-4;
       font-weight: 400;
+
+      @media (max-width: $mobile) {
+        font-size: $font-base-size;
+      }
     }
 
     &__faqItem {
@@ -120,6 +133,10 @@
       cursor: pointer;
       transition: all 0.3s ease;
 
+      @media (max-width: $mobile) {
+        padding: 15px;
+      }
+
       &:hover {
         background: $theme-shade-3;
 
@@ -140,6 +157,10 @@
       color: $theme-text-1;
       text-align: left;
       line-height: 1.5;
+
+      @media (max-width: $mobile) {
+        font-size: $font-base-size;
+      }
     }
 
     &__chevron {
@@ -148,6 +169,10 @@
       transition: transform 0.3s ease;
       flex-shrink: 0;
       margin-left: 16px;
+
+      @media (max-width: $mobile) {
+        font-size: $font-base-size;
+      }
 
       &.rotated {
         transform: rotate(180deg);
@@ -221,6 +246,10 @@
       opacity: 0.9;
       margin-bottom: 32px;
       line-height: 1.6;
+
+      @media (max-width: $mobile) {
+        font-size: $font-base-size;
+      }
     }
   }
 }
@@ -236,6 +265,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: $mobile) {
+    padding: 12px 30px;
+  }
 
   &:hover {
     transform: translateY(-2px);

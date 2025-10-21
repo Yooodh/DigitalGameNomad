@@ -9,7 +9,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-transform: uppercase;
   background-color: $theme-black;
   font-weight: 500;
   padding: 0 0.5rem;
@@ -210,7 +209,9 @@
 
     .themeContainer {
       left: 60;
-      top: 13;
+      top: 15;
+      font-size: $font-base-size;
+      font-weight: 700;
     }
   }
 }

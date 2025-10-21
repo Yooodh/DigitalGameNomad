@@ -9,9 +9,9 @@ export default function ThemeButton({
   return (
     <div className={styles.themeContainer} onClick={onToggleTheme}>
       {theme === 'dark' ? (
-        <p className={styles.themeContainer__dark}>🌙 다크 모드</p>
+        <p className={styles.themeContainer__dark}>🌙 DarkMode</p>
       ) : (
-        <p className={styles.themeContainer__light}>☀️ 라이트 모드</p>
+        <p className={styles.themeContainer__light}>☀️ LightMode</p>
       )}
     </div>
   );

@@ -6,8 +6,8 @@
   font-weight: 600;
   font-size: $font-lg-size;
   border: none;
-  background: #374151;
-  color: #6b7280;
+  background: $theme-gray-1;
+  color: $theme-gray-3;
   cursor: not-allowed;
   transition: all 0.3s ease;
   outline: none;
@@ -15,9 +15,13 @@
   text-align: center;
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 
+  @media (max-width: $mobile) {
+    box-shadow: none;
+  }
+
   &:disabled {
-    background: #374151;
-    color: #6b7280;
+    background: $theme-gray-1;
+    color: $theme-gray-3;
     cursor: not-allowed;
     box-shadow: none;
   }
@@ -31,6 +35,11 @@
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+
+    @media (max-width: $mobile) {
+      transform: none;
+      box-shadow: none;
+    }
   }
 
   &:disabled {

@@ -28,6 +28,11 @@
       text-align: center;
       margin-bottom: 3rem;
 
+      @media (max-width: $mobile) {
+        padding: 1rem 0 2rem 0;
+        margin: 0;
+      }
+
       &__title {
         font-size: $font-xl-title-sub-size;
         font-weight: 700;
@@ -39,7 +44,8 @@
         line-height: 1.2;
 
         @media (max-width: $mobile) {
-          font-size: $font-lg-title-size;
+          font-size: $font-title-size;
+          margin: 0 0 0.5rem 0;
         }
       }
 
@@ -76,12 +82,21 @@
         flex-direction: column;
         gap: 0.75rem;
 
+        @media (max-width: $mobile) {
+          gap: 0.5rem;
+        }
+
         &__label {
           display: flex;
           align-items: center;
           color: $theme-text-1;
           font-weight: 600;
           font-size: $font-lg-size;
+
+          @media (max-width: $mobile) {
+            padding: 0.5rem 1rem;
+            font-size: $font-base-size;
+          }
 
           .icon {
             width: 1.25rem;
@@ -90,6 +105,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+            @media (max-width: $mobile) {
+              width: 1rem;
+              height: 1rem;
+            }
 
             &Company {
               color: $theme-blue;
@@ -128,6 +148,11 @@
           outline: none;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           font-family: inherit;
+
+          @media (max-width: $mobile) {
+            padding: 0.85rem 1rem;
+            font-size: $font-sm-size;
+          }
 
           &::placeholder {
             color: $theme-gray-4;
@@ -276,11 +301,21 @@
         color: $theme-gray-5;
         font-weight: 500;
         margin-bottom: 0.5rem;
+
+        font-size: $font-lg-size;
+
+        @media (max-width: $mobile) {
+          font-size: $font-base-size;
+        }
       }
 
       &__subtitle {
         color: $theme-gray-3;
         font-size: $font-sm-size;
+
+        @media (max-width: $mobile) {
+          font-size: $font-xs-size;
+        }
       }
     }
 

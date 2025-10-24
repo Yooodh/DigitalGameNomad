@@ -20,7 +20,7 @@ export default function CtaCard({
       <div className={styles.ctaConatiner__content}>
         <h3 className={styles.ctaConatiner__title}>지금 바로 시작하세요</h3>
         <p className={styles.ctaConatiner__desc}>
-          혁신적인 3D 가상 전시관에서 귀하의 게임을 선보일 기회를 놓치지 마세요
+          혁신적인 3D 가상 전시관에서 귀하의 게임을 선보일 기회를 놓치지 마세요.
         </p>
         <Link className={styles.ctaConatiner__btn} href='/apply'>
           <span>참여신청 하기</span>

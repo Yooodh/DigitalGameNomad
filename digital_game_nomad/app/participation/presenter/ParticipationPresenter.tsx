@@ -32,7 +32,7 @@ export default function ParticipationPresenter({
           <div className={styles.heroContainer__badge}>Partnership</div>
           <h1 className={styles.heroContainer__title}>기업참여신청</h1>
           <p className={styles.heroContainer__subtitle}>
-            디지털 게임 노마드와 함께 새로운 게임 생태계를 만들어보세요
+            디지털 게임 노마드와 함께 새로운 게임 생태계를 만들어보세요.
           </p>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default function ParticipationPresenter({
         >
           <h2 className={styles.boothContainer__title}>부스 배치도</h2>
           <p className={styles.boothContainer__subtitle}>
-            가상 전시관에서의 부스 배치 현황을 확인하세요
+            가상 전시관에서의 부스 배치 현황을 확인하세요.
           </p>
         </div>
 

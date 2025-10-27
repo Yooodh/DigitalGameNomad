@@ -10,7 +10,7 @@ export default function EmptyState() {
       <div className={styles.emptyContainer__icon}>
         <Alert />
       </div>
-      <h3 className={styles.emptyContainer__title}>문의 내역이 없습니다</h3>
+      <h3 className={styles.emptyContainer__title}>문의 내역이 없습니다.</h3>
     </div>
   );
 }

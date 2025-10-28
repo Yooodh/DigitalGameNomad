@@ -4,6 +4,7 @@ import Filters from '../components/Filters';
 import Table from '../components/Table';
 import Pagination from '../components/Pagination';
 import Modal from '../components/Modal';
+import EmptyState from '../components/EmptyState';
 import styles from '../styles/AdminInquiry.module.scss';
 import { AdminInquiryPresenterProps } from '../types';
 
@@ -33,6 +34,7 @@ export default function AdminInquiryPresenter({
   openDetailModal,
   closeDetailModal,
   getStatusClass,
+  isListEmpty,
 }: AdminInquiryPresenterProps) {
   return (
     <div className={styles.container}>
@@ -46,21 +48,27 @@ export default function AdminInquiryPresenter({
       />
 
       <div className={styles.sectionContainer}>
-        <Table
-          currentInquiries={currentInquiries}
-          openDetailModal={openDetailModal}
-          updateInquiryStatus={updateInquiryStatus}
-          getStatusClass={getStatusClass}
-        />
-        <Pagination
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          totalPages={totalPages}
-          MAX_VISIBLE_PAGES={MAX_VISIBLE_PAGES}
-          filteredInquiriesLength={filteredInquiries.length}
-          currentInquiriesLength={currentInquiries.length}
-          ITEMS_PER_PAGE={ITEMS_PER_PAGE}
-        />
+        {isListEmpty ? (
+          <EmptyState />
+        ) : (
+          <>
+            <Table
+              currentInquiries={currentInquiries}
+              openDetailModal={openDetailModal}
+              updateInquiryStatus={updateInquiryStatus}
+              getStatusClass={getStatusClass}
+            />
+            <Pagination
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              totalPages={totalPages}
+              MAX_VISIBLE_PAGES={MAX_VISIBLE_PAGES}
+              filteredInquiriesLength={filteredInquiries.length}
+              currentInquiriesLength={currentInquiries.length}
+              ITEMS_PER_PAGE={ITEMS_PER_PAGE}
+            />
+          </>
+        )}
       </div>
 
       {isDetailModalOpen && selectedInquiry && (

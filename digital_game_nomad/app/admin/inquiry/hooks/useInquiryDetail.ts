@@ -65,7 +65,8 @@ export function useInquiryDetail(
 
     setIsReplyMode(false);
     setReplyContent('');
-  }, [selectedInquiry, replyContent, saveReplyToInquiry]);
+    closeDetailModal();
+  }, [selectedInquiry, replyContent, saveReplyToInquiry, closeDetailModal]);
 
   const cancelReply = useCallback(() => {
     setReplyContent(selectedInquiry?.reply || '');

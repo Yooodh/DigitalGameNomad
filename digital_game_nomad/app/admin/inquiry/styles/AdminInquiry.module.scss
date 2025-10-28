@@ -196,6 +196,32 @@
     box-shadow: none;
   }
 
+  .emptyContainer {
+    text-align: center;
+    padding: 10rem;
+
+    @media (max-width: $tablet) {
+      padding: 5rem;
+    }
+
+    &__icon {
+      color: $theme-gray-1;
+      margin-bottom: 1.5rem;
+
+      svg {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+
+    &__title {
+      font-size: $font-title-sub-size;
+      color: $theme-text-2;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+  }
+
   .tableContainer {
     width: 100%;
     border-collapse: collapse;

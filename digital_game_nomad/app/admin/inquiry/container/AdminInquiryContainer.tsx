@@ -41,6 +41,8 @@ export default function AdminInquiryContainer() {
     updateSelectedInquiryStatus,
   } = useInquiryDetail(saveReplyToInquiry, updateInquiryStatus);
 
+  const isListEmpty = filteredInquiries.length === 0;
+
   return (
     <AdminInquiryPresenter
       inquiries={inquiries}
@@ -68,6 +70,7 @@ export default function AdminInquiryContainer() {
       closeDetailModal={closeDetailModal}
       getStatusClass={getStatusClass}
       updateSelectedInquiryStatus={updateSelectedInquiryStatus}
+      isListEmpty={isListEmpty}
     />
   );
 }

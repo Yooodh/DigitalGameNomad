@@ -122,4 +122,5 @@ export type AdminInquiryPresenterProps = {
   closeDetailModal: () => void;
   getStatusClass: (status: InquiryStatus) => string;
   updateSelectedInquiryStatus: (newStatus: InquiryStatus) => void;
+  isListEmpty: boolean;
 };

@@ -332,11 +332,19 @@
         @extend .tableCell;
         color: $theme-gray-5;
         font-size: $font-xs-size;
+
+        @media (max-width: $tablet) {
+          font-size: $font-sm-size;
+        }
       }
 
       &__stat {
         @extend .tableCell;
         font-size: $font-xs-size;
+
+        @media (max-width: $tablet) {
+          font-size: $font-sm-size;
+        }
       }
     }
   }
@@ -432,6 +440,11 @@
       border-bottom: 1px solid $theme-gray-1;
       background: $theme-shade-1;
       border-radius: 12px 12px 0 0;
+
+      @media (max-width: $mobile) {
+        padding: 12px;
+        margin-left: 12px;
+      }
 
       h2 {
         color: $theme-text-1;

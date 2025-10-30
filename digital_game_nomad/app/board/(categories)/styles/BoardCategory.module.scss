@@ -65,7 +65,7 @@
       font-size: $font-sm-size;
 
       &:hover {
-        transform: translateY(-3px);
+        transform: translateY(-2px);
 
         @media (max-width: $mobile) {
           transform: none;

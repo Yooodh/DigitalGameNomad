@@ -36,7 +36,7 @@
       &__title {
         font-size: $font-xl-title-sub-size;
         font-weight: 700;
-        background: $theme-purple-gradient;
+        background: $theme-purple-gradient-light;
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
@@ -337,7 +337,6 @@
         border-radius: 1rem;
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 
         @media (max-width: $mobile) {
           padding: 1rem 1.75rem;
@@ -345,12 +344,12 @@
         }
 
         &:hover {
-          transform: scale(1.02);
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 
           @media (max-width: $mobile) {
             transform: none;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: none;
           }
         }
 

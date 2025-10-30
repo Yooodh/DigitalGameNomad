@@ -10,6 +10,10 @@
   position: relative;
   word-break: keep-all;
 
+  @media (max-width: $tablet) {
+    padding: 1rem 0.5rem;
+  }
+
   .cardContainer {
     background: $theme-shade-1;
     backdrop-filter: blur(20px);
@@ -29,7 +33,7 @@
         font-size: $font-title-size;
         font-weight: 700;
         margin-bottom: 24px;
-        background: $theme-purple-gradient;
+        background: $theme-purple-gradient-light;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;

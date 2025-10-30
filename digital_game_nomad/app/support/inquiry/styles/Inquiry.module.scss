@@ -22,7 +22,7 @@
       font-size: $font-lg-title-size;
       font-weight: 800;
       margin: 0 0 0.75rem 0;
-      background: $theme-purple-gradient;
+      background: $theme-purple-gradient-light;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -92,6 +92,11 @@
         background-color: $theme-shade-1;
         color: $theme-text-1;
 
+        @media (max-width: $mobile) {
+          padding: 0.85rem 1rem;
+          font-size: $font-sm-size;
+        }
+
         &::placeholder {
           color: $theme-gray-4;
         }
@@ -153,32 +158,34 @@
         }
 
         &__btn {
+          width: 100%;
           background: $theme-purple-gradient;
           color: $theme-white;
+          font-weight: 700;
+          font-size: $font-lg-size;
+          padding: 1.25rem 2rem;
           border: none;
           border-radius: 1rem;
-          padding: 18px 36px;
-          font-size: $font-lg-size;
-          font-weight: 600;
           cursor: pointer;
-          transition: all 0.3s ease;
-          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-          min-width: 160px;
-          position: relative;
-          overflow: hidden;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
           @media (max-width: $mobile) {
-            box-shadow: none;
+            padding: 1rem 1.75rem;
+            font-size: $font-base-size;
           }
 
           &:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 
             @media (max-width: $mobile) {
               transform: none;
               box-shadow: none;
             }
+          }
+
+          &:active {
+            transform: scale(0.98);
           }
         }
 

@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/animations' as *;
 
 .loginContainer {
   min-height: 100vh;
@@ -33,7 +34,7 @@
         font-size: $font-title-size;
         font-weight: 700;
         margin: 0 0 8px 0;
-        background: $theme-purple-gradient;
+        background: $theme-purple-gradient-light;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -88,6 +89,7 @@
 
         &.inputError {
           border-color: $theme-red;
+          @extend .shake;
 
           &:focus {
             border-color: $theme-red;
@@ -197,10 +199,6 @@
         @media (max-width: $mobile) {
           transform: none;
           box-shadow: none;
-        }
-
-        svg {
-          transform: translateX(2px);
         }
       }
 

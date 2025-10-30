@@ -68,7 +68,7 @@ export const initialPosts: PostData[] = [
     userName: '드라마중독',
     viewCount: 0,
     likeCount: 0,
-    image_url: 'https://example.com/drama_screenshot.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -110,7 +110,7 @@ export const initialPosts: PostData[] = [
     userName: '여행가고파',
     viewCount: 0,
     likeCount: 0,
-    image_url: 'https://example.com/travel_view.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -208,7 +208,7 @@ export const initialPosts: PostData[] = [
     userName: '소비왕',
     viewCount: 0,
     likeCount: 0,
-    image_url: 'https://example.com/headphone.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -292,7 +292,7 @@ export const initialPosts: PostData[] = [
     userName: '페스티벌러',
     viewCount: 0,
     likeCount: 0,
-    image_url: 'https://example.com/festival_crowd.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -432,7 +432,7 @@ export const initialPosts: PostData[] = [
     userName: '카페투어',
     viewCount: 0,
     likeCount: 0,
-    image_url: 'https://example.com/cafe_interior.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -502,7 +502,7 @@ export const initialPosts: PostData[] = [
     userName: '여행가고파',
     viewCount: 0,
     likeCount: 0,
-    image_url: 'https://example.com/memorable_travel.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -530,7 +530,7 @@ export const initialPosts: PostData[] = [
     userName: '취미부자',
     viewCount: 0,
     likeCount: 0,
-    image_url: 'https://example.com/baking.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -642,7 +642,7 @@ export const initialPosts: PostData[] = [
     userName: '소비왕',
     viewCount: 0,
     likeCount: 0,
-    image_url: 'https://example.com/overseas_shopping.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -698,7 +698,7 @@ export const initialPosts: PostData[] = [
     userName: '패션테러리스트',
     viewCount: 0,
     likeCount: 0,
-    image_url: 'https://example.com/new_shoes.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -782,7 +782,7 @@ export const initialPosts: PostData[] = [
     userName: '댕댕이예비맘',
     viewCount: 0,
     likeCount: 0,
-    image_url: 'https://example.com/dog_cafe.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -852,7 +852,7 @@ export const initialPosts: PostData[] = [
     userName: '점심메뉴고민',
     viewCount: 0,
     likeCount: 0,
-    image_url: 'https://example.com/pasta_restaurant.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -964,7 +964,7 @@ export const initialPosts: PostData[] = [
     userName: '댕댕이예비맘',
     viewCount: 0,
     likeCount: 0,
-    image_url: 'https://example.com/my_dog.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -1104,7 +1104,7 @@ export const initialPosts: PostData[] = [
     userName: '취미부자',
     viewCount: 0,
     likeCount: 0,
-    image_url: 'https://example.com/camping_tent.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -1188,7 +1188,7 @@ export const initialPosts: PostData[] = [
     userName: '패션테러리스트',
     viewCount: 0,
     likeCount: 0,
-    image_url: 'https://example.com/new_knit.jpg',
+    image_url: '/images/autumn_knitwear.jpg',
     comments: 0,
   },
   {
@@ -1430,7 +1430,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '메이플스토리',
     post_score: 5,
-    image_url: 'https://example.com/maple_patch.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -1462,7 +1462,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '카트라이더',
     post_score: 4,
-    image_url: 'https://example.com/kart_blaze.png',
+    image_url: '',
     comments: 0,
   },
   {
@@ -1510,7 +1510,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '서든어택',
     post_score: 4,
-    image_url: 'https://example.com/sudden_phantom.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -1558,7 +1558,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '클래시 오브 클랜',
     post_score: 5,
-    image_url: 'https://example.com/coc_champion.png',
+    image_url: '',
     comments: 0,
   },
   {
@@ -1606,7 +1606,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '마비노기',
     post_score: 4,
-    image_url: 'https://example.com/mabi_fishing.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -1702,7 +1702,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '배틀그라운드',
     post_score: 4,
-    image_url: 'https://example.com/pubg_erangel.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -1750,7 +1750,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '리그 오브 레전드',
     post_score: 5,
-    image_url: 'https://example.com/lck_final.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -1798,7 +1798,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '카트라이더',
     post_score: 4,
-    image_url: 'https://example.com/kart_record.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -1814,7 +1814,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '배틀그라운드',
     post_score: 5,
-    image_url: 'https://example.com/pubg_skin.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -2038,7 +2038,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '배틀그라운드',
     post_score: 5,
-    image_url: 'https://example.com/pubg_rondo.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -2054,7 +2054,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '리그 오브 레전드',
     post_score: 5,
-    image_url: 'https://example.com/lol_starguardian.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -2118,7 +2118,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '배틀그라운드',
     post_score: 4,
-    image_url: 'https://example.com/pubg_mg3.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -2294,7 +2294,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '메이플스토리',
     post_score: 5,
-    image_url: 'https://example.com/maple_lara.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -2454,7 +2454,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '배틀그라운드',
     post_score: 4,
-    image_url: 'https://example.com/pubg_taeho.jpg',
+    image_url: '',
     comments: 0,
   },
   {
@@ -2550,7 +2550,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '카트라이더',
     post_score: 4,
-    image_url: 'https://example.com/kart_moonhill.jpg',
+    image_url: '/images/moonhill_city.png',
     comments: 0,
   },
   {
@@ -2907,9 +2907,9 @@ export const initialPosts: PostData[] = [
   },
   {
     postKey: 'r95',
-    postTitle: '마비노기 득템 자랑 (최고급 가죽)',
+    postTitle: '마비노기 득템 자랑 (고급 가죽)',
     postText:
-      '던전 돌다가 최고급 가죽 먹었습니다! 드디어 제작할 수 있겠네요. 감격스럽습니다 ㅠㅠ',
+      '던전 돌다가 고급 가죽 먹었습니다! 드디어 제작할 수 있겠네요. 감격스럽습니다 ㅠㅠ',
     postDate: '2024-09-03 15:00:00',
     postTopic: '후기',
     userKey: '95',
@@ -2918,7 +2918,7 @@ export const initialPosts: PostData[] = [
     likeCount: 0,
     game_name: '마비노기',
     post_score: 4,
-    image_url: 'https://example.com/mabi_loot.jpg',
+    image_url: '/images/superior_leather.png',
     comments: 0,
   },
   {

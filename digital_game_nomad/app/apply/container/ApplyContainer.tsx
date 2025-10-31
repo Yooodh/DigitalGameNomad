@@ -16,6 +16,7 @@ export default function ApplyContainer() {
     handleDragOver,
     handleDragLeave,
     handleSubmit,
+    isSubmitting,
   } = useApplyForm();
 
   return (
@@ -30,6 +31,7 @@ export default function ApplyContainer() {
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onSubmit={handleSubmit}
+      isSubmitting={isSubmitting}
     />
   );
 }

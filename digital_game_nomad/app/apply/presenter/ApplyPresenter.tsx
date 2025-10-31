@@ -22,6 +22,7 @@ export default function ApplyPresenter({
   onDragOver,
   onDragLeave,
   onSubmit,
+  isSubmitting,
 }: ApplyPresenterProps) {
   return (
     <div className={styles.applyContainer}>
@@ -80,7 +81,12 @@ export default function ApplyPresenter({
               onDragLeave={onDragLeave}
             />
 
-            <SubmitButton onSubmit={onSubmit} />
+            <SubmitButton
+              onSubmit={onSubmit}
+              isSubmitting={isSubmitting}
+              label='참여신청 제출하기'
+              submittingLabel=''
+            />
           </div>
         </div>
 

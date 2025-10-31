@@ -29,7 +29,7 @@ export type ImageUploadProps = {
   onDragLeave: (e: React.DragEvent<HTMLDivElement>) => void;
 };
 
-export interface InputFieldProps {
+export type InputFieldProps = {
   label: string;
   icon: React.ReactNode;
   type?: 'text' | 'textarea' | 'url' | 'email' | 'password';
@@ -40,9 +40,12 @@ export interface InputFieldProps {
   inputClassName?: string;
   iconClassName?: string;
   isRequired?: boolean;
-}
+};
 
 export type SubmitButtonProps = {
+  isSubmitting: boolean;
+  label: string;
+  submittingLabel?: string;
   onSubmit: () => void;
 };
 
@@ -54,6 +57,7 @@ export type ApplyPresenterProps = {
   formData: FormData;
   previewImage: string;
   isDragging: boolean;
+  isSubmitting: boolean;
   onInputChange: (field: keyof FormData, value: string) => void;
   onImageChange: (file: File) => void;
   onRemoveImage: () => void;

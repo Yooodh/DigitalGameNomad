@@ -10,7 +10,7 @@ export function useFormSubmission<T>({
   onSubmitSuccess,
 }: UseFormSubmissionProps<T>) {
   const router = useRouter();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const handleSubmit = useCallback(
     async (dataToSubmit: T) => {
@@ -21,6 +21,7 @@ export function useFormSubmission<T>({
       }
 
       setIsSubmitting(true);
+
       try {
         await new Promise((resolve) => setTimeout(resolve, 1500));
 

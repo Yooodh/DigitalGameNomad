@@ -128,6 +128,10 @@
             color: $theme-gray-3;
           }
         }
+
+        &:active {
+          color: $theme-blue;
+        }
       }
 
       &__errorMessage {
@@ -164,6 +168,11 @@
             text-decoration: none;
           }
         }
+
+        &:active {
+          color: $theme-purple;
+          text-decoration: underline;
+        }
       }
     }
 
@@ -183,6 +192,8 @@
       justify-content: center;
       gap: 8px;
       margin-top: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 
       @media (max-width: $mobile) {
         margin-top: 0;
@@ -193,17 +204,18 @@
       }
 
       &:hover:not(:disabled) {
-        transform: translateY(-2px);
-        box-shadow: 0 16px 32px rgba(102, 126, 234, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
 
         @media (max-width: $mobile) {
           transform: none;
-          box-shadow: none;
+          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
         }
       }
 
       &:active:not(:disabled) {
-        transform: translateY(0);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
       }
 
       &:disabled {
@@ -247,6 +259,10 @@
             color: $theme-blue;
             text-decoration: none;
           }
+        }
+        &:active {
+          color: $theme-purple;
+          text-decoration: underline;
         }
       }
     }

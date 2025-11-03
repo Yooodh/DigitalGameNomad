@@ -6,7 +6,7 @@ export default function SubmitButton({
   isSubmitting,
   onClick,
   label,
-  submittingLabel = '등록 중...',
+  submittingLabel = '',
 }: SubmitButtonProps) {
   return (
     <div className={styles.btnContainer}>

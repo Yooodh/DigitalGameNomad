@@ -52,7 +52,7 @@ export default function ForgotPasswordContainer() {
 
   useEffect(() => {
     if (formData.email && !validateEmail(formData.email)) {
-      setError('emailError', '올바른 이메일 형식을 입력해주세요');
+      setError('emailError', '올바른 이메일 형식을 입력해주세요.');
     } else {
       setError('emailError', '');
     }
@@ -80,14 +80,14 @@ export default function ForgotPasswordContainer() {
     if (newPassword.length > 0 && !validatePassword(newPassword)) {
       setError(
         'passwordError',
-        '8자 이상, 영문 소문자, 숫자, 특수문자를 포함해주세요'
+        '8자 이상, 영문 소문자, 숫자, 특수문자를 포함해주세요.'
       );
     } else {
       setError('passwordError', '');
     }
 
     if (confirmPassword.length > 0 && newPassword !== confirmPassword) {
-      setError('confirmPasswordError', '비밀번호가 일치하지 않습니다');
+      setError('confirmPasswordError', '비밀번호가 일치하지 않습니다.');
     } else {
       setError('confirmPasswordError', '');
     }
@@ -108,6 +108,10 @@ export default function ForgotPasswordContainer() {
   const passwordStrength = useMemo(() => {
     return getPasswordStrength(formData.newPassword);
   }, [formData.newPassword, getPasswordStrength]);
+
+  useEffect(() => {
+    resetForm();
+  }, [resetForm]);
 
   const presenterProps = {
     formData,

@@ -52,7 +52,7 @@ export default function InquiryPresenter({
             isSubmitting={isSubmitting}
             onClick={submitQuestion}
             label='문의 등록'
-            submittingLabel='등록 중'
+            submittingLabel=''
           />
         </form>
       </div>

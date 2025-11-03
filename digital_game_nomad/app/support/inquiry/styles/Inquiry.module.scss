@@ -168,6 +168,8 @@
           border-radius: 1rem;
           cursor: pointer;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 0.3s ease;
+          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 
           @media (max-width: $mobile) {
             padding: 1rem 1.75rem;
@@ -175,17 +177,18 @@
           }
 
           &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
 
             @media (max-width: $mobile) {
               transform: none;
-              box-shadow: none;
+              box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
             }
           }
 
           &:active {
-            transform: scale(0.98);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
           }
         }
 

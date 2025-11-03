@@ -73,7 +73,6 @@ export type FormData = {
   confirmPassword: string;
 };
 
-// 누락된 PasswordStrength 타입을 추가했습니다.
 export type PasswordStrength = {
   strength: number;
   label: string;

@@ -1,7 +1,7 @@
 'use client';
 
 // package
-import { useMemo } from 'react';
+import { useMemo, useEffect } from 'react';
 
 // slice
 import ResetPasswordPresenter from '../presenter/ResetPasswordPresenter';
@@ -32,6 +32,10 @@ export default function ResetPasswordContainer() {
   const passwordStrength = useMemo(() => {
     return getPasswordStrength(formData.newPassword);
   }, [formData.newPassword, getPasswordStrength]);
+
+  useEffect(() => {
+    resetForm();
+  }, [resetForm]);
 
   const presenterProps = {
     step,

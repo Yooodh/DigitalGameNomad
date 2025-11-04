@@ -45,7 +45,10 @@ export function usePasswordResetProcess({
           formData.currentPassword === currentUser.password;
 
         if (!isCurrentPasswordCorrect) {
-          setError('currentPasswordError', '현재 비밀번호가 올바르지 않습니다');
+          setError(
+            'currentPasswordError',
+            '현재 비밀번호가 올바르지 않습니다.'
+          );
           setIsLoading(false);
           return;
         }
@@ -58,13 +61,13 @@ export function usePasswordResetProcess({
         if (!validatePassword(formData.newPassword)) {
           setError(
             'newPasswordError',
-            '8자 이상, 영문 소문자, 숫자, 특수문자를 포함해주세요'
+            '8자 이상, 영문 소문자, 숫자, 특수문자를 포함해주세요.'
           );
           setIsLoading(false);
           return;
         }
         if (formData.newPassword !== formData.confirmPassword) {
-          setError('confirmPasswordError', '비밀번호가 일치하지 않습니다');
+          setError('confirmPasswordError', '비밀번호가 일치하지 않습니다.');
           setIsLoading(false);
           return;
         }

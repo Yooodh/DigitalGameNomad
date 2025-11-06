@@ -147,17 +147,41 @@
 
   &__completionIcon {
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
+    color: $theme-white;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    background: linear-gradient(
+      145deg,
+      rgba(16, 185, 129, 0.1),
+      rgba(16, 185, 129, 0.2)
+    );
+    border-radius: 50%;
+    position: relative;
+    @extend .fade-in-bottom;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      background: linear-gradient(
+        145deg,
+        $theme-green,
+        rgba(16, 185, 129, 0.8)
+      );
+      border-radius: 50%;
+      opacity: 0.3;
+    }
 
     .successIcon {
-      width: 80px;
-      height: 80px;
-      padding: 20px;
-      background: $theme-green;
-      border-radius: 50%;
-      fill: $theme-white;
-      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+      width: 40px;
+      height: 40px;
+      fill: $theme-green;
       @extend .bounce;
     }
   }
@@ -401,6 +425,7 @@
 
     @media (max-width: $mobile) {
       font-size: $font-xs-size;
+      padding: 8px 16px;
     }
   }
 
@@ -454,7 +479,7 @@
       box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 
       &:hover:not(:disabled) {
-        transform: translateY(-2px);
+        transform: translateY(-3px);
         box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 
         @media (max-width: $mobile) {
@@ -464,7 +489,8 @@
       }
 
       &:active:not(:disabled) {
-        transform: translateY(0);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
       }
     }
 
@@ -477,13 +503,19 @@
       &:hover:not(:disabled) {
         border-color: $theme-gray-2;
         color: $theme-text-1;
-        transform: translateY(-2px);
+        transform: translateY(-3px);
 
         @media (max-width: $mobile) {
           border-color: $theme-gray-1;
           color: $theme-text-2;
           transform: none;
         }
+      }
+
+      &:active:not(:disabled) {
+        border-color: $theme-gray-2;
+        color: $theme-text-1;
+        transform: translateY(-3px);
       }
     }
 
@@ -492,22 +524,20 @@
       color: $theme-red;
       width: 100%;
       margin-bottom: 16px;
-      border: 2px solid rgba(239, 68, 68, 0.2);
 
       &:hover:not(:disabled) {
         background: rgba(239, 68, 68, 0.15);
-        border-color: rgba(239, 68, 68, 0.3);
-        transform: translateY(-2px);
+        transform: translateY(-3px);
 
         @media (max-width: $mobile) {
           background: rgba(239, 68, 68, 0.1);
-          border-color: rgba(239, 68, 68, 0.2);
           transform: none;
         }
       }
 
       &:active:not(:disabled) {
-        transform: translateY(0);
+        background: rgba(239, 68, 68, 0.15);
+        transform: translateY(-3px);
       }
     }
 

@@ -1,0 +1,31 @@
+@use '@/app/styles/variables' as *;
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+
+  h1 {
+    font-size: $font-xl-title-size;
+    color: $theme-white;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: $font-title-sub-size;
+    color: $theme-gray-5;
+    margin-bottom: 0.75rem;
+  }
+
+  a {
+    font-size: $font-xl-size;
+    color: $theme-blue;
+
+    &:hover {
+      color: $theme-purple;
+    }
+  }
+}

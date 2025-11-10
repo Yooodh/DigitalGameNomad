@@ -114,6 +114,11 @@
     justify-content: space-between;
     margin-bottom: 1.5rem;
 
+    @media (max-width: $tablet) {
+      justify-content: center;
+      width: 100%;
+    }
+
     .searchContainer {
       display: flex;
       align-items: center;
@@ -164,7 +169,7 @@
       gap: 0.75rem;
       align-items: center;
 
-      @media (max-width: $tablet) {
+      @media (max-width: $mobile) {
         justify-content: center;
       }
 
@@ -178,7 +183,7 @@
         background-color: $theme-shade-1;
         height: 44px;
 
-        @media (max-width: $tablet) {
+        @media (max-width: $mobile) {
           width: 100%;
         }
 
@@ -214,7 +219,7 @@
         gap: 0.5rem;
         margin-left: auto;
 
-        @media (max-width: $tablet) {
+        @media (max-width: $mobile) {
           width: 100%;
           justify-content: center;
         }
@@ -455,6 +460,10 @@
 
       &:hover {
         background-color: $theme-shade-3;
+
+        @media (max-width: $tablet) {
+          background-color: $theme-shade-1;
+        }
       }
 
       @media (max-width: $tablet) {
@@ -466,16 +475,6 @@
         border-radius: 12px;
         border: 1px solid $theme-gray-1;
         position: relative;
-
-        &:hover {
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-          transform: translateY(-2px);
-
-          @media (max-width: $tablet) {
-            transform: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-          }
-        }
 
         &:last-child {
           margin-bottom: 0;

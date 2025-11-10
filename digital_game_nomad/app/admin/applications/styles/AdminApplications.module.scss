@@ -156,7 +156,6 @@
 
       @media (max-width: $tablet) {
         justify-content: center;
-        width: 100%;
       }
 
       .selectContainer {
@@ -169,6 +168,10 @@
         background-color: $theme-shade-1;
 
         @media (max-width: $tablet) {
+          width: 50%;
+        }
+
+        @media (max-width: $mobile) {
           width: 57%;
         }
 

@@ -125,6 +125,10 @@
     gap: 0.5rem;
     flex-wrap: wrap;
 
+    @media (max-width: $mobile) {
+      gap: 0.1rem;
+    }
+
     &__btn {
       padding: 0.5rem 0.75rem;
       border-radius: 6px;
@@ -133,6 +137,10 @@
       transition: all 0.2s ease;
       font-size: $font-sm-size;
       min-width: 32px;
+
+      @media (max-width: $mobile) {
+        padding: 0.5rem;
+      }
 
       svg {
         display: flex;
@@ -287,16 +295,6 @@
         border-radius: 12px;
         border: 1px solid $theme-gray-1;
         position: relative;
-
-        &:hover {
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-          transform: translateY(-2px);
-
-          @media (max-width: $tablet) {
-            transform: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-          }
-        }
 
         &:last-child {
           margin-bottom: 0;

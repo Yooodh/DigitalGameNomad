@@ -35,7 +35,7 @@ export default function EmailInputGroup({
             className={`${styles.groupContainer__input} ${
               !validationEmail && email ? styles.inputError : ''
             }`}
-            placeholder='이메일 주소를 입력해주세요'
+            placeholder='이메일 주소를 입력해주세요.'
             maxLength={50}
           />
         </div>

@@ -22,7 +22,7 @@ export default function PasswordInputGroup({
       <InputGroup
         label='비밀번호'
         showError={!validationPassword && !!password}
-        errorMessage='비밀번호는 8~16자 영문, 숫자, 특수문자 조합으로 입력해 주세요'
+        errorMessage='비밀번호는 8~16자 영문, 숫자, 특수문자 조합으로 입력해 주세요.'
         showSuccess={false}
       >
         <div className={styles.passwordContainer}>
@@ -57,7 +57,7 @@ export default function PasswordInputGroup({
       <InputGroup
         label='비밀번호 확인'
         showError={!validationPasswordCheck && !!passwordCheck}
-        errorMessage='비밀번호가 일치하지 않습니다'
+        errorMessage='비밀번호가 일치하지 않습니다.'
         showSuccess={false}
       >
         <div className={styles.passwordContainer}>
@@ -68,7 +68,7 @@ export default function PasswordInputGroup({
             className={`${styles.groupContainer__input} ${
               !validationPasswordCheck ? styles.inputError : ''
             }`}
-            placeholder='비밀번호를 다시 입력해주세요'
+            placeholder='비밀번호를 다시 입력해주세요.'
             maxLength={16}
           />
           <button

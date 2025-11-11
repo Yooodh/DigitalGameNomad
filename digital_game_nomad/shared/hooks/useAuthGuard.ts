@@ -1,7 +1,7 @@
 'use client';
 
 // package
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 
 // slice
@@ -22,6 +22,7 @@ export const useAuthGuard = (options: {
   const router = useRouter();
   const pathname = usePathname();
   const { isLoggedIn, userGrade, isHydrated } = useAuthStore();
+  const prevIsLoggedIn = useRef(isLoggedIn);
 
   useEffect(() => {
     if (!isHydrated) return;
@@ -45,6 +46,9 @@ export const useAuthGuard = (options: {
 
     if (options.requireLogin && !isLoggedIn) {
       router.replace(`/login?next=${pathname}`);
+      return;
     }
+
+    prevIsLoggedIn.current = isLoggedIn;
   }, [isLoggedIn, userGrade, isHydrated, router, options, pathname]);
 };

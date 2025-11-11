@@ -206,7 +206,7 @@
 
               &:hover:not(:disabled) {
                 transform: translateY(-3px);
-                box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 
                 @media (max-width: $mobile) {
                   transform: none;

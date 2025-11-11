@@ -2,6 +2,7 @@
 
 // package
 import Image from 'next/image';
+import Link from 'next/link';
 
 // slice
 import styles from './View.module.scss';
@@ -24,7 +25,7 @@ export default function View({ reason }: { reason: string }) {
       />
       <h1>403</h1>
       <p>{MESSAGE_MAP[reason] ?? MESSAGE_MAP.default}</p>
-      <a href='/'>홈으로 이동</a>
+      <Link href='/'>홈으로 이동</Link>
     </div>
   );
 }

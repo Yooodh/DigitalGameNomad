@@ -27,7 +27,7 @@ export default function PhoneInputGroup({
       showError={!validationPhone && phone.slice(1).join('') !== ''}
       errorMessage='유효한 전화번호 11자리를 입력해 주세요.'
       showSuccess={validationPhoneVerified}
-      successMessage='전화번호 인증이 완료되었습니다'
+      successMessage='전화번호 인증이 완료되었습니다.'
     >
       <div className={styles.phoneContainer}>
         <div

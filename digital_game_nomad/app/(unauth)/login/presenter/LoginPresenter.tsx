@@ -1,5 +1,3 @@
-'use client';
-
 // slice
 import styles from '../styles/Login.module.scss';
 import FormInput from '../components/FormInput';

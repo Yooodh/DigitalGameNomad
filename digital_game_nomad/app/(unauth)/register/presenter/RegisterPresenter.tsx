@@ -1,5 +1,3 @@
-'use client';
-
 // slice
 import Header from '../components/Header';
 import InputGroup from '../components/InputGroup';
@@ -67,7 +65,7 @@ export default function RegisterPresenter({
                     ? styles.inputError
                     : ''
                 }`}
-                placeholder='닉네임을 입력해주세요 (한글, 영문, 숫자 10자 이내)'
+                placeholder='닉네임을 입력해주세요. (한글, 영문, 숫자 10자 이내)'
                 maxLength={10}
               />
             </InputGroup>
@@ -87,7 +85,7 @@ export default function RegisterPresenter({
             <InputGroup
               label='이름'
               showError={!validation.name && !!formData.name}
-              errorMessage='한글이나 영문으로 입력해 주세요'
+              errorMessage='한글이나 영문으로 입력해 주세요.'
               showSuccess={false}
             >
               <input
@@ -97,7 +95,7 @@ export default function RegisterPresenter({
                 className={`${styles.groupContainer__input} ${
                   !validation.name ? styles.inputError : ''
                 }`}
-                placeholder='이름을 입력해주세요'
+                placeholder='이름을 입력해주세요.'
                 maxLength={10}
               />
             </InputGroup>

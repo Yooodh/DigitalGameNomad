@@ -1,5 +1,6 @@
 // package
 import Image from 'next/image';
+import Link from 'next/link';
 
 // layer
 import styles from '@/shared/ui/forbidden/View.module.scss';
@@ -15,7 +16,7 @@ export default function NotFound() {
       />
       <h1>404</h1>
       <p>페이지를 찾을 수 없습니다.</p>
-      <a href='/'>홈으로 이동</a>
+      <Link href='/'>홈으로 이동</Link>
     </div>
   );
 }

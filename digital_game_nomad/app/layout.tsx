@@ -9,12 +9,15 @@ import { Navbar } from '@/shared/components/NavBar';
 import ApplyTheme from '@/shared/ui/theme/ApplyTheme';
 import AnimatedBackground from '@/shared/ui/background/animatedBackground/AnimatedBackground';
 import ScrollToTopInitializer from '@/shared/components/ScrollToTopInitializer';
+import { useAuthRedirect } from '@/shared/hooks/useAuthRedirect';
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useAuthRedirect();
+
   return (
     <html lang='en'>
       <body>

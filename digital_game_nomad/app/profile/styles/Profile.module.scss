@@ -56,6 +56,10 @@
   justify-content: center;
   padding: 2rem 1rem;
 
+  @media (max-width: $tablet) {
+    padding: 1rem 0.5rem;
+  }
+
   &__wrap {
     width: 100%;
     max-width: 48rem;
@@ -469,6 +473,7 @@
             &__value {
               color: $theme-text-2;
               font-weight: 500;
+
               @media (max-width: $mobile) {
                 font-size: $font-base-size;
               }
@@ -496,6 +501,11 @@
                   color: $theme-blue;
                   text-decoration: none;
                 }
+              }
+
+              &:active {
+                color: $theme-purple;
+                text-decoration: underline;
               }
             }
 
@@ -531,10 +541,23 @@
                   box-shadow: none;
                 }
               }
+
+              &:active {
+                transform: translateY(-1px);
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+              }
             }
           }
         }
       }
     }
   }
+}
+
+.loadingContainer {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

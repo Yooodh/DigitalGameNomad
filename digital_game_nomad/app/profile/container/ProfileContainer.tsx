@@ -1,6 +1,7 @@
 'use client';
 
 // slice
+import LoadingState from '../components/LoadingState';
 import ProfilePresenter from '../presenter/ProfilePresenter';
 import { useProfile } from '../hooks/useProfile';
 import { useProfileValidation } from '../hooks/useProfileValidation';
@@ -51,7 +52,7 @@ export default function ProfileContainer() {
     useUIState();
 
   if (!profile || !editingProfile) {
-    return <div>프로필 정보를 불러오는 중...</div>;
+    return <LoadingState />;
   }
 
   return (

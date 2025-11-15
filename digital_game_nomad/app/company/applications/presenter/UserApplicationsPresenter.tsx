@@ -16,7 +16,7 @@ export default function UserApplicationsPresenter({
         <div className={styles.headerContainer}>
           <h1 className={styles.headerContainer__title}>신청내역</h1>
           <p className={styles.headerContainer__subtitle}>
-            제출하신 게임 전시회 신청서들의 현재 상태를 확인하세요
+            제출하신 게임 전시회 신청서들의 상태를 확인하세요.
           </p>
         </div>
 

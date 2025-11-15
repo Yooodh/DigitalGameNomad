@@ -16,15 +16,15 @@
       &__title {
         font-size: $font-xl-title-sub-size;
         font-weight: 700;
-        background: $theme-purple-gradient;
+        background: $theme-purple-gradient-light;
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
         margin-bottom: 1rem;
         line-height: 1.2;
 
-        @media (max-width: 768px) {
-          font-size: $font-lg-title-size;
+        @media (max-width: $mobile) {
+          font-size: $font-title-size;
         }
       }
 
@@ -33,7 +33,7 @@
         font-size: $font-lg-size;
         margin-bottom: 1rem;
 
-        @media (max-width: 768px) {
+        @media (max-width: $mobile) {
           font-size: $font-base-size;
         }
       }

@@ -24,7 +24,6 @@ export default function CtaCard({
         </p>
         <Link className={styles.ctaConatiner__btn} href='/apply'>
           <span>참여신청 하기</span>
-          <div className={styles.ctaConatiner__btnArrow}>→</div>
         </Link>
       </div>
     </div>

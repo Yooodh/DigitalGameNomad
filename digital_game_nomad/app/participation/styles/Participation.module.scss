@@ -82,7 +82,7 @@
       word-break: keep-all;
 
       @media (max-width: $mobile) {
-        font-size: $font-lg-size;
+        font-size: $font-base-size;
       }
     }
   }
@@ -102,9 +102,12 @@
       gap: 80px;
       align-items: center;
 
+      @media (max-width: $tablet) {
+        gap: 30px;
+      }
+
       @media (max-width: $mobile) {
         grid-template-columns: 1fr;
-        gap: 40px;
       }
     }
 
@@ -148,7 +151,6 @@
     max-width: 500px;
 
     &__block {
-      margin-bottom: 30px;
       line-height: 1.8;
 
       &:last-of-type {
@@ -159,7 +161,7 @@
     &__brandName {
       font-size: $font-lg-title-size;
       font-weight: 800;
-      background: $theme-purple-gradient;
+      background: $theme-purple-gradient-light;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -177,7 +179,7 @@
 
     &__desc {
       font-size: $font-lg-size;
-      color: $theme-gray-5;
+      color: $theme-text-2;
       display: inline;
       margin-right: 8px;
       @include animation-initial-state(0);
@@ -212,11 +214,25 @@
       &.highlightYellow {
         background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
         color: $theme-black;
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        @media (max-width: $mobile) {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
       }
 
       &.highlightBlue {
         background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
         color: $theme-white;
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        @media (max-width: $mobile) {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
       }
 
       @media (max-width: $mobile) {
@@ -267,7 +283,7 @@
         color: $theme-gray-4;
         margin: 0;
 
-        @media (max-width: $mobile) {
+        @media (max-width: $tablet) {
           font-size: $font-xs-size;
         }
       }
@@ -307,9 +323,13 @@
 
     &__subtitle {
       font-size: $font-lg-size;
-      color: $theme-gray-4;
+      color: $theme-text-2;
       max-width: 600px;
       margin: 0 auto;
+
+      @media (max-width: $mobile) {
+        font-size: $font-base-size;
+      }
     }
 
     &__content {
@@ -401,22 +421,19 @@
       transition: all 0.3s ease;
       box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 
-      @media (max-width: $mobile) {
-        box-shadow: none;
-      }
-
       &:hover {
         transform: translateY(-3px);
         box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
 
-        .buttonArrow {
-          transform: translateX(5px);
-        }
-
         @media (max-width: $mobile) {
           transform: none;
-          box-shadow: none;
+          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
         }
+      }
+
+      &:active {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
       }
 
       span {

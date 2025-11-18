@@ -15,6 +15,7 @@ import { FormData } from '../types';
 // layer
 import { useAuthStore } from '@/shared/stores/useAuthStore';
 import { useResetPhoneStore } from '@/shared/stores/useResetPhoneStore';
+import { Loading } from '@/features/loading';
 
 export default function ResetPhoneContainer() {
   const {
@@ -196,5 +197,9 @@ export default function ResetPhoneContainer() {
     resetForm,
   };
 
-  return <ResetPhonePresenter {...presenterProps} />;
+  return (
+    <Loading>
+      <ResetPhonePresenter {...presenterProps} />
+    </Loading>
+  );
 }

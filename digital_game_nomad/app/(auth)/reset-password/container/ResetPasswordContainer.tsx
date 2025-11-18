@@ -10,6 +10,9 @@ import { usePasswordValidation } from '../hooks/usePasswordValidation';
 import { usePasswordForm } from '../hooks/usePasswordForm';
 import { usePasswordResetProcess } from '../hooks/usePasswordResetProcess';
 
+// layer
+import { Loading } from '@/features/loading';
+
 export default function ResetPasswordContainer() {
   const { validatePassword, getPasswordStrength } = usePasswordValidation();
 
@@ -55,5 +58,9 @@ export default function ResetPasswordContainer() {
     resetForm,
   };
 
-  return <ResetPasswordPresenter {...presenterProps} />;
+  return (
+    <Loading>
+      <ResetPasswordPresenter {...presenterProps} />
+    </Loading>
+  );
 }

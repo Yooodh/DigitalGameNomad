@@ -31,7 +31,7 @@ export default function AdminApplicationImage({
               <Image />
             </div>
             <p className={styles.imgContainer__placeholderText}>
-              이미지를 불러올 수 없습니다
+              이미지를 불러올 수 없습니다.
             </p>
           </div>
         ) : (

@@ -14,6 +14,7 @@ import { useUserUtils } from '../hooks/useUserUtils';
 
 // layer
 import { useRegisteredUsersStore } from '@/shared/stores/useRegisteredUsersStore';
+import { Loading } from '@/features/loading';
 
 export default function UsersContainer() {
   const updateUserProfileInStore = useRegisteredUsersStore(
@@ -163,42 +164,44 @@ export default function UsersContainer() {
   );
 
   return (
-    <UserPresenter
-      searchTerm={searchTerm}
-      filterLevel={filterLevel}
-      showDeletedUsers={showDeletedUsers}
-      handleSearchChange={handleSearchChange}
-      handleFilterChange={handleFilterChange}
-      handleDeletedToggle={handleDeletedToggle}
-      handleResetFilters={handleResetFilters}
-      sortBy={sortBy}
-      sortOrder={sortOrder}
-      handleSortChange={handleSortChange}
-      currentPage={currentPage}
-      itemsPerPage={itemsPerPage}
-      totalPages={totalPages}
-      startIndex={startIndex}
-      endIndex={endIndex}
-      totalFilteredAndSortedUsersCount={totalFilteredAndSortedUsersCount}
-      users={usersWithSelection}
-      selectedUserIds={selectedUserIds}
-      isAllSelectedOnPage={isAllSelectedOnPage}
-      handleUserSelect={handleUserSelect}
-      handleSelectAll={handleSelectAll}
-      handleDeleteSelectedUsers={handleDeleteSelectedUsers}
-      handleCancelSelection={handleCancelSelection}
-      handlePasswordReset={handlePasswordReset}
-      handleUserRestore={handleUserRestore}
-      handleHardDeleteUser={handleHardDeleteUser}
-      getUserLevelText={getUserLevelText}
-      getUserLevelClass={getUserLevelClass}
-      totalActiveUsers={totalActiveUsers}
-      totalBusinessUsers={totalBusinessUsers}
-      totalGeneralUsers={totalGeneralUsers}
-      totalDeletedUsers={totalDeletedUsers}
-      overallTotalUsers={overallTotalUsers}
-      generatePageNumbers={generatePageNumbers}
-      handlePageChange={handlePageChange}
-    />
+    <Loading message='유저 목록 불러오는 중...'>
+      <UserPresenter
+        searchTerm={searchTerm}
+        filterLevel={filterLevel}
+        showDeletedUsers={showDeletedUsers}
+        handleSearchChange={handleSearchChange}
+        handleFilterChange={handleFilterChange}
+        handleDeletedToggle={handleDeletedToggle}
+        handleResetFilters={handleResetFilters}
+        sortBy={sortBy}
+        sortOrder={sortOrder}
+        handleSortChange={handleSortChange}
+        currentPage={currentPage}
+        itemsPerPage={itemsPerPage}
+        totalPages={totalPages}
+        startIndex={startIndex}
+        endIndex={endIndex}
+        totalFilteredAndSortedUsersCount={totalFilteredAndSortedUsersCount}
+        users={usersWithSelection}
+        selectedUserIds={selectedUserIds}
+        isAllSelectedOnPage={isAllSelectedOnPage}
+        handleUserSelect={handleUserSelect}
+        handleSelectAll={handleSelectAll}
+        handleDeleteSelectedUsers={handleDeleteSelectedUsers}
+        handleCancelSelection={handleCancelSelection}
+        handlePasswordReset={handlePasswordReset}
+        handleUserRestore={handleUserRestore}
+        handleHardDeleteUser={handleHardDeleteUser}
+        getUserLevelText={getUserLevelText}
+        getUserLevelClass={getUserLevelClass}
+        totalActiveUsers={totalActiveUsers}
+        totalBusinessUsers={totalBusinessUsers}
+        totalGeneralUsers={totalGeneralUsers}
+        totalDeletedUsers={totalDeletedUsers}
+        overallTotalUsers={overallTotalUsers}
+        generatePageNumbers={generatePageNumbers}
+        handlePageChange={handlePageChange}
+      />
+    </Loading>
   );
 }

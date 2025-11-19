@@ -8,6 +8,9 @@ import { useInquiryPagination } from '../hooks/useInquiryPagination';
 import { useInquiryDetail } from '../hooks/useInquiryDetail';
 import { getStatusClass } from '../utils';
 
+// layer
+import { Loading } from '@/features/loading';
+
 export default function AdminInquiryContainer() {
   const { inquiries, updateInquiryStatus, saveReplyToInquiry } = useInquiries();
   const {
@@ -44,33 +47,35 @@ export default function AdminInquiryContainer() {
   const isListEmpty = filteredInquiries.length === 0;
 
   return (
-    <AdminInquiryPresenter
-      inquiries={inquiries}
-      filteredInquiries={filteredInquiries}
-      currentInquiries={currentInquiries}
-      selectedInquiry={selectedInquiry}
-      statusFilter={statusFilter}
-      searchTerm={searchTerm}
-      currentPage={currentPage}
-      totalPages={totalPages}
-      isDetailModalOpen={isDetailModalOpen}
-      isReplyMode={isReplyMode}
-      replyContent={replyContent}
-      ITEMS_PER_PAGE={ITEMS_PER_PAGE}
-      MAX_VISIBLE_PAGES={MAX_VISIBLE_PAGES}
-      setSearchTerm={setSearchTerm}
-      setStatusFilter={setStatusFilter}
-      setCurrentPage={setCurrentPage}
-      setReplyContent={setReplyContent}
-      updateInquiryStatus={updateInquiryStatus}
-      saveReply={saveReply}
-      toggleReplyMode={toggleReplyMode}
-      cancelReply={cancelReply}
-      openDetailModal={openDetailModal}
-      closeDetailModal={closeDetailModal}
-      getStatusClass={getStatusClass}
-      updateSelectedInquiryStatus={updateSelectedInquiryStatus}
-      isListEmpty={isListEmpty}
-    />
+    <Loading message='문의 내역 불러오는 중...'>
+      <AdminInquiryPresenter
+        inquiries={inquiries}
+        filteredInquiries={filteredInquiries}
+        currentInquiries={currentInquiries}
+        selectedInquiry={selectedInquiry}
+        statusFilter={statusFilter}
+        searchTerm={searchTerm}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        isDetailModalOpen={isDetailModalOpen}
+        isReplyMode={isReplyMode}
+        replyContent={replyContent}
+        ITEMS_PER_PAGE={ITEMS_PER_PAGE}
+        MAX_VISIBLE_PAGES={MAX_VISIBLE_PAGES}
+        setSearchTerm={setSearchTerm}
+        setStatusFilter={setStatusFilter}
+        setCurrentPage={setCurrentPage}
+        setReplyContent={setReplyContent}
+        updateInquiryStatus={updateInquiryStatus}
+        saveReply={saveReply}
+        toggleReplyMode={toggleReplyMode}
+        cancelReply={cancelReply}
+        openDetailModal={openDetailModal}
+        closeDetailModal={closeDetailModal}
+        getStatusClass={getStatusClass}
+        updateSelectedInquiryStatus={updateSelectedInquiryStatus}
+        isListEmpty={isListEmpty}
+      />
+    </Loading>
   );
 }

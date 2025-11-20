@@ -25,11 +25,11 @@ export function useInquirySubmission(): UseInquirySubmissionReturn {
     const newErrors: Partial<QuestionData> = {};
 
     if (!formData.title.trim()) {
-      newErrors.title = '제목을 입력해 주세요';
+      newErrors.title = '제목을 입력해 주세요.';
     }
 
     if (!formData.text.trim()) {
-      newErrors.text = '문의 내용을 입력해 주세요';
+      newErrors.text = '문의 내용을 입력해 주세요.';
     }
 
     setErrors(newErrors);

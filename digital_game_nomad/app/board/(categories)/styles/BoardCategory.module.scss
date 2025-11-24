@@ -64,16 +64,16 @@
       display: inline-block;
       font-size: $font-sm-size;
 
+      @media (max-width: $mobile) {
+        padding: 0.3rem 1rem;
+      }
+
       &:hover {
-        transform: translateY(-2px);
+        transform: translateY(-3px);
 
         @media (max-width: $mobile) {
           transform: none;
         }
-      }
-
-      @media (max-width: $mobile) {
-        padding: 0.3rem 1rem;
       }
     }
 
@@ -202,6 +202,7 @@
     color: $theme-text-1;
     border: 1px solid $theme-gray-1;
     font-size: $font-sm-size;
+    cursor: pointer;
   }
 
   &__input {

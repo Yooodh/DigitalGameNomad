@@ -10,7 +10,7 @@ export function useBoardHeader(
     case '후기':
       return {
         title: '후기게시판',
-        subtitle: '게임 경험을 공유하고 다른 유저들과 소통해보세요.',
+        subtitle: '게임 경험을 공유하는 공간입니다.',
       };
     default:
       return {

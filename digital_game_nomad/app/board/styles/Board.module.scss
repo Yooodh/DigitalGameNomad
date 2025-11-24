@@ -61,6 +61,10 @@
         border-radius: 6px;
         transition: all 0.2s ease;
 
+        @media (max-width: $tablet) {
+          font-size: $font-sm-size;
+        }
+
         &:hover {
           color: $theme-blue;
           transform: translateX(2px);
@@ -69,11 +73,14 @@
           @media (max-width: $tablet) {
             color: $theme-gray-5;
             transform: none;
+            text-decoration: none;
           }
         }
 
-        @media (max-width: $tablet) {
-          font-size: $font-sm-size;
+        &:active {
+          color: $theme-blue;
+          transform: translateX(2px);
+          text-decoration: underline;
         }
       }
 
@@ -145,11 +152,15 @@
         &:hover {
           box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
             0 2px 4px -1px rgba(0, 0, 0, 0.06);
-          transform: translateY(-1px);
+          transform: translateY(-3px);
 
           @media (max-width: $tablet) {
             transform: none;
           }
+        }
+
+        &:active {
+          transform: translateY(-3px);
         }
       }
 
@@ -219,6 +230,10 @@
             transform: none;
           }
         }
+
+        &:active {
+          transform: translateX(4px);
+        }
       }
 
       &__link {
@@ -232,6 +247,10 @@
           @media (max-width: $tablet) {
             color: $theme-text-1;
           }
+        }
+
+        &:active {
+          color: $theme-blue;
         }
       }
 

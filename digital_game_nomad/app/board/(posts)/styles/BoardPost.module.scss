@@ -65,11 +65,11 @@
   .uploadContainer {
     label {
       display: flex;
-      padding: 40px;
-      border: 2px dashed $theme-gray-1;
-      border-radius: 8px;
+      padding: 2rem;
+      border: 2px dashed $theme-shade-5;
+      border-radius: 1rem;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       background: $theme-shade-1;
       text-align: center;
       min-width: 200px;
@@ -81,9 +81,14 @@
         background: $theme-shade-2;
 
         @media (max-width: $tablet) {
-          border-color: $theme-gray-1;
+          border-color: $theme-shade-5;
           background: $theme-shade-1;
         }
+      }
+
+      &:active {
+        border-color: $theme-blue;
+        background: rgba($theme-blue, 0.05);
       }
     }
 
@@ -237,7 +242,7 @@
     transition: all 0.2s ease;
 
     &:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
       background: $theme-gray-2;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }

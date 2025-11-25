@@ -292,7 +292,7 @@
         }
 
         &:hover {
-          transform: translateY(-2px);
+          transform: translateY(-3px);
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
           @media (max-width: $tablet) {
@@ -548,7 +548,7 @@
               }
 
               &:hover {
-                transform: translateY(-2px);
+                transform: translateY(-3px);
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
                 @media (max-width: $tablet) {
@@ -627,12 +627,12 @@
 
       .navBtn {
         padding: 10px 20px;
-        background: $theme-gray-1;
+        background: $theme-gray-2;
+        color: $theme-text-1;
         border-radius: 8px;
         cursor: pointer;
-        font-weight: 600;
+        font-weight: 500;
         transition: all 0.2s ease;
-        color: $theme-text-2;
         font-size: $font-base-size;
 
         @media (max-width: $tablet) {

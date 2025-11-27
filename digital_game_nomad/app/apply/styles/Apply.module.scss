@@ -272,12 +272,22 @@
       border-radius: 1rem;
       padding: 2rem;
       text-align: center;
-      background: $theme-sky-gradient;
+      background: $theme-shade-1;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
 
       &:hover,
       &.dragging {
+        border-color: $theme-blue;
+        background: $theme-shade-2;
+
+        @media (max-width: $mobile) {
+          border-color: $theme-shade-5;
+          background: $theme-shade-1;
+        }
+      }
+
+      &:active {
         border-color: $theme-blue;
         background: rgba($theme-blue, 0.05);
       }
@@ -302,7 +312,6 @@
         color: $theme-gray-5;
         font-weight: 500;
         margin-bottom: 0.5rem;
-
         font-size: $font-lg-size;
 
         @media (max-width: $mobile) {

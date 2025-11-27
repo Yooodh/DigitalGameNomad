@@ -27,10 +27,6 @@ export default function ProfilePresenter({
   fileInputRef,
   onFileInputChange,
 }: ProfilePresenterProps) {
-  if (!profile || !editingProfile) {
-    return <div>프로필 정보를 불러오는 중...</div>;
-  }
-
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profileContainer__wrap}>

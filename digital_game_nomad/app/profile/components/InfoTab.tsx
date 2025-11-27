@@ -23,10 +23,10 @@ export default function InfoTab({
         editingValue={editingProfile.name}
         editMode={editMode}
         validationError={!validation.name && !!editingProfile.name}
-        errorMessage='한글이나 영문으로 입력해 주세요'
+        errorMessage='한글이나 영문으로 입력해 주세요.'
         onInputChange={(value) => onInputChange('name', value)}
         maxLength={10}
-        placeholder='이름을 입력해주세요'
+        placeholder='이름을 입력해주세요.'
       />
 
       <ProfileField
@@ -39,7 +39,7 @@ export default function InfoTab({
         errorMessage='한글, 영문, 숫자만 입력 가능하며 10자 이내로 입력해 주세요.'
         onInputChange={(value) => onInputChange('nickname', value)}
         maxLength={10}
-        placeholder='닉네임을 입력해주세요'
+        placeholder='닉네임을 입력해주세요.'
       />
 
       <StaticProfileField
@@ -61,7 +61,7 @@ export default function InfoTab({
 
       {editMode && !validation.phone && (
         <p className={styles.fieldContainer__errorMessage}>
-          올바른 전화번호를 입력해주세요
+          올바른 전화번호를 입력해주세요.
         </p>
       )}
     </div>

@@ -38,8 +38,13 @@
 
     @media (max-width: $mobile) {
       transform: none;
-      box-shadow: none;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
     }
+  }
+
+  &:active {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
   }
 
   &:disabled {

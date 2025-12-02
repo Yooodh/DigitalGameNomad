@@ -17,7 +17,7 @@ export default function MainContainer() {
 
     setTimeout(() => {
       router.push('/select');
-    }, 1200);
+    }, 800);
   };
 
   return <MainPresenter isClicked={isClicked} onClick={handleClick} />;

@@ -1,5 +1,6 @@
 // package
 import { useState, useCallback } from 'react';
+import { toast } from 'react-toastify';
 
 // slice
 import { isValidPhoneFormat } from '../utils/validation';
@@ -35,7 +36,7 @@ export const usePhoneVerification = ({
   const requestVerification = useCallback(async () => {
     const phoneDigits = phone.slice(1).join('');
     if (!isValidPhoneFormat(phoneDigits)) {
-      alert('유효한 전화번호 11자리를 입력해주세요.');
+      toast.warning('유효한 전화번호 11자리를 입력해주세요.');
       setValidation((prev: ValidationState) => ({ ...prev, phone: false }));
       return;
     }

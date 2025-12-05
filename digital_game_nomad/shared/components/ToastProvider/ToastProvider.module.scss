@@ -1,0 +1,10 @@
+@use '@/app/styles/variables' as *;
+
+.toastTheme {
+  --toastify-color-light: #{$theme-shade-1};
+  --toastify-text-color-light: #{$theme-text-1};
+
+  @media (max-width: $mobile) {
+    font-size: $font-base-size;
+  }
+}

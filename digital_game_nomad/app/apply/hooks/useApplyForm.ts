@@ -1,3 +1,6 @@
+// package
+import { toast } from 'react-toastify';
+
 // slice
 import { useFormData } from './useFormData';
 import { useImageUpload } from './useImageUpload';
@@ -44,28 +47,30 @@ export function useApplyForm() {
 
   const validateApplyForm = (data: FormData): boolean => {
     if (!isHydrated) {
-      alert('사용자 정보를 불러오는 중입니다. 잠시 후 다시 시도해 주세요.');
+      toast.error(
+        '사용자 정보를 불러오는 중입니다. 잠시 후 다시 시도해 주세요.'
+      );
       return false;
     }
     if (!data.companyName.trim()) {
-      alert('기업 이름을 입력해주세요.');
+      toast.warning('기업 이름을 입력해주세요.');
       return false;
     }
     if (!data.gameName.trim()) {
-      alert('게임 이름을 입력해주세요.');
+      toast.warning('게임 이름을 입력해주세요.');
       return false;
     }
     if (!data.description.trim()) {
-      alert('전시 내용을 입력해주세요.');
+      toast.warning('전시 내용을 입력해주세요.');
       return false;
     }
     if (!data.gameUrl.trim()) {
-      alert('게임 URL을 입력해주세요.');
+      toast.warning('게임 URL을 입력해주세요.');
       return false;
     }
 
     if (!currentUserEmail || !isLoggedIn) {
-      alert('로그인 후 이용해 주세요.');
+      toast.info('로그인 후 이용해 주세요.');
       return false;
     }
 
@@ -98,7 +103,7 @@ export function useApplyForm() {
           });
         }
       } catch (error) {
-        alert('신청서 저장 중 오류가 발생했습니다.');
+        toast.error('신청서 저장 중 오류가 발생했습니다.');
         throw error;
       }
     },

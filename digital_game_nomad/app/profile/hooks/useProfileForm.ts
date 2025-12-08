@@ -1,5 +1,6 @@
 // package
 import { useCallback } from 'react';
+import { toast } from 'react-toastify';
 
 // slice
 import { UserProfile, UseProfileFormProps } from '../types';
@@ -46,7 +47,7 @@ export function useProfileForm({
 
     const isValidForm = validateAll(editingProfile);
     if (!isValidForm) {
-      alert('모든 정보를 올바르게 입력해주세요.');
+      toast.error('모든 정보를 올바르게 입력해주세요.');
       return;
     }
 
@@ -60,13 +61,13 @@ export function useProfileForm({
     );
 
     if (isDuplicateNickname) {
-      alert('이미 사용 중인 닉네임입니다.');
+      toast.warning('이미 사용 중인 닉네임입니다.');
       return;
     }
 
     await handleSave(editingProfile);
 
-    alert('변경이 완료되었습니다.');
+    toast.success('변경이 완료되었습니다.');
   }, [editingProfile, validateAll, handleSave]);
 
   const handleCancelWrapper = useCallback(() => {

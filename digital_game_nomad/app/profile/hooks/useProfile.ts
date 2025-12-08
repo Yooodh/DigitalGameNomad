@@ -1,5 +1,6 @@
 // package
 import { useState, useCallback, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 // slice
 import { UserProfile } from '../types';
@@ -104,11 +105,13 @@ export function useProfile() {
           setEditingProfile(updatedProfile);
           setProfile(updatedProfile);
         } else {
-          alert('로그인된 사용자 정보가 없어 프로필을 업데이트할 수 없습니다.');
+          toast.error(
+            '로그인된 사용자 정보가 없어 프로필을 업데이트할 수 없습니다.'
+          );
         }
       } catch (error) {
         console.error('프로필 업데이트 중 오류 발생:', error);
-        alert('프로필 업데이트에 실패했습니다.');
+        toast.error('프로필 업데이트에 실패했습니다.');
       } finally {
         setIsLoading(false);
       }

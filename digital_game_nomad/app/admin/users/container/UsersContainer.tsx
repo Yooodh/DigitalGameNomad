@@ -2,6 +2,7 @@
 
 // package
 import { useCallback, useState } from 'react';
+import { toast } from 'react-toastify';
 
 // slice
 import UserPresenter from '../presenter/UsersPresenter';
@@ -101,7 +102,7 @@ export default function UsersContainer() {
 
   const handleDeleteSelectedUsers = useCallback(() => {
     if (selectedUserIds.size === 0) {
-      window.alert('삭제할 사용자를 선택해주세요.');
+      toast.info('삭제할 사용자를 선택해주세요.');
       return;
     }
 
@@ -119,7 +120,7 @@ export default function UsersContainer() {
         }
       });
       setSelectedUserIds(new Set());
-      window.alert('선택된 사용자가 삭제(비활성화) 처리되었습니다.');
+      toast.success('선택된 사용자가 삭제(비활성화) 처리되었습니다.');
     }
   }, [selectedUserIds, users, updateUserProfileInStore, setSelectedUserIds]);
 

@@ -1,5 +1,6 @@
 // package
 import { useState, useCallback, useMemo, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 // slice
 import { UserData, SelectionState, FilterLevel } from '../types';
@@ -72,7 +73,7 @@ export const useUserSelection = (
 
   const handleDeleteSelectedUsers = useCallback(() => {
     if (selectedUserIds.size === 0) {
-      window.alert('삭제할 사용자를 선택해주세요.');
+      toast.info('삭제할 사용자를 선택해주세요.');
       return;
     }
 
@@ -82,7 +83,7 @@ export const useUserSelection = (
       )
     ) {
       setSelectedUserIds(new Set());
-      window.alert('선택된 사용자 삭제 요청이 처리되었습니다.');
+      toast.success('선택된 사용자 삭제 요청이 처리되었습니다.');
     }
   }, [selectedUserIds]);
 

@@ -1,5 +1,6 @@
 // package
 import { useState, useCallback } from 'react';
+import { toast } from 'react-toastify';
 
 // slice
 import { UsePostActionsProps } from '../types';
@@ -20,11 +21,11 @@ export const usePostActions = ({
 
   const handleEditClick = useCallback(() => {
     if (!currentUser || !currentPost) {
-      alert('로그인 후 이용해 주세요.');
+      toast.info('로그인 후 이용해 주세요.');
       return;
     }
     if (currentPost.userKey !== currentUser.userKey) {
-      alert('본인 게시글만 수정할 수 있습니다.');
+      toast.warning('본인 게시글만 수정할 수 있습니다.');
       return;
     }
     setIsEditMode(true);
@@ -33,11 +34,11 @@ export const usePostActions = ({
   const handleEditSave = useCallback(
     (updatedDataFromEdit: PostData) => {
       if (!currentUser || !currentPost) {
-        alert('로그인 후 이용해 주세요.');
+        toast.info('로그인 후 이용해 주세요.');
         return;
       }
       if (currentPost.userKey !== currentUser.userKey) {
-        alert('본인 게시글만 수정할 수 있습니다.');
+        toast.warning('본인 게시글만 수정할 수 있습니다.');
         return;
       }
 
@@ -56,25 +57,25 @@ export const usePostActions = ({
       updatePost(updatedPost);
       setCurrentPost(updatedPost);
       setIsEditMode(false);
-      alert('게시글이 수정되었습니다.');
+      toast.success('게시글이 수정되었습니다.');
     },
     [currentUser, currentPost, setCurrentPost, updatePost]
   );
 
   const handleDeleteClick = useCallback(() => {
     if (!currentUser || !currentPost) {
-      alert('로그인 후 이용해 주세요.');
+      toast.info('로그인 후 이용해 주세요.');
       return;
     }
     if (currentPost.userKey !== currentUser.userKey) {
-      alert('본인 게시글만 삭제할 수 있습니다.');
+      toast.warning('본인 게시글만 삭제할 수 있습니다.');
       return;
     }
 
     if (window.confirm('정말로 게시글을 삭제하시겠습니까?')) {
       deletePost(currentPost.postKey);
       setCurrentPost(null);
-      alert('게시글이 삭제되었습니다.');
+      toast.success('게시글이 삭제되었습니다.');
       handleBackClick();
     }
   }, [currentUser, currentPost, deletePost, setCurrentPost, handleBackClick]);

@@ -1,5 +1,6 @@
 // package
 import { useState, useCallback } from 'react';
+import { toast } from 'react-toastify';
 
 // slice
 import { formatDate } from '../../../utils/formatDate';
@@ -26,17 +27,17 @@ export function useCommentManager(postId: string | null) {
       e.preventDefault();
 
       if (!currentUser) {
-        alert('로그인 후 이용해 주세요.');
+        toast.info('로그인 후 이용해 주세요.');
         return;
       }
 
       if (!newComment.trim()) {
-        alert('댓글 내용을 입력해주세요.');
+        toast.warning('댓글 내용을 입력해주세요.');
         return;
       }
 
       if (!postId) {
-        alert('게시글 ID를 찾을 수 없어 댓글을 작성할 수 없습니다.');
+        toast.error('게시글 ID를 찾을 수 없어 댓글을 작성할 수 없습니다.');
         return;
       }
 
@@ -54,7 +55,7 @@ export function useCommentManager(postId: string | null) {
 
       addCommentToPost(postId, comment);
       setNewComment('');
-      alert('댓글이 작성되었습니다.');
+      toast.success('댓글이 작성되었습니다.');
     },
     [newComment, postId, currentPostComments, addCommentToPost, currentUser]
   );
@@ -62,16 +63,16 @@ export function useCommentManager(postId: string | null) {
   const handleDeleteComment = useCallback(
     (commentId: number) => {
       if (!currentUser) {
-        alert('로그인 후 이용해 주세요.');
+        toast.info('로그인 후 이용해 주세요.');
         return;
       }
       if (!postId) {
-        alert('게시글 정보를 찾을 수 없어 댓글을 삭제할 수 없습니다.');
+        toast.error('게시글 정보를 찾을 수 없어 댓글을 삭제할 수 없습니다.');
         return;
       }
       if (window.confirm('정말로 이 댓글을 삭제하시겠습니까?')) {
         deleteComment(postId, commentId);
-        alert('댓글이 삭제되었습니다.');
+        toast.success('댓글이 삭제되었습니다.');
       }
     },
     [postId, deleteComment, currentUser]
@@ -85,15 +86,15 @@ export function useCommentManager(postId: string | null) {
   const handleSaveEditedComment = useCallback(
     (commentId: number) => {
       if (!currentUser) {
-        alert('로그인 후 이용해 주세요.');
+        toast.info('로그인 후 이용해 주세요.');
         return;
       }
       if (!postId) {
-        alert('게시글 정보를 찾을 수 없어 댓글을 수정할 수 없습니다.');
+        toast.error('게시글 정보를 찾을 수 없어 댓글을 수정할 수 없습니다.');
         return;
       }
       if (!editedCommentContent.trim()) {
-        alert('댓글 내용을 입력해주세요.');
+        toast.warning('댓글 내용을 입력해주세요.');
         return;
       }
 
@@ -103,7 +104,7 @@ export function useCommentManager(postId: string | null) {
       if (!originalComment) return;
 
       if (originalComment.userKey !== currentUser.userKey) {
-        alert('본인 댓글만 수정할 수 있습니다.');
+        toast.error('본인 댓글만 수정할 수 있습니다.');
         return;
       }
 
@@ -117,7 +118,7 @@ export function useCommentManager(postId: string | null) {
       updateComment(postId, updatedComment);
       setEditingCommentId(null);
       setEditedCommentContent('');
-      alert('댓글이 수정되었습니다.');
+      toast.success('댓글이 수정되었습니다.');
     },
     [
       postId,

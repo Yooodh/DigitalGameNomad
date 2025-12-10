@@ -1,3 +1,6 @@
+// package
+import { toast } from 'react-toastify';
+
 // slice
 import { usePostInteractions } from '../../hooks/usePostInteractions';
 
@@ -31,15 +34,15 @@ export function useInteraction(postId: string) {
 
   const onLike = () => {
     if (!isLoggedIn) {
-      alert('로그인 후 이용해 주세요.');
+      toast.info('로그인 후 이용해 주세요.');
       return;
     }
     if (alreadyLiked) {
-      alert('이미 추천한 게시글입니다.');
+      toast.warning('이미 추천한 게시글입니다.');
       return;
     }
     if (alreadyDisliked) {
-      alert('이미 비공감한 게시글에는 추천할 수 없습니다.');
+      toast.warning('이미 비공감한 게시글에는 추천할 수 없습니다.');
       return;
     }
 
@@ -47,20 +50,20 @@ export function useInteraction(postId: string) {
     if (!confirmed) return;
 
     handleLikeClick(postId);
-    alert('게시글을 추천했습니다.');
+    toast.success('게시글을 추천했습니다.');
   };
 
   const onDislike = () => {
     if (!isLoggedIn) {
-      alert('로그인 후 이용해 주세요.');
+      toast.info('로그인 후 이용해 주세요.');
       return;
     }
     if (alreadyDisliked) {
-      alert('이미 비공감한 게시글입니다.');
+      toast.warning('이미 비공감한 게시글입니다.');
       return;
     }
     if (alreadyLiked) {
-      alert('이미 추천한 게시글에는 비공감할 수 없습니다.');
+      toast.warning('이미 추천한 게시글에는 비공감할 수 없습니다.');
       return;
     }
 
@@ -68,7 +71,7 @@ export function useInteraction(postId: string) {
     if (!confirmed) return;
 
     handleDislikeClick(postId);
-    alert('게시글을 비공감했습니다.');
+    toast.success('게시글을 비공감했습니다.');
   };
 
   return {

@@ -1,6 +1,7 @@
 // package
 import { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 // slice
 import { useFormValidation } from '../../hooks/useFormValidation';
@@ -49,7 +50,7 @@ export const useWriteForm = () => {
       e.preventDefault();
 
       if (!currentUser) {
-        alert('로그인 후 이용해 주세요.');
+        toast.info('로그인 후 이용해 주세요.');
         return;
       }
 
@@ -67,7 +68,7 @@ export const useWriteForm = () => {
         }
       );
       if (validationError) {
-        alert(validationError);
+        toast.error(validationError);
         return;
       }
 
@@ -84,7 +85,7 @@ export const useWriteForm = () => {
 
       addPost(newPost);
 
-      alert(
+      toast.success(
         `${
           shouldShowReviewElements ? '후기' : '자유'
         } 게시판에 글이 작성되었습니다.`

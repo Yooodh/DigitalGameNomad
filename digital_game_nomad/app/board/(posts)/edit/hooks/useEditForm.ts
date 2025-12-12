@@ -1,5 +1,6 @@
 // package
 import { useState, useEffect, useCallback } from 'react';
+import { toast } from 'react-toastify';
 
 // slice
 import { UseEditFormProps } from '../types';
@@ -96,7 +97,7 @@ export const useEditForm = ({ postId, onSave, onCancel }: UseEditFormProps) => {
       );
 
       if (validationError) {
-        alert(validationError);
+        toast.error(validationError);
         setSaving(false);
         return;
       }

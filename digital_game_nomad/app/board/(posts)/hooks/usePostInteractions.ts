@@ -1,5 +1,6 @@
 // package
 import { useCallback } from 'react';
+import { toast } from 'react-toastify';
 
 // layer
 import { useBoardStore } from '@/shared/stores/useBoardStore';
@@ -85,11 +86,11 @@ export function usePostInteractions() {
     (postId: string) => {
       if (!postId) return;
       if (hasDisliked(postId)) {
-        alert('이미 비공감한 게시글에는 추천할 수 없습니다.');
+        toast.warning('이미 비공감한 게시글에는 추천할 수 없습니다.');
         return;
       }
       if (hasLiked(postId)) {
-        alert('이미 추천한 게시글입니다.');
+        toast.warning('이미 추천한 게시글입니다.');
         return;
       }
       incrementLikeCount(postId);
@@ -102,11 +103,11 @@ export function usePostInteractions() {
     (postId: string) => {
       if (!postId) return;
       if (hasLiked(postId)) {
-        alert('이미 추천한 게시글에는 비공감할 수 없습니다.');
+        toast.warning('이미 추천한 게시글에는 비공감할 수 없습니다.');
         return;
       }
       if (hasDisliked(postId)) {
-        alert('이미 비공감한 게시글입니다.');
+        toast.warning('이미 비공감한 게시글입니다.');
         return;
       }
       incrementDislikeCount(postId);

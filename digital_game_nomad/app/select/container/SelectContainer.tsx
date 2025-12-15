@@ -3,6 +3,7 @@
 // package
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 // slice
 import SelectPresenter from '../presenter/SelectPresenter';
@@ -37,13 +38,13 @@ export default function SelectContainer() {
 
   // const handleEnterExhibition = () => {
   //   if (selectedCharacter) {
-  //     alert(`${selectedCharacter.name} 캐릭터로 전시관에 입장합니다!`);
+  //     toast.info(`${selectedCharacter.name} 캐릭터로 전시관에 입장합니다!`);
   //     router.push(`/exhibition?character=${selectedCharacter.id}`);
   //   }
   // };
 
   const onEnterExhibition = () => {
-    alert('준비중입니다.');
+    toast.info('준비중입니다.');
   };
 
   return (

@@ -2,6 +2,7 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 // slice
 import { useRegisteredUsersStore } from './useRegisteredUsersStore';
@@ -22,7 +23,7 @@ export const useAuthStore = create<AuthState>()(
 
         if (foundUser) {
           if (foundUser.deleteDate) {
-            window.alert('탈퇴 처리된 계정입니다.');
+            toast.error('탈퇴 처리된 계정입니다.');
             return;
           }
           set({
@@ -32,7 +33,7 @@ export const useAuthStore = create<AuthState>()(
           });
         } else {
           console.error(`로그인 시도: 사용자를 찾을 수 없음 - ${userEmail}`);
-          window.alert('사용자 정보를 찾을 수 없습니다.');
+          toast.error('사용자 정보를 찾을 수 없습니다.');
         }
       },
       logout: () => {

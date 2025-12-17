@@ -1,0 +1,53 @@
+@use './variables.scss' as *;
+
+.swal2-container {
+  .swal2-popup {
+    background: #{$theme-shade-1};
+    border: 1px double #{$theme-gray-1};
+    border-radius: 8px;
+    width: 300px;
+
+    @media (max-width: $mobile) {
+      width: 250px;
+    }
+  }
+
+  .swal2-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .swal2-title {
+    font-size: #{$font-lg-size};
+    color: #{$theme-text-1};
+    margin-top: 1rem;
+  }
+
+  .swal2-html-container {
+    font-size: #{$font-sm-size};
+    color: #{$theme-text-1};
+    word-break: keep-all;
+  }
+
+  .swal2-confirm {
+    background-color: #{$theme-blue};
+    color: #{$theme-white};
+    font-size: #{$font-sm-size};
+    border-radius: 8px;
+
+    &:hover {
+      background-color: #{$theme-blue-hover};
+    }
+  }
+
+  .swal2-cancel {
+    background-color: #{$theme-gray-4};
+    color: #{$theme-white};
+    font-size: #{$font-sm-size};
+    border-radius: 8px;
+
+    &:hover {
+      background-color: #{$theme-gray-5};
+    }
+  }
+}

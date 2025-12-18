@@ -1,5 +1,6 @@
 // package
 import { useCallback, useMemo } from 'react';
+import { toast } from 'react-toastify';
 
 // slice
 import { usePagination } from './usePagination';
@@ -9,6 +10,7 @@ import { UseInquiryListProps, UseInquiryListReturn } from '../types';
 
 // layer
 import { useInquiriesStore } from '@/shared/stores/useInquiriesStore';
+import { customConfirm } from '@/shared/utils/customConfirm';
 
 export function useInquiryList({
   searchTerm,
@@ -26,9 +28,15 @@ export function useInquiryList({
   );
 
   const handleDeleteInquiry = useCallback(
-    (id: string) => {
-      if (window.confirm('이 문의를 삭제하시겠습니까?')) {
+    async (id: string) => {
+      const confirmed = await customConfirm(
+        '문의 삭제',
+        '해당 문의 내역을 삭제하시겠습니까?'
+      );
+
+      if (confirmed) {
         deleteInquiriesFromStore([id]);
+        toast.success('문의 내역이 삭제되었습니다.');
       }
     },
     [deleteInquiriesFromStore]

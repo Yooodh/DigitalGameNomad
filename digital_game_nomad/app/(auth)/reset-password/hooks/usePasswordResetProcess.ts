@@ -1,5 +1,6 @@
 // package
 import { useCallback } from 'react';
+import { toast } from 'react-toastify';
 
 // slice
 import { useResetPasswordStore } from '@/shared/stores/useResetPasswordStore';
@@ -84,6 +85,7 @@ export function usePasswordResetProcess({
             setStep(3);
           } catch (error) {
             console.error('비밀번호 업데이트 중 오류 발생:', error);
+            toast.error('비밀번호 업데이트 중 오류가 발생했습니다.');
             setError(
               'newPasswordError',
               '비밀번호 업데이트에 실패했습니다. 다시 시도해주세요.'

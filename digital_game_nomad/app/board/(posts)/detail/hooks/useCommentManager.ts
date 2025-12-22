@@ -9,6 +9,7 @@ import { Comment } from '../../../types';
 // layer
 import { useBoardStore } from '@/shared/stores/useBoardStore';
 import { getCurrentUserInfo } from '@/shared/utils/getCurrentUserInfo';
+import { customConfirm } from '@/shared/utils/customConfirm';
 
 export function useCommentManager(postId: string | null) {
   const [newComment, setNewComment] = useState<string>('');
@@ -61,7 +62,7 @@ export function useCommentManager(postId: string | null) {
   );
 
   const handleDeleteComment = useCallback(
-    (commentId: number) => {
+    async (commentId: number) => {
       if (!currentUser) {
         toast.info('로그인 후 이용해 주세요.');
         return;
@@ -70,7 +71,13 @@ export function useCommentManager(postId: string | null) {
         toast.error('게시글 정보를 찾을 수 없어 댓글을 삭제할 수 없습니다.');
         return;
       }
-      if (window.confirm('정말로 이 댓글을 삭제하시겠습니까?')) {
+
+      const confirmed = await customConfirm(
+        '댓글 삭제',
+        '댓글을 삭제하시겠습니까?'
+      );
+
+      if (confirmed) {
         deleteComment(postId, commentId);
         toast.success('댓글이 삭제되었습니다.');
       }

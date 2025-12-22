@@ -15,6 +15,7 @@ import { useUserUtils } from '../hooks/useUserUtils';
 
 // layer
 import { useRegisteredUsersStore } from '@/shared/stores/useRegisteredUsersStore';
+import { customConfirm } from '@/shared/utils/customConfirm';
 import { Loading } from '@/features/loading';
 
 export default function UsersContainer() {
@@ -100,17 +101,18 @@ export default function UsersContainer() {
     setSelectedUserIds,
   ]);
 
-  const handleDeleteSelectedUsers = useCallback(() => {
+  const handleDeleteSelectedUsers = useCallback(async () => {
     if (selectedUserIds.size === 0) {
       toast.info('삭제할 사용자를 선택해주세요.');
       return;
     }
 
-    if (
-      window.confirm(
-        `${selectedUserIds.size}명의 사용자를 정말로 삭제하시겠습니까? (향후 복구 가능)`
-      )
-    ) {
+    const confirmed = await customConfirm(
+      '사용자 삭제',
+      `${selectedUserIds.size}명의 사용자를 삭제하시겠습니까? (향후 복구 가능)`
+    );
+
+    if (confirmed) {
       selectedUserIds.forEach((userId) => {
         const userToUpdate = users.find((u) => u.id === userId);
         if (userToUpdate) {

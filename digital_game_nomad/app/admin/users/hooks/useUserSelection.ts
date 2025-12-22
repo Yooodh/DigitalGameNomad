@@ -5,6 +5,9 @@ import { toast } from 'react-toastify';
 // slice
 import { UserData, SelectionState, FilterLevel } from '../types';
 
+// layer
+import { customConfirm } from '@/shared/utils/customConfirm';
+
 export const useUserSelection = (
   currentUsers: UserData[],
   currentPage: number,
@@ -71,17 +74,18 @@ export const useUserSelection = (
     [currentUsers]
   );
 
-  const handleDeleteSelectedUsers = useCallback(() => {
+  const handleDeleteSelectedUsers = useCallback(async () => {
     if (selectedUserIds.size === 0) {
       toast.info('삭제할 사용자를 선택해주세요.');
       return;
     }
 
-    if (
-      window.confirm(
-        `${selectedUserIds.size}명의 사용자를 정말로 삭제하시겠습니까? (향후 복구 가능)`
-      )
-    ) {
+    const confirmed = await customConfirm(
+      '사용자 삭제',
+      `${selectedUserIds.size}명의 사용자를 삭제하시겠습니까? (향후 복구 가능)`
+    );
+
+    if (confirmed) {
       setSelectedUserIds(new Set());
       toast.success('선택된 사용자 삭제 요청이 처리되었습니다.');
     }

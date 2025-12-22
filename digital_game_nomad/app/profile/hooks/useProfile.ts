@@ -69,7 +69,8 @@ export function useProfile() {
       setProfile(userProfile);
       setEditingProfile(userProfile);
     } else {
-      console.error('useProfile: User not found in store.');
+      console.error('스토어에서 사용자를 찾을 수 없습니다.');
+      toast.error('사용자 정보를 찾을 수 없습니다.');
       setProfile(null);
       setEditingProfile(null);
     }

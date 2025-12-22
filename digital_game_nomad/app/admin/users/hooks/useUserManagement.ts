@@ -1,11 +1,13 @@
 // package
 import { useCallback, useMemo } from 'react';
+import { toast } from 'react-toastify';
 
 // slice
 import { UserData, UserManagementState } from '../types';
 
 // layer
 import { useRegisteredUsersStore } from '@/shared/stores/useRegisteredUsersStore';
+import { customConfirm } from '@/shared/utils/customConfirm';
 
 export const useUserManagement = (): UserManagementState & {
   handlePasswordReset: (userId: string, userName: string) => void;
@@ -42,43 +44,43 @@ export const useUserManagement = (): UserManagementState & {
     }));
   }, [registeredUsersFromStore]);
 
-  const setUsers = useCallback(() => {
-    console.warn(
-      'setUsers is no longer directly used in useUserManagement. Update the Zustand store instead.'
-    );
-  }, []);
   const handlePasswordReset = useCallback(
-    (userId: string, userName: string) => {
-      if (window.confirm(`${userName}님의 비밀번호를 초기화하시겠습니까?`)) {
+    async (userId: string, userName: string) => {
+      const confirmed = await customConfirm(
+        '비밀번호 초기화',
+        `${userName}님의 비밀번호를 초기화하시겠습니까?`
+      );
+
+      if (confirmed) {
         const userToReset = users.find((u) => u.email === userId);
         if (userToReset) {
           updateUserProfileInStore(userToReset.email, {
             password: 'qwer1234!',
             lastLoginDate: new Date().toISOString().slice(0, 10),
           });
+          toast.success(`${userName}님의 비밀번호가 초기화되었습니다.`);
         } else {
-          console.warn(
-            `사용자 ID ${userId}를 찾을 수 없어 비밀번호를 초기화할 수 없습니다.`
-          );
+          toast.error('사용자를 찾을 수 없습니다.');
         }
       }
     },
     [users, updateUserProfileInStore]
   );
+
   const handleHardDeleteUser = useCallback(
-    (userId: string, userName: string) => {
-      if (
-        window.confirm(
-          `${userName}님을 완전히 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.`
-        )
-      ) {
+    async (userId: string, userName: string) => {
+      const confirmed = await customConfirm(
+        '영구 삭제',
+        `${userName}님을 완전히 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.`
+      );
+
+      if (confirmed) {
         const userEmail = users.find((u) => u.email === userId)?.email;
         if (userEmail) {
           removeUserFromStore(userEmail);
+          toast.success(`${userName}님이 영구 삭제되었습니다.`);
         } else {
-          console.warn(
-            `사용자 ID ${userId}를 찾을 수 없어 완전히 삭제할 수 없습니다.`
-          );
+          toast.error('사용자를 찾을 수 없습니다.');
         }
       }
     },
@@ -86,15 +88,19 @@ export const useUserManagement = (): UserManagementState & {
   );
 
   const handleUserRestore = useCallback(
-    (userId: string, userName: string) => {
-      if (window.confirm(`${userName}님을 복구하시겠습니까?`)) {
+    async (userId: string, userName: string) => {
+      const confirmed = await customConfirm(
+        '사용자 복구',
+        `${userName}님을 복구하시겠습니까?`
+      );
+
+      if (confirmed) {
         const userEmail = users.find((u) => u.email === userId)?.email;
         if (userEmail) {
           updateUserProfileInStore(userEmail, { deleteDate: undefined });
+          toast.success(`${userName}님의 계정이 복구되었습니다.`);
         } else {
-          console.warn(
-            `사용자 ID ${userId}를 찾을 수 없어 복구할 수 없습니다.`
-          );
+          toast.error('사용자를 찾을 수 없습니다.');
         }
       }
     },
@@ -121,7 +127,6 @@ export const useUserManagement = (): UserManagementState & {
 
   return {
     users,
-    setUsers,
     handlePasswordReset,
     handleUserRestore,
     handleHardDeleteUser,

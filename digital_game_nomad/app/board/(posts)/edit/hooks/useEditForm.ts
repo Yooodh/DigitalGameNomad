@@ -64,6 +64,7 @@ export const useEditForm = ({ postId, onSave, onCancel }: UseEditFormProps) => {
       setCurrentImageUrl(foundData.image_url || '');
     } else {
       console.error(`ID ${postId}의 게시글을 스토어에서 찾을 수 없습니다.`);
+      toast.error('해당 게시글을 찾을 수 없거나 삭제되었습니다.');
       setOriginalData(null);
     }
     setLoading(false);
@@ -106,6 +107,7 @@ export const useEditForm = ({ postId, onSave, onCancel }: UseEditFormProps) => {
         console.error(
           '원본 게시글 데이터를 찾을 수 없어 업데이트를 저장할 수 없습니다.'
         );
+        toast.error('해당 게시글을 찾을 수 없거나 삭제되었습니다.');
         setSaving(false);
         return;
       }

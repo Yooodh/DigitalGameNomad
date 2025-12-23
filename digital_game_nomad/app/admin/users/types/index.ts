@@ -17,7 +17,6 @@ export type FilterLevel = number | 'all';
 
 export type UserManagementState = {
   users: UserData[];
-  setUsers: React.Dispatch<React.SetStateAction<UserData[]>>;
 };
 
 export type FilteringState = {

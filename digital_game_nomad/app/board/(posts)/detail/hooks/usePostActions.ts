@@ -9,6 +9,7 @@ import { PostData } from '../../../types';
 // layer
 import { useBoardStore } from '@/shared/stores/useBoardStore';
 import { getCurrentUserInfo } from '@/shared/utils/getCurrentUserInfo';
+import { customConfirm } from '@/shared/utils/customConfirm';
 
 export const usePostActions = ({
   currentPost,
@@ -62,7 +63,7 @@ export const usePostActions = ({
     [currentUser, currentPost, setCurrentPost, updatePost]
   );
 
-  const handleDeleteClick = useCallback(() => {
+  const handleDeleteClick = useCallback(async () => {
     if (!currentUser || !currentPost) {
       toast.info('로그인 후 이용해 주세요.');
       return;
@@ -72,7 +73,12 @@ export const usePostActions = ({
       return;
     }
 
-    if (window.confirm('정말로 게시글을 삭제하시겠습니까?')) {
+    const confirmed = await customConfirm(
+      '게시글 삭제',
+      '게시글을 삭제하시겠습니까? 삭제된 게시글은 복구할 수 없습니다.'
+    );
+
+    if (confirmed) {
       deletePost(currentPost.postKey);
       setCurrentPost(null);
       toast.success('게시글이 삭제되었습니다.');

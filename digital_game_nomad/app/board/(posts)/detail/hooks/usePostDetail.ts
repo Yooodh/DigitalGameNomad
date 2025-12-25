@@ -1,6 +1,7 @@
 // package
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 // slice
 import { MAX_POST_DETAIL_RETRY, POST_DETAIL_RETRY_DELAY } from '../constants';
@@ -73,6 +74,7 @@ export const usePostDetail = () => {
       console.error(
         `ID ${postId} 및 타입 ${boardType}의 게시글을 allPosts에서 찾을 수 없습니다.`
       );
+      toast.error('해당 게시글을 찾을 수 없거나 삭제되었습니다.');
     }
   }, [
     allPosts,

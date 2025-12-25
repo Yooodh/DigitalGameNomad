@@ -7,6 +7,7 @@ import { usePostInteractions } from '../../hooks/usePostInteractions';
 // layer
 import { useBoardStore } from '@/shared/stores/useBoardStore';
 import { getCurrentUserInfo } from '@/shared/utils/getCurrentUserInfo';
+import { customConfirm } from '@/shared/utils/customConfirm';
 
 export function useInteraction(postId: string) {
   const {
@@ -32,7 +33,7 @@ export function useInteraction(postId: string) {
   const likeBtnClass = hasReacted(postId) ? 'disabledBtn' : 'likeBtn';
   const dislikeBtnClass = hasReacted(postId) ? 'disabledBtn' : 'dislikeBtn';
 
-  const onLike = () => {
+  const onLike = async () => {
     if (!isLoggedIn) {
       toast.info('로그인 후 이용해 주세요.');
       return;
@@ -46,14 +47,17 @@ export function useInteraction(postId: string) {
       return;
     }
 
-    const confirmed = window.confirm('게시글을 추천하시겠습니까?');
+    const confirmed = await customConfirm(
+      '게시글 추천',
+      '게시글을 추천하시겠습니까?'
+    );
     if (!confirmed) return;
 
     handleLikeClick(postId);
     toast.success('게시글을 추천했습니다.');
   };
 
-  const onDislike = () => {
+  const onDislike = async () => {
     if (!isLoggedIn) {
       toast.info('로그인 후 이용해 주세요.');
       return;
@@ -67,7 +71,10 @@ export function useInteraction(postId: string) {
       return;
     }
 
-    const confirmed = window.confirm('게시글을 비공감 하시겠습니까?');
+    const confirmed = await customConfirm(
+      '게시글 비공감',
+      '게시글을 비공감 하시겠습니까?'
+    );
     if (!confirmed) return;
 
     handleDislikeClick(postId);

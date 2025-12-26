@@ -1,5 +1,6 @@
 // package
 import { useState, useCallback } from 'react';
+import { toast } from 'react-toastify';
 
 export function useImageUpload() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -25,7 +26,10 @@ export function useImageUpload() {
     reader.onerror = () => {
       setUploadError('이미지를 불러오는 데 실패했습니다.');
       setIsUploading(false);
-      console.error('useImageUpload: FileReader error');
+      console.error(
+        '이미지 업로드 과정 중 브라우저가 파일을 읽어오는 데 실패했습니다.'
+      );
+      toast.error('이미지를 불러오는 데 실패했습니다.');
     };
     reader.readAsDataURL(file);
   }, []);

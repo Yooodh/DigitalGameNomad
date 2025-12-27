@@ -1,6 +1,7 @@
 // package
 import { useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 // slice
 import { useValidationUtils } from './useValidationUtils';
@@ -162,6 +163,7 @@ export function useStepNavigation(): UseStepNavigationReturn {
             setStep(4);
           } catch (error) {
             console.error('전화번호 업데이트 중 오류 발생:', error);
+            toast.error('전화번호 업데이트 중 오류가 발생했습니다.');
             setError(
               'phoneCodeError',
               '전화번호 업데이트에 실패했습니다. 다시 시도해주세요.'

@@ -15,7 +15,7 @@ export function useImageUpload() {
       setPreviewImage(url);
       setImageFile(file);
     } else {
-      console.warn('Selected file is not an image.');
+      console.warn('선택된 파일은 이미지 형식이 아닙니다.');
     }
   };
 

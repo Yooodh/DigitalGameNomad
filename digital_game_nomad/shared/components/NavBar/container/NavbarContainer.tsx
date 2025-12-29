@@ -1,7 +1,7 @@
 'use client';
 
 // package
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 
 // slice
 import HeaderPres from '../presenter/NavbarPresenter';
@@ -12,6 +12,7 @@ import { useLockBodyScroll } from '@/shared/hooks/useLockBodyScroll';
 import { useCloseMenuOnResize } from '@/shared/hooks/useCloseMenuOnResize';
 import { useThemeStore } from '@/shared/stores/useThemeStore';
 import { useAuthStore, useAuthActions } from '@/shared/stores/useAuthStore';
+import { customConfirm } from '@/shared/utils/customConfirm';
 
 export default function NavbarContainer() {
   const { isLoggedIn, userGrade } = useAuthStore();
@@ -43,18 +44,20 @@ export default function NavbarContainer() {
     setIsMenuOpen(false);
   };
 
+  const onLogout = useCallback(async () => {
+    const confirmed = await customConfirm('로그아웃', '로그아웃 하시겠습니까?');
+
+    if (confirmed) {
+      setIsMenuOpen(false);
+      handleLogout();
+    }
+  }, [handleLogout]);
+
   return (
     <HeaderPres
       isLoggedIn={isLoggedIn}
       userGrade={userGrade || undefined}
-      onLogout={() => {
-        const confirmLogout = window.confirm('정말로 로그아웃 하시겠습니까?');
-
-        if (confirmLogout) {
-          setIsMenuOpen(false);
-          handleLogout();
-        }
-      }}
+      onLogout={onLogout}
       onToggleMenu={onToggleMenu}
       onMenuItemClick={onMenuItemClick}
       isMenuOpen={isMenuOpen}

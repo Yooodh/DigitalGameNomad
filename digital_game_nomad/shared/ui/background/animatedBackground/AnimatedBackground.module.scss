@@ -84,7 +84,6 @@
     height: 100%;
   }
 
-  // 위치 변형
   &--fixed {
     position: fixed;
     top: 0;
@@ -207,7 +206,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $mobile) {
   .animatedBackground {
     &::after {
       background-size: 150px 75px;

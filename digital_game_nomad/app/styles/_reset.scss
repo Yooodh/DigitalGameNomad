@@ -55,7 +55,7 @@ button {
   border: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: $mobile) {
   html,
   body {
     width: 100%;

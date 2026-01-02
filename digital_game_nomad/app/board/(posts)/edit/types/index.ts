@@ -37,9 +37,3 @@ export type EditPresenterProps = {
   isReviewMode: boolean;
   typeAndGameProps: TypeAndGameProps;
 };
-
-export type PageProps = {
-  params: {
-    id: string;
-  };
-};

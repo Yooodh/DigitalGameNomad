@@ -1,6 +1,6 @@
 import { RefObject } from 'react';
 import { FormData as ResetPasswordData } from '@/app/(auth)/reset-password/types';
-import { FormData as ForgotPasswordData } from '@/app/(auth)/forgot-password/types';
+import { FormData as ForgotPasswordData } from '@/app/(unauth)/forgot-password/types';
 import { FormData as ResetPhoneData } from '@/app/(auth)/reset-phone/types';
 
 export type UseIntersectionVisibilityOptions = {

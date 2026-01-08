@@ -6,4 +6,13 @@
   height: 100%;
   object-fit: cover;
   pointer-events: none;
+
+  &::-webkit-media-controls {
+    display: none !important;
+  }
+
+  &::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    -webkit-appearance: none;
+  }
 }

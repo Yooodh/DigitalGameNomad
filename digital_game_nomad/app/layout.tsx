@@ -1,38 +1,40 @@
-'use client';
+// package
+import { Metadata } from 'next';
 
 // slice
-import './globals.scss';
-import styles from './styles/layout.module.scss';
+import ClientLayout from './ClientLayout';
 
-// layer
-import { Navbar } from '@/shared/components/NavBar';
-import { useAuthRedirect } from '@/shared/hooks/useAuthRedirect';
-import ApplyTheme from '@/shared/ui/theme/ApplyTheme';
-import ToastProvider from '@/shared/components/ToastProvider';
-import AnimatedBackground from '@/shared/ui/background/animatedBackground/AnimatedBackground';
-import ScrollToTopInitializer from '@/shared/components/ScrollToTopInitializer';
+export const metadata: Metadata = {
+  title: 'Digital Game Nomad',
+  description: '어디서든 함께 즐기는 3D 게임 박람회!',
+  icons: {
+    icon: '/images/logo_white_half.png',
+    apple: '/images/logo_white_half.png',
+  },
+  openGraph: {
+    title: 'Digital Game Nomad',
+    description: '어디서든 함께 즐기는 3D 게임 박람회!',
+    images: [
+      {
+        url: 'https://digitalgamenomad.vercel.app/images/logo_white_full_open_graph.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'ko_KR',
+    type: 'website',
+  },
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  useAuthRedirect();
-
+}) {
   return (
-    <html lang='en'>
+    <html lang='ko'>
       <body>
-        <ApplyTheme />
-        <ScrollToTopInitializer />
-        <ToastProvider />
-        <div className={styles.layout}>
-          <div className={styles.layout__header}>
-            <Navbar />
-          </div>
-          <AnimatedBackground>
-            <main className={styles.layout__main}>{children}</main>
-          </AnimatedBackground>
-        </div>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

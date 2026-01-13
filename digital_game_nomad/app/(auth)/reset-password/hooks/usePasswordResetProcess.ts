@@ -62,7 +62,7 @@ export function usePasswordResetProcess({
         if (!validatePassword(formData.newPassword)) {
           setError(
             'newPasswordError',
-            '8자 이상, 영문 소문자, 숫자, 특수문자를 포함해주세요.'
+            '8자 이상, 영문 소문자, 숫자, 특수문자를 포함해 주세요.'
           );
           setIsLoading(false);
           return;
@@ -88,7 +88,7 @@ export function usePasswordResetProcess({
             toast.error('비밀번호 업데이트 중 오류가 발생했습니다.');
             setError(
               'newPasswordError',
-              '비밀번호 업데이트에 실패했습니다. 다시 시도해주세요.'
+              '비밀번호 업데이트에 실패했습니다. 다시 시도해 주세요.'
             );
           } finally {
             setIsLoading(false);

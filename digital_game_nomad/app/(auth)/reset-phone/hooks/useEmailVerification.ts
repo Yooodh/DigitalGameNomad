@@ -26,7 +26,7 @@ export function useEmailVerification(): UseEmailVerificationReturn {
   const sendEmailVerificationCode = useCallback(
     async (email: string) => {
       if (!validateEmail(email)) {
-        setError('emailError', '올바른 이메일 형식을 입력해주세요.');
+        setError('emailError', '올바른 이메일 형식을 입력해 주세요.');
         return;
       }
 

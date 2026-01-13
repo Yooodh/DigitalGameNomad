@@ -14,7 +14,7 @@ export function useValidationUtils() {
   const getVerificationCodeError = useCallback((code: string): string => {
     if (!code) return '';
     if (!/^\d+$/.test(code)) return '숫자만 입력 가능합니다.';
-    if (code.length < 6) return '6자리 숫자를 입력해주세요.';
+    if (code.length < 6) return '6자리 숫자를 입력해 주세요.';
     return '';
   }, []);
 

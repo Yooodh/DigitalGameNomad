@@ -21,7 +21,7 @@ export default function SecondStepNewPassword({
     <div className={styles.stepContainer}>
       <h2 className={styles.stepContainer__title}>새 비밀번호 설정</h2>
       <p className={styles.stepContainer__desc}>
-        새로운 비밀번호를 입력해주세요.
+        새로운 비밀번호를 입력해 주세요.
       </p>
 
       <InputField

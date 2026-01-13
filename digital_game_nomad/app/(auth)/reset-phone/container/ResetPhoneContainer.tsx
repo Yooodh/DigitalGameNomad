@@ -96,7 +96,7 @@ export default function ResetPhoneContainer() {
 
   const sendEmailVerificationCode = async () => {
     if (!validateEmail(formData.email)) {
-      setError('emailError', '올바른 이메일 형식을 입력해주세요.');
+      setError('emailError', '올바른 이메일 형식을 입력해 주세요.');
       return;
     }
     if (formData.email !== currentUserEmail) {
@@ -111,7 +111,7 @@ export default function ResetPhoneContainer() {
 
   const sendPhoneVerificationCode = async () => {
     if (!formData.newPhone || formData.newCarrier === '') {
-      setError('phoneCodeError', '새 전화번호와 통신사를 입력해주세요.');
+      setError('phoneCodeError', '새 전화번호와 통신사를 입력해 주세요.');
       return;
     }
     await sendPhoneCodeHook();
@@ -127,12 +127,12 @@ export default function ResetPhoneContainer() {
 
     if (step === 1) {
       if (!validateEmail(formData.email)) {
-        setError('emailError', '올바른 이메일 형식을 입력해주세요.');
+        setError('emailError', '올바른 이메일 형식을 입력해 주세요.');
         setIsLoading(false);
         return;
       }
       if (!validateVerificationCode(formData.emailVerificationCode)) {
-        setError('emailCodeError', '6자리 인증번호를 입력해주세요.');
+        setError('emailCodeError', '6자리 인증번호를 입력해 주세요.');
         setIsLoading(false);
         return;
       }
@@ -144,19 +144,19 @@ export default function ResetPhoneContainer() {
       ) {
         setError(
           'personalInfoError',
-          '이름, 현재 전화번호, 통신사를 모두 입력해주세요.'
+          '이름, 현재 전화번호, 통신사를 모두 입력해 주세요.'
         );
         setIsLoading(false);
         return;
       }
     } else if (step === 3) {
       if (!formData.newPhone || formData.newCarrier === '') {
-        setError('phoneCodeError', '새 전화번호와 통신사를 입력해주세요.');
+        setError('phoneCodeError', '새 전화번호와 통신사를 입력해 주세요.');
         setIsLoading(false);
         return;
       }
       if (!validateVerificationCode(formData.phoneVerificationCode)) {
-        setError('phoneCodeError', '6자리 인증번호를 입력해주세요.');
+        setError('phoneCodeError', '6자리 인증번호를 입력해 주세요.');
         setIsLoading(false);
         return;
       }

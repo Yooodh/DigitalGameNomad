@@ -21,7 +21,7 @@ export function usePasswordForm({ validatePassword }: UsePasswordFormProps) {
         if (value && !validatePassword(value)) {
           setError(
             'newPasswordError',
-            '8자 이상, 영문 소문자, 숫자, 특수문자를 포함해주세요.'
+            '8자 이상, 영문 소문자, 숫자, 특수문자를 포함해 주세요.'
           );
         } else {
           setError('newPasswordError', '');

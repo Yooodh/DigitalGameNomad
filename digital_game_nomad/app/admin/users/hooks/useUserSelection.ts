@@ -76,7 +76,7 @@ export const useUserSelection = (
 
   const handleDeleteSelectedUsers = useCallback(async () => {
     if (selectedUserIds.size === 0) {
-      toast.info('삭제할 사용자를 선택해주세요.');
+      toast.info('삭제할 사용자를 선택해 주세요.');
       return;
     }
 

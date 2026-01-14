@@ -68,7 +68,7 @@ export default function PasswordInputGroup({
             className={`${styles.groupContainer__input} ${
               !validationPasswordCheck ? styles.inputError : ''
             }`}
-            placeholder='비밀번호를 다시 입력해주세요.'
+            placeholder='비밀번호를 다시 입력해 주세요.'
             maxLength={16}
           />
           <button

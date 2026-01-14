@@ -65,7 +65,7 @@ export default function RegisterPresenter({
                     ? styles.inputError
                     : ''
                 }`}
-                placeholder='닉네임을 입력해주세요. (한글, 영문, 숫자 10자 이내)'
+                placeholder='닉네임을 입력해 주세요. (한글, 영문, 숫자 10자 이내)'
                 maxLength={10}
               />
             </InputGroup>
@@ -95,7 +95,7 @@ export default function RegisterPresenter({
                 className={`${styles.groupContainer__input} ${
                   !validation.name ? styles.inputError : ''
                 }`}
-                placeholder='이름을 입력해주세요.'
+                placeholder='이름을 입력해 주세요.'
                 maxLength={10}
               />
             </InputGroup>

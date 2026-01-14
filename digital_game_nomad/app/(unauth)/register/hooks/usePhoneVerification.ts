@@ -36,7 +36,7 @@ export const usePhoneVerification = ({
   const requestVerification = useCallback(async () => {
     const phoneDigits = phone.slice(1).join('');
     if (!isValidPhoneFormat(phoneDigits)) {
-      toast.warning('유효한 전화번호 11자리를 입력해주세요.');
+      toast.warning('유효한 전화번호 11자리를 입력해 주세요.');
       setValidation((prev: ValidationState) => ({ ...prev, phone: false }));
       return;
     }

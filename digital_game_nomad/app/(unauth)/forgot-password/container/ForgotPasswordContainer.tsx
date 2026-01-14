@@ -52,7 +52,7 @@ export default function ForgotPasswordContainer() {
 
   useEffect(() => {
     if (formData.email && !validateEmail(formData.email)) {
-      setError('emailError', '올바른 이메일 형식을 입력해주세요.');
+      setError('emailError', '올바른 이메일 형식을 입력해 주세요.');
     } else {
       setError('emailError', '');
     }
@@ -64,7 +64,7 @@ export default function ForgotPasswordContainer() {
     setFormData('emailVerificationCode', numbersOnly);
 
     if (numbersOnly.length > 0 && !validateVerificationCode(numbersOnly)) {
-      setError('emailCodeError', '6자리 숫자를 입력해주세요.');
+      setError('emailCodeError', '6자리 숫자를 입력해 주세요.');
     } else {
       setError('emailCodeError', '');
     }
@@ -80,7 +80,7 @@ export default function ForgotPasswordContainer() {
     if (newPassword.length > 0 && !validatePassword(newPassword)) {
       setError(
         'passwordError',
-        '8자 이상, 영문 소문자, 숫자, 특수문자를 포함해주세요.'
+        '8자 이상, 영문 소문자, 숫자, 특수문자를 포함해 주세요.'
       );
     } else {
       setError('passwordError', '');

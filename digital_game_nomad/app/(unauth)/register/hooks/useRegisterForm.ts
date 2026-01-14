@@ -232,7 +232,7 @@ export const useRegisterForm = (): UseRegisterFormReturn => {
       e.preventDefault();
 
       if (!allFieldsValid) {
-        toast.error('모든 필수 정보를 올바르게 입력하고 인증을 완료해주세요.');
+        toast.error('모든 필수 정보를 올바르게 입력하고 인증을 완료해 주세요.');
         return;
       }
 
@@ -261,7 +261,7 @@ export const useRegisterForm = (): UseRegisterFormReturn => {
         router.push('/');
       } catch (error) {
         console.error('회원가입 처리 중 오류 발생:', error);
-        toast.error('회원가입에 실패했습니다. 다시 시도해주세요.');
+        toast.error('회원가입에 실패했습니다. 다시 시도해 주세요.');
       } finally {
         setIsLoading(false);
       }

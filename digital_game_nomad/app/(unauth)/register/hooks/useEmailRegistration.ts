@@ -62,7 +62,7 @@ export const useEmailRegistration = ({
 
   const checkEmailDuplicate = useCallback(async () => {
     if (!isValidEmailFormat(fullEmailForValidation)) {
-      toast.warning('올바른 이메일 주소 형식을 입력하고 중복확인을 해주세요.');
+      toast.warning('올바른 이메일 주소 형식을 입력하고 중복 확인을 해주세요.');
       setValidation((prev: ValidationState) => ({ ...prev, email: false }));
       return;
     }

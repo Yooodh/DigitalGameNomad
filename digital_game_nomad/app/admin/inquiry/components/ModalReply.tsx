@@ -18,7 +18,7 @@ export default function ModalReply({
             <textarea
               value={replyContent}
               onChange={(e) => setReplyContent(e.target.value)}
-              placeholder='답변을 입력해주세요...'
+              placeholder='답변을 입력해 주세요...'
               rows={8}
             />
           </div>

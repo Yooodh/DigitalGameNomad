@@ -53,19 +53,19 @@ export function useApplyForm() {
       return false;
     }
     if (!data.companyName.trim()) {
-      toast.warning('기업 이름을 입력해주세요.');
+      toast.warning('기업 이름을 입력해 주세요.');
       return false;
     }
     if (!data.gameName.trim()) {
-      toast.warning('게임 이름을 입력해주세요.');
+      toast.warning('게임 이름을 입력해 주세요.');
       return false;
     }
     if (!data.description.trim()) {
-      toast.warning('전시 내용을 입력해주세요.');
+      toast.warning('전시 내용을 입력해 주세요.');
       return false;
     }
     if (!data.gameUrl.trim()) {
-      toast.warning('게임 URL을 입력해주세요.');
+      toast.warning('게임 URL을 입력해 주세요.');
       return false;
     }
 

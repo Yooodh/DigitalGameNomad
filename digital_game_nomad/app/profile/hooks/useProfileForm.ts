@@ -47,7 +47,7 @@ export function useProfileForm({
 
     const isValidForm = validateAll(editingProfile);
     if (!isValidForm) {
-      toast.error('모든 정보를 올바르게 입력해주세요.');
+      toast.error('모든 정보를 올바르게 입력해 주세요.');
       return;
     }
 

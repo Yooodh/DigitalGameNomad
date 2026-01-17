@@ -39,7 +39,7 @@ export default function SelectPresenter({
           disabled={!selectedCharacter}
           className={selectedCharacter ? styles.buttonActive : ''}
         >
-          {selectedCharacter ? '전시관 입장하기' : '캐릭터를 선택해주세요'}
+          {selectedCharacter ? '전시관 입장하기' : '캐릭터를 선택해 주세요'}
         </ConditionalButton>
       </div>
     </div>

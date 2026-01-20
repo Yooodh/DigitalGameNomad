@@ -28,7 +28,7 @@ export default function InquiryPresenter({
           <FormInput
             id='title'
             label='제목'
-            placeholder='제목을 입력해주세요.'
+            placeholder='제목을 입력해 주세요.'
             value={formData.title}
             onChange={(value) => handleInputChange('title', value)}
             error={errors.title}
@@ -39,7 +39,7 @@ export default function InquiryPresenter({
           <FormTextarea
             id='content'
             label='내용'
-            placeholder='문의 내용을 입력해주세요.'
+            placeholder='문의 내용을 입력해 주세요.'
             value={formData.text}
             onChange={(value) => handleInputChange('text', value)}
             error={errors.text}

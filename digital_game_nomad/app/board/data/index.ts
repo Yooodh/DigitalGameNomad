@@ -3,7 +3,7 @@ import { PostData } from '../types';
 export const initialPosts: PostData[] = [
   {
     postKey: 'f1',
-    postTitle: '새로운 게임 추천해주세요!',
+    postTitle: '새로운 게임 추천해 주세요!',
     postText:
       '최근에 재미있는 게임을 찾고 있는데 추천해주실 만한 게임이 있을까요? 장르 불문하고 괜찮습니다!',
     postDate: '2024-06-13 10:00:00',
@@ -101,7 +101,7 @@ export const initialPosts: PostData[] = [
   },
   {
     postKey: 'f8',
-    postTitle: '여행 가기 좋은 곳 추천해주세요!',
+    postTitle: '여행 가기 좋은 곳 추천해 주세요!',
     postText:
       '여름 휴가 계획 중인데, 국내든 해외든 상관없습니다. 조용하고 힐링할 수 있는 곳이면 좋겠어요.',
     postDate: '2024-06-16 16:00:00',
@@ -143,7 +143,7 @@ export const initialPosts: PostData[] = [
   },
   {
     postKey: 'f11',
-    postTitle: '인생 영화 추천 좀 해주세요',
+    postTitle: '인생 영화 추천 좀 해 주세요',
     postText:
       '요즘 볼 영화가 없어서 인생 영화를 찾아보고 싶어요. 장르 불문하고 감동적이거나 여운이 남는 영화면 좋습니다.',
     postDate: '2024-06-18 21:00:00',
@@ -173,7 +173,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f13',
     postTitle: '가장 인상 깊었던 책 있으신가요?',
     postText:
-      '최근에 책 읽기에 빠졌는데, 여러분의 인생 책은 무엇인가요? 장르 상관없이 추천해주세요!',
+      '최근에 책 읽기에 빠졌는데, 여러분의 인생 책은 무엇인가요? 장르 상관없이 추천해 주세요!',
     postDate: '2024-06-19 15:40:00',
     postTopic: '자유',
     userKey: '28',
@@ -215,7 +215,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f16',
     postTitle: '주말 데이트 코스 추천',
     postText:
-      '이번 주말에 여자친구랑 데이트할 예정인데, 서울에서 갈 만한 곳 추천해주세요! 너무 뻔한 곳 말고 이색적인 곳이면 더 좋아요.',
+      '이번 주말에 여자친구랑 데이트할 예정인데, 서울에서 갈 만한 곳 추천해 주세요! 너무 뻔한 곳 말고 이색적인 곳이면 더 좋아요.',
     postDate: '2024-06-22 09:00:00',
     postTopic: '자유',
     userKey: '35',
@@ -283,7 +283,7 @@ export const initialPosts: PostData[] = [
   },
   {
     postKey: 'f21',
-    postTitle: '콘서트/페스티벌 추천해주세요!',
+    postTitle: '콘서트/페스티벌 추천해 주세요!',
     postText:
       '올여름 콘서트나 페스티벌 갈 예정인데, 어떤 행사가 좋을까요? 장르 상관없이 분위기 좋은 곳이면 다 좋아요!',
     postDate: '2024-06-25 10:00:00',
@@ -341,7 +341,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f25',
     postTitle: '여름 휴가 계획 공유해요!',
     postText:
-      '다들 여름 휴가 계획 세우셨나요? 어디로 가실 예정인지, 뭐하고 노실 건지 공유해주세요!',
+      '다들 여름 휴가 계획 세우셨나요? 어디로 가실 예정인지, 뭐하고 노실 건지 공유해 주세요!',
     postDate: '2024-06-28 09:30:00',
     postTopic: '자유',
     userKey: '4',
@@ -355,7 +355,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f26',
     postTitle: '인생 드라마 추천 받아요',
     postText:
-      "최근에 '선재 업고 튀어' 보고 너무 감동 받았습니다. 이런 힐링 드라마 또 있을까요? 추천해주세요!",
+      "최근에 '선재 업고 튀어' 보고 너무 감동 받았습니다. 이런 힐링 드라마 또 있을까요? 추천해 주세요!",
     postDate: '2024-06-28 20:00:00',
     postTopic: '자유',
     userKey: '1',
@@ -367,7 +367,7 @@ export const initialPosts: PostData[] = [
   },
   {
     postKey: 'f27',
-    postTitle: '핸드폰 게임 추천 해주세요!',
+    postTitle: '핸드폰 게임 추천 해 주세요!',
     postText:
       '출퇴근길에 가볍게 할 만한 핸드폰 게임 찾고 있습니다. 중독성 강하고 시간 잘 가는 게임이면 좋겠어요!',
     postDate: '2024-06-29 12:00:00',
@@ -439,7 +439,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f32',
     postTitle: '인생 드라마 2탄! 이번엔 미드/영드 추천!',
     postText:
-      '미드나 영드 중 인생 드라마 있으신 분? 장르 불문하고 몰입감 최고인 작품 추천해주세요!',
+      '미드나 영드 중 인생 드라마 있으신 분? 장르 불문하고 몰입감 최고인 작품 추천해 주세요!',
     postDate: '2024-07-01 22:00:00',
     postTopic: '자유',
     userKey: '8',
@@ -479,7 +479,7 @@ export const initialPosts: PostData[] = [
   },
   {
     postKey: 'f35',
-    postTitle: '집들이 선물 추천 해주세요!',
+    postTitle: '집들이 선물 추천 해 주세요!',
     postText:
       '친구 집들이 선물로 뭘 사줄지 고민이에요. 실용적이면서도 예쁜 선물 없을까요? 예산은 5만원 정도입니다.',
     postDate: '2024-07-03 16:00:00',
@@ -607,7 +607,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f44',
     postTitle: '인생 드라마 3탄! 일본 드라마/중국 드라마',
     postText:
-      '일드나 중드 중 인생 드라마 있으신 분? 한국 드라마와는 또 다른 매력이 있는 작품들 추천해주세요!',
+      '일드나 중드 중 인생 드라마 있으신 분? 한국 드라마와는 또 다른 매력이 있는 작품들 추천해 주세요!',
     postDate: '2024-07-10 21:00:00',
     postTopic: '자유',
     userKey: '8',
@@ -621,7 +621,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f45',
     postTitle: '내일부터 다이어트 시작!',
     postText:
-      '맨날 말만 하고 미루던 다이어트, 내일부터 진짜 시작합니다! 응원해주세요! 다이어트 성공 팁도 환영이에요.',
+      '맨날 말만 하고 미루던 다이어트, 내일부터 진짜 시작합니다! 응원해 주세요! 다이어트 성공 팁도 환영이에요.',
     postDate: '2024-07-11 23:00:00',
     postTopic: '자유',
     userKey: '33',
@@ -647,7 +647,7 @@ export const initialPosts: PostData[] = [
   },
   {
     postKey: 'f47',
-    postTitle: '주말에 뭐 먹을지 추천해주세요',
+    postTitle: '주말에 뭐 먹을지 추천해 주세요',
     postText:
       '이번 주말엔 외식할 예정인데, 어떤 메뉴가 좋을까요? 가족끼리 갈 만한 식당 추천 부탁드립니다.',
     postDate: '2024-07-13 09:00:00',
@@ -789,7 +789,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f57',
     postTitle: '여름철 피부 관리 팁 공유',
     postText:
-      '여름이라 피부 트러블이 많이 생기네요. 여러분만의 피부 관리 꿀팁이 있다면 공유해주세요!',
+      '여름이라 피부 트러블이 많이 생기네요. 여러분만의 피부 관리 꿀팁이 있다면 공유해 주세요!',
     postDate: '2024-07-20 09:00:00',
     postTopic: '자유',
     userKey: '5',
@@ -815,7 +815,7 @@ export const initialPosts: PostData[] = [
   },
   {
     postKey: 'f59',
-    postTitle: '취미로 악기 배우고 싶은데 추천해주세요',
+    postTitle: '취미로 악기 배우고 싶은데 추천해 주세요',
     postText:
       '악기 하나 배워보고 싶은데, 어떤 악기가 입문하기 좋을까요? 피아노, 기타, 우쿨렐레 고민 중입니다.',
     postDate: '2024-07-21 11:00:00',
@@ -831,7 +831,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f60',
     postTitle: '갑자기 떠나고 싶은 곳은?',
     postText:
-      '오늘 갑자기 모든 걸 뒤로하고 떠나고 싶네요. 훌쩍 떠날 수 있는 국내 여행지 추천 해주세요!',
+      '오늘 갑자기 모든 걸 뒤로하고 떠나고 싶네요. 훌쩍 떠날 수 있는 국내 여행지 추천 해 주세요!',
     postDate: '2024-07-22 06:00:00',
     postTopic: '자유',
     userKey: '40',
@@ -901,7 +901,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f65',
     postTitle: '새로운 운동화 구매 고민',
     postText:
-      '운동화 새로 사려고 하는데 어떤 브랜드가 괜찮을까요? 편하고 디자인도 예쁜 걸로 추천해주세요!',
+      '운동화 새로 사려고 하는데 어떤 브랜드가 괜찮을까요? 편하고 디자인도 예쁜 걸로 추천해 주세요!',
     postDate: '2024-07-25 11:00:00',
     postTopic: '자유',
     userKey: '6',
@@ -927,9 +927,9 @@ export const initialPosts: PostData[] = [
   },
   {
     postKey: 'f67',
-    postTitle: '주말에 볼만한 영화 추천해주세요',
+    postTitle: '주말에 볼만한 영화 추천해 주세요',
     postText:
-      '이번 주말에 집에서 영화 볼 예정인데, 아직 못 본 명작이나 최근 개봉작 중 볼 만한 영화 추천해주세요!',
+      '이번 주말에 집에서 영화 볼 예정인데, 아직 못 본 명작이나 최근 개봉작 중 볼 만한 영화 추천해 주세요!',
     postDate: '2024-07-26 09:00:00',
     postTopic: '자유',
     userKey: '11',
@@ -957,7 +957,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f69',
     postTitle: '반려동물과 함께 하는 일상 공유',
     postText:
-      '저희집 강아지 사진 올려봅니다! 너무 귀엽죠? 다들 반려동물 자랑 좀 해주세요!',
+      '저희집 강아지 사진 올려봅니다! 너무 귀엽죠? 다들 반려동물 자랑 좀 해 주세요!',
     postDate: '2024-07-27 10:00:00',
     postTopic: '자유',
     userKey: '31',
@@ -1069,7 +1069,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f77',
     postTitle: '나만의 피부 관리 루틴',
     postText:
-      '환절기라 피부가 건조해지네요. 여러분만의 피부 관리 루틴이 있다면 공유해주세요! 꿀팁 대환영입니다.',
+      '환절기라 피부가 건조해지네요. 여러분만의 피부 관리 루틴이 있다면 공유해 주세요! 꿀팁 대환영입니다.',
     postDate: '2024-08-01 09:00:00',
     postTopic: '자유',
     userKey: '5',
@@ -1095,7 +1095,7 @@ export const initialPosts: PostData[] = [
   },
   {
     postKey: 'f79',
-    postTitle: '캠핑 장비 추천 해주세요!',
+    postTitle: '캠핑 장비 추천 해 주세요!',
     postText:
       '캠핑에 관심이 생겨서 장비 알아보고 있는데, 어떤 텐트나 침낭이 좋을까요? 초보도 사용하기 좋은 걸로요!',
     postDate: '2024-08-02 16:00:00',
@@ -1167,7 +1167,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f84',
     postTitle: '잠 안 올 때 하는 것들',
     postText:
-      '요즘 불면증이 심해서 잠이 잘 안 오네요. 잠 안 올 때 여러분은 주로 뭘 하시나요? 꿀팁 좀 공유해주세요!',
+      '요즘 불면증이 심해서 잠이 잘 안 오네요. 잠 안 올 때 여러분은 주로 뭘 하시나요? 꿀팁 좀 공유해 주세요!',
     postDate: '2024-08-07 01:00:00',
     postTopic: '자유',
     userKey: '2',
@@ -1181,7 +1181,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f85',
     postTitle: '최근에 산 옷 자랑!',
     postText:
-      '가을 맞이해서 예쁜 니트 샀어요! 날씨가 선선해져서 빨리 입고 싶네요. 다들 최근에 산 옷 자랑 좀 해주세요!',
+      '가을 맞이해서 예쁜 니트 샀어요! 날씨가 선선해져서 빨리 입고 싶네요. 다들 최근에 산 옷 자랑 좀 해 주세요!',
     postDate: '2024-08-07 15:30:00',
     postTopic: '자유',
     userKey: '6',
@@ -1221,7 +1221,7 @@ export const initialPosts: PostData[] = [
   },
   {
     postKey: 'f88',
-    postTitle: '주말에 뭐 하고 놀지 추천해주세요',
+    postTitle: '주말에 뭐 하고 놀지 추천해 주세요',
     postText:
       '이번 주말에 친구들이랑 뭐 하고 놀지 고민이에요. 액티비티나 맛집 투어, 아니면 가볼 만한 곳 추천 부탁드립니다!',
     postDate: '2024-08-09 09:30:00',
@@ -1335,7 +1335,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f96',
     postTitle: '최근에 본 웹드라마 추천',
     postText:
-      '짧은 웹드라마 중에 재미있는 작품 있으면 추천해주세요! 출퇴근길에 보기 좋은 걸로요.',
+      '짧은 웹드라마 중에 재미있는 작품 있으면 추천해 주세요! 출퇴근길에 보기 좋은 걸로요.',
     postDate: '2024-08-14 11:00:00',
     postTopic: '자유',
     userKey: '1',
@@ -1349,7 +1349,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f97',
     postTitle: '주말에 즐기는 나만의 루틴',
     postText:
-      '저는 주말 아침에 여유롭게 커피 마시면서 책 읽는 걸 좋아합니다. 여러분만의 주말 루틴이 있다면 공유해주세요!',
+      '저는 주말 아침에 여유롭게 커피 마시면서 책 읽는 걸 좋아합니다. 여러분만의 주말 루틴이 있다면 공유해 주세요!',
     postDate: '2024-08-14 16:00:00',
     postTopic: '자유',
     userKey: '28',
@@ -1377,7 +1377,7 @@ export const initialPosts: PostData[] = [
     postKey: 'f99',
     postTitle: '운동하면서 듣기 좋은 노래 추천',
     postText:
-      '운동할 때 들으면 힘나는 노래 추천해주세요! 댄스곡이나 힙합 등 신나는 곡이면 좋겠습니다.',
+      '운동할 때 들으면 힘나는 노래 추천해 주세요! 댄스곡이나 힙합 등 신나는 곡이면 좋겠습니다.',
     postDate: '2024-08-15 19:00:00',
     postTopic: '자유',
     userKey: '33',
@@ -1437,7 +1437,7 @@ export const initialPosts: PostData[] = [
     postKey: 'r3',
     postTitle: '클래시 오브 클랜 장인 기지 배치 추천 좀요',
     postText:
-      '장인 기지 8홀에서 자꾸 털리네요ㅠㅠ 좋은 배치 있으신 분 추천 좀 해주세요. 방어율 좀 올리고 싶습니다. 스샷 있으면 더 좋아요!',
+      '장인 기지 8홀에서 자꾸 털리네요ㅠㅠ 좋은 배치 있으신 분 추천 좀 해 주세요. 방어율 좀 올리고 싶습니다. 스샷 있으면 더 좋아요!',
     postDate: '2024-07-01 18:45:00',
     postTopic: '후기',
     userKey: '3',
@@ -1613,7 +1613,7 @@ export const initialPosts: PostData[] = [
     postKey: 'r14',
     postTitle: '서든어택 맵 추천 부탁드립니다 (클랜전)',
     postText:
-      '클랜전 위주로 하는데 요즘 할 만한 맵이 없네요. 새로 나온 맵이나 숨겨진 꿀잼 맵 있으면 추천해주세요!',
+      '클랜전 위주로 하는데 요즘 할 만한 맵이 없네요. 새로 나온 맵이나 숨겨진 꿀잼 맵 있으면 추천해 주세요!',
     postDate: '2024-07-13 16:00:00',
     postTopic: '후기',
     userKey: '14',
@@ -1867,7 +1867,7 @@ export const initialPosts: PostData[] = [
   },
   {
     postKey: 'r30',
-    postTitle: '메이플스토리 코디 추천 좀 해주세요',
+    postTitle: '메이플스토리 코디 추천 좀 해 주세요',
     postText:
       '메이플스토리 코디 너무 어렵네요. 이번 로얄스타일에서 뭘 뽑아야 할까요? 추천 좀 부탁드립니다. 귀여운 느낌으로!',
     postDate: '2024-07-29 13:00:00',
@@ -2253,7 +2253,7 @@ export const initialPosts: PostData[] = [
     postKey: 'r54',
     postTitle: '서든어택 좀비전 꿀잼!',
     postText:
-      '서든어택 좀비전 모드 너무 재미있어요. 친구들이랑 같이 하니까 시간 가는 줄 모르겠네요. 공략 팁 있으시면 공유해주세요!',
+      '서든어택 좀비전 모드 너무 재미있어요. 친구들이랑 같이 하니까 시간 가는 줄 모르겠네요. 공략 팁 있으시면 공유해 주세요!',
     postDate: '2024-07-23 20:00:00',
     postTopic: '후기',
     userKey: '54',
@@ -2461,7 +2461,7 @@ export const initialPosts: PostData[] = [
     postKey: 'r67',
     postTitle: '마비노기 악기 연주 재능 너무 좋아요',
     postText:
-      '마비노기 악기 연주 재능 너무 좋네요. 앉아서 음악 듣고 있으면 힐링됩니다. 악기 추천도 해주세요!',
+      '마비노기 악기 연주 재능 너무 좋네요. 앉아서 음악 듣고 있으면 힐링됩니다. 악기 추천도 해 주세요!',
     postDate: '2024-08-06 15:00:00',
     postTopic: '후기',
     userKey: '67',
@@ -2717,7 +2717,7 @@ export const initialPosts: PostData[] = [
     postKey: 'r83',
     postTitle: '리그 오브 레전드 롤백 스킨 추천',
     postText:
-      '롤백 스킨 중에 가성비 좋고 예쁜 스킨 있으면 추천 좀 해주세요! 특히 인기 많은 챔피언 위주로요.',
+      '롤백 스킨 중에 가성비 좋고 예쁜 스킨 있으면 추천 좀 해 주세요! 특히 인기 많은 챔피언 위주로요.',
     postDate: '2024-08-22 10:00:00',
     postTopic: '후기',
     userKey: '83',
@@ -2941,7 +2941,7 @@ export const initialPosts: PostData[] = [
     postKey: 'r97',
     postTitle: '리그 오브 레전드 아리 스킨 추천',
     postText:
-      '아리 스킨 중에서 제일 예쁜 스킨 추천해주세요! 돈은 상관없습니다. 인게임 이펙트 좋은 걸로요.',
+      '아리 스킨 중에서 제일 예쁜 스킨 추천해 주세요! 돈은 상관없습니다. 인게임 이펙트 좋은 걸로요.',
     postDate: '2024-09-05 11:30:00',
     postTopic: '후기',
     userKey: '97',

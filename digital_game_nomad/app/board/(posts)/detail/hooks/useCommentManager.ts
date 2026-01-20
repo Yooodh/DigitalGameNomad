@@ -33,7 +33,7 @@ export function useCommentManager(postId: string | null) {
       }
 
       if (!newComment.trim()) {
-        toast.warning('댓글 내용을 입력해주세요.');
+        toast.warning('댓글 내용을 입력해 주세요.');
         return;
       }
 
@@ -101,7 +101,7 @@ export function useCommentManager(postId: string | null) {
         return;
       }
       if (!editedCommentContent.trim()) {
-        toast.warning('댓글 내용을 입력해주세요.');
+        toast.warning('댓글 내용을 입력해 주세요.');
         return;
       }
 

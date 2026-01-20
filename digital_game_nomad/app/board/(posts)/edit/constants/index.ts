@@ -1,7 +1,7 @@
 export const MESSAGES = {
   LOADING_POST: '게시글을 불러오는 중...',
   POST_NOT_FOUND_TITLE: '수정할 게시글을 찾을 수 없습니다.',
-  POST_NOT_FOUND_MESSAGE: 'URL이 올바른지 확인해주세요.',
+  POST_NOT_FOUND_MESSAGE: 'URL이 올바른지 확인해 주세요.',
 };
 
 export const BUTTON_TEXT = {
